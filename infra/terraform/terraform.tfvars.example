@@ -1,0 +1,21 @@
+# Copy this to `terraform.tfvars` (gitignored) and fill in the IDs.
+# Look up the IDs with:
+#
+#   cloud_id            = `yc config get cloud-id`
+#   folder_id           = `yc config get folder-id`
+#   organization_id     = `yc organization-manager organization list --format json | jq -r '.[].id'`
+#   billing_account_id  = `yc billing account list --format json | jq -r '.[].id'`
+
+cloud_id  = ""
+folder_id = ""
+
+# --- DataSphere bootstrap (Phase 12) ----------------------------------------
+# Off by default; flip enable_datasphere = true and fill in the org / billing
+# IDs to provision a community + project alongside the rest of the stack.
+
+enable_datasphere   = false
+organization_id     = ""
+billing_account_id  = ""
+
+# datasphere_community_name = "flybrain-optimizer"
+# datasphere_project_name   = "flybrain-optimizer"
