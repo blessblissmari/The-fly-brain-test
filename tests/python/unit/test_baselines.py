@@ -70,11 +70,21 @@ def test_degree_preserving_uses_fly_adjacency() -> None:
 
 def test_builtin_baselines_yields_nine_specs() -> None:
     specs = builtin_baselines()
-    # 9 README §15 baselines + 5 embedding-ablation rows + 4 verifier-ablation rows.
-    assert len(specs) == 9 + 5 + 4
+    # 9 README §15 baselines + flybrain_graph_ssl_pretrain + 5 embedding-ablation
+    # rows + 4 verifier-ablation rows.
+    assert len(specs) == 9 + 1 + 5 + 4
     # Canonical README §15 order is preserved at the top of the list.
     full_min_names = [s.name for s in specs[:9]]
     assert full_min_names == BUILTIN_SUITES["full_min"]
+
+
+def test_graph_ssl_baseline_registered() -> None:
+    """README §18 Exp 4 row '+graph SSL pretrain'."""
+    by_name = {s.name: s for s in builtin_baselines()}
+    spec = by_name["flybrain_graph_ssl_pretrain"]
+    assert "graph-ssl" in spec.tags
+    assert "training_ablation" in BUILTIN_SUITES
+    assert "flybrain_graph_ssl_pretrain" in BUILTIN_SUITES["training_ablation"]
 
 
 def test_emb_ablation_specs_have_distinct_masks() -> None:
