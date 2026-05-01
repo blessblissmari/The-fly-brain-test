@@ -177,4 +177,45 @@ async def test_random_controller_terminates_within_budget(tmp_path: Path) -> Non
     # Trace JSONL persisted.
     sink = tmp_path / "t-random.steps.jsonl"
     assert sink.exists()
+
+
+@pytest.mark.asyncio
+async def test_mas_runtime_verification_mode_off_skips_pipeline(tmp_path: Path) -> None:
+    """README §18 Exp 3: ``verification_mode='off'`` should record a
+    pass-through verdict and emit the `verifier disabled` warning."""
+    llm = _mock_with_role_rules()
+    mas = MAS.from_specs(
+        load_minimal_15(),
+        llm,
+        agent_factory=_agent_factory,
+        config=MASConfig(max_steps=20, trace_dir=tmp_path, verification_mode="off"),
+    )
+    trace = await mas.run(
+        Task(task_id="t-noverif", task_type="coding", prompt="x"),
+        ManualController(),
+    )
+    assert trace["verification"]["passed"] is True
+    assert "verifier disabled (verification_mode=off)" in trace["verification"]["warnings"]
+    await llm.aclose()
+
+
+@pytest.mark.asyncio
+async def test_mas_runtime_verification_mode_step_uses_rule_for_final(tmp_path: Path) -> None:
+    """``verification_mode='step'`` keeps the per-step pipeline but the
+    final-task verdict comes from the cheap rule-based verifier (no
+    judges, no errors from the LLM pipeline)."""
+    llm = _mock_with_role_rules()
+    mas = MAS.from_specs(
+        load_minimal_15(),
+        llm,
+        agent_factory=_agent_factory,
+        config=MASConfig(max_steps=20, trace_dir=tmp_path, verification_mode="step"),
+    )
+    trace = await mas.run(
+        Task(task_id="t-step", task_type="coding", prompt="x"),
+        ManualController(),
+    )
+    # Rule verdict has the keys we expect from `_RuleVerifier.check`.
+    assert "passed" in trace["verification"]
+    assert "score" in trace["verification"]
     await llm.aclose()

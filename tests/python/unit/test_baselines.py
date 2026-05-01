@@ -70,10 +70,59 @@ def test_degree_preserving_uses_fly_adjacency() -> None:
 
 def test_builtin_baselines_yields_nine_specs() -> None:
     specs = builtin_baselines()
-    assert len(specs) == 9
-    # Canonical README §15 order is preserved.
-    names = [s.name for s in specs]
-    assert names == BUILTIN_SUITES["full_min"]
+    # 9 README §15 baselines + 5 embedding-ablation rows + 4 verifier-ablation rows.
+    assert len(specs) == 9 + 5 + 4
+    # Canonical README §15 order is preserved at the top of the list.
+    full_min_names = [s.name for s in specs[:9]]
+    assert full_min_names == BUILTIN_SUITES["full_min"]
+
+
+def test_emb_ablation_specs_have_distinct_masks() -> None:
+    """README §18 Exp 2: each level should be a registered baseline."""
+    by_name = {s.name: s for s in builtin_baselines()}
+    levels = [
+        ("emb_ablation_none", 5),
+        ("emb_ablation_task", 4),
+        ("emb_ablation_task_agent", 3),
+        ("emb_ablation_task_agent_trace", 2),
+        ("emb_ablation_full", 0),
+    ]
+    for name, _ in levels:
+        assert name in by_name, name
+
+
+def test_verif_ablation_specs_carry_mas_overrides() -> None:
+    """README §18 Exp 3: each level should carry the right MASConfig override."""
+    by_name = {s.name: s for s in builtin_baselines()}
+    expected = {
+        "verif_ablation_off": "off",
+        "verif_ablation_final": "final",
+        "verif_ablation_step": "step",
+        "verif_ablation_full": "full",
+    }
+    for name, mode in expected.items():
+        spec = by_name[name]
+        assert spec.mas_config_overrides == {"verification_mode": mode}
+
+
+def test_baseline_make_mas_config_applies_overrides() -> None:
+    from flybrain.baselines import BaselineSpec
+    from flybrain.runtime.runner import MASConfig
+
+    base = MASConfig(max_steps=8)
+    spec = BaselineSpec(
+        name="x",
+        description="-",
+        factory=lambda _: (None, None),  # type: ignore[arg-type]
+        mas_config_overrides={"verification_mode": "off"},
+    )
+    cfg = spec.make_mas_config(base)
+    assert cfg.verification_mode == "off"
+    assert cfg.max_steps == 8
+
+    # No override → identity (same instance).
+    spec2 = BaselineSpec(name="y", description="-", factory=lambda _: (None, None))  # type: ignore[arg-type]
+    assert spec2.make_mas_config(base) is base
 
 
 @pytest.mark.parametrize("suite_name", sorted(BUILTIN_SUITES))

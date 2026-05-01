@@ -99,7 +99,15 @@ _DEFAULT_COMPONENT_TAGS: tuple[str, ...] = (
 @dataclass(slots=True)
 class ControllerStateBuilder:
     """Hold the per-MAS prebuilt artefacts (agent + fly embeddings) and
-    assemble a `ControllerState` per tick."""
+    assemble a `ControllerState` per tick.
+
+    `feature_mask` (README §18 Experiment 2 — embedding ablation) is a
+    set of feature names to zero out before the controller sees them.
+    Supported names: ``"task"``, ``"agent"``, ``"trace"``, ``"graph"``,
+    ``"fly"``. The shapes are preserved so downstream tensor wiring
+    stays unchanged — the embedders still run, only their outputs are
+    masked. Pass ``frozenset()`` (default) for the full feature set.
+    """
 
     task: TaskEmbedder
     agents: AgentEmbedder
@@ -109,6 +117,7 @@ class ControllerStateBuilder:
 
     fly_graph: FlyGraph | None = None
     component_tags: tuple[str, ...] = _DEFAULT_COMPONENT_TAGS
+    feature_mask: frozenset[str] = field(default_factory=frozenset)
 
     _fly_vec_cache: np.ndarray | None = field(default=None, init=False, repr=False)
 
@@ -166,6 +175,19 @@ class ControllerStateBuilder:
         )
 
         fly_vec = self._fly_vector()
+
+        if self.feature_mask:
+            if "task" in self.feature_mask:
+                task_vec = np.zeros_like(task_vec)
+            if "agent" in self.feature_mask:
+                agent_node_vecs = np.zeros_like(agent_node_vecs)
+            if "graph" in self.feature_mask:
+                graph_vec = np.zeros_like(graph_vec)
+                node_emb = np.zeros_like(node_emb)
+            if "trace" in self.feature_mask:
+                trace_vec = np.zeros_like(trace_vec)
+            if "fly" in self.feature_mask:
+                fly_vec = np.zeros_like(fly_vec)
 
         state = ControllerState(
             task_vec=task_vec.astype(np.float32, copy=False),

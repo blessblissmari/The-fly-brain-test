@@ -180,3 +180,34 @@ def test_controller_state_inbox_vec_matches_pending() -> None:
     coder_idx = names.index("Coder")
     assert s.inbox_vec[planner_idx] == 3.0
     assert s.inbox_vec[coder_idx] == 1.0
+
+
+def test_feature_mask_zeroes_selected_groups() -> None:
+    """README §18 Exp 2: ``feature_mask`` zeros the listed feature groups
+    while preserving every other one."""
+    b = _builder()
+    rt = _runtime()
+    full = b.from_runtime_sync(rt)
+
+    b_masked = _builder()
+    b_masked.feature_mask = frozenset({"task", "trace"})
+    masked = b_masked.from_runtime_sync(rt)
+
+    # Masked features should be zero.
+    assert np.all(masked.task_vec == 0.0)
+    assert np.all(masked.trace_vec == 0.0)
+    # Unmasked features should match the unmasked baseline.
+    np.testing.assert_array_equal(masked.agent_node_vecs, full.agent_node_vecs)
+    np.testing.assert_array_equal(masked.agent_graph_vec, full.agent_graph_vec)
+
+
+def test_feature_mask_all_groups_zeroes_everything() -> None:
+    b = _builder()
+    b.feature_mask = frozenset({"task", "agent", "trace", "graph", "fly"})
+    rt = _runtime()
+    s = b.from_runtime_sync(rt)
+    for vec in (s.task_vec, s.agent_node_vecs, s.agent_graph_vec, s.trace_vec, s.fly_vec):
+        assert np.all(vec == 0.0)
+    # Shapes are preserved.
+    assert s.task_vec.shape == (32,)
+    assert s.agent_node_vecs.shape == (15, 32)

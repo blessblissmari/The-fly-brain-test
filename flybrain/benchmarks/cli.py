@@ -140,11 +140,12 @@ async def _run_one_baseline(
 
     bdir = out_dir / spec.name
     bdir.mkdir(parents=True, exist_ok=True)
+    mas_config = spec.make_mas_config(MASConfig(max_steps=max_steps, trace_dir=bdir))
     mas = MAS.from_specs(
         specs,
         llm,
         agent_factory=_agent_factory,
-        config=MASConfig(max_steps=max_steps, trace_dir=bdir),
+        config=mas_config,
     )
     runner = BenchmarkRunner(mas, controller, initial_graph=initial_graph, config=cfg)
 

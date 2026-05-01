@@ -96,6 +96,24 @@ class _RuleVerifier:
         }
 
 
+def _trivial_verifier_payload() -> dict[str, Any]:
+    """Pass-through verdict used by ``MASConfig.verification_mode == "off"``.
+
+    Records the run as "passed" with no errors so downstream metrics
+    (`success_rate`, `verifier_pass_rate`) reflect the fact that the
+    verifier was disabled — they should be read alongside Experiment-3
+    ablation rows, not on their own."""
+    return {
+        "passed": True,
+        "score": 1.0,
+        "errors": [],
+        "warnings": ["verifier disabled (verification_mode=off)"],
+        "failed_component": None,
+        "suggested_next_agent": None,
+        "reward_delta": 0.0,
+    }
+
+
 @dataclass(slots=True)
 class MASConfig:
     max_steps: int = 32
@@ -104,6 +122,23 @@ class MASConfig:
     `<trace_dir>/<task_id>.trace.json`."""
 
     seed: int = 42
+
+    verification_mode: str = "full"
+    """README §18 Experiment 3 — verifier ablation.
+
+    Levels:
+      * ``"off"``    — no verifier at all (rule + pipeline both replaced
+                       with a trivial pass-through).
+      * ``"final"``  — only the final-task verifier fires; per-step
+                       ``call_verifier`` actions get the cheap rule-based
+                       verdict only.
+      * ``"step"``   — the per-step verifier fires (full pipeline) but
+                       the final-task verifier uses the cheap rule-based
+                       verdict only.
+      * ``"full"``   — both per-step and final verifier run the full
+                       Phase-3 pipeline (default; matches the original
+                       behaviour).
+    """
 
 
 @dataclass(slots=True)
@@ -261,20 +296,29 @@ class MAS:
                         )
 
             elif kind == "call_verifier":
-                rule_payload = verifier.check(state)
-                pipeline_ctx = VerificationContext(
-                    task_id=task.task_id,
-                    task_type=task.task_type,
-                    prompt=task.prompt,
-                    candidate_answer=last_nonempty_output,
-                    reference=str(task.ground_truth) if task.ground_truth is not None else None,
-                    tool_calls=list(observed_tool_calls),
-                    unit_test_payload=last_unit_test_payload,
-                )
-                pipeline_result = await pipeline.run_async(pipeline_ctx)
-                verifier_payload = self._merge_verifier_results(
-                    rule_payload, pipeline_result.to_dict()
-                )
+                mode = self.config.verification_mode
+                if mode == "off":
+                    verifier_payload = _trivial_verifier_payload()
+                elif mode == "final":
+                    # Per-step uses the cheap rule-based verdict only.
+                    verifier_payload = verifier.check(state)
+                else:  # "step" or "full"
+                    rule_payload = verifier.check(state)
+                    pipeline_ctx = VerificationContext(
+                        task_id=task.task_id,
+                        task_type=task.task_type,
+                        prompt=task.prompt,
+                        candidate_answer=last_nonempty_output,
+                        reference=(
+                            str(task.ground_truth) if task.ground_truth is not None else None
+                        ),
+                        tool_calls=list(observed_tool_calls),
+                        unit_test_payload=last_unit_test_payload,
+                    )
+                    pipeline_result = await pipeline.run_async(pipeline_ctx)
+                    verifier_payload = self._merge_verifier_results(
+                        rule_payload, pipeline_result.to_dict()
+                    )
                 step_extras["verifier_score"] = verifier_payload["score"]
                 step_extras["errors"].extend(verifier_payload["errors"])
 
@@ -322,18 +366,25 @@ class MAS:
             if kind == "terminated":
                 break
 
-        rule_final = verifier.check(state)
-        final_ctx = VerificationContext(
-            task_id=task.task_id,
-            task_type=task.task_type,
-            prompt=task.prompt,
-            candidate_answer=last_nonempty_output,
-            reference=str(task.ground_truth) if task.ground_truth is not None else None,
-            tool_calls=list(observed_tool_calls),
-            unit_test_payload=last_unit_test_payload,
-        )
-        pipeline_final = await pipeline.run_async(final_ctx)
-        verification = self._merge_verifier_results(rule_final, pipeline_final.to_dict())
+        mode = self.config.verification_mode
+        if mode == "off":
+            verification = _trivial_verifier_payload()
+        elif mode == "step":
+            # Final uses the cheap rule-based verdict only.
+            verification = verifier.check(state)
+        else:  # "final" or "full"
+            rule_final = verifier.check(state)
+            final_ctx = VerificationContext(
+                task_id=task.task_id,
+                task_type=task.task_type,
+                prompt=task.prompt,
+                candidate_answer=last_nonempty_output,
+                reference=str(task.ground_truth) if task.ground_truth is not None else None,
+                tool_calls=list(observed_tool_calls),
+                unit_test_payload=last_unit_test_payload,
+            )
+            pipeline_final = await pipeline.run_async(final_ctx)
+            verification = self._merge_verifier_results(rule_final, pipeline_final.to_dict())
         finalised = trace.finalize(
             final_answer=last_nonempty_output,
             verification=verification,

@@ -168,11 +168,48 @@ Compare `manual_graph`, `fully_connected`, `random_sparse`, `flybrain_prior_untr
 
 ### Experiment 2 — Embedding ablation
 
-Controller variants `learned_router_no_prior` (no embeddings) vs. `flybrain_prior_untrained` (task + agent + graph embeddings) are both in `full_min`; deeper ablations (task-only, task+agent, +trace, +graph) require running individual controller configs in `configs/eval/`.
+Run `flybrain-py bench --suite embedding_ablation --backend mock` (5 tasks × 4
+benchmarks × 5 levels). The five levels mask out feature groups in the
+controller's `ControllerStateBuilder` (`flybrain.embeddings.state`):
+
+| Level | Suite row | Feature mask removed | Verifier pass-rate |
+|---|---|---|---|
+| L1 | `emb_ablation_none`            | (everything zeroed)                | 0.700 |
+| L2 | `emb_ablation_task`            | + task                             | 0.438 |
+| L3 | `emb_ablation_task_agent`      | + task + agent                     | 0.425 |
+| L4 | `emb_ablation_task_agent_trace`| + task + agent + trace             | 0.425 |
+| L5 | `emb_ablation_full`            | + task + agent + trace + graph + fly | 0.350 |
+
+End-to-end success is 0% across all rows because the action head is untrained
+(same caveat as the `learned_router_no_prior` row in section 2). The verifier
+pass-rate is the right metric to read here — it tracks how well the
+controller's intermediate outputs match the rule-based component checker.
+The drop as features turn *on* is the expected sign that the untrained MLP
+mixes the extra features into noise; once the head is trained (Phase 6–8)
+the curve should flip. Raw numbers in
+[`data/experiments/exp2_embedding_ablation/comparison_overall.md`](../data/experiments/exp2_embedding_ablation/comparison_overall.md).
 
 ### Experiment 3 — Verification ablation
 
-The verifier is on/off via `MASConfig.verification_mode`. The current run uses the full layer; toggling needs a config override — track via a follow-up benchmark slice and re-run `flybrain-py report`.
+Run `flybrain-py bench --suite verifier_ablation --backend mock` (5 tasks × 4
+benchmarks × 4 levels), all using the FlyBrain-prior controller (#6) with only
+the verifier varying:
+
+| Level | Suite row | `verification_mode` | Success rate | Verifier pass-rate |
+|---|---|---|---|---|
+| L1 | `verif_ablation_off`   | off    | 1.000 (trivial)  | 1.000 |
+| L2 | `verif_ablation_final` | final  | 0.000            | 0.700 |
+| L3 | `verif_ablation_step`  | step   | 0.000            | 0.400 |
+| L4 | `verif_ablation_full`  | full   | 0.000            | 0.700 |
+
+L1's "100% success" is trivial — disabling the verifier means every run is
+recorded as passed; the contrast against L2-L4 shows the verifier is the
+binding constraint, not the controller. Per-step (`step`) and final-only
+(`final`) report different verifier pass-rates because the per-step pipeline
+includes the LLM judges, which detect issues the rule-based checker misses
+(hence L3 < L2). L4 (full) runs *both* and matches L2 here because the
+final-task verdict dominates the trace summary. Raw numbers in
+[`data/experiments/exp3_verifier_ablation/comparison_overall.md`](../data/experiments/exp3_verifier_ablation/comparison_overall.md).
 
 ### Experiment 4 — Training ablation
 
