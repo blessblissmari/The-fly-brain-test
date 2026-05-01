@@ -24,7 +24,7 @@ from __future__ import annotations
 
 import json
 from collections.abc import Iterable, Iterator
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
@@ -85,6 +85,10 @@ class TraceFile:
     verification_score: float
     totals: dict[str, Any]
     steps: list[dict[str, Any]]
+    raw: dict[str, Any] = field(default_factory=dict)
+    """Original trace dict — convenient for downstream reward
+    shaping that wants the full payload (verification block,
+    metadata, etc.)."""
 
 
 def load_trace(path: str | Path) -> TraceFile:
@@ -101,6 +105,7 @@ def load_trace(path: str | Path) -> TraceFile:
         verification_score=float(verification.get("score", 0.0)),
         totals=dict(data.get("totals") or {}),
         steps=list(data.get("steps") or []),
+        raw=data,
     )
 
 
