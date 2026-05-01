@@ -191,11 +191,34 @@ class ControllerStateBuilder:
         agent_graph: dict[str, Any] | None = None,
         trace_steps: list[dict[str, Any]] | None = None,
     ) -> ControllerState:
-        """Synchronous wrapper for tests + non-async controllers."""
-        return asyncio.run(
-            self.from_runtime(
+        """Synchronous wrapper for tests + non-async controllers.
+
+        Works both from a plain sync caller (e.g. unit tests) and from
+        inside an already-running asyncio event loop (the real MAS
+        runtime, where ``MAS.run`` is itself async). In the latter
+        case we dispatch to a worker thread so we don't deadlock on
+        ``asyncio.run``."""
+
+        def _build_coro():
+            return self.from_runtime(
                 runtime,
                 agent_graph=agent_graph,
                 trace_steps=trace_steps,
             )
-        )
+
+        try:
+            asyncio.get_running_loop()
+        except RuntimeError:
+            # No loop in this thread — safe to use asyncio.run.
+            return asyncio.run(_build_coro())
+
+        # We're inside a running loop; punt to a thread pool with its
+        # own event loop. ``concurrent.futures`` blocks the caller
+        # without blocking the outer loop's other tasks.
+        import concurrent.futures
+
+        def _run_in_thread() -> ControllerState:
+            return asyncio.run(_build_coro())
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as ex:
+            return ex.submit(_run_in_thread).result()
