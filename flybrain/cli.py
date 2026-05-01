@@ -77,6 +77,16 @@ def _add_bench_subparser(sub: argparse._SubParsersAction[argparse.ArgumentParser
     p.add_argument("--timeout-s", type=float, default=None)
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--output", type=Path, default=Path("runs/benchmarks"))
+    p.add_argument(
+        "--live-search",
+        action="store_true",
+        default=False,
+        help=(
+            "Use the real Yandex Search API for `web_search` instead of the "
+            "fixture-based stub. Requires YANDEX_FOLDER_ID + "
+            "YANDEX_SEARCH_API_KEY (or YANDEX_API_KEY) in the environment."
+        ),
+    )
 
 
 def _add_report_subparser(sub: argparse._SubParsersAction[argparse.ArgumentParser]) -> None:
