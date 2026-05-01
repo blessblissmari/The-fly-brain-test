@@ -28,3 +28,54 @@ variable "s3_bucket_name" {
   type    = string
   default = "flybrain-data"
 }
+
+# DataSphere (opt-in) ---------------------------------------------------------
+
+variable "enable_datasphere" {
+  type        = bool
+  default     = false
+  description = "Set to true to provision a DataSphere community + project (Phase 12)."
+}
+
+variable "organization_id" {
+  type        = string
+  default     = ""
+  description = <<-EOT
+    Yandex Cloud organization_id; required when enable_datasphere = true.
+    Find it with: yc organization-manager organization list --format json
+  EOT
+}
+
+variable "billing_account_id" {
+  type        = string
+  default     = ""
+  description = <<-EOT
+    Yandex Cloud billing account ID; required when enable_datasphere = true.
+    Find it with: yc billing account list --format json
+  EOT
+}
+
+variable "datasphere_community_name" {
+  type    = string
+  default = "flybrain-optimizer"
+}
+
+variable "datasphere_project_name" {
+  type    = string
+  default = "flybrain-optimizer"
+}
+
+variable "datasphere_max_units_per_hour" {
+  type    = number
+  default = 100
+}
+
+variable "datasphere_max_units_per_execution" {
+  type    = number
+  default = 50
+}
+
+variable "datasphere_balance" {
+  type    = number
+  default = 1000
+}
