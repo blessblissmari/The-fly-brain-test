@@ -30,7 +30,7 @@ jobs:
       - name: Install Python deps
         run: |
           source .venv/bin/activate
-          uv pip install "maturin>=1.7,<2"
+          uv pip install "maturin>=1.7,<2" "setuptools>=68" "wheel"
           uv pip install -e ".[dev]" --no-build-isolation
         env:
           NO_COLOR: "1"
