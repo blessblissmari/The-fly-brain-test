@@ -6,8 +6,9 @@ talking to Yandex AI Studio.
 ## What you need
 
 1. A Yandex Cloud account with a folder.
-2. A service account with the `ai.languageModels.user` and
-   `ai.embeddings.user` roles.
+2. A service account with the `ai.languageModels.user`,
+   `ai.embeddings.user`, and (optionally, for the `web_search` tool)
+   `search-api.webSearch.user` roles.
 3. An API key for that service account.
 
 ## Provisioning (manual, no Terraform)
@@ -20,7 +21,7 @@ yc iam service-account create --name flybrain-sa
 SA_ID=$(yc iam service-account get --name flybrain-sa --format json | jq -r .id)
 FOLDER_ID=$(yc config get folder-id)
 
-for ROLE in ai.languageModels.user ai.embeddings.user; do
+for ROLE in ai.languageModels.user ai.embeddings.user search-api.webSearch.user; do
   yc resource-manager folder add-access-binding "$FOLDER_ID" \
     --role "$ROLE" \
     --service-account-id "$SA_ID"
@@ -55,6 +56,24 @@ pytest tests/python/integration/test_yandex_live.py -q
 ```
 
 A single run costs about 0.5 ₽ (lite, ~10 input + ~3 output tokens).
+
+### Yandex Search smoke test
+
+```bash
+export YANDEX_SEARCH_API_KEY="$YANDEX_API_KEY"   # or a search-only key
+export FLYBRAIN_RUN_LIVE_SEARCH=1
+. .venv/bin/activate
+pytest tests/python/unit/test_yandex_search.py::test_yandex_search_live -q
+```
+
+A single search request costs about 0.4 ₽ per page.
+
+To wire the live retriever into a benchmark run instead of the
+fixture-based stub, pass `--live-search`:
+
+```bash
+flybrain-py bench --suite full_min --backend yandex --live-search ...
+```
 
 ## Pricing assumptions
 

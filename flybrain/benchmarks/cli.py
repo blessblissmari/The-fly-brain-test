@@ -63,12 +63,27 @@ def _strict_json(value: Any) -> Any:
     return value
 
 
-def _agent_factory(spec: AgentSpec, llm: Any) -> Agent:
-    tools = default_tool_registry()
-    default_tool: str | None = None
-    if spec.name in {"Retriever", "Researcher", "SearchAgent"}:
-        default_tool = "web_search"
-    return Agent(spec=spec, llm=llm, tools=tools, default_tool=default_tool)
+def _make_agent_factory(*, live_search: bool = False):
+    """Curry the agent factory so the bench runner can pass it the
+    live-search flag without leaking a global through the module.
+
+    ``live_search=True`` swaps the fixture-based ``WebSearchTool``
+    for the real Yandex Search API retriever (see
+    ``flybrain.runtime.tools.YandexSearchTool``).
+    """
+
+    def factory(spec: AgentSpec, llm: Any) -> Agent:
+        tools = default_tool_registry(live_search=live_search)
+        default_tool: str | None = None
+        if spec.name in {"Retriever", "Researcher", "SearchAgent"}:
+            default_tool = "web_search"
+        return Agent(spec=spec, llm=llm, tools=tools, default_tool=default_tool)
+
+    return factory
+
+
+# Backwards-compatible default (used by tests and `scripts/run_baselines.py`):
+_agent_factory = _make_agent_factory(live_search=False)
 
 
 def _mock_client() -> MockLLMClient:
@@ -133,6 +148,7 @@ async def _run_one_baseline(
     out_dir: Path,
     cfg: BenchmarkRunnerConfig,
     max_steps: int,
+    live_search: bool = False,
 ) -> dict[str, Any]:
     specs = load_minimal_15()
     agent_names = [s.name for s in specs]
@@ -144,7 +160,7 @@ async def _run_one_baseline(
     mas = MAS.from_specs(
         specs,
         llm,
-        agent_factory=_agent_factory,
+        agent_factory=_make_agent_factory(live_search=live_search),
         config=mas_config,
     )
     runner = BenchmarkRunner(mas, controller, initial_graph=initial_graph, config=cfg)
@@ -204,6 +220,7 @@ async def run(args: argparse.Namespace) -> int:
         flush=True,
     )
 
+    live_search = bool(getattr(args, "live_search", False))
     summaries: list[dict[str, Any]] = []
     for spec in baselines:
         summaries.append(
@@ -214,6 +231,7 @@ async def run(args: argparse.Namespace) -> int:
                 out_dir=out_dir,
                 cfg=cfg,
                 max_steps=args.max_steps,
+                live_search=live_search,
             )
         )
     (out_dir / "summaries.json").write_text(
