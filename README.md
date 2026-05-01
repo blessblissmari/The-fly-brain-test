@@ -822,89 +822,9 @@ finetune на 10-20% задач
 freeze controller
 evaluate на полном benchmark suite
 ```
-
 ---
 
-## 19. Expected Repository Structure
-
-```text
-flybrain-optimizer/
-  README.md
-  requirements.txt
-  pyproject.toml
-
-  configs/
-    agents.yaml
-    flybrain.yaml
-    verification.yaml
-    embeddings.yaml
-    training.yaml
-    eval.yaml
-
-  data/
-    flybrain/
-    benchmarks/
-    traces/
-
-  src/
-    connectome/
-      download.py
-      preprocess.py
-      compress.py
-      build_graph.py
-      embeddings.py
-
-    mas/
-      agents.py
-      runtime.py
-      graph.py
-      trace.py
-      messaging.py
-
-    optimizer/
-      flybrain_controller.py
-      gnn.py
-      rnn.py
-      action_decoder.py
-      graph_regularizer.py
-
-    verification/
-      verifier.py
-      unit_tests.py
-      schema_check.py
-      tool_check.py
-      factual_check.py
-      trace_check.py
-      reward_adapter.py
-
-    training/
-      simulation.py
-      imitation.py
-      rl.py
-      offline_rl.py
-      reward.py
-
-    eval/
-      baselines.py
-      metrics.py
-      run_benchmark.py
-
-  scripts/
-    build_fly_graph.py
-    pretrain_graph_encoder.py
-    pretrain_simulation.py
-    collect_traces.py
-    train_imitation.py
-    finetune_rl.py
-    evaluate_all.py
-
-  reports/
-    report.md
-```
-
----
-
-## 20. Minimal Deliverables
+## 19. Minimal Deliverables
 
 Решение должно содержать:
 
@@ -925,61 +845,10 @@ flybrain-optimizer/
 ```
 
 ---
-
-## 21. Что считается сильным решением
-
-Сильное решение показывает:
-
+## 20. Замечания
 ```text
-реальное использование FlyWire/Codex/Zenodo или честно описанный compressed substitute
-MAS не меньше 15 агентов
-controller реально влияет на graph execution
-verification используется как reward/signal
-embeddings используются в controller input
-есть training schedule: simulation -> imitation -> finetune/RL
-есть сравнение с baseline’ами
-есть ablation по embeddings и verifier
-есть full benchmark evaluation после freeze controller
-есть quality-cost trade-off
-```
-
----
-
-## 22. Что нельзя утверждать
-
-Нельзя писать:
-
-```text
-мы сделали AGI из мозга мухи
-мы загрузили биологический мозг в LLM
-мозг мухи стал языковой моделью
-система симулирует сознание мухи
-connectome гарантированно лучше random graph
-```
-
-Корректная формулировка:
-
-```text
-Мы используем connectome Drosophila как structural prior для обучаемого graph optimizer’а, который управляет большой LLM-based multi-agent system.
-```
-
----
-
-## 23. Итоговая цель
-
-Финальный вопрос проекта:
-
-> Может ли controller, построенный из открытого fly-connectome prior и дообученный на части benchmark’ов, универсально оптимизировать большую MAS лучше, дешевле и устойчивее, чем manual/random/fully-connected/generic learned routing?
-
-Хороший результат — это не обязательно победа FlyBrain во всех условиях.
-
-Хороший результат — это честный research prototype, который показывает:
-
-```text
-где fly-prior помогает
-где не помогает
-насколько embeddings улучшают routing
-насколько verifier улучшает обучение
+1. Можно изменять написанный план если идеи действительно стоят того и улучшат задачу
+2. Разрешенные языки для ядра - Python, Rust
 сколько стоит качество
 как меняется graph после finetuning/RL
 ```
