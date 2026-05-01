@@ -129,7 +129,7 @@ fn flybrain_native(m: &Bound<'_, PyModule>) -> PyResult<()> {
     let py = m.py();
     let modinfo = PyDict::new_bound(py);
     modinfo.set_item("crate", "flybrain-py")?;
-    modinfo.set_item("phase", "4-embeddings")?;
+    modinfo.set_item("phase", "5-controller")?;
     m.add("__modinfo__", modinfo)?;
 
     m.add_function(wrap_pyfunction!(agent_spec_round_trip, m)?)?;
