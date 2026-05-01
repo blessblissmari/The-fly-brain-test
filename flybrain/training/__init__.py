@@ -24,6 +24,14 @@ from flybrain.training.expert_dataset import (
     load_trace,
     trace_to_examples,
 )
+from flybrain.training.graph_ssl import (
+    GraphSSLConfig,
+    GraphSSLResult,
+    apply_to_embedder,
+    graph_ssl_pretrain,
+    load_checkpoint,
+    save_checkpoint,
+)
 from flybrain.training.imitation import (
     ImitationConfig,
     ImitationResult,
@@ -37,17 +45,23 @@ from flybrain.training.simulation_pretrain import (
 )
 
 __all__ = [
+    "GraphSSLConfig",
+    "GraphSSLResult",
     "ImitationConfig",
     "ImitationExample",
     "ImitationResult",
     "PretrainConfig",
     "PretrainResult",
     "TraceFile",
+    "apply_to_embedder",
     "collect_examples",
     "expert_dataset",
+    "graph_ssl_pretrain",
     "imitation_train",
     "iter_traces",
+    "load_checkpoint",
     "load_trace",
+    "save_checkpoint",
     "simulation_pretrain",
     "trace_to_examples",
 ]

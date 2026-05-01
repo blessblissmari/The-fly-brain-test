@@ -213,7 +213,45 @@ final-task verdict dominates the trace summary. Raw numbers in
 
 ### Experiment 4 — Training ablation
 
-`flybrain_prior_untrained` → `flybrain_sim_pretrain` → `flybrain_imitation` → `flybrain_rl` is exactly the training progression; rows in section 2 above show the four points.
+The full §18 progression is `flybrain_prior_untrained` → `flybrain_graph_ssl_pretrain`
+→ `flybrain_sim_pretrain` → `flybrain_imitation` → `flybrain_rl` — five
+levels covering "no training" through "fly-prior + RL fine-tune".
+The new row is the **graph self-supervised pretrain** described in
+README §12.5: a 2-layer GCN encoder is trained with link-prediction +
+masked-node objectives on the K=64 fly graph, and the resulting
+`(w0, w1)` weights replace the deterministic Gaussian projection in
+`AgentGraphEmbedder`. Run it with:
+
+```bash
+python scripts/run_graph_ssl_pretrain.py --graph data/graphs/fly_graph_64.fbg \
+    --epochs 200 --hidden-dim 32 --out-dim 32 --output data/checkpoints/graph_ssl_K64.npz
+```
+
+K=64 fly graph (real prior), 200 epochs, AdamW, lr=1e-2, mask-rate=0.15:
+
+| Metric | Value |
+|---|---|
+| Nodes | 64 |
+| Edges (undirected) | 844 |
+| Loss[0] / Loss[final] | 1.97 / 1.42 |
+| Link AUC[0] / Link AUC[final] | 0.73 / **0.85** |
+| Wall-clock | ~5 s (CPU) |
+
+Raw metrics in
+[`data/experiments/exp4_training_ablation/graph_ssl_pretrain.metrics.json`](../data/experiments/exp4_training_ablation/graph_ssl_pretrain.metrics.json).
+Run the bench against the full ablation with
+`flybrain-py bench --suite training_ablation`; the registry now exposes
+`flybrain_graph_ssl_pretrain` as the second row of that suite (the
+factory loads the SSL checkpoint and patches the encoder; falls back
+gracefully to the random projection when the checkpoint is missing,
+so the row is still safe to register at import time in CI).
+
+On the **mock backend** all five rows post identical numbers — the
+deterministic mock LLM ignores the controller variations — so the
+real signal here is on YandexGPT, where the SSL row should sit
+between `prior_untrained` and `sim_pretrain` (better verifier
+pass-rate from a smarter graph encoder, but the action head is still
+untrained at this stage).
 
 ### Experiment 5 — Full-benchmark generalization
 

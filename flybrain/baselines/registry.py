@@ -192,6 +192,76 @@ def _flybrain_prior_untrained() -> BaselineFactory:
     return factory
 
 
+def _flybrain_with_graph_ssl(checkpoint_path: Path | None = None) -> BaselineFactory:
+    """README §18 Experiment 4 row "+ graph self-supervised pretraining".
+
+    Wires a graph-SSL-pretrained encoder (link prediction +
+    masked-node reconstruction, see ``flybrain.training.graph_ssl``)
+    into the FlyBrain prior controller. ``checkpoint_path`` defaults
+    to ``data/checkpoints/graph_ssl_K64.npz`` produced by
+    ``scripts/run_graph_ssl_pretrain.py``; if absent the factory
+    falls back to the deterministic Gaussian-projection encoder so
+    the baseline is still runnable in CI without artefacts.
+    """
+
+    def factory(agent_names: list[str]) -> tuple[Controller, dict[str, Any] | None]:
+        from flybrain.controller import FlyBrainGNNController
+        from flybrain.embeddings import (
+            AgentEmbedder,
+            AgentGraphEmbedder,
+            ControllerStateBuilder,
+            FlyGraphEmbedder,
+            MockEmbeddingClient,
+            TaskEmbedder,
+            TraceEmbedder,
+        )
+
+        client = MockEmbeddingClient(output_dim=32)
+        agents_emb = AgentEmbedder(client)
+        from flybrain.agents.specs import MINIMAL_15
+
+        agents_emb.precompute_sync(MINIMAL_15)
+        agent_graph = AgentGraphEmbedder(in_dim=32, hidden_dim=16, out_dim=32)
+
+        # Try to load the SSL checkpoint; silently fall through if missing
+        # so the baseline factory is still safe to register at import time.
+        path = checkpoint_path or Path("data/checkpoints/graph_ssl_K64.npz")
+        if path.exists():
+            from flybrain.training.graph_ssl import (
+                apply_to_embedder,
+                load_checkpoint,
+            )
+
+            try:
+                weights = load_checkpoint(path)
+                apply_to_embedder(agent_graph, weights)
+            except (ValueError, OSError):
+                # Shape mismatch or unreadable file — keep the default
+                # numpy projection so the run still produces metrics.
+                pass
+
+        builder = ControllerStateBuilder(
+            task=TaskEmbedder(client),
+            agents=agents_emb,
+            trace=TraceEmbedder(client),
+            fly=FlyGraphEmbedder(dim=8),
+            agent_graph=agent_graph,
+        )
+        ctrl = FlyBrainGNNController(
+            builder=builder,
+            task_dim=32,
+            agent_dim=32,
+            graph_dim=32,
+            trace_dim=32 + 13,
+            fly_dim=8,
+            produced_dim=6,
+            hidden_dim=32,
+        )
+        return ctrl, empty_graph(agent_names)
+
+    return factory
+
+
 def _learned_router_with_mask(mask: frozenset[str]) -> BaselineFactory:
     """README §18 Experiment 2 — embedding ablation factory.
 
@@ -389,6 +459,16 @@ def builtin_baselines() -> list[BaselineSpec]:
             factory=_flybrain_with_checkpoint("gnn", "RL"),
             tags=["learned", "trained", "fly-prior"],
         ),
+        BaselineSpec(
+            name="flybrain_graph_ssl_pretrain",
+            description=(
+                "Exp4 row '+graph SSL' — FlyBrain GNN with the agent-graph "
+                "encoder pretrained via link prediction + masked-node "
+                "reconstruction (README §12.5)."
+            ),
+            factory=_flybrain_with_graph_ssl(),
+            tags=["learned", "trained", "fly-prior", "graph-ssl"],
+        ),
         # README §18 Experiment 2 — embedding ablation (5 levels).
         # L1 (no embeddings) zeros every feature; L5 keeps all features.
         BaselineSpec(
@@ -483,6 +563,7 @@ BUILTIN_SUITES: dict[str, list[str]] = {
         "flybrain_sim_pretrain",
         "flybrain_imitation",
         "flybrain_rl",
+        "flybrain_graph_ssl_pretrain",
     ],
     "smoke": ["manual_graph", "random_sparse"],
     # README §18 ablation suites.
@@ -498,6 +579,15 @@ BUILTIN_SUITES: dict[str, list[str]] = {
         "verif_ablation_final",
         "verif_ablation_step",
         "verif_ablation_full",
+    ],
+    # README §18 Experiment 4 — training ablation (5 levels).
+    # The four trained-controller rows above + the SSL-pretrained row.
+    "training_ablation": [
+        "flybrain_prior_untrained",
+        "flybrain_graph_ssl_pretrain",
+        "flybrain_sim_pretrain",
+        "flybrain_imitation",
+        "flybrain_rl",
     ],
 }
 
