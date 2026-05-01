@@ -4,6 +4,8 @@
 //! synthetic graph builder. Full bindings (AgentGraph mutate API, runtime
 //! scheduler, deterministic verifiers) land in later phases.
 
+mod graph_py;
+
 use flybrain_core::action::GraphAction;
 use flybrain_core::agent::AgentSpec;
 use flybrain_core::graph::{AgentGraph, FlyGraph};
@@ -15,14 +17,14 @@ use pyo3::exceptions::PyValueError;
 use pyo3::prelude::*;
 use pyo3::types::PyDict;
 
-fn json_to_py(py: Python<'_>, value: &serde_json::Value) -> PyResult<PyObject> {
+pub(crate) fn json_to_py(py: Python<'_>, value: &serde_json::Value) -> PyResult<PyObject> {
     let s = serde_json::to_string(value).map_err(|e| PyValueError::new_err(e.to_string()))?;
     let json_mod = py.import_bound("json")?;
     let parsed = json_mod.call_method1("loads", (s,))?;
     Ok(parsed.unbind())
 }
 
-fn py_to_json(py: Python<'_>, obj: &Bound<'_, PyAny>) -> PyResult<serde_json::Value> {
+pub(crate) fn py_to_json(py: Python<'_>, obj: &Bound<'_, PyAny>) -> PyResult<serde_json::Value> {
     let json_mod = py.import_bound("json")?;
     let s: String = json_mod.call_method1("dumps", (obj,))?.extract()?;
     serde_json::from_str(&s).map_err(|e| PyValueError::new_err(e.to_string()))
@@ -121,7 +123,7 @@ fn flybrain_native(m: &Bound<'_, PyModule>) -> PyResult<()> {
     let py = m.py();
     let modinfo = PyDict::new_bound(py);
     modinfo.set_item("crate", "flybrain-py")?;
-    modinfo.set_item("phase", "0-bootstrap")?;
+    modinfo.set_item("phase", "1-graph")?;
     m.add("__modinfo__", modinfo)?;
 
     m.add_function(wrap_pyfunction!(agent_spec_round_trip, m)?)?;
@@ -133,6 +135,8 @@ fn flybrain_native(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(agent_graph_hash, m)?)?;
     m.add_function(wrap_pyfunction!(build_synthetic_fly_graph, m)?)?;
     m.add_function(wrap_pyfunction!(budget_check, m)?)?;
+
+    graph_py::register(py, m)?;
 
     Ok(())
 }
