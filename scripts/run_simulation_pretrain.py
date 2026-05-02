@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import dataclasses
 import json
 import time
 from pathlib import Path
@@ -144,7 +145,7 @@ def main() -> None:
                 {
                     "controller": args.controller,
                     "state_dict": ctrl.state_dict(),
-                    "config": cfg.__dict__,
+                    "config": dataclasses.asdict(cfg),
                     "result": {
                         "num_examples": res.num_examples,
                         "epoch_accuracy": list(res.epoch_accuracy),
@@ -159,7 +160,7 @@ def main() -> None:
                 json.dumps(
                     {
                         "controller": args.controller,
-                        "config": cfg.__dict__,
+                        "config": dataclasses.asdict(cfg),
                         "wall_seconds": elapsed,
                         "epoch_accuracy": list(res.epoch_accuracy),
                         "final_accuracy": res.final_accuracy,
