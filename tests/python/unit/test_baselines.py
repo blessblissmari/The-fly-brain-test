@@ -217,6 +217,7 @@ def test_flybrain_baselines_ship_non_empty_initial_graph(name: str) -> None:
     """HANDOFF.md §4.a Q1: trained / fly-prior baselines must ship a
     non-empty initial AgentGraph so the GNN/router has something to
     read from on step 0."""
+    pytest.importorskip("torch")  # GNN / router controllers need torch
     spec = next(s for s in builtin_baselines() if s.name == name)
     _ctrl, graph = spec.factory(AGENT_NAMES)
     assert graph is not None
