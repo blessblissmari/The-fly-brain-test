@@ -25,8 +25,15 @@ variable "container_registry_name" {
 }
 
 variable "s3_bucket_name" {
-  type    = string
-  default = "flybrain-data"
+  type        = string
+  default     = ""
+  description = "Override for the S3 bucket name. Yandex Object Storage bucket names are globally unique across all tenants, so leaving this empty falls back to flybrain-data-<folder_id> which is guaranteed to be free."
+}
+
+locals {
+  effective_s3_bucket_name = (
+    var.s3_bucket_name != "" ? var.s3_bucket_name : "flybrain-data-${var.folder_id}"
+  )
 }
 
 # DataSphere (opt-in) ---------------------------------------------------------

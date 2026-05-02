@@ -12,9 +12,12 @@ resource "yandex_iam_service_account" "flybrain" {
 }
 
 locals {
+  # `ai.languageModels.user` is the unified Yandex AI Studio role for
+  # text generation, classifier, and embedding models — it supersedes
+  # the historical `ai.embeddings.user` role which no longer exists in
+  # the service catalog as of 2024.
   flybrain_sa_roles = [
     "ai.languageModels.user",
-    "ai.embeddings.user",
     "container-registry.images.puller",
     "container-registry.images.pusher",
     "storage.editor",
@@ -40,7 +43,7 @@ resource "yandex_container_registry" "flybrain" {
 }
 
 resource "yandex_storage_bucket" "flybrain_data" {
-  bucket     = var.s3_bucket_name
+  bucket     = local.effective_s3_bucket_name
   folder_id  = var.folder_id
   access_key = yandex_iam_service_account_static_access_key.flybrain_s3.access_key
   secret_key = yandex_iam_service_account_static_access_key.flybrain_s3.secret_key
