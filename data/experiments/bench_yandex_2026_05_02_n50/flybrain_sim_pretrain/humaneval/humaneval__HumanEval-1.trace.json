@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (no output provided)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.26759999990463257,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Define the function `add` with parameters `a` and `b`, both of type `int`. 2. Implement the function body to r\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777727088680,
+      "tokens_in": 130,
+      "tokens_out": 93,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.11919999867677689,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 0,
+      "output_summary": "```python def add(a: int, b: int) -> int:     \"\"\"Return a + b.     >>> add(1, 2)     3     \"\"\"     return a + b ```",
+      "step_id": 1,
+      "t_unix_ms": 1777727088683,
+      "tokens_in": 249,
+      "tokens_out": 49,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.1687999963760376,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 2514,
+      "output_summary": "```python def add(a: int, b: int) -> int:     \"\"\"Return a + b.     >>> add(1, 2)     3     \"\"\"     return a + b  def te\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777727091208,
+      "tokens_in": 263,
+      "tokens_out": 159,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.15559999644756317,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 832,
+      "output_summary": "```python def add(a: int, b: int) -> int:     \"\"\"Return a + b.     >>> add(1, 2)     3     \"\"\"     return a + b ```",
+      "step_id": 3,
+      "t_unix_ms": 1777727092044,
+      "tokens_in": 340,
+      "tokens_out": 49,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.07919999957084656,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 845,
+      "output_summary": "```python def add(a: int, b: int) -> int:     \"\"\"Return a + b.     >>> add(1, 2)     3     \"\"\"     return a + b ```",
+      "step_id": 4,
+      "t_unix_ms": 1777727092893,
+      "tokens_in": 149,
+      "tokens_out": 49,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06920000165700912,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 524,
+      "output_summary": "`schema:invalid_output (produced output does not match expected function definition)`",
+      "step_id": 5,
+      "t_unix_ms": 1777727093422,
+      "tokens_in": 157,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06920000165700912,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 439,
+      "output_summary": "`schema:invalid_output (no output provided)`",
+      "step_id": 6,
+      "t_unix_ms": 1777727093866,
+      "tokens_in": 162,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06920000165700912,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no output provided)`",
+      "step_id": 7,
+      "t_unix_ms": 1777727093870,
+      "tokens_in": 162,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06920000165700912,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no output provided)`",
+      "step_id": 8,
+      "t_unix_ms": 1777727093873,
+      "tokens_in": 162,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06920000165700912,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no output provided)`",
+      "step_id": 9,
+      "t_unix_ms": 1777727093877,
+      "tokens_in": 162,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06920000165700912,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no output provided)`",
+      "step_id": 10,
+      "t_unix_ms": 1777727093880,
+      "tokens_in": 162,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06920000165700912,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no output provided)`",
+      "step_id": 11,
+      "t_unix_ms": 1777727093884,
+      "tokens_in": 162,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-1",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 1.2748000621795654,
+    "failed_tool_calls": 0,
+    "latency_ms": 5159,
+    "llm_calls": 12,
+    "tokens_in": 2260,
+    "tokens_out": 481,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

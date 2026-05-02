@@ -1,0 +1,266 @@
+{
+  "final_answer": "```python import unittest  class TestIsEven(unittest.TestCase):     def test_even_number(self):         self.assertTrue\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.26759999990463257,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Define the function `is_even` with one parameter `n`. 2. Use the modulo operator (`%`) to check if `n` is divi\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777727469075,
+      "tokens_in": 132,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.12880000472068787,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "2",
+      "latency_ms": 1,
+      "output_summary": "```python def is_even(n: int) -> bool:     \"\"\"Return True iff n is even.     >>> is_even(2)     True     \"\"\"     return\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777727469078,
+      "tokens_in": 269,
+      "tokens_out": 53,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Implement the following Python function. Your final answer must be a complete, runnable function definition.\n\nEntry point: `is_even`\n\n```python\ndef is_even(n: int) -> bool:\n    \"\"\"Return True iff n is even.\n    >>> is_even(2)\n    True\n    \"\"\"\n```\n"
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06679999828338623,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 532,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 2,
+      "t_unix_ms": 1777727469613,
+      "tokens_in": 152,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06880000233650208,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 526,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 3,
+      "t_unix_ms": 1777727470143,
+      "tokens_in": 157,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.2484000027179718,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1053,
+      "output_summary": "- The function lacks the actual implementation to determine if the number is even. - There are no checks for the input \u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777727471199,
+      "tokens_in": 147,
+      "tokens_out": 60,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.27000001072883606,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1280,
+      "output_summary": "- The function does not include the actual logic to determine if a number is even. - There are no test cases provided b\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777727472483,
+      "tokens_in": 149,
+      "tokens_out": 76,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.27000001072883606,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function does not include the actual logic to determine if a number is even. - There are no test cases provided b\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777727472488,
+      "tokens_in": 149,
+      "tokens_out": 76,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.27000001072883606,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function does not include the actual logic to determine if a number is even. - There are no test cases provided b\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777727472491,
+      "tokens_in": 149,
+      "tokens_out": 76,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.27000001072883606,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function does not include the actual logic to determine if a number is even. - There are no test cases provided b\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777727472495,
+      "tokens_in": 149,
+      "tokens_out": 76,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.17720000445842743,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "7",
+      "latency_ms": 2875,
+      "output_summary": "```python import unittest  class TestIsEven(unittest.TestCase):     def test_even_number(self):         self.assertTrue\u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777727475373,
+      "tokens_in": 234,
+      "tokens_out": 209,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 10,
+      "t_unix_ms": 1777727475376,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 11,
+      "t_unix_ms": 1777727475379,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    }
+  ],
+  "task_id": "humaneval/HumanEval-4",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 2.037600040435791,
+    "failed_tool_calls": 0,
+    "latency_ms": 6270,
+    "llm_calls": 10,
+    "tokens_in": 1687,
+    "tokens_out": 747,
+    "tool_calls": 1
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

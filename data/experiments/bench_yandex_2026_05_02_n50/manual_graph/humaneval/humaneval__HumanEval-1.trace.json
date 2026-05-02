@@ -1,0 +1,142 @@
+{
+  "final_answer": "```python def add(a: int, b: int) -> int:     \"\"\"Return a + b.     >>> add(1, 2)     3     \"\"\"     return a + b ```  `f\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.26759999990463257,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1548,
+      "output_summary": "Plan: 1. Define the function `add` with parameters `a` and `b`, both of type `int`. 2. Implement the function body to r\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777726218189,
+      "tokens_in": 130,
+      "tokens_out": 93,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.06480000168085098,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 616,
+      "output_summary": "```python def add(a: int, b: int) -> int:     return a + b ```",
+      "step_id": 1,
+      "t_unix_ms": 1777726218806,
+      "tokens_in": 137,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.15919999778270721,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2982,
+      "output_summary": "``` import unittest  class TestAdd(unittest.TestCase):     def test_add_positive_numbers(self):         self.assertEqua\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777726221789,
+      "tokens_in": 151,
+      "tokens_out": 247,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 3,
+      "t_unix_ms": 1777726221789,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.08760000020265579,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1126,
+      "output_summary": "```python def add(a: int, b: int) -> int:     \"\"\"Return a + b.     >>> add(1, 2)     3     \"\"\"     return a + b ```  `f\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777726222916,
+      "tokens_in": 144,
+      "tokens_out": 75,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 5,
+      "t_unix_ms": 1777726222916,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-1",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.5791999697685242,
+    "failed_tool_calls": 0,
+    "latency_ms": 6272,
+    "llm_calls": 4,
+    "tokens_in": 562,
+    "tokens_out": 440,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

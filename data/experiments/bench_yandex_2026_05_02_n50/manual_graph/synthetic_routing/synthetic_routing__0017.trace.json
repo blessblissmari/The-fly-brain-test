@@ -1,0 +1,123 @@
+{
+  "final_answer": "$6x + 96 = 90$  Step 1: Subtract 96 from both sides of the equation to isolate the term with the variable. $6x + 96 - 9\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.1632000058889389,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 986,
+      "output_summary": "Plan: 1. Subtract 96 from both sides of the equation to isolate the term with x. 2. Simplify the equation to find the v\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777726430353,
+      "tokens_in": 73,
+      "tokens_out": 63,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.07720000296831131,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1640,
+      "output_summary": "Step 1: Subtract 96 from both sides of the equation to isolate the term with the variable. \\[ 6x + 96 - 96 = 90 - 96 \\]\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777726431994,
+      "tokens_in": 74,
+      "tokens_out": 119,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1777726431994,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.07840000092983246,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1602,
+      "output_summary": "$6x + 96 = 90$  Step 1: Subtract 96 from both sides of the equation to isolate the term with the variable. $6x + 96 - 9\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777726433597,
+      "tokens_in": 82,
+      "tokens_out": 114,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1777726433597,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0017",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.31880003213882446,
+    "failed_tool_calls": 0,
+    "latency_ms": 4228,
+    "llm_calls": 3,
+    "tokens_in": 229,
+    "tokens_out": 296,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "final_answer": "```python eggs_laid_per_day = 16 eggs_eaten_per_day = 3 eggs_used_for_baking_per_day = 4  remaining_eggs = eggs_laid_pe\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.262800008058548,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Calculate the total number of eggs laid by Janet's ducks each day. 2. Subtract the number of eggs Janet eats a\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777727114300,
+      "tokens_in": 141,
+      "tokens_out": 78,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.14560000598430634,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "1",
+      "latency_ms": 1716,
+      "output_summary": "```python eggs_laid_per_day = 16 eggs_eaten_per_day = 3 eggs_used_for_baking_per_day = 4  remaining_eggs = eggs_laid_pe\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777727116019,
+      "tokens_in": 246,
+      "tokens_out": 118,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1777727116022,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00002",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.4083999991416931,
+    "failed_tool_calls": 0,
+    "latency_ms": 1716,
+    "llm_calls": 2,
+    "tokens_in": 387,
+    "tokens_out": 196,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

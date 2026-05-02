@@ -1,0 +1,258 @@
+{
+  "final_answer": "schema:invalid_output (no relevant output provided)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.1451999992132187,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Subtract 14 from both sides of the equation to isolate the term with x. 2. Divide both sides by 11 to solve fo\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777727360036,
+      "tokens_in": 74,
+      "tokens_out": 47,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.07919999957084656,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 968,
+      "output_summary": "```python from sympy import symbols, Eq, solve  x = symbols('x') equation = Eq(11*x + 14, 54) solution = solve(equation\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777727361007,
+      "tokens_in": 144,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.10119999945163727,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 1697,
+      "output_summary": "``` from unittest import TestCase, main  class TestMathSolver(TestCase):     def test_solve_for_x(self):         from m\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777727362707,
+      "tokens_in": 158,
+      "tokens_out": 95,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.08399999886751175,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2403,
+      "output_summary": "Step 1: Subtract 14 from both sides of the equation to isolate the term with the variable. $11x + 14 - 14 = 54 - 14$ $1\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777727365114,
+      "tokens_in": 82,
+      "tokens_out": 128,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.13199999928474426,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 851,
+      "output_summary": "verifier:failed:missing_solution_for_x",
+      "step_id": 4,
+      "t_unix_ms": 1777727365968,
+      "tokens_in": 98,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.13439999520778656,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1112,
+      "output_summary": "verifier:failed:missing solution to the math problem",
+      "step_id": 5,
+      "t_unix_ms": 1777727367084,
+      "tokens_in": 101,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.13439999520778656,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing solution to the math problem",
+      "step_id": 6,
+      "t_unix_ms": 1777727367088,
+      "tokens_in": 101,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.13439999520778656,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing solution to the math problem",
+      "step_id": 7,
+      "t_unix_ms": 1777727367091,
+      "tokens_in": 101,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.13439999520778656,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing solution to the math problem",
+      "step_id": 8,
+      "t_unix_ms": 1777727367095,
+      "tokens_in": 101,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.13439999520778656,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing solution to the math problem",
+      "step_id": 9,
+      "t_unix_ms": 1777727367099,
+      "tokens_in": 101,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04600000008940697,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 940,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 10,
+      "t_unix_ms": 1777727368044,
+      "tokens_in": 104,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04800000041723251,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 748,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 11,
+      "t_unix_ms": 1777727368796,
+      "tokens_in": 109,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0033",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.3076000213623047,
+    "failed_tool_calls": 0,
+    "latency_ms": 8723,
+    "llm_calls": 12,
+    "tokens_in": 1274,
+    "tokens_out": 413,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

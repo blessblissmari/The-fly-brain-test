@@ -1,0 +1,258 @@
+{
+  "final_answer": "schema:invalid_output (No output related to the task provided)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.11879999935626984,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Arrange the numbers in ascending order. 2. Identify the middle number in the ordered list. Hand off to: Calcul\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777727340531,
+      "tokens_in": 68,
+      "tokens_out": 31,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.06920000165700912,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "To compute the median of the numbers 5 and 52, follow these steps:  1. Arrange the numbers in ascending order: 5, 52. 2\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777727340534,
+      "tokens_in": 69,
+      "tokens_out": 104,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.12240000069141388,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 1767,
+      "output_summary": "```python def compute_median(numbers):     numbers.sort()     n = len(numbers)     if n % 2 == 0:         median = (num\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777727342304,
+      "tokens_in": 202,
+      "tokens_out": 104,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.11999999731779099,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 616,
+      "output_summary": "verifier:failed:missing_median_calculation",
+      "step_id": 3,
+      "t_unix_ms": 1777727342931,
+      "tokens_in": 89,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.12120000272989273,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 585,
+      "output_summary": "verifier:failed:missing output to verify",
+      "step_id": 4,
+      "t_unix_ms": 1777727343520,
+      "tokens_in": 92,
+      "tokens_out": 9,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.07280000299215317,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1353,
+      "output_summary": "```python def compute_median(numbers):     numbers.sort()     length = len(numbers)     if length % 2 == 0:         ret\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777727344876,
+      "tokens_in": 87,
+      "tokens_out": 95,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.07280000299215317,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def compute_median(numbers):     numbers.sort()     length = len(numbers)     if length % 2 == 0:         ret\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777727344881,
+      "tokens_in": 87,
+      "tokens_out": 95,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.07280000299215317,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def compute_median(numbers):     numbers.sort()     length = len(numbers)     if length % 2 == 0:         ret\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777727344884,
+      "tokens_in": 87,
+      "tokens_out": 95,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.07280000299215317,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def compute_median(numbers):     numbers.sort()     length = len(numbers)     if length % 2 == 0:         ret\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777727344888,
+      "tokens_in": 87,
+      "tokens_out": 95,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.07280000299215317,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def compute_median(numbers):     numbers.sort()     length = len(numbers)     if length % 2 == 0:         ret\u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777727344891,
+      "tokens_in": 87,
+      "tokens_out": 95,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04360000044107437,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 574,
+      "output_summary": "schema:invalid_output (no output related to the task provided)",
+      "step_id": 10,
+      "t_unix_ms": 1777727345467,
+      "tokens_in": 95,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04560000076889992,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1147,
+      "output_summary": "schema:invalid_output (No output related to the task provided)",
+      "step_id": 11,
+      "t_unix_ms": 1777727346619,
+      "tokens_in": 100,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0013",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.0047999620437622,
+    "failed_tool_calls": 0,
+    "latency_ms": 6047,
+    "llm_calls": 12,
+    "tokens_in": 1150,
+    "tokens_out": 762,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

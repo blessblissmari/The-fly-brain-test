@@ -1,0 +1,258 @@
+{
+  "final_answer": "schema:invalid_output (no output related to the math task provided)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.16200000047683716,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Recognize that the expression can be simplified by first adding the numbers inside the parentheses. 2. Calcula\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777727180898,
+      "tokens_in": 71,
+      "tokens_out": 64,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.05559999868273735,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Step 1: First, we need to simplify the expression inside the parentheses. Step 2: Calculate $20 + 49 = 69$. Step 3: Now\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777727180901,
+      "tokens_in": 72,
+      "tokens_out": 67,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.07880000025033951,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 674,
+      "output_summary": "```python final_answer = \"(20 + 49)^{75} = 69^{75}\" ```",
+      "step_id": 2,
+      "t_unix_ms": 1777727181578,
+      "tokens_in": 169,
+      "tokens_out": 28,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.13079999387264252,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 545,
+      "output_summary": "verifier:failed:incorrect output format or unnecessary outputs (code, debugger)",
+      "step_id": 3,
+      "t_unix_ms": 1777727182126,
+      "tokens_in": 92,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.12720000743865967,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 449,
+      "output_summary": "verifier:failed:no simplified expression provided to verify",
+      "step_id": 4,
+      "t_unix_ms": 1777727182579,
+      "tokens_in": 95,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.057999998331069946,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1010,
+      "output_summary": "```python # Code with potential issue result = (20 + 49) ** 75 print(result)  # Fixed version result = (20 + 49) ** 75 \u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777727183592,
+      "tokens_in": 90,
+      "tokens_out": 55,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.057999998331069946,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python # Code with potential issue result = (20 + 49) ** 75 print(result)  # Fixed version result = (20 + 49) ** 75 \u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777727183597,
+      "tokens_in": 90,
+      "tokens_out": 55,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.057999998331069946,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python # Code with potential issue result = (20 + 49) ** 75 print(result)  # Fixed version result = (20 + 49) ** 75 \u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777727183600,
+      "tokens_in": 90,
+      "tokens_out": 55,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.057999998331069946,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python # Code with potential issue result = (20 + 49) ** 75 print(result)  # Fixed version result = (20 + 49) ** 75 \u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777727183604,
+      "tokens_in": 90,
+      "tokens_out": 55,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.057999998331069946,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python # Code with potential issue result = (20 + 49) ** 75 print(result)  # Fixed version result = (20 + 49) ** 75 \u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777727183607,
+      "tokens_in": 90,
+      "tokens_out": 55,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04520000144839287,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 514,
+      "output_summary": "schema:invalid_output (no output related to the math task provided)",
+      "step_id": 10,
+      "t_unix_ms": 1777727184124,
+      "tokens_in": 98,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.047200001776218414,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 535,
+      "output_summary": "schema:invalid_output (no output related to the math task provided)",
+      "step_id": 11,
+      "t_unix_ms": 1777727184662,
+      "tokens_in": 103,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0025",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.936799943447113,
+    "failed_tool_calls": 0,
+    "latency_ms": 3731,
+    "llm_calls": 12,
+    "tokens_in": 1150,
+    "tokens_out": 492,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}
