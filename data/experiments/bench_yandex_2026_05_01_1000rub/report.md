@@ -5,20 +5,13 @@ run; rerun the command after every refresh of `comparison_*.json`._
 
 ## 1. Setup
 
-* Suite: `bench_yandex_2026_05_01_1000rub` (live YandexGPT-Lite, 2026-05-01)
-* Budget cap: **1000 ₽** (`--budget-rub 1000`); halted_on_budget = `false` for every run.
-* Methods compared: **9** (`full_min`)
-* Benchmarks: `bbh_mini` (N=5), `gsm8k` (N=5), `humaneval` (N=5),
-  `synthetic_routing` (N=50). The 5-task benchmarks are limited by
-  the size of the loader fixtures; `synthetic_routing` is generated
-  on the fly so saturates `--tasks-per-benchmark 50`.
-* Total tasks evaluated: **585** (9 baselines × 65 tasks)
-* Total spend: **349.68 ₽** (well under the 1000 ₽ cap)
-* Solved tasks (verifier passed): **199** / 585  (34.0%)
-* Backend: `yandex` — `yandexgpt-lite` (Phase-9 LLM contract) +
-  `text-search-doc/query` embeddings (Phase-4) — calls go through
-  the live AI Studio API authenticated by the SA + IAM bindings
-  provisioned in `infra/terraform/main.tf` (PR #7).
+* Suite: `bench_yandex_2026_05_01_1000rub`
+* Methods compared: **9**
+* Benchmarks: `bbh_mini`, `gsm8k`, `humaneval`, `synthetic_routing`
+* Total tasks evaluated: **585**
+* Total spend (sum of `avg_cost_rub * num_tasks` across methods): 349.68 ₽
+* Solved tasks (verifier passed): **199** / 585
+  (34.0%)
 
 The pipeline is the one specified in `PLAN.md` §607-617:
 
@@ -125,10 +118,10 @@ benchmarks/                      eval/
 
 ## 5. Cherry-picked traces
 
-* `data/experiments/bench_yandex_2026_05_01_1000rub/cherry/manual_graph__humaneval_HumanEval-1.trace.json` — happy path: manual MAS solves `add(a, b)` in 8 LLM steps × YandexGPT-Lite, 0.26 ₽/step.
-* `data/experiments/bench_yandex_2026_05_01_1000rub/cherry/manual_graph__synthetic_routing_0004_FAIL.trace.json` — **failure mode** in the otherwise-strong manual baseline: synthetic routing task #4 hits the verifier red-line (one of the 7/50 misses on this benchmark).
-* `data/experiments/bench_yandex_2026_05_01_1000rub/cherry/degree_preserving__gsm8k_00000.trace.json` — cost-efficiency winner: degree-preserving random graph (Watts–Strogatz seed) solves GSM8K-001 with 3 LLM calls / 0.43 ₽.
-* `data/experiments/bench_yandex_2026_05_01_1000rub/cherry/random_sparse__synthetic_routing_0001.trace.json` — `random_sparse` failure mode: routing degenerates because the sparse graph removes the Coder→Tester edge.
+* `data/experiments/bench_yandex_2026_05_01_1000rub/cherry/manual_graph__humaneval_HumanEval-1.trace.json`
+* `data/experiments/bench_yandex_2026_05_01_1000rub/cherry/manual_graph__synthetic_routing_0004_FAIL.trace.json`
+* `data/experiments/bench_yandex_2026_05_01_1000rub/cherry/degree_preserving__gsm8k_00000.trace.json`
+* `data/experiments/bench_yandex_2026_05_01_1000rub/cherry/random_sparse__synthetic_routing_0001.trace.json`
 
 
 ## 6. Failure-mode breakdown
@@ -192,112 +185,13 @@ The verifier is on/off via `MASConfig.verification_mode`. The current run uses t
 Finetune on 10-20% (`min_set.yaml`) and evaluate on the full suite via `flybrain-py bench --suite full_min`; this run is the eval half of that experiment.
 
 
-## 9. Discussion
+## 9. Discussion (TODO — fill in after reading the numbers above)
 
-This run is the **YandexGPT-Lite snapshot of `full_min`** — 9 baselines × 4
-benchmarks × 5 tasks each (180 tasks, 117.35 ₽ end-to-end) — and is the
-artefact reviewers should read first. Numbers are tiny per cell (n = 5),
-so treat the leaderboard as a sanity check on the harness, not as
-publication-grade evidence.
-
-### Where does FlyBrain prior + RL beat manual / fully-connected?
-
-**Not on this snapshot — and that's the expected result for an
-untrained checkpoint.** All five `flybrain_*` and `learned_router_*`
-rows post 0% success. They are not actually broken: section 2 shows
-`flybrain_prior_untrained` already at **70% verifier-pass rate** while
-its `learned_router_no_prior` cousin sits at 36%. What kills the
-end-to-end success rate is the action head: an untrained MLP routes
-to (and away from) `Finalizer` essentially uniformly at random, so the
-task budget exhausts before the verifier ever fires. The training-
-progression rows (`sim_pretrain` → `imitation` → `rl`) currently
-inherit the same untrained head because no Phase-6/7/8 checkpoints are
-loaded; running `flybrain-py train --backend yandex` (Phase 8 PR #10)
-populates those rows. The slot for the README §17 cherry-on-top
-("brain-shaped routing generalises better") is wired in but not
-populated.
-
-### Cost vs. quality trade-off
-
-Among baselines that actually solve tasks, **`degree_preserving` is
-the best deal** — 100% success at 0.696 ₽/task (cost-per-solved =
-0.696 ₽). `manual_graph` matches its quality at **2.6×** the cost
-(1.81 ₽/task) and `fully_connected` at **3.4×** (2.35 ₽/task). The
-extra cost buys nothing on this slice; both spend more LLM calls per
-task because their wider graphs let agents revisit each other before
-terminating. `random_sparse` is the only static graph that mixes
-costs and outcomes: it costs less than `manual_graph` but its
-cost-per-solved blows up to **2.91 ₽** because it only solves 35% of
-tasks — exactly the headline "perturbing the graph regresses" signal
-from README §17.
-
-### Where does `random_sparse` regress?
-
-`random_sparse` is the most informative baseline in this run. The
-per-benchmark breakdown shows the regression is **task-shape
-dependent**:
-
-| Benchmark | random_sparse success | Other static graphs |
-|---|---|---|
-| `gsm8k`              | **5/5** (100%) | 100% |
-| `bbh_mini`           | 1/5 (20%)  | 100% |
-| `synthetic_routing`  | 1/5 (20%)  | 100% |
-| `humaneval`          | **0/5** (0%) | 100% |
-
-Coding tasks need the planner → coder → verifier path to stay intact;
-removing edges wedges that path first. Math tasks have a shorter
-required path (planner → solver → verifier) and survive the
-perturbation. The trace viewer surfaces the failure mode directly:
-pick `random_sparse / humaneval` in the dashboard — the run terminates
-without ever activating the coder agent.
-
-### Failure-mode breakdown
-
-| Method | Where it fails first | Verifier signal |
-|---|---|---|
-| `random_sparse` | code-heavy benchmarks (`humaneval`, `bbh_mini`, multi-tool routing) | high score on solved subset (0.85+); failed tasks have `failed_component=null` because no Finalizer is reached |
-| `learned_router_no_prior` | every benchmark | very low verifier-pass (36%) — the head's distribution is broken even before the budget runs out |
-| `flybrain_prior_untrained` (and successors that share its head) | every benchmark, but the prior gets the verifier-pass rate to 70% | the action-policy MLP is untrained; verifier sees roughly correct artefacts but the controller never returns `terminate` |
-
-The `failed_component` field is empty across the board on this run —
-the verifier never fired for the failing baselines. Surfacing
-component-level failures requires a controller that *actually
-terminates*; once the trained checkpoints land, the field becomes
-diagnostically interesting and the dashboard's trace viewer is the
-right place to read it.
-
-### Bridging to README §17 ("brain-shaped routing generalises better")
-
-The hypothesis is not falsified by this run — it is **not yet
-testable**. The harness, the baselines, the benchmarks, the cost
-tracker, and the dashboard are all in place; the pipeline produces
-valid `comparison_overall` rows for nine methods on four benchmarks
-end-to-end on a real LLM at a known cost. The remaining gap is one
-training run that populates the four `flybrain_*` checkpoints. The
-expected shape after that — based on the per-benchmark structure
-already visible in the static-graph comparison — is `manual_graph` ≈
-`degree_preserving` ≥ `flybrain_rl` > `flybrain_imitation` >
-`flybrain_sim_pretrain` > `flybrain_prior_untrained` >
-`learned_router_no_prior`, with the FlyBrain rows showing the same
-robustness to graph perturbation that `degree_preserving` shows here.
-
-### Reproduce / refresh
-
-```bash
-# Re-run on YandexGPT (~120 ₽ at 5 tasks/benchmark):
-YANDEX_API_KEY=... YANDEX_FOLDER_ID=... \
-flybrain-py bench --suite full_min --backend yandex \
-    --tasks-per-benchmark 5 --budget-rub 200 \
-    --output runs/bench_yandex
-
-# Re-render this report with the new numbers:
-flybrain-py report --input runs/bench_yandex --output docs/final_report.md
-
-# Refresh the live dashboard (separate repo):
-python ../flybrain-results/scripts/refresh_data.py runs/bench_yandex \
-    --run-id yandex_full_min --label "YandexGPT · full_min · 5 tasks/bench" \
-    --backend yandex --suite full_min --default
-```
-
-Live dashboard: <https://blessblissmari.github.io/flybrain-results/>.
-
+* Where does FlyBrain prior + RL beat manual / fully-connected? When is
+  hand-curated routing already optimal?
+* Where does the cost / quality trade-off make a difference? Is the
+  extra LLM cost on `random_sparse` worth the lower verifier score?
+* What does `failed_component` (verifier output) say about the agents
+  that limit the pipeline?
+* Bridging gaps to the README §17 hypothesis ("brain-shaped routing
+  generalises better than naive baselines on coding-heavy tasks").
