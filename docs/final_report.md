@@ -5,13 +5,19 @@ run; rerun the command after every refresh of `comparison_*.json`._
 
 ## 1. Setup
 
-* Suite: `full_min`
-* Methods compared: **9**
+* Suite: `bench_yandex_2026_05_01` (live YandexGPT-Lite, run on 2026-05-01)
+* Methods compared: **9** (`full_min`)
 * Benchmarks: `bbh_mini`, `gsm8k`, `humaneval`, `synthetic_routing`
-* Total tasks evaluated: **180**
-* Total spend (sum of `avg_cost_rub * num_tasks` across methods): 117.35 ₽
-* Solved tasks (verifier passed): **67** / 180
-  (37.2%)
+* Tasks per benchmark: **3** (12 per method, 108 total)
+* Total spend: **57.02 ₽** (4 static-graph baselines × 12 tasks; the
+  five learned/trained baselines short-circuit on the empty-graph
+  initial state — see §6 *Failure-mode breakdown* and the discussion
+  in §9)
+* Solved tasks (verifier passed): **41** / 108  (38.0%)
+* Backend: `yandex` — `yandexgpt-lite` (Phase-9 LLM contract) +
+  `text-search-doc/query` embeddings (Phase-4) — calls go through
+  the live AI Studio API authenticated by the SA + IAM bindings
+  provisioned in `infra/terraform/main.tf` (see PR #7).
 
 The pipeline is the one specified in `PLAN.md` §607-617:
 
@@ -27,15 +33,15 @@ benchmarks/                      eval/
 
 | Method | Benchmark | Tasks | Success | Verifier | Tokens/task | Calls/task | Latency (ms) | Cost/task ₽ | Cost/solved ₽ |
 |---|---|---|---|---|---|---|---|---|---|
-| manual_graph | _overall | 20 | 1.00 | 1.00 | 2148 | 9.65 | 8451 | 1.81 | 1.81 |
-| fully_connected | _overall | 20 | 1.00 | 1.00 | 2897 | 9.95 | 7978 | 2.35 | 2.35 |
-| random_sparse | _overall | 20 | 0.350 | 0.850 | 1800 | 8.95 | 6596 | 1.02 | 2.91 |
-| degree_preserving | _overall | 20 | 1.00 | 1.00 | 1129 | 4.35 | 1215 | 0.696 | 0.696 |
-| learned_router_no_prior | _overall | 20 | 0.000 | 0.363 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
-| flybrain_prior_untrained | _overall | 20 | 0.000 | 0.700 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
-| flybrain_sim_pretrain | _overall | 20 | 0.000 | 0.700 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
-| flybrain_imitation | _overall | 20 | 0.000 | 0.700 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
-| flybrain_rl | _overall | 20 | 0.000 | 0.700 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| manual_graph | _overall | 12 | 1.00 | 1.00 | 1836 | 8.50 | 8702 | 1.47 | 1.47 |
+| fully_connected | _overall | 12 | 1.00 | 1.00 | 2488 | 8.67 | 7120 | 1.89 | 1.89 |
+| random_sparse | _overall | 12 | 0.417 | 0.863 | 1162 | 6.25 | 4783 | 0.738 | 1.77 |
+| degree_preserving | _overall | 12 | 1.00 | 1.00 | 1016 | 4.42 | 941 | 0.658 | 0.658 |
+| learned_router_no_prior | _overall | 12 | 0.000 | 0.388 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_prior_untrained | _overall | 12 | 0.000 | 0.658 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_sim_pretrain | _overall | 12 | 0.000 | 0.658 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_imitation | _overall | 12 | 0.000 | 0.658 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_rl | _overall | 12 | 0.000 | 0.658 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
 
 
 ## 3. Per-benchmark breakdown
@@ -44,60 +50,60 @@ benchmarks/                      eval/
 
 | Method | Benchmark | Tasks | Success | Verifier | Tokens/task | Calls/task | Latency (ms) | Cost/task ₽ | Cost/solved ₽ |
 |---|---|---|---|---|---|---|---|---|---|
-| manual_graph | bbh_mini | 5 | 1.00 | 1.00 | 2056 | 9.80 | 6129 | 1.83 | 1.83 |
-| fully_connected | bbh_mini | 5 | 1.00 | 1.00 | 2345 | 9.40 | 4866 | 1.94 | 1.94 |
-| random_sparse | bbh_mini | 5 | 0.200 | 0.880 | 1811 | 9.20 | 5032 | 0.773 | 3.87 |
-| degree_preserving | bbh_mini | 5 | 1.00 | 1.00 | 574 | 3.00 | 0.000 | 0.384 | 0.384 |
-| learned_router_no_prior | bbh_mini | 5 | 0.000 | 0.200 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
-| flybrain_prior_untrained | bbh_mini | 5 | 0.000 | 0.700 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
-| flybrain_sim_pretrain | bbh_mini | 5 | 0.000 | 0.700 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
-| flybrain_imitation | bbh_mini | 5 | 0.000 | 0.700 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
-| flybrain_rl | bbh_mini | 5 | 0.000 | 0.700 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| manual_graph | bbh_mini | 3 | 1.00 | 1.00 | 1787 | 8.33 | 5831 | 1.63 | 1.63 |
+| fully_connected | bbh_mini | 3 | 1.00 | 1.00 | 2124 | 7.67 | 4489 | 1.67 | 1.67 |
+| random_sparse | bbh_mini | 3 | 0.333 | 0.900 | 1032 | 5.33 | 2625 | 0.760 | 2.28 |
+| degree_preserving | bbh_mini | 3 | 1.00 | 1.00 | 553 | 3.00 | 0.000 | 0.379 | 0.379 |
+| learned_router_no_prior | bbh_mini | 3 | 0.000 | 0.200 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_prior_untrained | bbh_mini | 3 | 0.000 | 0.533 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_sim_pretrain | bbh_mini | 3 | 0.000 | 0.533 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_imitation | bbh_mini | 3 | 0.000 | 0.533 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_rl | bbh_mini | 3 | 0.000 | 0.533 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
 
 
 ### gsm8k
 
 | Method | Benchmark | Tasks | Success | Verifier | Tokens/task | Calls/task | Latency (ms) | Cost/task ₽ | Cost/solved ₽ |
 |---|---|---|---|---|---|---|---|---|---|
-| manual_graph | gsm8k | 5 | 1.00 | 1.00 | 2504 | 10.00 | 10587 | 2.01 | 2.01 |
-| fully_connected | gsm8k | 5 | 1.00 | 1.00 | 3282 | 9.80 | 9779 | 2.64 | 2.64 |
-| random_sparse | gsm8k | 5 | 1.00 | 1.00 | 2160 | 9.20 | 8323 | 0.864 | 0.864 |
-| degree_preserving | gsm8k | 5 | 1.00 | 1.00 | 897 | 3.40 | 339 | 0.558 | 0.558 |
-| learned_router_no_prior | gsm8k | 5 | 0.000 | 0.350 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
-| flybrain_prior_untrained | gsm8k | 5 | 0.000 | 0.850 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
-| flybrain_sim_pretrain | gsm8k | 5 | 0.000 | 0.850 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
-| flybrain_imitation | gsm8k | 5 | 0.000 | 0.850 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
-| flybrain_rl | gsm8k | 5 | 0.000 | 0.850 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| manual_graph | gsm8k | 3 | 1.00 | 1.00 | 2002 | 8.00 | 11402 | 1.36 | 1.36 |
+| fully_connected | gsm8k | 3 | 1.00 | 1.00 | 2439 | 7.67 | 7904 | 1.84 | 1.84 |
+| random_sparse | gsm8k | 3 | 1.00 | 1.00 | 1118 | 5.33 | 5183 | 0.712 | 0.712 |
+| degree_preserving | gsm8k | 3 | 1.00 | 1.00 | 717 | 3.00 | 0.000 | 0.432 | 0.432 |
+| learned_router_no_prior | gsm8k | 3 | 0.000 | 0.350 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_prior_untrained | gsm8k | 3 | 0.000 | 0.850 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_sim_pretrain | gsm8k | 3 | 0.000 | 0.850 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_imitation | gsm8k | 3 | 0.000 | 0.850 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_rl | gsm8k | 3 | 0.000 | 0.850 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
 
 
 ### humaneval
 
 | Method | Benchmark | Tasks | Success | Verifier | Tokens/task | Calls/task | Latency (ms) | Cost/task ₽ | Cost/solved ₽ |
 |---|---|---|---|---|---|---|---|---|---|
-| manual_graph | humaneval | 5 | 1.00 | 1.00 | 2668 | 10.20 | 10471 | 2.25 | 2.25 |
-| fully_connected | humaneval | 5 | 1.00 | 1.00 | 3810 | 10.60 | 10038 | 2.99 | 2.99 |
-| random_sparse | humaneval | 5 | 0.000 | 0.730 | 1972 | 8.80 | 6296 | 1.43 | ∞ |
-| degree_preserving | humaneval | 5 | 1.00 | 1.00 | 2320 | 6.80 | 3054 | 1.40 | 1.40 |
-| learned_router_no_prior | humaneval | 5 | 0.000 | 0.450 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
-| flybrain_prior_untrained | humaneval | 5 | 0.000 | 0.550 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
-| flybrain_sim_pretrain | humaneval | 5 | 0.000 | 0.550 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
-| flybrain_imitation | humaneval | 5 | 0.000 | 0.550 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
-| flybrain_rl | humaneval | 5 | 0.000 | 0.550 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| manual_graph | humaneval | 3 | 1.00 | 1.00 | 2212 | 9.67 | 10594 | 1.76 | 1.76 |
+| fully_connected | humaneval | 3 | 1.00 | 1.00 | 3247 | 10.00 | 8318 | 2.38 | 2.38 |
+| random_sparse | humaneval | 3 | 0.000 | 0.700 | 1175 | 5.00 | 5118 | 0.510 | ∞ |
+| degree_preserving | humaneval | 3 | 1.00 | 1.00 | 2237 | 8.33 | 3764 | 1.49 | 1.49 |
+| learned_router_no_prior | humaneval | 3 | 0.000 | 0.383 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_prior_untrained | humaneval | 3 | 0.000 | 0.550 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_sim_pretrain | humaneval | 3 | 0.000 | 0.550 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_imitation | humaneval | 3 | 0.000 | 0.550 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_rl | humaneval | 3 | 0.000 | 0.550 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
 
 
 ### synthetic_routing
 
 | Method | Benchmark | Tasks | Success | Verifier | Tokens/task | Calls/task | Latency (ms) | Cost/task ₽ | Cost/solved ₽ |
 |---|---|---|---|---|---|---|---|---|---|
-| manual_graph | synthetic_routing | 5 | 1.00 | 1.00 | 1363 | 8.60 | 6619 | 1.13 | 1.13 |
-| fully_connected | synthetic_routing | 5 | 1.00 | 1.00 | 2150 | 10.00 | 7227 | 1.82 | 1.82 |
-| random_sparse | synthetic_routing | 5 | 0.200 | 0.790 | 1258 | 8.60 | 6732 | 1.00 | 5.02 |
-| degree_preserving | synthetic_routing | 5 | 1.00 | 1.00 | 723 | 4.20 | 1467 | 0.438 | 0.438 |
-| learned_router_no_prior | synthetic_routing | 5 | 0.000 | 0.450 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
-| flybrain_prior_untrained | synthetic_routing | 5 | 0.000 | 0.700 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
-| flybrain_sim_pretrain | synthetic_routing | 5 | 0.000 | 0.700 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
-| flybrain_imitation | synthetic_routing | 5 | 0.000 | 0.700 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
-| flybrain_rl | synthetic_routing | 5 | 0.000 | 0.700 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| manual_graph | synthetic_routing | 3 | 1.00 | 1.00 | 1342 | 8.00 | 6981 | 1.12 | 1.12 |
+| fully_connected | synthetic_routing | 3 | 1.00 | 1.00 | 2140 | 9.33 | 7767 | 1.66 | 1.66 |
+| random_sparse | synthetic_routing | 3 | 0.333 | 0.850 | 1323 | 9.33 | 6207 | 0.971 | 2.91 |
+| degree_preserving | synthetic_routing | 3 | 1.00 | 1.00 | 559 | 3.33 | 0.000 | 0.336 | 0.336 |
+| learned_router_no_prior | synthetic_routing | 3 | 0.000 | 0.617 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_prior_untrained | synthetic_routing | 3 | 0.000 | 0.700 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_sim_pretrain | synthetic_routing | 3 | 0.000 | 0.700 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_imitation | synthetic_routing | 3 | 0.000 | 0.700 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_rl | synthetic_routing | 3 | 0.000 | 0.700 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
 
 
 
@@ -105,10 +111,10 @@ benchmarks/                      eval/
 
 | Method | Success | Cost / task ₽ | Cost / solved ₽ |
 |---|---|---|---|
-| `manual_graph` | 100.0% | 1.805 | 1.805 |
-| `fully_connected` | 100.0% | 2.349 | 2.349 |
-| `degree_preserving` | 100.0% | 0.696 | 0.696 |
-| `random_sparse` | 35.0% | 1.017 | 2.906 |
+| `manual_graph` | 100.0% | 1.468 | 1.468 |
+| `fully_connected` | 100.0% | 1.887 | 1.887 |
+| `degree_preserving` | 100.0% | 0.658 | 0.658 |
+| `random_sparse` | 41.7% | 0.738 | 1.772 |
 | `learned_router_no_prior` | 0.0% | 0.000 | ∞ |
 | `flybrain_prior_untrained` | 0.0% | 0.000 | ∞ |
 | `flybrain_sim_pretrain` | 0.0% | 0.000 | ∞ |
@@ -118,8 +124,9 @@ benchmarks/                      eval/
 
 ## 5. Cherry-picked traces
 
-* `/tmp/bench_yandex/degree_preserving/bbh_mini/bbh_mini__boolean_expressions__0001.trace.json` — highest-scoring solved trace (bbh_mini/boolean_expressions/0001, score=1.00)
-* `/tmp/bench_yandex/flybrain_imitation/bbh_mini/bbh_mini__boolean_expressions__0001.trace.json` — failure mode = `final_answer` (bbh_mini/boolean_expressions/0001)
+* `data/experiments/bench_yandex_2026_05_01/cherry/manual_graph__humaneval_HumanEval-1.trace.json` — manual MAS graph + ManualController solving HumanEval-1 (`add(a, b)`) in 8 steps × YandexGPT-Lite, 0.26 ₽ / step.
+* `data/experiments/bench_yandex_2026_05_01/cherry/fully_connected__synthetic_routing_0000.trace.json` — fully-connected router exploring more agents (Coder→Reviewer→Tester loop) on a routing task.
+* `data/experiments/bench_yandex_2026_05_01/cherry/degree_preserving__gsm8k_00000.trace.json` — degree-preserving random graph still solves GSM8K-001 with 3 LLM calls / 0.43 ₽.
 
 
 ## 6. Failure-mode breakdown
@@ -168,90 +175,15 @@ Compare `manual_graph`, `fully_connected`, `random_sparse`, `flybrain_prior_untr
 
 ### Experiment 2 — Embedding ablation
 
-Run `flybrain-py bench --suite embedding_ablation --backend mock` (5 tasks × 4
-benchmarks × 5 levels). The five levels mask out feature groups in the
-controller's `ControllerStateBuilder` (`flybrain.embeddings.state`):
-
-| Level | Suite row | Feature mask removed | Verifier pass-rate |
-|---|---|---|---|
-| L1 | `emb_ablation_none`            | (everything zeroed)                | 0.700 |
-| L2 | `emb_ablation_task`            | + task                             | 0.438 |
-| L3 | `emb_ablation_task_agent`      | + task + agent                     | 0.425 |
-| L4 | `emb_ablation_task_agent_trace`| + task + agent + trace             | 0.425 |
-| L5 | `emb_ablation_full`            | + task + agent + trace + graph + fly | 0.350 |
-
-End-to-end success is 0% across all rows because the action head is untrained
-(same caveat as the `learned_router_no_prior` row in section 2). The verifier
-pass-rate is the right metric to read here — it tracks how well the
-controller's intermediate outputs match the rule-based component checker.
-The drop as features turn *on* is the expected sign that the untrained MLP
-mixes the extra features into noise; once the head is trained (Phase 6–8)
-the curve should flip. Raw numbers in
-[`data/experiments/exp2_embedding_ablation/comparison_overall.md`](../data/experiments/exp2_embedding_ablation/comparison_overall.md).
+Controller variants `learned_router_no_prior` (no embeddings) vs. `flybrain_prior_untrained` (task + agent + graph embeddings) are both in `full_min`; deeper ablations (task-only, task+agent, +trace, +graph) require running individual controller configs in `configs/eval/`.
 
 ### Experiment 3 — Verification ablation
 
-Run `flybrain-py bench --suite verifier_ablation --backend mock` (5 tasks × 4
-benchmarks × 4 levels), all using the FlyBrain-prior controller (#6) with only
-the verifier varying:
-
-| Level | Suite row | `verification_mode` | Success rate | Verifier pass-rate |
-|---|---|---|---|---|
-| L1 | `verif_ablation_off`   | off    | 1.000 (trivial)  | 1.000 |
-| L2 | `verif_ablation_final` | final  | 0.000            | 0.700 |
-| L3 | `verif_ablation_step`  | step   | 0.000            | 0.400 |
-| L4 | `verif_ablation_full`  | full   | 0.000            | 0.700 |
-
-L1's "100% success" is trivial — disabling the verifier means every run is
-recorded as passed; the contrast against L2-L4 shows the verifier is the
-binding constraint, not the controller. Per-step (`step`) and final-only
-(`final`) report different verifier pass-rates because the per-step pipeline
-includes the LLM judges, which detect issues the rule-based checker misses
-(hence L3 < L2). L4 (full) runs *both* and matches L2 here because the
-final-task verdict dominates the trace summary. Raw numbers in
-[`data/experiments/exp3_verifier_ablation/comparison_overall.md`](../data/experiments/exp3_verifier_ablation/comparison_overall.md).
+The verifier is on/off via `MASConfig.verification_mode`. The current run uses the full layer; toggling needs a config override — track via a follow-up benchmark slice and re-run `flybrain-py report`.
 
 ### Experiment 4 — Training ablation
 
-The full §18 progression is `flybrain_prior_untrained` → `flybrain_graph_ssl_pretrain`
-→ `flybrain_sim_pretrain` → `flybrain_imitation` → `flybrain_rl` — five
-levels covering "no training" through "fly-prior + RL fine-tune".
-The new row is the **graph self-supervised pretrain** described in
-README §12.5: a 2-layer GCN encoder is trained with link-prediction +
-masked-node objectives on the K=64 fly graph, and the resulting
-`(w0, w1)` weights replace the deterministic Gaussian projection in
-`AgentGraphEmbedder`. Run it with:
-
-```bash
-python scripts/run_graph_ssl_pretrain.py --graph data/graphs/fly_graph_64.fbg \
-    --epochs 200 --hidden-dim 32 --out-dim 32 --output data/checkpoints/graph_ssl_K64.npz
-```
-
-K=64 fly graph (real prior), 200 epochs, AdamW, lr=1e-2, mask-rate=0.15:
-
-| Metric | Value |
-|---|---|
-| Nodes | 64 |
-| Edges (undirected) | 844 |
-| Loss[0] / Loss[final] | 1.97 / 1.42 |
-| Link AUC[0] / Link AUC[final] | 0.73 / **0.85** |
-| Wall-clock | ~5 s (CPU) |
-
-Raw metrics in
-[`data/experiments/exp4_training_ablation/graph_ssl_pretrain.metrics.json`](../data/experiments/exp4_training_ablation/graph_ssl_pretrain.metrics.json).
-Run the bench against the full ablation with
-`flybrain-py bench --suite training_ablation`; the registry now exposes
-`flybrain_graph_ssl_pretrain` as the second row of that suite (the
-factory loads the SSL checkpoint and patches the encoder; falls back
-gracefully to the random projection when the checkpoint is missing,
-so the row is still safe to register at import time in CI).
-
-On the **mock backend** all five rows post identical numbers — the
-deterministic mock LLM ignores the controller variations — so the
-real signal here is on YandexGPT, where the SSL row should sit
-between `prior_untrained` and `sim_pretrain` (better verifier
-pass-rate from a smarter graph encoder, but the action head is still
-untrained at this stage).
+`flybrain_prior_untrained` → `flybrain_sim_pretrain` → `flybrain_imitation` → `flybrain_rl` is exactly the training progression; rows in section 2 above show the four points.
 
 ### Experiment 5 — Full-benchmark generalization
 
