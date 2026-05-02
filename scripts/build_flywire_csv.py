@@ -46,22 +46,24 @@ EXCITATORY = {"ach", "glut", "oct", "da"}
 def _argmax_per_neuron(
     pairs: tuple[np.ndarray, np.ndarray, np.ndarray],
 ) -> dict[int, str]:
-    """Return ``neuron_id -> string-with-max-cumulative-weight``.
+    """Return ``neuron_id -> key-with-max-cumulative-weight``.
 
-    Inputs are equal-length arrays ``(neuron, key, weight)``. Implemented as a
-    sort + groupby to stay vectorised.
+    Inputs are equal-length arrays ``(neuron, key, weight)``. The key
+    chosen for each neuron is the one whose ``sum(weight)`` over all
+    rows ``(neuron, key, w)`` is largest — i.e. the dominant
+    neuropil / neurotransmitter by total synapse count, not the
+    single highest-weight row. Ties broken by lexicographic key.
     """
-    neuron, key, weight = pairs
-    # Sort by neuron asc, then weight desc so the first row per neuron is the
-    # argmax key.
-    order = np.lexsort((-weight, neuron))
-    neuron_s = neuron[order]
-    key_s = key[order]
-    # Pick the first row per neuron.
-    first = np.empty_like(neuron_s, dtype=bool)
-    first[0] = True
-    first[1:] = neuron_s[1:] != neuron_s[:-1]
-    return dict(zip(neuron_s[first].tolist(), key_s[first].tolist(), strict=True))
+    import pandas as pd
+
+    df = pd.DataFrame({"neuron": pairs[0], "key": pairs[1], "weight": pairs[2]})
+    grouped = (
+        df.groupby(["neuron", "key"], sort=False, as_index=False)["weight"]
+        .sum()
+        .sort_values(["neuron", "weight", "key"], ascending=[True, False, True])
+    )
+    first = grouped.drop_duplicates(subset=["neuron"], keep="first")
+    return dict(zip(first["neuron"].tolist(), first["key"].tolist(), strict=True))
 
 
 def main() -> None:

@@ -218,8 +218,11 @@ def flybrain_prior_graph(
         if not bucket:
             # No fly-derived outgoing edge survived the threshold —
             # fall back to a single-edge link to the global hub so
-            # the agent isn't orphaned.
-            fallback = hub if hub != src else next((n for n in agent_names if n != src), src)
+            # the agent isn't orphaned. With a single-agent run no
+            # non-self edge exists; skip rather than emit a self-loop.
+            fallback = hub if hub != src else next((n for n in agent_names if n != src), None)
+            if fallback is None:
+                continue
             edges[src] = {fallback: 1.0}
             continue
         # Stable tie-breaking: weight desc, then name asc, plus a

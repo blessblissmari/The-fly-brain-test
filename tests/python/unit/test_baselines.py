@@ -103,6 +103,15 @@ def test_flybrain_prior_graph_handles_empty_agents() -> None:
     assert g == {"nodes": [], "edges": {}}
 
 
+def test_flybrain_prior_graph_skips_self_loop_for_single_agent() -> None:
+    """Single-agent runs have no possible non-self destination — the
+    builder must not invent one (HANDOFF.md §4.a Q1 fly-prior contract
+    forbids self-loops)."""
+    g = flybrain_prior_graph(["solo"])
+    assert g["nodes"] == ["solo"]
+    assert g["edges"].get("solo", {}) == {}
+
+
 # -- registry ------------------------------------------------------------------
 
 
