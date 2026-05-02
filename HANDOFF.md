@@ -317,5 +317,191 @@ specific subsystem is broken.
 
 ---
 
+## 10. What's needed for 100 % efficiency across the board
+
+The repo is at ~80 % of "ideal". Here's the prioritized roadmap to
+close the remaining 20 %, broken down by axis (cost / success rate /
+coverage / latency / infra / governance) with effort estimates and
+expected gains.
+
+### 10.a Quality (success rate) — biggest open lever
+
+| # | Task | Effort | Expected gain |
+|---|---|---|---|
+| Q1 | **Fix trained-baseline empty-graph bug.** Ship a `flybrain_prior_graph(agent_names)` builder using the actual FlyBrain adjacency in `data/flybrain/` and use it in `_flybrain_with_checkpoint` instead of `empty_graph`. | 1d | unlock 4 baselines from 0 % → ≥ `manual_graph` 84 % |
+| Q2 | **Resolve emb-dim mismatch + checkpoint loading.** Add `--emb-dim` to `scripts/run_simulation_pretrain.py` + `run_imitation.py`, train at registry dims (32), drop checkpoints into `data/checkpoints/`, register auto-fallback in `_flybrain_with_checkpoint`. | 0.5d | enables Q1 to actually load weights |
+| Q3 | **Run all 5 README §18 ablations end-to-end on live YandexGPT, not just mock.** Currently `embedding_ablation` and `verifier_ablation` suites exist as code but produce 0 % live (same empty-graph problem). After Q1, re-run them at N=50 and write up the ablation curves in `docs/final_report.md`. | 1d + ~200 ₽ | converts §18 from "5/5 framework" to "5/5 with cherry-picked numbers" |
+| Q4 | **Curriculum-learning Phase 7.5.** Right now `flybrain_imitation` learns from a single trace dataset. The README §12.3 calls for distillation-from-Yandex-Pro: collect 200 expert traces with `yandexgpt-pro` (~600 ₽), then imitate with `yandexgpt-lite`. | 2d + ~600 ₽ | flybrain_imitation expected ≥ 88 % (above `manual_graph`) |
+| Q5 | **PPO Phase 8 against the real verifier.** `flybrain_rl` is currently REINFORCE-light against a sim verifier. PPO + the production verifier (Phase 3) on `synthetic_routing` should match `fully_connected` at lower cost. | 3d + ~400 ₽ | expected new top: ~ 96 % at ~ 0.7 ₽/solved |
+
+### 10.b Cost / efficiency — already strong, marginal gains
+
+| # | Task | Effort | Expected gain |
+|---|---|---|---|
+| C1 | **Pre-emptive budget cap.** `BudgetTracker` should stop at e.g. `0.7 × hard_cap` so in-flight workers don't overshoot. Last run requested 1000 ₽, spent 1518 ₽ at `--parallelism 4`. | 0.5d | strict cap adherence (overshoot < 5 %) |
+| C2 | **Cache warmer.** Run `flybrain-py bench --backend yandex --suite cache_prime` once before each big run to populate `yandex_cache.sqlite` with the deterministic system prompts (≈ 30 ₽). After that, all baselines re-running the same task pay only for the dynamic content. | 0.5d | ~ 25 % cost cut on repeated benches |
+| C3 | **Use `yandexgpt-lite-rc` for low-stakes agents.** Reviewer / Tester / Critic agents don't need the full quality of `yandexgpt-lite`. Wire a per-agent model override in `flybrain/agents/specs.py`. | 0.5d | ~ 15 % cost cut |
+| C4 | **Distill verifier into the controller.** Drop the per-step verifier LLM call (currently ~30 % of budget) once the controller is trained well enough to self-verify. | 1d | ~ 30 % cost cut, ~ 2 pp success cost |
+
+### 10.c Coverage — closes the §18 / §19 gaps
+
+| # | Task | Effort | Expected gain |
+|---|---|---|---|
+| V1 | **Real fixtures for HumanEval / GSM8K / BBH-mini.** Currently only 5 tasks each because the on-disk fixtures are seed sets. Download the public datasets, trim to ~50-100 tasks (rules in `flybrain/benchmarks/loaders/*.py`). | 0.5d + ~100 ₽ for re-bench | tighter confidence intervals on 3/4 benchmarks |
+| V2 | **Add `MMLU-mini` benchmark.** Multi-choice reasoning is currently absent; the `benchmarks/loaders/` skeleton has a TODO. | 1d + ~80 ₽ for first run | new benchmark dimension |
+| V3 | **Add `swe-bench-lite` adapter.** Real-world software engineering tasks; tests the full multi-agent loop with shell tools. Loader skeleton exists in `loaders/swe.py`. | 2d + ~300 ₽ | flagship demo benchmark |
+| V4 | **Cross-LLM evaluation.** Run the same suite with `gpt-4o-mini` and `claude-haiku` (proxy through OpenRouter or direct API) to validate that the FlyBrain advantage is LLM-agnostic. | 1d + ~200 ₽ + provider keys | strong evidence for §17 hypothesis |
+
+### 10.d Latency — production readiness
+
+| # | Task | Effort | Expected gain |
+|---|---|---|---|
+| L1 | **Async LLM calls.** `YandexClient` currently blocks per-call. Make it async-native, run agent calls in parallel where the graph allows. | 1d | -40 % wall time on `fully_connected` |
+| L2 | **Rust agent step.** Move the hot loop (controller → graph → next-agent selection) to Rust via the existing `tch-rs` integration in `crates/`. | 4d | -60 % per-step overhead |
+| L3 | **Speculative decoding.** Run a small model (Reviewer) speculatively while the big model (Coder) is generating; reject/accept. Yandex AI Studio supports this. | 2d | -30 % wall time on long tasks |
+
+### 10.e Infrastructure — get to fully-managed prod
+
+| # | Task | Effort | Expected gain |
+|---|---|---|---|
+| I1 | **Apply DataSphere.** Provide `organization_id` + `billing_account_id` and `terraform apply -var enable_datasphere=true`. PLAN.md §622. | 0.5d | unlocks managed notebooks + jobs |
+| I2 | **CD pipeline → Container Registry.** GitHub Actions workflow that builds `infra/Dockerfile` and pushes to `crpghr3v5l1tg0esqkt7` on every `main` commit. Skeleton exists in `.github/workflows/docker-build.yml`. | 0.5d | one-click prod deploy |
+| I3 | **Cloud Run / DataSphere job for nightly bench.** Trigger a small bench (5 tasks/benchmark) every night, post results to a Telegram bot or Slack. Detects regressions early. | 1d + ~10 ₽/night | continuous quality signal |
+| I4 | **Cost dashboard.** Stream `cost_rub` from each bench into a YDB table; visualize with DataLens. | 1d | budget visibility |
+
+### 10.f Governance / observability
+
+| # | Task | Effort | Expected gain |
+|---|---|---|---|
+| G1 | **Structured logging.** Replace `print(...)` in the runner with `structlog` JSON logs; pipe to YC Cloud Logging. | 0.5d | searchable per-task traces |
+| G2 | **W&B / MLflow integration.** Track every training run + bench result. PLAN.md §615 mentions W&B as a stretch. | 1d | training reproducibility |
+| G3 | **PII / prompt-injection guardrails.** Add an input filter (Phase 9.5) that blocks tasks with PII or known prompt-injection patterns before they hit the LLM. | 1d | compliance |
+| G4 | **Snapshot tests for each baseline trace.** Pin one canonical trace per baseline as the "blessed" output; CI fails if a refactor changes it. | 0.5d | regression safety net |
+
+### 10.g Documentation — last-mile polish
+
+| # | Task | Effort | Expected gain |
+|---|---|---|---|
+| D1 | **Auto-update `docs/final_report.md` on every bench commit.** Currently manual. A pre-push hook that reruns `flybrain-py report` keeps the report in sync. | 0.5d | always-fresh report |
+| D2 | **Tutorial notebook.** End-to-end: load connectome → reduce graph → train controller → run bench → read trace. Skeleton in `notebooks/`. | 1d | better onboarding |
+| D3 | **Architecture diagram.** Mermaid graph in `README.md` showing the data flow from connectome → controller → MAS → trace → eval. | 0.5d | conceptual clarity |
+
+### 10.h Total effort estimate
+
+| Track | Effort | Cost (Yandex API) |
+|---|---|---|
+| 10.a Quality | ~ 7.5 d | ~ 1200 ₽ |
+| 10.b Cost | ~ 2.5 d | ~ 30 ₽ |
+| 10.c Coverage | ~ 4.5 d | ~ 680 ₽ |
+| 10.d Latency | ~ 7 d | 0 ₽ |
+| 10.e Infra | ~ 3 d | ~ 50 ₽ |
+| 10.f Governance | ~ 3 d | 0 ₽ |
+| 10.g Docs | ~ 2 d | 0 ₽ |
+| **Total** | **~ 29.5 dev-days** | **~ 1960 ₽** |
+
+If only one track is funded, prioritize **10.a Quality** — it's the
+biggest unlock relative to effort. Q1 + Q2 alone (1.5 days) takes
+the trained baselines from 0 % to ≥ 84 % and changes the headline
+narrative completely.
+
+---
+
+## 11. Secrets required to run the system
+
+Inventory of every credential the codebase reads, why it's needed,
+and how to obtain it. Nothing here should ever be committed to git
+— store in `.env` (gitignored) for local use, or in the org-level
+secret manager for shared access.
+
+### 11.a Yandex Cloud — required for live bench + infra
+
+| Variable | Required for | How to get | Scope / lifetime |
+|---|---|---|---|
+| `YANDEX_FOLDER_ID` | every live bench (`--backend yandex`); identifies the folder where API calls are billed | `yc config get folder-id` (or pull from `infra/terraform/` outputs); current value `b1gf9v57bv1vhagq9gsr` | permanent, **not sensitive** |
+| `YANDEX_API_KEY` | every live bench; long-lived API key for the SA `flybrain-sa` (`ajemvvngo4s4gjai7p2r`) | `yc iam api-key create --service-account-id ajemvvngo4s4gjai7p2r --description "flybrain-py bench"` (returns the key once — copy immediately) | indefinite, **highly sensitive** — rotate quarterly |
+| `YC_TOKEN` | `terraform apply` for infra changes; short-lived IAM token for the YC Terraform provider | `yc iam create-token \| tr -d '[:space:]'` (the trim is critical — RFC 6750 forbids whitespace; without it you'll see `Token contains an illegal character ' '`) | **12 h**, **sensitive** |
+| `cloud_id` | `terraform apply` only; identifies the YC cloud (parent of folder) | `yc config get cloud-id` | permanent, **not sensitive** |
+| `TF_VAR_folder_id` | `terraform apply` only; same value as `YANDEX_FOLDER_ID` | as above | permanent, **not sensitive** |
+
+Optional, only for the DataSphere extension (PLAN.md §622, gated by
+`-var enable_datasphere=true`):
+
+| Variable | Required for | How to get |
+|---|---|---|
+| `TF_VAR_organization_id` | DataSphere community provisioning | `yc organization-manager organization list --format json \| jq -r '.[].id'` |
+| `TF_VAR_billing_account_id` | DataSphere community billing link | `yc billing account list --format json \| jq -r '.[].id'` |
+
+### 11.b GitHub — required for PR creation + CI
+
+| Variable | Required for | How to get |
+|---|---|---|
+| `github_token` (or `GITHUB_TOKEN` in CI) | pushing branches, opening PRs, merging from automation | already provisioned in Devin's environment; for human local use, generate a fine-grained PAT at https://github.com/settings/tokens with `Contents: write`, `Pull requests: write` on `blessblissmari/The-fly-brain-test` |
+
+CI itself only needs the implicit `GITHUB_TOKEN` exposed by GitHub
+Actions; no extra secrets are required for the workflows to run.
+
+### 11.c Optional — only used by features that aren't on the default path
+
+| Variable | Required for | How to get |
+|---|---|---|
+| `YANDEX_SEARCH_API_KEY` | the live `WebSearchTool` (PR #5) instead of the fixture; only used by agents that have `default_tool="web_search"` | https://yandex.cloud/en/docs/search-api/quickstart |
+| `YANDEX_SEARCH_FOLDER_ID` | same as above; folder where Search API quotas are billed (can be the same folder as `YANDEX_FOLDER_ID`) | as `YANDEX_FOLDER_ID` |
+| `WANDB_API_KEY` | future W&B integration (Q5 in §10.f) | https://wandb.ai/authorize |
+| `OPENROUTER_API_KEY` | cross-LLM evaluation (V4 in §10.c) | https://openrouter.ai/keys |
+| `DEVIN_API_KEY` | child Devin sessions (if you parallelize work via `devin_mcp`) | https://app.devin.ai/settings/api-keys |
+
+### 11.d Local-only (fine to keep in `.env`)
+
+| Variable | Default | Notes |
+|---|---|---|
+| `YANDEX_API_BASE` | `https://llm.api.cloud.yandex.net` | only override for testing against a mock endpoint |
+| `FLYBRAIN_BASELINE_SIM_PRETRAIN` | unset | path to `*.pt` checkpoint; loaded by `flybrain_sim_pretrain` baseline (auto-fallback to `data/checkpoints/sim_pretrain_gnn.pt` after Q2 fix) |
+| `FLYBRAIN_BASELINE_IMITATION` | unset | same pattern, for `flybrain_imitation` |
+| `FLYBRAIN_BASELINE_RL` | unset | same pattern, for `flybrain_rl` |
+| `FLYBRAIN_TRACE_DIR` | unset | optional; if set, traces are written here instead of the bench `--output` dir |
+
+### 11.e Recommended `.env` layout for local dev
+
+```dotenv
+# Required for any --backend yandex bench
+YANDEX_FOLDER_ID=b1gf9v57bv1vhagq9gsr
+YANDEX_API_KEY=AQVN...                   # from `yc iam api-key create`
+
+# Required for `terraform apply`
+YC_TOKEN=t1.9eu...                       # from `yc iam create-token`, no whitespace
+TF_VAR_cloud_id=b1g...
+TF_VAR_folder_id=b1gf9v57bv1vhagq9gsr
+
+# Optional — uncomment when needed
+# YANDEX_SEARCH_API_KEY=AQVN...
+# YANDEX_SEARCH_FOLDER_ID=b1gf9v57bv1vhagq9gsr
+# WANDB_API_KEY=...
+# OPENROUTER_API_KEY=sk-or-v1-...
+# FLYBRAIN_BASELINE_SIM_PRETRAIN=data/checkpoints/sim_pretrain_gnn.pt
+# FLYBRAIN_BASELINE_IMITATION=data/checkpoints/imitation_gnn.pt
+# FLYBRAIN_BASELINE_RL=data/checkpoints/rl_gnn.pt
+```
+
+Load with `set -a; source .env; set +a` in bash, or
+`uv run --env-file .env flybrain-py ...`.
+
+### 11.f Rotation / revocation
+
+* **`YANDEX_API_KEY`**: rotate every 90 days. Old key:
+  `yc iam api-key delete <key-id>`. New key:
+  `yc iam api-key create --service-account-id ajemvvngo4s4gjai7p2r`.
+* **`YC_TOKEN`**: expires automatically every 12 h; nothing to do.
+* **`github_token`**: GitHub auto-revokes inactive fine-grained PATs
+  after 1 year; rotate before then via
+  https://github.com/settings/tokens.
+* **If a key leaks**: `yc iam api-key delete --id <leaked-id>` first,
+  then `yc iam access-key delete` for the static S3 access key, then
+  `yc iam access-key create` to generate a new one. Update Terraform
+  state with `terraform apply` (the static key will rotate
+  automatically because it's managed by the
+  `yandex_iam_service_account_static_access_key` resource).
+
+---
+
 _Questions? See `docs/verification_phase_0_11.md` for the
 phase-by-phase deep dive, or open an issue on the repo._
