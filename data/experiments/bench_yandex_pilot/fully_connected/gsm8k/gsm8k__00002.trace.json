@@ -1,0 +1,123 @@
+{
+  "final_answer": "final_answer: $70,000",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.21960000693798065,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Calculate the total cost of the house after repairs. 2. Determine the increased value of the house after the r\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777724756092,
+      "tokens_in": 129,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.17720000445842743,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "5",
+      "latency_ms": 2829,
+      "output_summary": "Step 1: Calculate the total cost of the house after repairs. The initial cost of the house is $80,000, and the cost of \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777724758922,
+      "tokens_in": 201,
+      "tokens_out": 242,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1777724758922,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.16439999639987946,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "17",
+      "latency_ms": 471,
+      "output_summary": "final_answer: $70,000",
+      "step_id": 3,
+      "t_unix_ms": 1777724759394,
+      "tokens_in": 400,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1777724759394,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00002",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.5612000226974487,
+    "failed_tool_calls": 0,
+    "latency_ms": 3300,
+    "llm_calls": 3,
+    "tokens_in": 730,
+    "tokens_out": 307,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

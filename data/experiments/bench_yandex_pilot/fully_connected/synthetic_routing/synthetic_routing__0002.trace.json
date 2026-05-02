@@ -1,0 +1,135 @@
+{
+  "final_answer": "final_answer: Recent studies on fly connectomes have utilized advanced imaging techniques such as electron microscopy t\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.1728000044822693,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Identify the most recent studies on fly connectomes published in reputable scientific journals. 2. Extract key\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777724793794,
+      "tokens_in": 68,
+      "tokens_out": 76,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.10719999670982361,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 1376,
+      "output_summary": "1. Recent studies on fly connectomes have utilized advanced imaging techniques such as electron microscopy to map neura\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777724795171,
+      "tokens_in": 188,
+      "tokens_out": 80,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Summarise the latest results on fly connectomes."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1777724795171,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.10760000348091125,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "17",
+      "latency_ms": 1213,
+      "output_summary": "final_answer: Recent studies on fly connectomes have utilized advanced imaging techniques such as electron microscopy t\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777724796385,
+      "tokens_in": 194,
+      "tokens_out": 75,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1777724796385,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0002",
+  "task_type": "research",
+  "totals": {
+    "cost_rub": 0.38760000467300415,
+    "failed_tool_calls": 0,
+    "latency_ms": 2589,
+    "llm_calls": 3,
+    "tokens_in": 450,
+    "tokens_out": 231,
+    "tool_calls": 1
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

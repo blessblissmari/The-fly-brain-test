@@ -1,0 +1,142 @@
+{
+  "final_answer": "```python def merge_sort(arr: list) -> list:     if len(arr) > 1:         mid = len(arr) // 2         left_half = arr[:\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.1932000070810318,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Define the merge sort function with appropriate type hints for the input and output. 2. Implement the merge fu\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777724933886,
+      "tokens_in": 67,
+      "tokens_out": 94,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.16519999504089355,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 0,
+      "output_summary": "```python from typing import List, Iterable  def merge_sort(arr: List[int]) -> List[int]:     if len(arr) <= 1:        \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777724933887,
+      "tokens_in": 185,
+      "tokens_out": 228,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.2935999929904938,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "```python from typing import List  def merge_sort(arr: List[int]) -> List[int]:     if len(arr) > 1:         mid = len(\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777724933888,
+      "tokens_in": 88,
+      "tokens_out": 646,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 3,
+      "t_unix_ms": 1777724933888,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.23960000276565552,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "```python def merge_sort(arr: list) -> list:     if len(arr) > 1:         mid = len(arr) // 2         left_half = arr[:\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777724933889,
+      "tokens_in": 81,
+      "tokens_out": 518,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 5,
+      "t_unix_ms": 1777724933889,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0008",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.8915999531745911,
+    "failed_tool_calls": 0,
+    "latency_ms": 0,
+    "llm_calls": 4,
+    "tokens_in": 421,
+    "tokens_out": 1486,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

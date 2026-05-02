@@ -1,0 +1,123 @@
+{
+  "final_answer": "$96x + 72 = 69$  Step 1: Subtract 72 from both sides of the equation to isolate the term with the variable. $96x + 72 -\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.1703999936580658,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1089,
+      "output_summary": "Plan: 1. Subtract 72 from both sides of the equation to isolate the term with x. 2. Simplify the equation to get 96x = \u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777724704382,
+      "tokens_in": 74,
+      "tokens_out": 68,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0868000015616417,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1927,
+      "output_summary": "Step 1: Subtract 72 from both sides of the equation to isolate the term with the variable $x$. \\[ 96x + 72 - 72 = 69 - \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777724706310,
+      "tokens_in": 75,
+      "tokens_out": 142,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1777724706310,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.08720000088214874,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1717,
+      "output_summary": "$96x + 72 = 69$  Step 1: Subtract 72 from both sides of the equation to isolate the term with the variable. $96x + 72 -\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777724708027,
+      "tokens_in": 83,
+      "tokens_out": 135,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1777724708027,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0005",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.34439998865127563,
+    "failed_tool_calls": 0,
+    "latency_ms": 4733,
+    "llm_calls": 3,
+    "tokens_in": 232,
+    "tokens_out": 345,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "final_answer": "```python def add(a: int, b: int) -> int:     \"\"\"Return a + b.     >>> add(1, 2)     3     \"\"\"     return a + b ```  `f\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.25920000672340393,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Define the function `add` with two parameters `a` and `b`. 2. Ensure that the function returns the sum of `a` \u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777724740809,
+      "tokens_in": 130,
+      "tokens_out": 86,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.11640000343322754,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 869,
+      "output_summary": "```python def add(a: int, b: int) -> int:     \"\"\"Return a + b.     >>> add(1, 2)     3     \"\"\"     return a + b ```",
+      "step_id": 1,
+      "t_unix_ms": 1777724741679,
+      "tokens_in": 242,
+      "tokens_out": 49,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.17080000042915344,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "25",
+      "latency_ms": 2428,
+      "output_summary": "```python import unittest  class TestAdd(unittest.TestCase):     def test_add_positive_numbers(self):         self.asse\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777724744107,
+      "tokens_in": 218,
+      "tokens_out": 209,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 3,
+      "t_unix_ms": 1777724744107,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.19120000302791595,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "31",
+      "latency_ms": 1327,
+      "output_summary": "```python def add(a: int, b: int) -> int:     \"\"\"Return a + b.     >>> add(1, 2)     3     \"\"\"     return a + b ```  `f\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777724745434,
+      "tokens_in": 386,
+      "tokens_out": 92,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 5,
+      "t_unix_ms": 1777724745434,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-1",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.7376000285148621,
+    "failed_tool_calls": 0,
+    "latency_ms": 4624,
+    "llm_calls": 4,
+    "tokens_in": 976,
+    "tokens_out": 436,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

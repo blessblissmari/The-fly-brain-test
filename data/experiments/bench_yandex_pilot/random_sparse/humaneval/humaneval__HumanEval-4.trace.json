@@ -1,0 +1,88 @@
+{
+  "final_answer": "```python def is_even(n: int) -> bool:     return n % 2 == 0 ```",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "random",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": null,
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_retriever"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_retriever invoked (memory=0, corpus=0)",
+      "step_id": 0,
+      "t_unix_ms": 1777724818265,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.06279999762773514,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 636,
+      "output_summary": "```python def is_even(n: int) -> bool:     return n % 2 == 0 ```",
+      "step_id": 1,
+      "t_unix_ms": 1777724818901,
+      "tokens_in": 130,
+      "tokens_out": 27,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1777724818902,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-4",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.06279999762773514,
+    "failed_tool_calls": 0,
+    "latency_ms": 636,
+    "llm_calls": 1,
+    "tokens_in": 130,
+    "tokens_out": 27,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: plan",
+      "[rule] missing component: tests_run"
+    ],
+    "failed_component": "plan",
+    "passed": false,
+    "reward_delta": -0.20000000298023224,
+    "score": 0.699999988079071,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

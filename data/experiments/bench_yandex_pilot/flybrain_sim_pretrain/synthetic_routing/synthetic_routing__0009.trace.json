@@ -1,0 +1,258 @@
+{
+  "final_answer": "schema:invalid_output (no output related to the math task)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.16920000314712524,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Recognize that the expression can be simplified by first adding the numbers inside the parentheses. 2. Calcula\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777725024670,
+      "tokens_in": 71,
+      "tokens_out": 70,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.05559999868273735,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Step 1: First, we need to simplify the expression inside the parentheses. Step 2: Calculate $11 + 94 = 105$. Step 3: No\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777725024673,
+      "tokens_in": 72,
+      "tokens_out": 67,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.07599999755620956,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 561,
+      "output_summary": "```python final_answer = (11 + 94) ** 63 ```",
+      "step_id": 2,
+      "t_unix_ms": 1777725025236,
+      "tokens_in": 169,
+      "tokens_out": 21,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.047600001096725464,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 695,
+      "output_summary": "```python result = (11 + 94) ** 63 final_answer = result print(final_answer) ```",
+      "step_id": 3,
+      "t_unix_ms": 1777725025935,
+      "tokens_in": 87,
+      "tokens_out": 32,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.047600001096725464,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python result = (11 + 94) ** 63 final_answer = result print(final_answer) ```",
+      "step_id": 4,
+      "t_unix_ms": 1777725025940,
+      "tokens_in": 87,
+      "tokens_out": 32,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.047600001096725464,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "```python result = (11 + 94) ** 63 final_answer = result print(final_answer) ```",
+      "step_id": 5,
+      "t_unix_ms": 1777725025943,
+      "tokens_in": 87,
+      "tokens_out": 32,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.047600001096725464,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "```python result = (11 + 94) ** 63 final_answer = result print(final_answer) ```",
+      "step_id": 6,
+      "t_unix_ms": 1777725025951,
+      "tokens_in": 87,
+      "tokens_out": 32,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.047600001096725464,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "```python result = (11 + 94) ** 63 final_answer = result print(final_answer) ```",
+      "step_id": 7,
+      "t_unix_ms": 1777725025954,
+      "tokens_in": 87,
+      "tokens_out": 32,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04399999976158142,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 496,
+      "output_summary": "schema:invalid_output (no output related to the math task provided)",
+      "step_id": 8,
+      "t_unix_ms": 1777725026454,
+      "tokens_in": 95,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04560000076889992,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 482,
+      "output_summary": "schema:invalid_output (no output related to the math task)",
+      "step_id": 9,
+      "t_unix_ms": 1777725026940,
+      "tokens_in": 100,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04560000076889992,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output related to the math task)",
+      "step_id": 10,
+      "t_unix_ms": 1777725026944,
+      "tokens_in": 100,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04560000076889992,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output related to the math task)",
+      "step_id": 11,
+      "t_unix_ms": 1777725026948,
+      "tokens_in": 100,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0009",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.7196000218391418,
+    "failed_tool_calls": 0,
+    "latency_ms": 2237,
+    "llm_calls": 12,
+    "tokens_in": 1142,
+    "tokens_out": 375,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

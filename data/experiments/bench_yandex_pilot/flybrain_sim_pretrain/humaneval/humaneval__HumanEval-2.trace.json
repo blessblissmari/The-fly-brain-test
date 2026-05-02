@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (function does not match expected output format)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.243599995970726,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Define the function `reverse_string` with a single parameter `s`. 2. Use Python's slicing feature to reverse t\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777724966032,
+      "tokens_in": 131,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.11159999668598175,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 0,
+      "output_summary": "```python def reverse_string(s: str) -> str:     \"\"\"Return s reversed.     >>> reverse_string('abc')     'cba'     \"\"\" \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777724966035,
+      "tokens_in": 229,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.14640000462532043,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 1748,
+      "output_summary": "``` from unittest import TestCase, main  class TestReverseString(TestCase):     def test_reverse_string(self):         \u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777724967786,
+      "tokens_in": 243,
+      "tokens_out": 123,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.1404000073671341,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 872,
+      "output_summary": "```python def reverse_string(s: str) -> str:     \"\"\"Return s reversed.     >>> reverse_string('abc')     'cba'     \"\"\" \u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777724968662,
+      "tokens_in": 301,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.07999999821186066,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 964,
+      "output_summary": "```python def reverse_string(s: str) -> str:     \"\"\"Return s reversed.     >>> reverse_string('abc')     'cba'     \"\"\" \u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777724969630,
+      "tokens_in": 150,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07159999758005142,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 626,
+      "output_summary": "`schema:invalid_output (the output does not match the expected function definition for reverse_string)`",
+      "step_id": 5,
+      "t_unix_ms": 1777724970259,
+      "tokens_in": 158,
+      "tokens_out": 21,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07119999825954437,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 503,
+      "output_summary": "`schema:invalid_output (function does not match expected output format)`",
+      "step_id": 6,
+      "t_unix_ms": 1777724970766,
+      "tokens_in": 163,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07119999825954437,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected output format)`",
+      "step_id": 7,
+      "t_unix_ms": 1777724970770,
+      "tokens_in": 163,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07119999825954437,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected output format)`",
+      "step_id": 8,
+      "t_unix_ms": 1777724970774,
+      "tokens_in": 163,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07119999825954437,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected output format)`",
+      "step_id": 9,
+      "t_unix_ms": 1777724970777,
+      "tokens_in": 163,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07119999825954437,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected output format)`",
+      "step_id": 10,
+      "t_unix_ms": 1777724970781,
+      "tokens_in": 163,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07119999825954437,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected output format)`",
+      "step_id": 11,
+      "t_unix_ms": 1777724970784,
+      "tokens_in": 163,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-2",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 1.2208000421524048,
+    "failed_tool_calls": 0,
+    "latency_ms": 4718,
+    "llm_calls": 12,
+    "tokens_in": 2190,
+    "tokens_out": 456,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}
