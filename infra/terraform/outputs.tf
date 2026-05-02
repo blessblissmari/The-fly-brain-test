@@ -7,7 +7,8 @@ output "container_registry_id" {
 }
 
 output "s3_bucket" {
-  value = yandex_storage_bucket.flybrain_data.bucket
+  value       = yandex_storage_bucket.flybrain_data.bucket
+  description = "Globally-unique Object Storage bucket name (defaults to flybrain-data-<folder_id>)."
 }
 
 output "s3_access_key_id" {
