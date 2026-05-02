@@ -5,13 +5,23 @@ Usage::
 
     python scripts/run_simulation_pretrain.py \\
         --controller gnn --epochs 30 --n-per-type 64 --batch-size 64 \\
-        --lr 3e-3 --hidden-dim 64 --output runs/sim_pretrain.pt
+        --lr 3e-3 --hidden-dim 32 --output runs/sim_pretrain.pt
 
 Reads no external data and never makes an LLM call. The exit
 criterion (PLAN.md §590) is "controller сходится за <10 минут на CPU
 и решает sim-задачи на ≥0.85 success" — the script logs both the
 training loss and the held-out per-step accuracy after every epoch
 so the operator can decide when to stop.
+
+The default embedding / hidden dims (``--emb-dim 32 --graph-hidden-dim
+16 --graph-out-dim 32 --fly-dim 8 --hidden-dim 32``) are pinned to the
+ones the Phase-9 baseline registry uses
+(:func:`flybrain.baselines.registry._flybrain_with_checkpoint`), so
+checkpoints saved by this script load cleanly with
+``strict=True`` semantics into the registry's controller. Override the
+flags only if you also override the registry — otherwise
+``load_state_dict(strict=False)`` will silently drop most weights
+(HANDOFF.md §4.a Q2).
 """
 
 from __future__ import annotations
@@ -72,7 +82,38 @@ def main() -> None:
     parser.add_argument("--n-per-type", type=int, default=64)
     parser.add_argument("--batch-size", type=int, default=64)
     parser.add_argument("--lr", type=float, default=3e-3)
-    parser.add_argument("--hidden-dim", type=int, default=64)
+    parser.add_argument(
+        "--hidden-dim",
+        type=int,
+        default=32,
+        help="Controller hidden width. Default 32 matches the Phase-9 "
+        "baseline registry; see module docstring.",
+    )
+    parser.add_argument(
+        "--emb-dim",
+        type=int,
+        default=32,
+        help="Mock embedding output dim used for task/agent/trace. "
+        "Default 32 matches the registry.",
+    )
+    parser.add_argument(
+        "--graph-hidden-dim",
+        type=int,
+        default=16,
+        help="AgentGraphEmbedder hidden dim. Default 16 matches the registry.",
+    )
+    parser.add_argument(
+        "--graph-out-dim",
+        type=int,
+        default=32,
+        help="AgentGraphEmbedder output dim. Default 32 matches the registry.",
+    )
+    parser.add_argument(
+        "--fly-dim",
+        type=int,
+        default=8,
+        help="FlyGraphEmbedder spectral dim. Default 8 matches the registry.",
+    )
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--output", type=Path, default=None)
     parser.add_argument(
@@ -83,7 +124,7 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    client = MockEmbeddingClient(output_dim=64)
+    client = MockEmbeddingClient(output_dim=args.emb_dim)
     agent_emb = AgentEmbedder(client)
     asyncio.run(agent_emb.precompute(MINIMAL_15))
 
@@ -91,8 +132,12 @@ def main() -> None:
         task=TaskEmbedder(client),
         agents=agent_emb,
         trace=TraceEmbedder(client),
-        fly=FlyGraphEmbedder(dim=16),
-        agent_graph=AgentGraphEmbedder(in_dim=64, hidden_dim=32, out_dim=64),
+        fly=FlyGraphEmbedder(dim=args.fly_dim),
+        agent_graph=AgentGraphEmbedder(
+            in_dim=args.emb_dim,
+            hidden_dim=args.graph_hidden_dim,
+            out_dim=args.graph_out_dim,
+        ),
     )
 
     ctrl = _build_controller(args.controller, builder, hidden_dim=args.hidden_dim)

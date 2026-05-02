@@ -83,13 +83,45 @@ def main() -> None:
     parser.add_argument("--epochs", type=int, default=8)
     parser.add_argument("--batch-size", type=int, default=16)
     parser.add_argument("--lr", type=float, default=1e-3)
-    parser.add_argument("--hidden-dim", type=int, default=64)
+    parser.add_argument(
+        "--hidden-dim",
+        type=int,
+        default=32,
+        help="Controller hidden width. Default 32 matches the Phase-9 "
+        "baseline registry so checkpoints reload without dim mismatch "
+        "(HANDOFF.md \u00a74.a Q2).",
+    )
+    parser.add_argument(
+        "--emb-dim",
+        type=int,
+        default=32,
+        help="Mock embedding output dim used for task/agent/trace. "
+        "Default 32 matches the registry.",
+    )
+    parser.add_argument(
+        "--graph-hidden-dim",
+        type=int,
+        default=16,
+        help="AgentGraphEmbedder hidden dim. Default 16 matches the registry.",
+    )
+    parser.add_argument(
+        "--graph-out-dim",
+        type=int,
+        default=32,
+        help="AgentGraphEmbedder output dim. Default 32 matches the registry.",
+    )
+    parser.add_argument(
+        "--fly-dim",
+        type=int,
+        default=8,
+        help="FlyGraphEmbedder spectral dim. Default 8 matches the registry.",
+    )
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--only-passed", action="store_true")
     parser.add_argument("--output", type=Path, default=None)
     args = parser.parse_args()
 
-    client = MockEmbeddingClient(output_dim=64)
+    client = MockEmbeddingClient(output_dim=args.emb_dim)
     agent_emb = AgentEmbedder(client)
     asyncio.run(agent_emb.precompute(MINIMAL_15))
 
@@ -97,8 +129,12 @@ def main() -> None:
         task=TaskEmbedder(client),
         agents=agent_emb,
         trace=TraceEmbedder(client),
-        fly=FlyGraphEmbedder(dim=16),
-        agent_graph=AgentGraphEmbedder(in_dim=64, hidden_dim=32, out_dim=64),
+        fly=FlyGraphEmbedder(dim=args.fly_dim),
+        agent_graph=AgentGraphEmbedder(
+            in_dim=args.emb_dim,
+            hidden_dim=args.graph_hidden_dim,
+            out_dim=args.graph_out_dim,
+        ),
     )
 
     ctrl = _build_controller(args.controller, builder, hidden_dim=args.hidden_dim)

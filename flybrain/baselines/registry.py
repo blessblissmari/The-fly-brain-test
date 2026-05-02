@@ -20,6 +20,7 @@ from typing import Any
 from flybrain.baselines.graphs import (
     degree_preserving_random_graph,
     empty_graph,
+    flybrain_prior_graph,
     fully_connected_graph,
     random_sparse_graph,
 )
@@ -151,7 +152,15 @@ def _learned_router_no_prior(
 
 
 def _flybrain_prior_untrained() -> BaselineFactory:
-    """#6 FlyBrain prior without training."""
+    """#6 FlyBrain prior without training.
+
+    Ships a fly-derived initial AgentGraph (see
+    :func:`flybrain.baselines.graphs.flybrain_prior_graph`) so the
+    untrained GNN/router has something non-trivial to read from on
+    step 0 — without that, the controller can't traverse the agent
+    space and its success rate stays at 0% even with a perfect
+    architecture (see HANDOFF.md §4.a).
+    """
 
     def factory(agent_names: list[str]) -> tuple[Controller, dict[str, Any] | None]:
         from flybrain.controller import FlyBrainGNNController
@@ -187,7 +196,7 @@ def _flybrain_prior_untrained() -> BaselineFactory:
             produced_dim=6,
             hidden_dim=32,
         )
-        return ctrl, empty_graph(agent_names)
+        return ctrl, flybrain_prior_graph(agent_names)
 
     return factory
 
@@ -257,7 +266,7 @@ def _flybrain_with_graph_ssl(checkpoint_path: Path | None = None) -> BaselineFac
             produced_dim=6,
             hidden_dim=32,
         )
-        return ctrl, empty_graph(agent_names)
+        return ctrl, flybrain_prior_graph(agent_names)
 
     return factory
 
@@ -311,6 +320,54 @@ def _learned_router_with_mask(mask: frozenset[str]) -> BaselineFactory:
     return factory
 
 
+# Default checkpoint discovery paths used when the
+# ``FLYBRAIN_BASELINE_{LABEL}`` env var is unset. Keep these in sync
+# with the canonical save locations of
+# ``scripts/run_simulation_pretrain.py`` /
+# ``scripts/run_imitation.py`` / ``scripts/run_rl.py``.
+_DEFAULT_CHECKPOINT_PATHS: dict[str, tuple[Path, ...]] = {
+    "SIM_PRETRAIN": (
+        Path("data/checkpoints/sim_pretrain_gnn.pt"),
+        Path("data/checkpoints/sim_pretrain.pt"),
+    ),
+    "IMITATION": (
+        Path("data/checkpoints/imitation_gnn.pt"),
+        Path("data/checkpoints/imitation.pt"),
+    ),
+    "RL": (
+        Path("data/checkpoints/rl_gnn.pt"),
+        Path("data/checkpoints/rl.pt"),
+    ),
+}
+
+
+def _resolve_checkpoint_path(label: str) -> Path | None:
+    """Return the first existing checkpoint for ``label``.
+
+    Lookup order:
+
+    1. ``FLYBRAIN_BASELINE_{LABEL}`` env var, if set and the file
+       exists.
+    2. Each path in ``_DEFAULT_CHECKPOINT_PATHS[label]``, in order.
+
+    Returns ``None`` if none of the candidates resolve to an
+    existing file, in which case the factory falls back to the
+    untrained variant (HANDOFF.md §4.a Q1.3).
+    """
+    import os
+
+    env_var = f"FLYBRAIN_BASELINE_{label.upper()}"
+    candidates: list[Path] = []
+    env_value = os.environ.get(env_var)
+    if env_value:
+        candidates.append(Path(env_value))
+    candidates.extend(_DEFAULT_CHECKPOINT_PATHS.get(label.upper(), ()))
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    return None
+
+
 def _flybrain_with_checkpoint(
     controller_name: str,
     label: str,
@@ -318,15 +375,18 @@ def _flybrain_with_checkpoint(
     """Generic factory for #7-#9: same architecture as #6 but with a
     pre-loaded checkpoint produced by Phase-6 / Phase-7 / Phase-8.
 
-    The checkpoint path comes from the ``FLYBRAIN_BASELINE_<LABEL>``
-    env var (or stays unloaded if the var is missing). This way
-    ``run_baselines.py`` can be invoked without the checkpoints
-    physically present and the baselines just degrade to the
-    untrained variant.
-    """
-    import os
+    The checkpoint is resolved by :func:`_resolve_checkpoint_path` —
+    first the ``FLYBRAIN_BASELINE_{LABEL}`` env var, then a fallback
+    list of standard ``data/checkpoints/`` locations. If neither is
+    present the factory degrades to the untrained variant so
+    ``run_baselines.py`` is still safe to invoke without artefacts.
 
-    env_var = f"FLYBRAIN_BASELINE_{label.upper()}"
+    The initial AgentGraph is the fly-prior
+    (:func:`flybrain.baselines.graphs.flybrain_prior_graph`), matching
+    the architecture the trainers see in
+    ``flybrain.training.simulation_pretrain`` / ``imitation_train`` /
+    ``rl_train`` (HANDOFF.md §4.a Q1).
+    """
 
     def factory(agent_names: list[str]) -> tuple[Controller, dict[str, Any] | None]:
         from flybrain.embeddings import (
@@ -377,13 +437,13 @@ def _flybrain_with_checkpoint(
             hidden_dim=32,
         )
 
-        ckpt_path = os.environ.get(env_var)
-        if ckpt_path and Path(ckpt_path).exists():
+        ckpt_path = _resolve_checkpoint_path(label)
+        if ckpt_path is not None:
             try:
                 import torch
 
                 state = torch.load(ckpt_path, map_location="cpu", weights_only=False)
-                sd = state.get("state_dict", state)
+                sd = state.get("state_dict", state) if isinstance(state, dict) else state
                 ctrl.load_state_dict(sd, strict=False)
             except Exception as e:  # pragma: no cover - best effort
                 import warnings
@@ -392,7 +452,7 @@ def _flybrain_with_checkpoint(
                     f"failed to load {label} checkpoint at {ckpt_path}: {e}",
                     stacklevel=2,
                 )
-        return ctrl, empty_graph(agent_names)
+        return ctrl, flybrain_prior_graph(agent_names)
 
     return factory
 
