@@ -43,9 +43,26 @@ def component_for_agent(agent_name: str) -> str:
 
 
 # README §12.1 routes. Names match `flybrain.agents.specs`.
+#
+# Round-5 architectural fix (2026-05-03): every route now ends with
+# ``Finalizer``. The live ``flybrain.runtime.runner`` verifier requires
+# the ``final_answer`` component for the ``math`` / ``research`` /
+# ``tool_use`` task types (and is satisfied without it for ``coding``).
+# Round-3 / round-4 routes ended with ``Verifier``, which only emits
+# the ``verifier_called`` tag — so trained controllers learned to
+# produce a valid prefix and then loop, never emitting ``final_answer``.
+# Adding ``Finalizer`` aligns the supervised pretraining target with
+# the real-runtime grading rule.
 OPTIMAL_ROUTES: dict[str, list[str]] = {
-    "coding": ["Planner", "Coder", "TestRunner", "Debugger", "Verifier"],
-    "math": ["Planner", "MathSolver", "Critic", "Verifier"],
+    "coding": [
+        "Planner",
+        "Coder",
+        "TestRunner",
+        "Debugger",
+        "Verifier",
+        "Finalizer",
+    ],
+    "math": ["Planner", "MathSolver", "Critic", "Verifier", "Finalizer"],
     "research": [
         "Planner",
         "Researcher",
@@ -53,7 +70,13 @@ OPTIMAL_ROUTES: dict[str, list[str]] = {
         "CitationChecker",
         "Finalizer",
     ],
-    "tool_use": ["Planner", "ToolExecutor", "SchemaValidator", "Verifier"],
+    "tool_use": [
+        "Planner",
+        "ToolExecutor",
+        "SchemaValidator",
+        "Verifier",
+        "Finalizer",
+    ],
 }
 
 TASK_TYPES: tuple[str, ...] = tuple(OPTIMAL_ROUTES)

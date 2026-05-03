@@ -1,0 +1,648 @@
+{
+  "final_answer": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.2831999957561493,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Calculate the number of students who enrolled in contemporary dance (20% of 20). 2. Calculate the remaining nu\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777812866788,
+      "tokens_in": 129,
+      "tokens_out": 107,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.16840000450611115,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "2",
+      "latency_ms": 1985,
+      "output_summary": "1. 20% of 20 students is 4 students who enrolled in contemporary dance. 2. The remaining number of students is 20 - 4 =\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777812868776,
+      "tokens_in": 283,
+      "tokens_out": 138,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "In a dance class of 20 students, 20% enrolled in contemporary dance, 25% of the remaining enrolled in jazz dance, and the rest enrolled in hip-hop dance. What percentage of the entire students enrolled in hip-hop dance?\n\nThink step by step and end with `final_answer: <number>`."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1956000030040741,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 501,
+      "output_summary": "verifier:failed:missing_step-by-step_reasoning",
+      "step_id": 2,
+      "t_unix_ms": 1777812869280,
+      "tokens_in": 148,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1979999989271164,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 559,
+      "output_summary": "verifier:failed:missing reasoning and calculations to support the final answer",
+      "step_id": 3,
+      "t_unix_ms": 1777812869843,
+      "tokens_in": 151,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.1379999965429306,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 874,
+      "output_summary": "```python # Correct the calculation for the percentage of students enrolled in hip-hop dance (12 / 20) * 100  final_ans\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777812870721,
+      "tokens_in": 302,
+      "tokens_out": 43,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1907999962568283,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 396,
+      "output_summary": "verifier:passed",
+      "step_id": 5,
+      "t_unix_ms": 1777812871120,
+      "tokens_in": 155,
+      "tokens_out": 4,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1907999962568283,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 6,
+      "t_unix_ms": 1777812871125,
+      "tokens_in": 155,
+      "tokens_out": 4,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1907999962568283,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 7,
+      "t_unix_ms": 1777812871129,
+      "tokens_in": 155,
+      "tokens_out": 4,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1907999962568283,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 8,
+      "t_unix_ms": 1777812871132,
+      "tokens_in": 155,
+      "tokens_out": 4,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1907999962568283,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 9,
+      "t_unix_ms": 1777812871135,
+      "tokens_in": 155,
+      "tokens_out": 4,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1907999962568283,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 10,
+      "t_unix_ms": 1777812871139,
+      "tokens_in": 155,
+      "tokens_out": 4,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1907999962568283,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 11,
+      "t_unix_ms": 1777812871142,
+      "tokens_in": 155,
+      "tokens_out": 4,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.10360000282526016,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1608,
+      "output_summary": "```python total_students = 20 contemporary_dance = total_students * 0.2 remaining_students = total_students - contempor\u2026",
+      "step_id": 12,
+      "t_unix_ms": 1777812872753,
+      "tokens_in": 150,
+      "tokens_out": 109,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.10360000282526016,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python total_students = 20 contemporary_dance = total_students * 0.2 remaining_students = total_students - contempor\u2026",
+      "step_id": 13,
+      "t_unix_ms": 1777812872759,
+      "tokens_in": 150,
+      "tokens_out": 109,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.10360000282526016,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python total_students = 20 contemporary_dance = total_students * 0.2 remaining_students = total_students - contempor\u2026",
+      "step_id": 14,
+      "t_unix_ms": 1777812872763,
+      "tokens_in": 150,
+      "tokens_out": 109,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.10360000282526016,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python total_students = 20 contemporary_dance = total_students * 0.2 remaining_students = total_students - contempor\u2026",
+      "step_id": 15,
+      "t_unix_ms": 1777812872766,
+      "tokens_in": 150,
+      "tokens_out": 109,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.10360000282526016,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python total_students = 20 contemporary_dance = total_students * 0.2 remaining_students = total_students - contempor\u2026",
+      "step_id": 16,
+      "t_unix_ms": 1777812872770,
+      "tokens_in": 150,
+      "tokens_out": 109,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.10360000282526016,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python total_students = 20 contemporary_dance = total_students * 0.2 remaining_students = total_students - contempor\u2026",
+      "step_id": 17,
+      "t_unix_ms": 1777812872773,
+      "tokens_in": 150,
+      "tokens_out": 109,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.10360000282526016,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python total_students = 20 contemporary_dance = total_students * 0.2 remaining_students = total_students - contempor\u2026",
+      "step_id": 18,
+      "t_unix_ms": 1777812872777,
+      "tokens_in": 150,
+      "tokens_out": 109,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06920000165700912,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 506,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 19,
+      "t_unix_ms": 1777812873286,
+      "tokens_in": 158,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07159999758005142,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 531,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 20,
+      "t_unix_ms": 1777812873820,
+      "tokens_in": 163,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07159999758005142,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 21,
+      "t_unix_ms": 1777812873823,
+      "tokens_in": 163,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07159999758005142,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 22,
+      "t_unix_ms": 1777812873827,
+      "tokens_in": 163,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07159999758005142,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 23,
+      "t_unix_ms": 1777812873831,
+      "tokens_in": 163,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07159999758005142,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 24,
+      "t_unix_ms": 1777812873835,
+      "tokens_in": 163,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07159999758005142,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 25,
+      "t_unix_ms": 1777812873838,
+      "tokens_in": 163,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07159999758005142,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 26,
+      "t_unix_ms": 1777812873842,
+      "tokens_in": 163,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07159999758005142,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 27,
+      "t_unix_ms": 1777812873845,
+      "tokens_in": 163,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07159999758005142,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 28,
+      "t_unix_ms": 1777812873849,
+      "tokens_in": 163,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07159999758005142,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 29,
+      "t_unix_ms": 1777812873853,
+      "tokens_in": 163,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07159999758005142,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 30,
+      "t_unix_ms": 1777812873857,
+      "tokens_in": 163,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07159999758005142,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 31,
+      "t_unix_ms": 1777812873860,
+      "tokens_in": 163,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00024",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 3.9723994731903076,
+    "failed_tool_calls": 0,
+    "latency_ms": 6983,
+    "llm_calls": 32,
+    "tokens_in": 5262,
+    "tokens_out": 1315,
+    "tool_calls": 1
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

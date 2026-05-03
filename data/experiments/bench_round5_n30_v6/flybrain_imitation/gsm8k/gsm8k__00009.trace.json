@@ -1,0 +1,638 @@
+{
+  "final_answer": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.298799991607666,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Calculate the time required to download 40% of the file at the normal speed of 2 GB/minute. 2. Add the 20 minu\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777813005370,
+      "tokens_in": 146,
+      "tokens_out": 103,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.18039999902248383,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "First, calculate the amount of data Carla has downloaded before the restart: \\[ 200 \\, \\text{GB} \\times 40\\% = 200 \\tim\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777813005374,
+      "tokens_in": 147,
+      "tokens_out": 304,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07079999893903732,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 723,
+      "output_summary": "`schema:invalid_output (missing JSON output)`",
+      "step_id": 2,
+      "t_unix_ms": 1777813006099,
+      "tokens_in": 166,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07599999755620956,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 566,
+      "output_summary": "`schema:invalid_output (The output does not match the expected JSON schema format.)`",
+      "step_id": 3,
+      "t_unix_ms": 1777813006669,
+      "tokens_in": 171,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07599999755620956,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (The output does not match the expected JSON schema format.)`",
+      "step_id": 4,
+      "t_unix_ms": 1777813006673,
+      "tokens_in": 171,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07599999755620956,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (The output does not match the expected JSON schema format.)`",
+      "step_id": 5,
+      "t_unix_ms": 1777813006677,
+      "tokens_in": 171,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.2892000079154968,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1239,
+      "output_summary": "- The draft does not include a step-by-step solution to the problem, which makes it difficult to understand how the fin\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777813007919,
+      "tokens_in": 161,
+      "tokens_out": 80,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.32760000228881836,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1603,
+      "output_summary": "- The task description lacks clarity on whether the download speed resumes at 2 GB/minute after the interruption or if \u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777813009525,
+      "tokens_in": 163,
+      "tokens_out": 110,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.32760000228881836,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The task description lacks clarity on whether the download speed resumes at 2 GB/minute after the interruption or if \u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777813009542,
+      "tokens_in": 163,
+      "tokens_out": 110,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.32760000228881836,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The task description lacks clarity on whether the download speed resumes at 2 GB/minute after the interruption or if \u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777813009546,
+      "tokens_in": 163,
+      "tokens_out": 110,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.32760000228881836,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The task description lacks clarity on whether the download speed resumes at 2 GB/minute after the interruption or if \u2026",
+      "step_id": 10,
+      "t_unix_ms": 1777813009550,
+      "tokens_in": 163,
+      "tokens_out": 110,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.32760000228881836,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The task description lacks clarity on whether the download speed resumes at 2 GB/minute after the interruption or if \u2026",
+      "step_id": 11,
+      "t_unix_ms": 1777813009554,
+      "tokens_in": 163,
+      "tokens_out": 110,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.1615999937057495,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 1739,
+      "output_summary": "``` assert 40% of 200 GB is 80 GB assert 80 GB at 2 GB/minute takes 40 minutes assert 20 minutes are added for the Wind\u2026",
+      "step_id": 12,
+      "t_unix_ms": 1777813011296,
+      "tokens_in": 295,
+      "tokens_out": 109,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.16279999911785126,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "18",
+      "latency_ms": 1502,
+      "output_summary": "```python assert 40% of 200 GB is 80 GB assert 80 GB at 2 GB/minute takes 40 minutes assert 20 minutes are added for th\u2026",
+      "step_id": 13,
+      "t_unix_ms": 1777813012802,
+      "tokens_in": 304,
+      "tokens_out": 103,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.17000000178813934,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3515,
+      "output_summary": "Carla downloads 2 GB per minute, so to download 200 GB, it would normally take her $200 \\, \\text{GB} / 2 \\, \\text{GB/mi\u2026",
+      "step_id": 14,
+      "t_unix_ms": 1777813016320,
+      "tokens_in": 172,
+      "tokens_out": 253,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.147599995136261,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2584,
+      "output_summary": "First, calculate the amount of data downloaded before the restart: $200 \\times 0.4 = 80$ GB.  Next, calculate the time \u2026",
+      "step_id": 15,
+      "t_unix_ms": 1777813018908,
+      "tokens_in": 175,
+      "tokens_out": 194,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.243599995970726,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 549,
+      "output_summary": "verifier:failed:missing_final_answer_and_step-by-step_solution",
+      "step_id": 16,
+      "t_unix_ms": 1777813019460,
+      "tokens_in": 183,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.2531999945640564,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 630,
+      "output_summary": "verifier:failed:missing_calculation_steps_and_final_answer_in_the_provided_trace",
+      "step_id": 17,
+      "t_unix_ms": 1777813020094,
+      "tokens_in": 186,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.2531999945640564,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_calculation_steps_and_final_answer_in_the_provided_trace",
+      "step_id": 18,
+      "t_unix_ms": 1777813020098,
+      "tokens_in": 186,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.2531999945640564,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_calculation_steps_and_final_answer_in_the_provided_trace",
+      "step_id": 19,
+      "t_unix_ms": 1777813020102,
+      "tokens_in": 186,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.2531999945640564,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_calculation_steps_and_final_answer_in_the_provided_trace",
+      "step_id": 20,
+      "t_unix_ms": 1777813020107,
+      "tokens_in": 186,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.2531999945640564,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_calculation_steps_and_final_answer_in_the_provided_trace",
+      "step_id": 21,
+      "t_unix_ms": 1777813020111,
+      "tokens_in": 186,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0820000022649765,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 537,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 22,
+      "t_unix_ms": 1777813020651,
+      "tokens_in": 189,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0820000022649765,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 23,
+      "t_unix_ms": 1777813020656,
+      "tokens_in": 189,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0820000022649765,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 24,
+      "t_unix_ms": 1777813020660,
+      "tokens_in": 189,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0820000022649765,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 25,
+      "t_unix_ms": 1777813020665,
+      "tokens_in": 189,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0820000022649765,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 26,
+      "t_unix_ms": 1777813020669,
+      "tokens_in": 189,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0820000022649765,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 27,
+      "t_unix_ms": 1777813020673,
+      "tokens_in": 189,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0820000022649765,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 28,
+      "t_unix_ms": 1777813020677,
+      "tokens_in": 189,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0820000022649765,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 29,
+      "t_unix_ms": 1777813020681,
+      "tokens_in": 189,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0820000022649765,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 30,
+      "t_unix_ms": 1777813020686,
+      "tokens_in": 189,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0820000022649765,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 31,
+      "t_unix_ms": 1777813020690,
+      "tokens_in": 189,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00009",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 5.676797866821289,
+    "failed_tool_calls": 0,
+    "latency_ms": 15207,
+    "llm_calls": 32,
+    "tokens_in": 5897,
+    "tokens_out": 2069,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

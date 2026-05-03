@@ -1,0 +1,638 @@
+{
+  "final_answer": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.18359999358654022,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Review the existing verifier module (id=3794) to understand its functionality and requirements. 2. Identify ke\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777810723810,
+      "tokens_in": 73,
+      "tokens_out": 80,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "ToolExecutor",
+      "cost_rub": 0.07079999893903732,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "ToolExecutor",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1442,
+      "output_summary": "The most appropriate tool for this task is a testing framework. Without specific details about the programming language\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777810725255,
+      "tokens_in": 77,
+      "tokens_out": 100,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "ToolExecutor",
+      "cost_rub": 0.04639999940991402,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "ToolExecutor",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 746,
+      "output_summary": "I need to know which tool is available in the registry to add unit tests for the verifier module. Please provide the li\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777810726005,
+      "tokens_in": 81,
+      "tokens_out": 35,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "ToolExecutor",
+      "cost_rub": 0.04639999940991402,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "ToolExecutor",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "I need to know which tool is available in the registry to add unit tests for the verifier module. Please provide the li\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777810726009,
+      "tokens_in": 81,
+      "tokens_out": 35,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.14560000598430634,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 2404,
+      "output_summary": "```python import unittest from verifier import Verifier  class TestVerifier(unittest.TestCase):      def setUp(self):  \u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777810728416,
+      "tokens_in": 181,
+      "tokens_out": 183,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.1860000044107437,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1047,
+      "output_summary": "- The draft does not include any unit tests for the verifier module. - There is no evidence of test cases or assertions\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777810729467,
+      "tokens_in": 86,
+      "tokens_out": 69,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.1907999962568283,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1061,
+      "output_summary": "- The list does not include any specific weaknesses related to the task of adding unit tests for the verifier module. -\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777810730531,
+      "tokens_in": 88,
+      "tokens_out": 71,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.1907999962568283,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The list does not include any specific weaknesses related to the task of adding unit tests for the verifier module. -\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777810730536,
+      "tokens_in": 88,
+      "tokens_out": 71,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.12319999933242798,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "15",
+      "latency_ms": 2043,
+      "output_summary": "``` import unittest from verifier import Verifier  class TestVerifier(unittest.TestCase):      def setUp(self):        \u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777810732582,
+      "tokens_in": 151,
+      "tokens_out": 157,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04600000008940697,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 524,
+      "output_summary": "`schema:invalid_output (no JSON provided)`",
+      "step_id": 9,
+      "t_unix_ms": 1777810733110,
+      "tokens_in": 104,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.051600001752376556,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1067,
+      "output_summary": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+      "step_id": 10,
+      "t_unix_ms": 1777810734180,
+      "tokens_in": 109,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.051600001752376556,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+      "step_id": 11,
+      "t_unix_ms": 1777810734185,
+      "tokens_in": 109,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.051600001752376556,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+      "step_id": 12,
+      "t_unix_ms": 1777810734189,
+      "tokens_in": 109,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.051600001752376556,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+      "step_id": 13,
+      "t_unix_ms": 1777810734194,
+      "tokens_in": 109,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.051600001752376556,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+      "step_id": 14,
+      "t_unix_ms": 1777810734199,
+      "tokens_in": 109,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.051600001752376556,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3,
+      "output_summary": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+      "step_id": 15,
+      "t_unix_ms": 1777810734205,
+      "tokens_in": 109,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.051600001752376556,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+      "step_id": 16,
+      "t_unix_ms": 1777810734212,
+      "tokens_in": 109,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.051600001752376556,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+      "step_id": 17,
+      "t_unix_ms": 1777810734216,
+      "tokens_in": 109,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.051600001752376556,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+      "step_id": 18,
+      "t_unix_ms": 1777810734220,
+      "tokens_in": 109,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.051600001752376556,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+      "step_id": 19,
+      "t_unix_ms": 1777810734224,
+      "tokens_in": 109,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.051600001752376556,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+      "step_id": 20,
+      "t_unix_ms": 1777810734228,
+      "tokens_in": 109,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.051600001752376556,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+      "step_id": 21,
+      "t_unix_ms": 1777810734232,
+      "tokens_in": 109,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.051600001752376556,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+      "step_id": 22,
+      "t_unix_ms": 1777810734236,
+      "tokens_in": 109,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.051600001752376556,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+      "step_id": 23,
+      "t_unix_ms": 1777810734240,
+      "tokens_in": 109,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.051600001752376556,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+      "step_id": 24,
+      "t_unix_ms": 1777810734244,
+      "tokens_in": 109,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.051600001752376556,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+      "step_id": 25,
+      "t_unix_ms": 1777810734248,
+      "tokens_in": 109,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.051600001752376556,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+      "step_id": 26,
+      "t_unix_ms": 1777810734252,
+      "tokens_in": 109,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.051600001752376556,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+      "step_id": 27,
+      "t_unix_ms": 1777810734256,
+      "tokens_in": 109,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.051600001752376556,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+      "step_id": 28,
+      "t_unix_ms": 1777810734260,
+      "tokens_in": 109,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.051600001752376556,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+      "step_id": 29,
+      "t_unix_ms": 1777810734264,
+      "tokens_in": 109,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.051600001752376556,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+      "step_id": 30,
+      "t_unix_ms": 1777810734268,
+      "tokens_in": 109,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.051600001752376556,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON object with details about the schema being validated is missing)`",
+      "step_id": 31,
+      "t_unix_ms": 1777810734272,
+      "tokens_in": 109,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0012",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 2.3647994995117188,
+    "failed_tool_calls": 0,
+    "latency_ms": 10360,
+    "llm_calls": 32,
+    "tokens_in": 3408,
+    "tokens_out": 1252,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

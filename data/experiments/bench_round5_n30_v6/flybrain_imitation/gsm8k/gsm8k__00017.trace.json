@@ -1,0 +1,638 @@
+{
+  "final_answer": "- The task does not require any code or coding-related steps, yet the listed roles include 'code' and 'coder', which ar\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.188400000333786,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Calculate the total number of omelets Claire makes in 4 weeks. 2. Determine the total number of eggs used in 4\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777813039991,
+      "tokens_in": 103,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.10719999670982361,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1353,
+      "output_summary": "```python eggs_per_omelet = 3 days_in_4_weeks = 4 * 7 total_omelets = eggs_per_omelet * days_in_4_weeks total_eggs = to\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777813041347,
+      "tokens_in": 181,
+      "tokens_out": 87,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1728000044822693,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 558,
+      "output_summary": "verifier:failed:missing_step-by-step_reasoning_and_final_answer",
+      "step_id": 2,
+      "t_unix_ms": 1777813041908,
+      "tokens_in": 123,
+      "tokens_out": 21,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1728000044822693,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 529,
+      "output_summary": "verifier:failed:missing_mathematical_reasoning_and_final_answer",
+      "step_id": 3,
+      "t_unix_ms": 1777813042441,
+      "tokens_in": 126,
+      "tokens_out": 18,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1728000044822693,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "verifier:failed:missing_mathematical_reasoning_and_final_answer",
+      "step_id": 4,
+      "t_unix_ms": 1777813042446,
+      "tokens_in": 126,
+      "tokens_out": 18,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.12800000607967377,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 1354,
+      "output_summary": "```python eggs_per_omelet = 3 days_in_4_weeks = 4 * 7 total_omelets = eggs_per_omelet * days_in_4_weeks total_eggs = to\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777813043803,
+      "tokens_in": 229,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.17399999499320984,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 513,
+      "output_summary": "verifier:failed:missing_math_reasoning_and_final_answer",
+      "step_id": 6,
+      "t_unix_ms": 1777813044320,
+      "tokens_in": 128,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05719999969005585,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 457,
+      "output_summary": "`schema:invalid_output (no JSON output provided)`",
+      "step_id": 7,
+      "t_unix_ms": 1777813044781,
+      "tokens_in": 131,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06040000170469284,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 563,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 8,
+      "t_unix_ms": 1777813045348,
+      "tokens_in": 136,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06040000170469284,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 9,
+      "t_unix_ms": 1777813045352,
+      "tokens_in": 136,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06040000170469284,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 10,
+      "t_unix_ms": 1777813045356,
+      "tokens_in": 136,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06040000170469284,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 11,
+      "t_unix_ms": 1777813045359,
+      "tokens_in": 136,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06040000170469284,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 12,
+      "t_unix_ms": 1777813045363,
+      "tokens_in": 136,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06040000170469284,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 13,
+      "t_unix_ms": 1777813045367,
+      "tokens_in": 136,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06040000170469284,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 14,
+      "t_unix_ms": 1777813045371,
+      "tokens_in": 136,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06040000170469284,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 15,
+      "t_unix_ms": 1777813045377,
+      "tokens_in": 136,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06040000170469284,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 16,
+      "t_unix_ms": 1777813045381,
+      "tokens_in": 136,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06040000170469284,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 17,
+      "t_unix_ms": 1777813045392,
+      "tokens_in": 136,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.20999999344348907,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 968,
+      "output_summary": "- The draft does not include a solution to the math problem. - There are no calculations or logical steps leading to th\u2026",
+      "step_id": 18,
+      "t_unix_ms": 1777813046363,
+      "tokens_in": 126,
+      "tokens_out": 49,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.24719999730587006,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1474,
+      "output_summary": "- The task does not require any code or coding-related steps, yet the listed roles include 'code' and 'coder', which ar\u2026",
+      "step_id": 19,
+      "t_unix_ms": 1777813047842,
+      "tokens_in": 128,
+      "tokens_out": 78,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.24719999730587006,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The task does not require any code or coding-related steps, yet the listed roles include 'code' and 'coder', which ar\u2026",
+      "step_id": 20,
+      "t_unix_ms": 1777813047847,
+      "tokens_in": 128,
+      "tokens_out": 78,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.24719999730587006,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The task does not require any code or coding-related steps, yet the listed roles include 'code' and 'coder', which ar\u2026",
+      "step_id": 21,
+      "t_unix_ms": 1777813047850,
+      "tokens_in": 128,
+      "tokens_out": 78,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.24719999730587006,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The task does not require any code or coding-related steps, yet the listed roles include 'code' and 'coder', which ar\u2026",
+      "step_id": 22,
+      "t_unix_ms": 1777813047854,
+      "tokens_in": 128,
+      "tokens_out": 78,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.24719999730587006,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The task does not require any code or coding-related steps, yet the listed roles include 'code' and 'coder', which ar\u2026",
+      "step_id": 23,
+      "t_unix_ms": 1777813047858,
+      "tokens_in": 128,
+      "tokens_out": 78,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.24719999730587006,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The task does not require any code or coding-related steps, yet the listed roles include 'code' and 'coder', which ar\u2026",
+      "step_id": 24,
+      "t_unix_ms": 1777813047862,
+      "tokens_in": 128,
+      "tokens_out": 78,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.24719999730587006,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The task does not require any code or coding-related steps, yet the listed roles include 'code' and 'coder', which ar\u2026",
+      "step_id": 25,
+      "t_unix_ms": 1777813047866,
+      "tokens_in": 128,
+      "tokens_out": 78,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.24719999730587006,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The task does not require any code or coding-related steps, yet the listed roles include 'code' and 'coder', which ar\u2026",
+      "step_id": 26,
+      "t_unix_ms": 1777813047870,
+      "tokens_in": 128,
+      "tokens_out": 78,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.24719999730587006,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The task does not require any code or coding-related steps, yet the listed roles include 'code' and 'coder', which ar\u2026",
+      "step_id": 27,
+      "t_unix_ms": 1777813047877,
+      "tokens_in": 128,
+      "tokens_out": 78,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.24719999730587006,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The task does not require any code or coding-related steps, yet the listed roles include 'code' and 'coder', which ar\u2026",
+      "step_id": 28,
+      "t_unix_ms": 1777813047887,
+      "tokens_in": 128,
+      "tokens_out": 78,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.24719999730587006,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The task does not require any code or coding-related steps, yet the listed roles include 'code' and 'coder', which ar\u2026",
+      "step_id": 29,
+      "t_unix_ms": 1777813047891,
+      "tokens_in": 128,
+      "tokens_out": 78,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.24719999730587006,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The task does not require any code or coding-related steps, yet the listed roles include 'code' and 'coder', which ar\u2026",
+      "step_id": 30,
+      "t_unix_ms": 1777813047895,
+      "tokens_in": 128,
+      "tokens_out": 78,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.24719999730587006,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The task does not require any code or coding-related steps, yet the listed roles include 'code' and 'coder', which ar\u2026",
+      "step_id": 31,
+      "t_unix_ms": 1777813047900,
+      "tokens_in": 128,
+      "tokens_out": 78,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00017",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 5.200799942016602,
+    "failed_tool_calls": 0,
+    "latency_ms": 7791,
+    "llm_calls": 32,
+    "tokens_in": 4297,
+    "tokens_out": 1531,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

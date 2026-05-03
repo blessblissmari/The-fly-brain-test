@@ -1,0 +1,638 @@
+{
+  "final_answer": "- The function `strlen` does not contain the implementation to calculate the length of the string; it only has a signat\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.2484000027179718,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Define the function `strlen` with one parameter `string`. 2. Use the built-in `len` function to calculate the \u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777812992724,
+      "tokens_in": 134,
+      "tokens_out": 73,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.11400000005960464,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1,
+      "output_summary": "```python def strlen(string: str) -> int:     \"\"\" Return length of given string     >>> strlen('')     0     >>> strlen\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777812992728,
+      "tokens_in": 233,
+      "tokens_out": 52,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.1387999951839447,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 1616,
+      "output_summary": "```python import unittest  class TestStringLength(unittest.TestCase):     def test_strlen_empty_string(self):         s\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777812994346,
+      "tokens_in": 247,
+      "tokens_out": 100,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.12319999933242798,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2124,
+      "output_summary": "``` import unittest  class TestStringLength(unittest.TestCase):     def test_empty_string(self):         self.assertEqu\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777812996473,
+      "tokens_in": 157,
+      "tokens_out": 151,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07039999961853027,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 553,
+      "output_summary": "`schema:invalid_output (produced output does not match the expected JSON schema)`",
+      "step_id": 4,
+      "t_unix_ms": 1777812997030,
+      "tokens_in": 159,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07000000029802322,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 469,
+      "output_summary": "`schema:invalid_output (wrong function name)`",
+      "step_id": 5,
+      "t_unix_ms": 1777812997509,
+      "tokens_in": 164,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07000000029802322,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (wrong function name)`",
+      "step_id": 6,
+      "t_unix_ms": 1777812997514,
+      "tokens_in": 164,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07000000029802322,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (wrong function name)`",
+      "step_id": 7,
+      "t_unix_ms": 1777812997517,
+      "tokens_in": 164,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07000000029802322,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (wrong function name)`",
+      "step_id": 8,
+      "t_unix_ms": 1777812997521,
+      "tokens_in": 164,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07000000029802322,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (wrong function name)`",
+      "step_id": 9,
+      "t_unix_ms": 1777812997524,
+      "tokens_in": 164,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07000000029802322,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (wrong function name)`",
+      "step_id": 10,
+      "t_unix_ms": 1777812997528,
+      "tokens_in": 164,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.15600000321865082,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "12",
+      "latency_ms": 1015,
+      "output_summary": "```python def strlen(string: str) -> int:     \"\"\" Return length of given string     >>> strlen('')     0     >>> strlen\u2026",
+      "step_id": 11,
+      "t_unix_ms": 1777812998546,
+      "tokens_in": 338,
+      "tokens_out": 52,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07240000367164612,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 561,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 12,
+      "t_unix_ms": 1777812999110,
+      "tokens_in": 166,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07240000367164612,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 13,
+      "t_unix_ms": 1777812999114,
+      "tokens_in": 166,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07240000367164612,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 14,
+      "t_unix_ms": 1777812999117,
+      "tokens_in": 166,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07240000367164612,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 15,
+      "t_unix_ms": 1777812999121,
+      "tokens_in": 166,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.27480000257492065,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1163,
+      "output_summary": "- The function `strlen` does not contain the implementation to calculate the length of the string; it only has a signat\u2026",
+      "step_id": 16,
+      "t_unix_ms": 1777813000286,
+      "tokens_in": 156,
+      "tokens_out": 73,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.298799991607666,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1417,
+      "output_summary": "- The function `strlen` does not contain the implementation to calculate the length of the string; it only has a signat\u2026",
+      "step_id": 17,
+      "t_unix_ms": 1777813001708,
+      "tokens_in": 158,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.298799991607666,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function `strlen` does not contain the implementation to calculate the length of the string; it only has a signat\u2026",
+      "step_id": 18,
+      "t_unix_ms": 1777813001713,
+      "tokens_in": 158,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.298799991607666,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function `strlen` does not contain the implementation to calculate the length of the string; it only has a signat\u2026",
+      "step_id": 19,
+      "t_unix_ms": 1777813001717,
+      "tokens_in": 158,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.298799991607666,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function `strlen` does not contain the implementation to calculate the length of the string; it only has a signat\u2026",
+      "step_id": 20,
+      "t_unix_ms": 1777813001721,
+      "tokens_in": 158,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.298799991607666,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function `strlen` does not contain the implementation to calculate the length of the string; it only has a signat\u2026",
+      "step_id": 21,
+      "t_unix_ms": 1777813001725,
+      "tokens_in": 158,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.298799991607666,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function `strlen` does not contain the implementation to calculate the length of the string; it only has a signat\u2026",
+      "step_id": 22,
+      "t_unix_ms": 1777813001728,
+      "tokens_in": 158,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.298799991607666,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function `strlen` does not contain the implementation to calculate the length of the string; it only has a signat\u2026",
+      "step_id": 23,
+      "t_unix_ms": 1777813001733,
+      "tokens_in": 158,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.298799991607666,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The function `strlen` does not contain the implementation to calculate the length of the string; it only has a signat\u2026",
+      "step_id": 24,
+      "t_unix_ms": 1777813001737,
+      "tokens_in": 158,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.298799991607666,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function `strlen` does not contain the implementation to calculate the length of the string; it only has a signat\u2026",
+      "step_id": 25,
+      "t_unix_ms": 1777813001742,
+      "tokens_in": 158,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.298799991607666,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function `strlen` does not contain the implementation to calculate the length of the string; it only has a signat\u2026",
+      "step_id": 26,
+      "t_unix_ms": 1777813001747,
+      "tokens_in": 158,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.298799991607666,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function `strlen` does not contain the implementation to calculate the length of the string; it only has a signat\u2026",
+      "step_id": 27,
+      "t_unix_ms": 1777813001751,
+      "tokens_in": 158,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.298799991607666,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function `strlen` does not contain the implementation to calculate the length of the string; it only has a signat\u2026",
+      "step_id": 28,
+      "t_unix_ms": 1777813001756,
+      "tokens_in": 158,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.298799991607666,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function `strlen` does not contain the implementation to calculate the length of the string; it only has a signat\u2026",
+      "step_id": 29,
+      "t_unix_ms": 1777813001760,
+      "tokens_in": 158,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.298799991607666,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The function `strlen` does not contain the implementation to calculate the length of the string; it only has a signat\u2026",
+      "step_id": 30,
+      "t_unix_ms": 1777813001765,
+      "tokens_in": 158,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.298799991607666,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The function `strlen` does not contain the implementation to calculate the length of the string; it only has a signat\u2026",
+      "step_id": 31,
+      "t_unix_ms": 1777813001770,
+      "tokens_in": 158,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-23",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 6.31719970703125,
+    "failed_tool_calls": 0,
+    "latency_ms": 8945,
+    "llm_calls": 32,
+    "tokens_in": 5442,
+    "tokens_out": 2009,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

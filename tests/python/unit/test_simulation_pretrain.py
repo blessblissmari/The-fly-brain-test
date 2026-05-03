@@ -207,7 +207,14 @@ def test_simulation_pretrain_supports_subset_agent_names() -> None:
     """Passing only a subset of agent names should still produce
     meaningful examples (the labels just point into the smaller list).
     """
-    subset = ["Planner", "Coder", "TestRunner", "Debugger", "Verifier"]
+    subset = [
+        "Planner",
+        "Coder",
+        "TestRunner",
+        "Debugger",
+        "Verifier",
+        "Finalizer",
+    ]
     gen = TaskGenerator(seed=1)
     tasks = gen.balanced_dataset(n_per_type=1)
     examples = expert_dataset(tasks, agent_names=subset)

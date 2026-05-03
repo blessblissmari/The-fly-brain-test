@@ -1,9 +1,33 @@
 # FlyBrain Optimizer — research report
 
 _Canonical write-up for PR #13. The 2026-05-03 N=30 expanded-fixtures
-run is the final headline; earlier N=50 small-fixtures runs (2026-05-02)
-remain in `data/experiments/bench_yandex_2026_05_02_n50{,_v2}/` for
+run is the **round-3** headline; the round-5 `bench_round5_n30_v6` run
+under the new `OPTIMAL_ROUTES` (with `Finalizer`) is the final
+headline. See [`round5_finalizer_routes.md`](round5_finalizer_routes.md)
+for the architectural fix and the +20 pp humaneval delta. Earlier
+N=50 small-fixtures runs (2026-05-02) remain in
+`data/experiments/bench_yandex_2026_05_02_n50{,_v2}/` for
 comparison._
+
+## 0. Round-5 update (2026-05-03)
+
+`flybrain.sim.optimal_routes.OPTIMAL_ROUTES` was extended so every
+task type ends with `Finalizer` (was missing for `math` /
+`coding` / `tool_use`, which the live runner's verifier requires for
+`final_answer`). `sim_pretrain_v6` retrained on this objective; the
+canonical N=30 bench (`data/experiments/bench_round5_n30_v6/`,
+seed=3) shows:
+
+| Benchmark | sim_pretrain v1 | sim_pretrain v6 | Δ |
+|---|---:|---:|---:|
+| bbh_mini | 0.967 | 0.967 | 0.0 pp |
+| gsm8k | 1.000 | 1.000 | 0.0 pp |
+| **humaneval** | 0.700 | **0.900** | **+20.0 pp** |
+| synthetic_routing | 0.133 | 0.167 | +3.3 pp |
+| **overall (1080 task-runs)** | 0.700 | **0.758** | **+5.8 pp** |
+
+Round-5 cost: **3612.62 ₽** (3404.64 ₽ for the bench + 207.98 ₽
+pilots). Project cumulative spend: **7791.96 ₽**.
 
 ## 1. Setup
 

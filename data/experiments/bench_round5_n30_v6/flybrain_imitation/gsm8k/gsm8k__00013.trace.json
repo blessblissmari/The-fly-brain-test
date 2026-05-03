@@ -1,0 +1,638 @@
+{
+  "final_answer": "schema:invalid_output (the output does not match the expected JSON schema)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.28200000524520874,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Calculate the amount of water in the original 10 liters of orange drink. 2. Calculate the amount of water in t\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777813005310,
+      "tokens_in": 142,
+      "tokens_out": 93,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.18039999902248383,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 2527,
+      "output_summary": "```python orange_drink_volume = 10 orange_drink_water_fraction = 2/3 orange_drink_water_amount = orange_drink_volume * \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777813007839,
+      "tokens_in": 259,
+      "tokens_out": 192,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.2287999987602234,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 2453,
+      "output_summary": "```python orange_drink_volume = 10 orange_drink_water_fraction = 2/3 orange_drink_water_amount = orange_drink_volume * \u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777813010297,
+      "tokens_in": 380,
+      "tokens_out": 192,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.20999999344348907,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 582,
+      "output_summary": "verifier:failed:missing_mathematical_solution",
+      "step_id": 3,
+      "t_unix_ms": 1777813010883,
+      "tokens_in": 164,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.21480000019073486,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 451,
+      "output_summary": "verifier:failed:incorrect format and irrelevant content provided",
+      "step_id": 4,
+      "t_unix_ms": 1777813011338,
+      "tokens_in": 167,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.08240000158548355,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 767,
+      "output_summary": "schema:invalid_output (The output does not match the expected JSON schema. The produced output is a list of unrelated w\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777813012108,
+      "tokens_in": 170,
+      "tokens_out": 36,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07519999891519547,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 495,
+      "output_summary": "`schema:invalid_output (no relevant JSON output provided)`",
+      "step_id": 6,
+      "t_unix_ms": 1777813012607,
+      "tokens_in": 175,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07519999891519547,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no relevant JSON output provided)`",
+      "step_id": 7,
+      "t_unix_ms": 1777813012612,
+      "tokens_in": 175,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07519999891519547,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no relevant JSON output provided)`",
+      "step_id": 8,
+      "t_unix_ms": 1777813012616,
+      "tokens_in": 175,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07519999891519547,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no relevant JSON output provided)`",
+      "step_id": 9,
+      "t_unix_ms": 1777813012620,
+      "tokens_in": 175,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07519999891519547,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no relevant JSON output provided)`",
+      "step_id": 10,
+      "t_unix_ms": 1777813012623,
+      "tokens_in": 175,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07519999891519547,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no relevant JSON output provided)`",
+      "step_id": 11,
+      "t_unix_ms": 1777813012626,
+      "tokens_in": 175,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07519999891519547,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no relevant JSON output provided)`",
+      "step_id": 12,
+      "t_unix_ms": 1777813012630,
+      "tokens_in": 175,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07519999891519547,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no relevant JSON output provided)`",
+      "step_id": 13,
+      "t_unix_ms": 1777813012633,
+      "tokens_in": 175,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07519999891519547,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no relevant JSON output provided)`",
+      "step_id": 14,
+      "t_unix_ms": 1777813012637,
+      "tokens_in": 175,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.2639999985694885,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 955,
+      "output_summary": "- The draft does not contain a solution to the math problem. - There are no calculations or logical steps leading to th\u2026",
+      "step_id": 15,
+      "t_unix_ms": 1777813013595,
+      "tokens_in": 165,
+      "tokens_out": 55,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.266400009393692,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 965,
+      "output_summary": "- The draft does not contain a solution to the math problem. - There are no calculations or logical steps leading to th\u2026",
+      "step_id": 16,
+      "t_unix_ms": 1777813014563,
+      "tokens_in": 167,
+      "tokens_out": 55,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.266400009393692,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not contain a solution to the math problem. - There are no calculations or logical steps leading to th\u2026",
+      "step_id": 17,
+      "t_unix_ms": 1777813014568,
+      "tokens_in": 167,
+      "tokens_out": 55,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.266400009393692,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not contain a solution to the math problem. - There are no calculations or logical steps leading to th\u2026",
+      "step_id": 18,
+      "t_unix_ms": 1777813014572,
+      "tokens_in": 167,
+      "tokens_out": 55,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.266400009393692,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not contain a solution to the math problem. - There are no calculations or logical steps leading to th\u2026",
+      "step_id": 19,
+      "t_unix_ms": 1777813014576,
+      "tokens_in": 167,
+      "tokens_out": 55,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.266400009393692,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not contain a solution to the math problem. - There are no calculations or logical steps leading to th\u2026",
+      "step_id": 20,
+      "t_unix_ms": 1777813014579,
+      "tokens_in": 167,
+      "tokens_out": 55,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.266400009393692,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not contain a solution to the math problem. - There are no calculations or logical steps leading to th\u2026",
+      "step_id": 21,
+      "t_unix_ms": 1777813014583,
+      "tokens_in": 167,
+      "tokens_out": 55,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.266400009393692,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not contain a solution to the math problem. - There are no calculations or logical steps leading to th\u2026",
+      "step_id": 22,
+      "t_unix_ms": 1777813014587,
+      "tokens_in": 167,
+      "tokens_out": 55,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.266400009393692,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not contain a solution to the math problem. - There are no calculations or logical steps leading to th\u2026",
+      "step_id": 23,
+      "t_unix_ms": 1777813014591,
+      "tokens_in": 167,
+      "tokens_out": 55,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.266400009393692,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not contain a solution to the math problem. - There are no calculations or logical steps leading to th\u2026",
+      "step_id": 24,
+      "t_unix_ms": 1777813014595,
+      "tokens_in": 167,
+      "tokens_out": 55,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.266400009393692,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not contain a solution to the math problem. - There are no calculations or logical steps leading to th\u2026",
+      "step_id": 25,
+      "t_unix_ms": 1777813014598,
+      "tokens_in": 167,
+      "tokens_out": 55,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.266400009393692,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not contain a solution to the math problem. - There are no calculations or logical steps leading to th\u2026",
+      "step_id": 26,
+      "t_unix_ms": 1777813014602,
+      "tokens_in": 167,
+      "tokens_out": 55,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.266400009393692,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not contain a solution to the math problem. - There are no calculations or logical steps leading to th\u2026",
+      "step_id": 27,
+      "t_unix_ms": 1777813014606,
+      "tokens_in": 167,
+      "tokens_out": 55,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.3628000020980835,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "11",
+      "latency_ms": 5899,
+      "output_summary": "```python import unittest from unittest.mock import patch  class TestMath(unittest.TestCase):     def test_orange_drink\u2026",
+      "step_id": 28,
+      "t_unix_ms": 1777813020508,
+      "tokens_in": 402,
+      "tokens_out": 505,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07959999889135361,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 636,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema)",
+      "step_id": 29,
+      "t_unix_ms": 1777813021147,
+      "tokens_in": 183,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07959999889135361,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema)",
+      "step_id": 30,
+      "t_unix_ms": 1777813021152,
+      "tokens_in": 183,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07959999889135361,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema)",
+      "step_id": 31,
+      "t_unix_ms": 1777813021156,
+      "tokens_in": 183,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00013",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 5.937599182128906,
+    "failed_tool_calls": 0,
+    "latency_ms": 15752,
+    "llm_calls": 32,
+    "tokens_in": 5977,
+    "tokens_out": 1921,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}
