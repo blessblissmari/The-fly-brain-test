@@ -1,0 +1,11 @@
+| Method | Benchmark | Tasks | Success | Verifier | Tokens/task | Calls/task | Latency (ms) | Cost/task ₽ | Cost/solved ₽ |
+|---|---|---|---|---|---|---|---|---|---|
+| manual_graph | synthetic_routing | 30 | 0.833 | 0.975 | 1847 | 10.97 | 8999 | 1.63 | 1.96 |
+| fully_connected | synthetic_routing | 30 | 1.00 | 1.00 | 2560 | 10.77 | 8829 | 2.17 | 2.17 |
+| random_sparse | synthetic_routing | 30 | 0.267 | 0.795 | 1172 | 8.17 | 5726 | 0.760 | 2.85 |
+| degree_preserving | synthetic_routing | 30 | 0.967 | 0.995 | 810 | 4.20 | 867 | 0.531 | 0.549 |
+| learned_router_no_prior | synthetic_routing | 30 | 0.100 | 0.640 | 46.00 | 0.267 | 426 | 0.018 | 0.184 |
+| flybrain_prior_untrained | synthetic_routing | 30 | 0.000 | 0.735 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_sim_pretrain | synthetic_routing | 30 | 0.133 | 0.870 | 1997 | 12.00 | 5349 | 1.12 | 8.41 |
+| flybrain_imitation | synthetic_routing | 30 | 0.200 | 0.880 | 1339 | 7.70 | 2458 | 0.777 | 3.88 |
+| flybrain_rl | synthetic_routing | 30 | 0.067 | 0.855 | 1930 | 12.00 | 1436 | 2.07 | 31.08 |

@@ -1,0 +1,147 @@
+{
+  "final_answer": "`schema:invalid_output (no output provided that matches the expected JSON schema)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.15719999372959137,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Define the function that accepts a list of integers as an argument. 2. Implement a sorting algorithm (e.g., qu\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777807339580,
+      "tokens_in": 67,
+      "tokens_out": 64,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.18639999628067017,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 6108,
+      "output_summary": "The given task is not a mathematical problem but a coding task. However, I can provide a mathematical approach to sorti\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777807345691,
+      "tokens_in": 68,
+      "tokens_out": 398,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.040800001472234726,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 476,
+      "output_summary": "schema:invalid_output (produced output does not match expected JSON schema)",
+      "step_id": 2,
+      "t_unix_ms": 1777807346171,
+      "tokens_in": 87,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04360000044107437,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 526,
+      "output_summary": "`schema:invalid_output (no output provided that matches the expected JSON schema)`",
+      "step_id": 3,
+      "t_unix_ms": 1777807346701,
+      "tokens_in": 92,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04360000044107437,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no output provided that matches the expected JSON schema)`",
+      "step_id": 4,
+      "t_unix_ms": 1777807346706,
+      "tokens_in": 92,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04360000044107437,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no output provided that matches the expected JSON schema)`",
+      "step_id": 5,
+      "t_unix_ms": 1777807346710,
+      "tokens_in": 92,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0000",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.5151999592781067,
+    "failed_tool_calls": 0,
+    "latency_ms": 7112,
+    "llm_calls": 6,
+    "tokens_in": 498,
+    "tokens_out": 528,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: code",
+      "[rule] missing component: tests_run"
+    ],
+    "failed_component": "code",
+    "passed": false,
+    "reward_delta": -0.20000000298023224,
+    "score": 0.699999988079071,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

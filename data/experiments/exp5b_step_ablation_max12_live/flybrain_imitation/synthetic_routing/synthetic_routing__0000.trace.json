@@ -1,0 +1,260 @@
+{
+  "final_answer": "schema:invalid_output (no output provided)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.15719999372959137,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Define the function that accepts a list of integers as an argument. 2. Implement a sorting algorithm (e.g., qu\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777807832515,
+      "tokens_in": 67,
+      "tokens_out": 64,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.07440000027418137,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1814,
+      "output_summary": "The task provided is not a mathematical problem but a coding task. I can provide a solution in Python for sorting a lis\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777807834332,
+      "tokens_in": 68,
+      "tokens_out": 118,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1151999980211258,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 453,
+      "output_summary": "verifier:failed:missing_code_evaluation",
+      "step_id": 2,
+      "t_unix_ms": 1777807834791,
+      "tokens_in": 86,
+      "tokens_out": 10,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.12120000272989273,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 475,
+      "output_summary": "verifier:failed:missing_output_to_check",
+      "step_id": 3,
+      "t_unix_ms": 1777807835270,
+      "tokens_in": 89,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.12120000272989273,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_output_to_check",
+      "step_id": 4,
+      "t_unix_ms": 1777807835274,
+      "tokens_in": 89,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.09679999947547913,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 551,
+      "output_summary": "```python def sort_list(numbers):     return sorted(numbers) ```",
+      "step_id": 5,
+      "t_unix_ms": 1777807835828,
+      "tokens_in": 223,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05040000006556511,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 700,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema, as it includes non-relevant items instead of\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777807836545,
+      "tokens_in": 94,
+      "tokens_out": 32,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04360000044107437,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 470,
+      "output_summary": "schema:invalid_output (no output provided)",
+      "step_id": 7,
+      "t_unix_ms": 1777807837018,
+      "tokens_in": 99,
+      "tokens_out": 10,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04360000044107437,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided)",
+      "step_id": 8,
+      "t_unix_ms": 1777807837022,
+      "tokens_in": 99,
+      "tokens_out": 10,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04360000044107437,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided)",
+      "step_id": 9,
+      "t_unix_ms": 1777807837026,
+      "tokens_in": 99,
+      "tokens_out": 10,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04360000044107437,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided)",
+      "step_id": 10,
+      "t_unix_ms": 1777807837029,
+      "tokens_in": 99,
+      "tokens_out": 10,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04360000044107437,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided)",
+      "step_id": 11,
+      "t_unix_ms": 1777807837032,
+      "tokens_in": 99,
+      "tokens_out": 10,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0000",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.9544001221656799,
+    "failed_tool_calls": 0,
+    "latency_ms": 4468,
+    "llm_calls": 12,
+    "tokens_in": 1211,
+    "tokens_out": 317,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: tests_run"
+    ],
+    "failed_component": "tests_run",
+    "passed": false,
+    "reward_delta": -0.10000000149011612,
+    "score": 0.8500000238418579,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

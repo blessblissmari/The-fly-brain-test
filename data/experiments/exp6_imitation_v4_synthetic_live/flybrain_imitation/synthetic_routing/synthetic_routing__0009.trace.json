@@ -1,0 +1,668 @@
+{
+  "final_answer": "Plan: 1. Isolate the term with the variable x by subtracting 44 from both sides of the equation. 2. Simplify the equati\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.1451999992132187,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Subtract 44 from both sides of the equation to isolate the term with x. 2. Divide both sides by 19 to solve fo\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777808432665,
+      "tokens_in": 74,
+      "tokens_out": 47,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.17520000040531158,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Subtract 44 from both sides of the equation to isolate the term with x. 2. Simplify the equation to find the c\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777808432668,
+      "tokens_in": 83,
+      "tokens_out": 63,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.17520000040531158,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Subtract 44 from both sides of the equation to isolate the term with x. 2. Simplify the equation to find the c\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777808432672,
+      "tokens_in": 83,
+      "tokens_out": 63,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.17520000040531158,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Subtract 44 from both sides of the equation to isolate the term with x. 2. Simplify the equation to find the c\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777808432675,
+      "tokens_in": 83,
+      "tokens_out": 63,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.17520000040531158,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Subtract 44 from both sides of the equation to isolate the term with x. 2. Simplify the equation to find the c\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777808432678,
+      "tokens_in": 83,
+      "tokens_out": 63,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.1111999973654747,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "18",
+      "latency_ms": 1402,
+      "output_summary": "- The equation is solved by first subtracting 44 from both sides: $19x + 44 - 44 = 34 - 44$, which simplifies to $19x =\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777808434083,
+      "tokens_in": 181,
+      "tokens_out": 97,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Solve for x: 19x + 44 = 34."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.3407999873161316,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "22",
+      "latency_ms": 1301,
+      "output_summary": "Plan: 1. Verify the equation setup: 19x + 44 = 34. 2. Subtract 44 from both sides to isolate the term with x. 3. Divide\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777808435387,
+      "tokens_in": 202,
+      "tokens_out": 82,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.09520000219345093,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "24",
+      "latency_ms": 930,
+      "output_summary": "```python from sympy import symbols, Eq, solve  x = symbols('x') equation = Eq(19*x + 44, 34) solution = solve(equation\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777808436321,
+      "tokens_in": 184,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.25679999589920044,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "30",
+      "latency_ms": 892,
+      "output_summary": "Plan: 1. Execute the provided Python code to solve the equation. 2. Verify the solution by substituting it back into th\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777808437217,
+      "tokens_in": 165,
+      "tokens_out": 49,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.2231999933719635,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1350,
+      "output_summary": "Plan: 1. Isolate the term with the variable x by subtracting 44 from both sides of the equation. 2. Simplify the equati\u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777808438571,
+      "tokens_in": 92,
+      "tokens_out": 94,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.2231999933719635,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Isolate the term with the variable x by subtracting 44 from both sides of the equation. 2. Simplify the equati\u2026",
+      "step_id": 10,
+      "t_unix_ms": 1777808438575,
+      "tokens_in": 92,
+      "tokens_out": 94,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.2231999933719635,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Isolate the term with the variable x by subtracting 44 from both sides of the equation. 2. Simplify the equati\u2026",
+      "step_id": 11,
+      "t_unix_ms": 1777808438579,
+      "tokens_in": 92,
+      "tokens_out": 94,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.2231999933719635,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Isolate the term with the variable x by subtracting 44 from both sides of the equation. 2. Simplify the equati\u2026",
+      "step_id": 12,
+      "t_unix_ms": 1777808438583,
+      "tokens_in": 92,
+      "tokens_out": 94,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.12759999930858612,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "50",
+      "latency_ms": 1405,
+      "output_summary": "1. Subtract 44 from both sides of the equation: $19x + 44 - 44 = 34 - 44$, which simplifies to $19x = -10$. 2. Divide b\u2026",
+      "step_id": 13,
+      "t_unix_ms": 1777808439991,
+      "tokens_in": 221,
+      "tokens_out": 98,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Solve for x: 19x + 44 = 34."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.10199999809265137,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "48",
+      "latency_ms": 904,
+      "output_summary": "```python from sympy import symbols, Eq, solve  x = symbols('x') equation = Eq(19*x + 44, 34) solution = solve(equation\u2026",
+      "step_id": 14,
+      "t_unix_ms": 1777808440899,
+      "tokens_in": 201,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.25679999589920044,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "58",
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Execute the provided Python code to solve the equation. 2. Verify the solution by substituting it back into th\u2026",
+      "step_id": 15,
+      "t_unix_ms": 1777808440904,
+      "tokens_in": 165,
+      "tokens_out": 49,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.2231999933719635,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Isolate the term with the variable x by subtracting 44 from both sides of the equation. 2. Simplify the equati\u2026",
+      "step_id": 16,
+      "t_unix_ms": 1777808440908,
+      "tokens_in": 92,
+      "tokens_out": 94,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.2231999933719635,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Isolate the term with the variable x by subtracting 44 from both sides of the equation. 2. Simplify the equati\u2026",
+      "step_id": 17,
+      "t_unix_ms": 1777808440912,
+      "tokens_in": 92,
+      "tokens_out": 94,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.2231999933719635,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Isolate the term with the variable x by subtracting 44 from both sides of the equation. 2. Simplify the equati\u2026",
+      "step_id": 18,
+      "t_unix_ms": 1777808440916,
+      "tokens_in": 92,
+      "tokens_out": 94,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.10199999809265137,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "72",
+      "latency_ms": 1,
+      "output_summary": "```python from sympy import symbols, Eq, solve  x = symbols('x') equation = Eq(19*x + 44, 34) solution = solve(equation\u2026",
+      "step_id": 19,
+      "t_unix_ms": 1777808440920,
+      "tokens_in": 201,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.25679999589920044,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "78",
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Execute the provided Python code to solve the equation. 2. Verify the solution by substituting it back into th\u2026",
+      "step_id": 20,
+      "t_unix_ms": 1777808440924,
+      "tokens_in": 165,
+      "tokens_out": 49,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.11879999935626984,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "82",
+      "latency_ms": 1592,
+      "output_summary": "1. To solve the equation $19x + 44 = 34$, subtract $44$ from both sides to isolate the term with $x$: $19x = 34 - 44$. \u2026",
+      "step_id": 21,
+      "t_unix_ms": 1777808442519,
+      "tokens_in": 176,
+      "tokens_out": 121,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Solve for x: 19x + 44 = 34."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.36000001430511475,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "86",
+      "latency_ms": 1078,
+      "output_summary": "Plan: 1. Review the provided solution to ensure all steps are correct and logical. 2. Verify the final answer by substi\u2026",
+      "step_id": 22,
+      "t_unix_ms": 1777808443600,
+      "tokens_in": 232,
+      "tokens_out": 68,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.225600004196167,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1398,
+      "output_summary": "Plan: 1. Isolate the term with the variable x by subtracting 44 from both sides of the equation. 2. Simplify the equati\u2026",
+      "step_id": 23,
+      "t_unix_ms": 1777808445001,
+      "tokens_in": 96,
+      "tokens_out": 92,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.225600004196167,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Isolate the term with the variable x by subtracting 44 from both sides of the equation. 2. Simplify the equati\u2026",
+      "step_id": 24,
+      "t_unix_ms": 1777808445008,
+      "tokens_in": 96,
+      "tokens_out": 92,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.225600004196167,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Isolate the term with the variable x by subtracting 44 from both sides of the equation. 2. Simplify the equati\u2026",
+      "step_id": 25,
+      "t_unix_ms": 1777808445012,
+      "tokens_in": 96,
+      "tokens_out": 92,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.225600004196167,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Isolate the term with the variable x by subtracting 44 from both sides of the equation. 2. Simplify the equati\u2026",
+      "step_id": 26,
+      "t_unix_ms": 1777808445016,
+      "tokens_in": 96,
+      "tokens_out": 92,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.225600004196167,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Isolate the term with the variable x by subtracting 44 from both sides of the equation. 2. Simplify the equati\u2026",
+      "step_id": 27,
+      "t_unix_ms": 1777808445021,
+      "tokens_in": 96,
+      "tokens_out": 92,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.225600004196167,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Isolate the term with the variable x by subtracting 44 from both sides of the equation. 2. Simplify the equati\u2026",
+      "step_id": 28,
+      "t_unix_ms": 1777808445025,
+      "tokens_in": 96,
+      "tokens_out": 92,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.225600004196167,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "Plan: 1. Isolate the term with the variable x by subtracting 44 from both sides of the equation. 2. Simplify the equati\u2026",
+      "step_id": 29,
+      "t_unix_ms": 1777808445029,
+      "tokens_in": 96,
+      "tokens_out": 92,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.225600004196167,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "Plan: 1. Isolate the term with the variable x by subtracting 44 from both sides of the equation. 2. Simplify the equati\u2026",
+      "step_id": 30,
+      "t_unix_ms": 1777808445034,
+      "tokens_in": 96,
+      "tokens_out": 92,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.225600004196167,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "Plan: 1. Isolate the term with the variable x by subtracting 44 from both sides of the equation. 2. Simplify the equati\u2026",
+      "step_id": 31,
+      "t_unix_ms": 1777808445038,
+      "tokens_in": 96,
+      "tokens_out": 92,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0009",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 6.566802024841309,
+    "failed_tool_calls": 0,
+    "latency_ms": 12273,
+    "llm_calls": 32,
+    "tokens_in": 4007,
+    "tokens_out": 2560,
+    "tool_calls": 3
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

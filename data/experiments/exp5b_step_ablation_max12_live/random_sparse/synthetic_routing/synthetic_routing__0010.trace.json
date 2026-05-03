@@ -1,0 +1,256 @@
+{
+  "final_answer": "`schema:invalid_output (produced output does not match expected content for the task)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "random",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": null,
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_tool_executor"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_tool_executor invoked (memory=0, corpus=0)",
+      "step_id": 0,
+      "t_unix_ms": 1777807712529,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0272000003606081,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MemoryWriter",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 474,
+      "output_summary": "memory_written: research",
+      "step_id": 1,
+      "t_unix_ms": 1777807713003,
+      "tokens_in": 63,
+      "tokens_out": 5,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_tool_executor"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_tool_executor invoked (memory=1, corpus=1)",
+      "step_id": 2,
+      "t_unix_ms": 1777807713004,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.030799999833106995,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MemoryWriter",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 434,
+      "output_summary": "memory_written: research",
+      "step_id": 3,
+      "t_unix_ms": 1777807713438,
+      "tokens_in": 72,
+      "tokens_out": 5,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_tool_executor"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_tool_executor invoked (memory=2, corpus=2)",
+      "step_id": 4,
+      "t_unix_ms": 1777807713438,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.030799999833106995,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MemoryWriter",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "memory_written: research",
+      "step_id": 5,
+      "t_unix_ms": 1777807713439,
+      "tokens_in": 72,
+      "tokens_out": 5,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.03759999945759773,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 539,
+      "output_summary": "schema:invalid_output (output does not match expected JSON schema)",
+      "step_id": 6,
+      "t_unix_ms": 1777807713979,
+      "tokens_in": 80,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_memory"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_memory invoked (memory=4, corpus=4)",
+      "step_id": 7,
+      "t_unix_ms": 1777807713979,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.11400000005960464,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 543,
+      "output_summary": "verifier:failed:missing summary on the latest results on transformers",
+      "step_id": 8,
+      "t_unix_ms": 1777807714522,
+      "tokens_in": 82,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_tool_executor"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_tool_executor invoked (memory=5, corpus=5)",
+      "step_id": 9,
+      "t_unix_ms": 1777807714522,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.03400000184774399,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MemoryWriter",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 432,
+      "output_summary": "memory_written: research",
+      "step_id": 10,
+      "t_unix_ms": 1777807714955,
+      "tokens_in": 80,
+      "tokens_out": 5,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.042399998754262924,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 589,
+      "output_summary": "`schema:invalid_output (produced output does not match expected content for the task)`",
+      "step_id": 11,
+      "t_unix_ms": 1777807715544,
+      "tokens_in": 88,
+      "tokens_out": 18,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0010",
+  "task_type": "research",
+  "totals": {
+    "cost_rub": 0.31679999828338623,
+    "failed_tool_calls": 0,
+    "latency_ms": 3011,
+    "llm_calls": 7,
+    "tokens_in": 537,
+    "tokens_out": 65,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: final_answer",
+      "[rule] missing component: plan"
+    ],
+    "failed_component": "final_answer",
+    "passed": false,
+    "reward_delta": -0.20000000298023224,
+    "score": 0.699999988079071,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "final_answer": "Plan: 1. Retrieve detailed information about approach A (id=9327). 2. Retrieve detailed information about approach B (i\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.18359999358654022,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1164,
+      "output_summary": "Plan: 1. Gather detailed information on approach A (id=9327). 2. Gather detailed information on approach B (id=9936). 3\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777807179891,
+      "tokens_in": 79,
+      "tokens_out": 74,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.19439999759197235,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1340,
+      "output_summary": "Plan: 1. Gather detailed information on approach A (id=9327). 2. Gather detailed information on approach B (id=9936). 3\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777807181232,
+      "tokens_in": 88,
+      "tokens_out": 74,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.19439999759197235,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Gather detailed information on approach A (id=9327). 2. Gather detailed information on approach B (id=9936). 3\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777807181233,
+      "tokens_in": 88,
+      "tokens_out": 74,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.06120000034570694,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 882,
+      "output_summary": "To compare approach A (id=9327) and approach B (id=9936), I need to know the specific query related to these approaches\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777807182115,
+      "tokens_in": 106,
+      "tokens_out": 47,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Compare approach A (id=9327) and approach B (id=9936)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.2003999948501587,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1261,
+      "output_summary": "Plan: 1. Retrieve detailed information about approach A (id=9327). 2. Retrieve detailed information about approach B (i\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777807183377,
+      "tokens_in": 92,
+      "tokens_out": 75,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.2003999948501587,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Retrieve detailed information about approach A (id=9327). 2. Retrieve detailed information about approach B (i\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777807183377,
+      "tokens_in": 92,
+      "tokens_out": 75,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0022",
+  "task_type": "research",
+  "totals": {
+    "cost_rub": 1.0343999862670898,
+    "failed_tool_calls": 0,
+    "latency_ms": 4647,
+    "llm_calls": 6,
+    "tokens_in": 545,
+    "tokens_out": 419,
+    "tool_calls": 1
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: final_answer"
+    ],
+    "failed_component": "final_answer",
+    "passed": false,
+    "reward_delta": -0.10000000149011612,
+    "score": 0.8500000238418579,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

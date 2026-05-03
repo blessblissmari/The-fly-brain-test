@@ -1,0 +1,146 @@
+{
+  "final_answer": "`schema:invalid_output (The provided list does not match the expected JSON schema.)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.18479999899864197,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Retrieve form #3817 and the corresponding input data. 2. Review the required fields and validation rules for f\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777807321475,
+      "tokens_in": 71,
+      "tokens_out": 83,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.10360000282526016,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1528,
+      "output_summary": "```python def validate_form_3817(input_data):     # Placeholder for actual validation logic     required_fields = {'nam\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777807323006,
+      "tokens_in": 178,
+      "tokens_out": 81,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.20600000023841858,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 5380,
+      "output_summary": "``` def test_validate_input_from_form_3817():     \"\"\"     Test the validation of input from form #3817.     \"\"\"     fro\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777807328389,
+      "tokens_in": 192,
+      "tokens_out": 323,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.3407999873161316,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 5146,
+      "output_summary": "```python def test_validate_input_from_form_3817():     \"\"\"     Test the validation of input from form #3817.     \"\"\"  \u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777807333539,
+      "tokens_in": 480,
+      "tokens_out": 372,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04520000144839287,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 559,
+      "output_summary": "`schema:invalid_output (Input does not match expected JSON schema)`",
+      "step_id": 4,
+      "t_unix_ms": 1777807334102,
+      "tokens_in": 98,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04879999905824661,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1078,
+      "output_summary": "`schema:invalid_output (The provided list does not match the expected JSON schema.)`",
+      "step_id": 5,
+      "t_unix_ms": 1777807335184,
+      "tokens_in": 103,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0027",
+  "task_type": "tool_use",
+  "totals": {
+    "cost_rub": 0.9291999340057373,
+    "failed_tool_calls": 0,
+    "latency_ms": 13692,
+    "llm_calls": 6,
+    "tokens_in": 1122,
+    "tokens_out": 893,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: final_answer"
+    ],
+    "failed_component": "final_answer",
+    "passed": false,
+    "reward_delta": -0.10000000149011612,
+    "score": 0.8500000238418579,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

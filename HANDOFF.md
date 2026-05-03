@@ -1,6 +1,6 @@
 # Developer Handoff Note — FlyBrain Optimizer
 
-_Last updated: 2026-05-02_
+_Last updated: 2026-05-03_
 
 This file is the **single point of entry** for any future contributor
 (or Devin session) picking up the FlyBrain Optimizer codebase. It
@@ -198,10 +198,17 @@ cost (`flybrain_imitation` 1.52 ₽/task vs. `manual_graph` 2.46
 On `synthetic_routing` trained = 4-8/30 (13-27%) vs static
 25-30/30 — see §10.a-Q4/Q5 for the next architectural levers
 (GNN width 32→64, step_penalty in `RewardConfig`, on-policy PPO
-with verifier-as-reward).
+with verifier-as-reward). **Round 4 (2026-05-03) ruled out the
+cheap data-side and step-budget-side fixes**: `max_steps ∈ {6, 12}`
+does not move trained controllers off the plateau, and adding /
+up-weighting 25 passing `manual_graph` traces on `synthetic_routing`
+keeps imitation at 7-8 / 30. The remaining levers are genuine
+architecture work; see `docs/round4_architectural_negative_results.md`
+for the four hypotheses tested and their action-sequence post-mortem.
 
 For the canonical write-up, see `docs/final_report.md`. For the
-round-by-round delta, see `docs/round2_progress.md`.
+round-by-round delta, see `docs/round2_progress.md` and
+`docs/round4_architectural_negative_results.md`.
 
 ### 4.b Budget tracker overshoot at high parallelism
 
