@@ -1,0 +1,7 @@
+| Method | Benchmark | Tasks | Success | Verifier | Tokens/task | Calls/task | Latency (ms) | Cost/task ₽ | Cost/solved ₽ |
+|---|---|---|---|---|---|---|---|---|---|
+| flybrain_prior_untrained | humaneval | 15 | 0.000 | 0.550 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_graph_ssl_pretrain | humaneval | 15 | 0.000 | 0.550 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_sim_pretrain | humaneval | 15 | 0.800 | 0.970 | 3572 | 11.33 | 11038 | 1.71 | 2.14 |
+| flybrain_imitation | humaneval | 15 | 0.667 | 0.950 | 2273 | 6.73 | 5422 | 1.36 | 2.05 |
+| flybrain_rl | humaneval | 15 | 0.067 | 0.800 | 3495 | 12.00 | 4558 | 3.58 | 53.75 |

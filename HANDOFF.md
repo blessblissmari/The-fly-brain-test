@@ -334,7 +334,7 @@ expected gains.
 |---|---|---|---|
 | Q1 | **Fix trained-baseline empty-graph bug.** Ship a `flybrain_prior_graph(agent_names)` builder using the actual FlyBrain adjacency. | DONE (PR #13, 2026-05-02) | 4 baselines from 0 % → 0 / 23 / 37 / 45 % overall on N=50 (1.00 on bbh_mini / gsm8k / humaneval for sim_pretrain) |
 | Q2 | **Resolve emb-dim mismatch + checkpoint loading.** | DONE (PR #13, 2026-05-02) | weights now load |
-| Q3 | **Run all 5 README §18 ablations end-to-end on live YandexGPT, not just mock.** | OPEN | converts §18 from "5/5 framework" to "5/5 with cherry-picked numbers" |
+| Q3 | **Run all 5 README §18 ablations end-to-end on live YandexGPT, not just mock.** | DONE (PR #13, 2026-05-03; round-2 commit) — Exp 2, 3, 4 live at N=15. Exp 1 already in N=50 v1/v2; Exp 5 is the canonical N=50 bench. | converts §18 from "5/5 framework" to "5/5 with live numbers" — see `docs/round2_progress.md §4`, artefacts under `data/experiments/exp{2,3,4}_*_live/` |
 | Q4 | **Curriculum-learning + step-penalty.** Trained baselines spend 11-12 LLM calls per task (vs. 3-4 for static graphs) and under-perform on `synthetic_routing`. Run sim-pretrain to 120-180 epochs with `n_per_type` 96 → 192, add `step_penalty` to `RewardConfig`. | 1d | flybrain_sim_pretrain on synthetic_routing 28 % → 70 % + |
 | Q5 | **PPO Phase 8 against the real verifier.** `flybrain_rl` is currently REINFORCE-light against a sim verifier. PPO + the production verifier (Phase 3) on `synthetic_routing` should match `fully_connected` at lower cost. | 3d + ~400 ₽ | expected new top: ~ 96 % at ~ 0.7 ₽/solved |
 

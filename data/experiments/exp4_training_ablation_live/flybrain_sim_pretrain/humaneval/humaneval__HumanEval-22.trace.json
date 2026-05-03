@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (function output does not match expected type List[int])`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.33000001311302185,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1193,
+      "output_summary": "Plan: 1. Define the function `filter_integers` with the specified signature. 2. Iterate through the input list `values`\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777798662606,
+      "tokens_in": 194,
+      "tokens_out": 81,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "ToolExecutor",
+      "cost_rub": 0.12359999865293503,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "ToolExecutor",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1613,
+      "output_summary": "```python def filter_integers(values: List[Any]) -> List[int]:     \"\"\" Filter given list of any python values only for \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777798664223,
+      "tokens_in": 198,
+      "tokens_out": 111,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.27880001068115234,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "7",
+      "latency_ms": 5031,
+      "output_summary": "```python from typing import List, Any import unittest  class TestFilterIntegers(unittest.TestCase):      def test_filt\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777798669257,
+      "tokens_in": 356,
+      "tokens_out": 341,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.28600001335144043,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 2092,
+      "output_summary": "```python from typing import List, Any  def filter_integers(values: List[Any]) -> List[int]:     \"\"\" Filter given list \u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777798671353,
+      "tokens_in": 596,
+      "tokens_out": 119,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.13359999656677246,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2097,
+      "output_summary": "```python from typing import List, Any   def filter_integers(values: List[Any]) -> List[int]:     \"\"\" Filter given list\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777798673454,
+      "tokens_in": 214,
+      "tokens_out": 120,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09759999811649323,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 567,
+      "output_summary": "`schema:invalid_output (the output does not match the expected output format of a list of integers)`",
+      "step_id": 5,
+      "t_unix_ms": 1777798674024,
+      "tokens_in": 222,
+      "tokens_out": 22,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09839999675750732,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 526,
+      "output_summary": "`schema:invalid_output (function output does not match expected type List[int])`",
+      "step_id": 6,
+      "t_unix_ms": 1777798674554,
+      "tokens_in": 227,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09839999675750732,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function output does not match expected type List[int])`",
+      "step_id": 7,
+      "t_unix_ms": 1777798674557,
+      "tokens_in": 227,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09839999675750732,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function output does not match expected type List[int])`",
+      "step_id": 8,
+      "t_unix_ms": 1777798674561,
+      "tokens_in": 227,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09839999675750732,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function output does not match expected type List[int])`",
+      "step_id": 9,
+      "t_unix_ms": 1777798674565,
+      "tokens_in": 227,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09839999675750732,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function output does not match expected type List[int])`",
+      "step_id": 10,
+      "t_unix_ms": 1777798674582,
+      "tokens_in": 227,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09839999675750732,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function output does not match expected type List[int])`",
+      "step_id": 11,
+      "t_unix_ms": 1777798674586,
+      "tokens_in": 227,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-22",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 1.840000033378601,
+    "failed_tool_calls": 0,
+    "latency_ms": 13124,
+    "llm_calls": 12,
+    "tokens_in": 3142,
+    "tokens_out": 908,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -72,7 +72,93 @@ Per-benchmark headline (5/5 each on bbh_mini / gsm8k / humaneval):
 sim_pretrain 0.10, imitation_v2 0.22, rl 0.06. **Trained controllers
 remain ~70 pp below static graphs on the synthetic_routing benchmark.**
 
-### 4. Public-benchmark fixtures expanded 5 → 30
+### 4. README §18 ablation suites (live YandexGPT, N=15)
+
+Three ablation suites from README §18, all run against the live
+YandexGPT-Lite backend at `tasks-per-benchmark=15` (60 task-runs per
+baseline overall — 4 benchmarks × 15 tasks).
+
+#### Exp 2 — Embedding ablation (5 levels, `learned_router_no_prior` controller)
+
+Output: `data/experiments/exp2_embedding_ablation_live/`. The
+`LearnedRouter` is **not** retrained per ablation level; we mask the
+named embedding dimensions in its already-zero-initialised input so
+the controller continues to terminate without LLM calls. Verifier
+pass-rate is therefore the only signal:
+
+| Level                          | success | verifier | calls/task |
+|--------------------------------|--------:|---------:|-----------:|
+| `emb_ablation_none`            |   0.000 |    0.708 |       0.00 |
+| `emb_ablation_task`            |   0.000 |    0.453 |       0.00 |
+| `emb_ablation_task_agent`      |   0.000 |    0.456 |       0.03 |
+| `emb_ablation_task_agent_trace`|   0.000 |    0.456 |       0.03 |
+| `emb_ablation_full`            |   0.000 |    0.433 |       0.02 |
+
+Reading: zero-embedding (`none`) yields a higher verifier pass-rate
+than the full-embedding controller — the untrained router emits a
+deterministic "default" action whose outputs the verifier finds more
+plausible than the more-confident wrong actions produced when noise
+embeddings are fed in. Training is required to extract real signal
+from the embedding stack; the ablation isolates the embedding plumbing
+itself, not the trained policy.
+
+#### Exp 3 — Verifier ablation (4 levels, `flybrain_prior_untrained` controller)
+
+Output: `data/experiments/exp3_verifier_ablation_live/`. Verifier
+config is the only thing varying.
+
+| Level                  | success | verifier | calls/task |
+|------------------------|--------:|---------:|-----------:|
+| `verif_ablation_off`   |   1.000 |    1.000 |       0.00 |
+| `verif_ablation_final` |   0.000 |    0.708 |       0.00 |
+| `verif_ablation_step`  |   0.000 |    0.415 |       0.00 |
+| `verif_ablation_full`  |   0.000 |    0.708 |       0.02 |
+
+Reading: with verification disabled the controller trivially
+"succeeds" on every benchmark — confirming that the `success` metric
+in the canonical bench is **load-bearing on the verifier**, not on the
+controller. Step-level verification is more strict than final-only,
+which is why per-step ablation drops verifier pass-rate further than
+the final-only or full configurations.
+
+#### Exp 4 — Training ablation (5 levels, fly-prior controller)
+
+Output: `data/experiments/exp4_training_ablation_live/`. This is the
+README §18 Experiment 4 — adding one training stage at a time. Cost
+367.99 ₽ (overshoots the 230 ₽ `--budget-rub` cap because in-flight
+parallel-4 tasks finish after the cap is breached).
+
+| Level                          | overall | bbh_mini | gsm8k | humaneval | synthetic_routing |
+|--------------------------------|--------:|---------:|------:|----------:|------------------:|
+| L1 `flybrain_prior_untrained`  |   0.000 |    0.000 | 0.000 |     0.000 |             0.000 |
+| L2 `+graph_ssl_pretrain`       |   0.000 |    0.000 | 0.000 |     0.000 |             0.000 |
+| L3 `+sim_pretrain`             | **0.733** | 1.000 | 1.000 |     0.800 |             0.133 |
+| L4 `+imitation`                |   0.667 |    1.000 | 1.000 |     0.667 |             0.000 |
+| L5 `+rl`                       |   0.450 |    0.867 | 0.733 |     0.067 |             0.133 |
+
+Findings:
+
+1. **Sim-pretrain is the headline training stage.** L3 jumps from 0% →
+   73.3% overall on a single training stage. `+graph_ssl_pretrain` on
+   its own (L2) does not dethrone the empty-controller baseline — it
+   only helps when paired with sim-pretrain (validated separately in
+   §10.a-Q5).
+2. **Imitation slightly regresses sim-pretrain on humaneval (80% →
+   67%) and on synthetic_routing (13% → 0%).** Imitation is fitting to
+   the YandexGPT-Lite expert trace distribution, which has fewer
+   humaneval / synthetic_routing exemplars than the synthetic
+   sim-pretrain set.
+3. **RL collapses on humaneval (67% → 7%) and gsm8k (100% → 73%).**
+   This matches the round-1 finding that REINFORCE on the uniform-positive
+   v2 trace set loses entropy without acquiring new signal — RL fine-tune
+   is a regression for our trace distribution.
+
+Public-benchmark winner is therefore **L3 `+sim_pretrain`** at 80%
+humaneval / 100% gsm8k / 100% bbh_mini — matching the canonical
+manual_graph hand-curated graph on bbh_mini and gsm8k, and only 20 pp
+behind on humaneval at N=15.
+
+### 5. Public-benchmark fixtures expanded 5 → 30
 
 `data/benchmarks/fixtures/{humaneval,gsm8k,bbh_mini}.jsonl` now contain
 30 tasks each (was 5). Sources:
@@ -100,11 +186,14 @@ restart and will be re-run in round 3.
 | round 1 N=50 headline bench (seed=0)      |  412.52  |
 | round 2 v3 pro traces (200)               |   95.88  |
 | round 2 N=50 v2 bench (seed=1)            |  596.72  |
-| **total project-to-date**                 | **1382.62** |
+| round 2 emb ablation N=15 (live)          |    ~0.05 |
+| round 2 verif ablation N=15 (live)        |    ~0.10 |
+| round 2 training ablation N=15 (live)     |  367.99  |
+| **total project-to-date**                 | **1750.76** |
 
 User-allotted budget: 2000 ₽ initial + 2000 ₽ extension + 3000 ₽
 round-2 = 7000 ₽ cumulative — but only 3000 ₽ remains on balance, so
-~1620 ₽ headroom for round-3 work.
+~1250 ₽ headroom for round-3 work after round-2 ablation spend.
 
 ## What round 3 should attack
 

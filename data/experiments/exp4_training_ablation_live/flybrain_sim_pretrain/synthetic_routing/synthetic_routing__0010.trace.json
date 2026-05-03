@@ -1,0 +1,260 @@
+{
+  "final_answer": "`schema:invalid_output (output does not match expected JSON format)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.1656000018119812,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1101,
+      "output_summary": "Plan: 1. Identify the most recent research papers on transformers published in the last year. 2. Extract key findings a\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777798769621,
+      "tokens_in": 66,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.19920000433921814,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 4457,
+      "output_summary": "```python class TransformerResearchSummary:     def __init__(self):         self.papers = []  # List to store paper det\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777798774082,
+      "tokens_in": 162,
+      "tokens_out": 336,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.12240000069141388,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 1765,
+      "output_summary": "``` import unittest from research_summary import summarize_latest_results  class TestSummarizeLatestResults(unittest.Te\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777798775852,
+      "tokens_in": 176,
+      "tokens_out": 130,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.14560000598430634,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 1587,
+      "output_summary": "```python import unittest from research_summary import summarize_latest_results  class TestSummarizeLatestResults(unitt\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777798777443,
+      "tokens_in": 250,
+      "tokens_out": 114,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0568000003695488,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1062,
+      "output_summary": "```python from transformers import Summarizer  model = Summarizer.from_pretrained('model_name') input_text = \"Summarize\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777798778508,
+      "tokens_in": 85,
+      "tokens_out": 57,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04360000044107437,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 523,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON format)`",
+      "step_id": 5,
+      "t_unix_ms": 1777798779035,
+      "tokens_in": 93,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04520000144839287,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 581,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON format)`",
+      "step_id": 6,
+      "t_unix_ms": 1777798779620,
+      "tokens_in": 98,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04520000144839287,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON format)`",
+      "step_id": 7,
+      "t_unix_ms": 1777798779625,
+      "tokens_in": 98,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04520000144839287,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON format)`",
+      "step_id": 8,
+      "t_unix_ms": 1777798779628,
+      "tokens_in": 98,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04520000144839287,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON format)`",
+      "step_id": 9,
+      "t_unix_ms": 1777798779632,
+      "tokens_in": 98,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04520000144839287,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON format)`",
+      "step_id": 10,
+      "t_unix_ms": 1777798779636,
+      "tokens_in": 98,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04520000144839287,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON format)`",
+      "step_id": 11,
+      "t_unix_ms": 1777798779639,
+      "tokens_in": 98,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0010",
+  "task_type": "research",
+  "totals": {
+    "cost_rub": 1.0044000148773193,
+    "failed_tool_calls": 0,
+    "latency_ms": 11081,
+    "llm_calls": 12,
+    "tokens_in": 1420,
+    "tokens_out": 815,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: final_answer"
+    ],
+    "failed_component": "final_answer",
+    "passed": false,
+    "reward_delta": -0.10000000149011612,
+    "score": 0.8500000238418579,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}
