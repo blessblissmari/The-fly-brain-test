@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (no output matches the expected JSON schema)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.2508000135421753,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Define the function `add` with parameters `a` and `b`. 2. Ensure that the function returns the sum of `a` and \u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777733513965,
+      "tokens_in": 130,
+      "tokens_out": 79,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.1136000007390976,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 0,
+      "output_summary": "```python def add(a: int, b: int) -> int:     \"\"\"Return a + b.     >>> add(1, 2)     3     \"\"\"     return a + b ```",
+      "step_id": 1,
+      "t_unix_ms": 1777733513969,
+      "tokens_in": 235,
+      "tokens_out": 49,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.18799999356269836,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 2678,
+      "output_summary": "``` import unittest  def add(a: int, b: int) -> int:     \"\"\"Return a + b.     >>> add(1, 2)     3     \"\"\"     return a \u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777733516650,
+      "tokens_in": 249,
+      "tokens_out": 221,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.18199999630451202,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 897,
+      "output_summary": "```python def add(a: int, b: int) -> int:     \"\"\"Return a + b.     >>> add(1, 2)     3     \"\"\"     return a + b ```",
+      "step_id": 3,
+      "t_unix_ms": 1777733517551,
+      "tokens_in": 406,
+      "tokens_out": 49,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06840000301599503,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 496,
+      "output_summary": "`schema:invalid_output (function does not match expected output)`",
+      "step_id": 4,
+      "t_unix_ms": 1777733518051,
+      "tokens_in": 157,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07079999893903732,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 480,
+      "output_summary": "`schema:invalid_output (no output matches the expected JSON schema)`",
+      "step_id": 5,
+      "t_unix_ms": 1777733518534,
+      "tokens_in": 162,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07079999893903732,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no output matches the expected JSON schema)`",
+      "step_id": 6,
+      "t_unix_ms": 1777733518539,
+      "tokens_in": 162,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07079999893903732,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no output matches the expected JSON schema)`",
+      "step_id": 7,
+      "t_unix_ms": 1777733518542,
+      "tokens_in": 162,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07079999893903732,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no output matches the expected JSON schema)`",
+      "step_id": 8,
+      "t_unix_ms": 1777733518546,
+      "tokens_in": 162,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07079999893903732,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no output matches the expected JSON schema)`",
+      "step_id": 9,
+      "t_unix_ms": 1777733518549,
+      "tokens_in": 162,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07079999893903732,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "`schema:invalid_output (no output matches the expected JSON schema)`",
+      "step_id": 10,
+      "t_unix_ms": 1777733518552,
+      "tokens_in": 162,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07079999893903732,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no output matches the expected JSON schema)`",
+      "step_id": 11,
+      "t_unix_ms": 1777733518556,
+      "tokens_in": 162,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-1",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 1.298399806022644,
+    "failed_tool_calls": 0,
+    "latency_ms": 4556,
+    "llm_calls": 12,
+    "tokens_in": 2311,
+    "tokens_out": 517,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

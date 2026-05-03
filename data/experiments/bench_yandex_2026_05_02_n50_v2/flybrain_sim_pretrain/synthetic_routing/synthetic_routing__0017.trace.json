@@ -1,0 +1,260 @@
+{
+  "final_answer": "schema:invalid_output (no output related to solving the mathematical equation provided)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.15719999372959137,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Subtract 38 from both sides of the equation to isolate the term with x. 2. Divide both sides by 47 to solve fo\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777733607505,
+      "tokens_in": 74,
+      "tokens_out": 57,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.0835999995470047,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 978,
+      "output_summary": "```python from sympy import symbols, Eq, solve  x = symbols('x') equation = Eq(47*x + 38, 73) solution = solve(equation\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777733608486,
+      "tokens_in": 155,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.1356000006198883,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 2297,
+      "output_summary": "```python def solve_for_x(equation):     a, b, c = equation.split()     x = (int(c) - int(b)) / int(a)     return x  de\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777733610786,
+      "tokens_in": 169,
+      "tokens_out": 170,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.18559999763965607,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 2647,
+      "output_summary": "```python def solve_for_x(equation):     a, b, c = equation.split('=')     b = b.replace('x ', '')  # Remove 'x ' from \u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777733613437,
+      "tokens_in": 288,
+      "tokens_out": 176,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.058800000697374344,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 950,
+      "output_summary": "```python from sympy import symbols, Eq, solve  x = symbols('x') equation = Eq(47*x + 38, 73) solution = solve(equation\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777733614391,
+      "tokens_in": 93,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04479999840259552,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 474,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 5,
+      "t_unix_ms": 1777733614869,
+      "tokens_in": 101,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04879999905824661,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 501,
+      "output_summary": "schema:invalid_output (no output related to solving the mathematical equation provided)",
+      "step_id": 6,
+      "t_unix_ms": 1777733615375,
+      "tokens_in": 106,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04879999905824661,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output related to solving the mathematical equation provided)",
+      "step_id": 7,
+      "t_unix_ms": 1777733615379,
+      "tokens_in": 106,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04879999905824661,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output related to solving the mathematical equation provided)",
+      "step_id": 8,
+      "t_unix_ms": 1777733615383,
+      "tokens_in": 106,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04879999905824661,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output related to solving the mathematical equation provided)",
+      "step_id": 9,
+      "t_unix_ms": 1777733615386,
+      "tokens_in": 106,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04879999905824661,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output related to solving the mathematical equation provided)",
+      "step_id": 10,
+      "t_unix_ms": 1777733615390,
+      "tokens_in": 106,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04879999905824661,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output related to solving the mathematical equation provided)",
+      "step_id": 11,
+      "t_unix_ms": 1777733615393,
+      "tokens_in": 106,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0017",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.9583998918533325,
+    "failed_tool_calls": 0,
+    "latency_ms": 7852,
+    "llm_calls": 12,
+    "tokens_in": 1516,
+    "tokens_out": 618,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: final_answer"
+    ],
+    "failed_component": "final_answer",
+    "passed": false,
+    "reward_delta": -0.10000000149011612,
+    "score": 0.8500000238418579,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "final_answer": "schema:invalid_output (no output related to the task provided)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.14880000054836273,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Calculate the mean of the numbers 97 and 33. 2. Calculate the squared differences from the mean for each numbe\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777733643076,
+      "tokens_in": 69,
+      "tokens_out": 55,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.10199999809265137,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Step 1: Calculate the mean (average) of the numbers 97 and 33. Mean = (97 + 33) / 2 = 130 / 2 = 65.  Step 2: Calculate \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777733643080,
+      "tokens_in": 70,
+      "tokens_out": 185,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.15240000188350677,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 1477,
+      "output_summary": "```python def calculate_variance(numbers):     mean = sum(numbers) / len(numbers)     squared_diffs = [(x - mean) ** 2 \u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777733644559,
+      "tokens_in": 285,
+      "tokens_out": 96,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.12479999661445618,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 494,
+      "output_summary": "verifier:failed:missing_variance_calculation_result",
+      "step_id": 3,
+      "t_unix_ms": 1777733645057,
+      "tokens_in": 90,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.06520000100135803,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1152,
+      "output_summary": "```python def variance(numbers):     mean = sum(numbers) / len(numbers)     variance = sum((x - mean) ** 2 for x in num\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777733646212,
+      "tokens_in": 88,
+      "tokens_out": 75,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.06520000100135803,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def variance(numbers):     mean = sum(numbers) / len(numbers)     variance = sum((x - mean) ** 2 for x in num\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777733646217,
+      "tokens_in": 88,
+      "tokens_out": 75,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.06520000100135803,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def variance(numbers):     mean = sum(numbers) / len(numbers)     variance = sum((x - mean) ** 2 for x in num\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777733646220,
+      "tokens_in": 88,
+      "tokens_out": 75,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.06520000100135803,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def variance(numbers):     mean = sum(numbers) / len(numbers)     variance = sum((x - mean) ** 2 for x in num\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777733646224,
+      "tokens_in": 88,
+      "tokens_out": 75,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.06520000100135803,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def variance(numbers):     mean = sum(numbers) / len(numbers)     variance = sum((x - mean) ** 2 for x in num\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777733646227,
+      "tokens_in": 88,
+      "tokens_out": 75,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04280000180006027,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 442,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 9,
+      "t_unix_ms": 1777733646673,
+      "tokens_in": 96,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04600000008940697,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 570,
+      "output_summary": "schema:invalid_output (no output related to the task provided)",
+      "step_id": 10,
+      "t_unix_ms": 1777733647246,
+      "tokens_in": 101,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04600000008940697,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output related to the task provided)",
+      "step_id": 11,
+      "t_unix_ms": 1777733647249,
+      "tokens_in": 101,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0033",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.9887998700141907,
+    "failed_tool_calls": 0,
+    "latency_ms": 4140,
+    "llm_calls": 12,
+    "tokens_in": 1252,
+    "tokens_out": 764,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

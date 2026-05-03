@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (output does not match expected JSON schema)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.2003999948501587,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Determine the number of sprints James runs per week. 2. Calculate the total distance James runs per sprint. 3.\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777733525391,
+      "tokens_in": 108,
+      "tokens_out": 59,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.10159999877214432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1044,
+      "output_summary": "```python sprints_per_week = 3 * 3 distance_per_sprint = 60 total_distance_per_week = sprints_per_week * distance_per_s\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777733526437,
+      "tokens_in": 191,
+      "tokens_out": 63,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.17159999907016754,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 502,
+      "output_summary": "verifier:failed:missing_calculation_and_final_answer",
+      "step_id": 2,
+      "t_unix_ms": 1777733526943,
+      "tokens_in": 128,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.17759999632835388,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 513,
+      "output_summary": "verifier:failed:missing_math_calculations_and_final_answer",
+      "step_id": 3,
+      "t_unix_ms": 1777733527460,
+      "tokens_in": 131,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.17759999632835388,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_math_calculations_and_final_answer",
+      "step_id": 4,
+      "t_unix_ms": 1777733527477,
+      "tokens_in": 131,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.1143999993801117,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 1250,
+      "output_summary": "```python sprints_per_week = 3 * 3 distance_per_sprint = 60 total_distance_per_week = sprints_per_week * distance_per_s\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777733528731,
+      "tokens_in": 209,
+      "tokens_out": 77,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.08760000020265579,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1328,
+      "output_summary": "```python sprints_per_week = 3 sessions_per_week = 3 meters_per_sprint = 60  total_meters_per_week = sprints_per_week *\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777733530062,
+      "tokens_in": 128,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.08760000020265579,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python sprints_per_week = 3 sessions_per_week = 3 meters_per_sprint = 60  total_meters_per_week = sprints_per_week *\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777733530067,
+      "tokens_in": 128,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.08760000020265579,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python sprints_per_week = 3 sessions_per_week = 3 meters_per_sprint = 60  total_meters_per_week = sprints_per_week *\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777733530070,
+      "tokens_in": 128,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06080000102519989,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 515,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema)",
+      "step_id": 9,
+      "t_unix_ms": 1777733530588,
+      "tokens_in": 136,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06239999830722809,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 711,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 10,
+      "t_unix_ms": 1777733531303,
+      "tokens_in": 141,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06239999830722809,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 11,
+      "t_unix_ms": 1777733531308,
+      "tokens_in": 141,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00001",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.3915998935699463,
+    "failed_tool_calls": 0,
+    "latency_ms": 5867,
+    "llm_calls": 12,
+    "tokens_in": 1700,
+    "tokens_out": 567,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

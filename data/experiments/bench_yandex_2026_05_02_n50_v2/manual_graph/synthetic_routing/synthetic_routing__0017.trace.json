@@ -1,0 +1,161 @@
+{
+  "final_answer": "$47x + 38 = 73$  Step 1: Subtract 38 from both sides of the equation to isolate the term with the variable. $47x + 38 -\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.15719999372959137,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1081,
+      "output_summary": "Plan: 1. Subtract 38 from both sides of the equation to isolate the term with x. 2. Divide both sides by 47 to solve fo\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777732900758,
+      "tokens_in": 74,
+      "tokens_out": 57,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.08720000088214874,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2010,
+      "output_summary": "Step 1: Subtract 38 from both sides of the equation to isolate the term with the variable $x$. \\[ 47x + 38 - 38 = 73 - \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777732902769,
+      "tokens_in": 75,
+      "tokens_out": 143,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.18119999766349792,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1039,
+      "output_summary": "Plan: 1. Subtract 38 from both sides of the equation to isolate the term with x. 2. Divide both sides by 47 to solve fo\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777732903808,
+      "tokens_in": 89,
+      "tokens_out": 62,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.08479999750852585,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1890,
+      "output_summary": "Step 1: Subtract 38 from both sides of the equation to isolate the term with the variable $x$. $47x + 38 - 38 = 73 - 38\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777732905699,
+      "tokens_in": 81,
+      "tokens_out": 131,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1777732905699,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.08240000158548355,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1855,
+      "output_summary": "$47x + 38 = 73$  Step 1: Subtract 38 from both sides of the equation to isolate the term with the variable. $47x + 38 -\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777732907554,
+      "tokens_in": 83,
+      "tokens_out": 123,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 6,
+      "t_unix_ms": 1777732907554,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0017",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.5928000211715698,
+    "failed_tool_calls": 0,
+    "latency_ms": 7875,
+    "llm_calls": 5,
+    "tokens_in": 402,
+    "tokens_out": 516,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

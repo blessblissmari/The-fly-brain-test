@@ -1,0 +1,11 @@
+| Method | Benchmark | Tasks | Success | Verifier | Tokens/task | Calls/task | Latency (ms) | Cost/task ₽ | Cost/solved ₽ |
+|---|---|---|---|---|---|---|---|---|---|
+| manual_graph | bbh_mini | 5 | 1.00 | 1.00 | 1960 | 9.40 | 6358 | 1.73 | 1.73 |
+| fully_connected | bbh_mini | 5 | 1.00 | 1.00 | 2485 | 9.60 | 6012 | 2.04 | 2.04 |
+| random_sparse | bbh_mini | 5 | 0.200 | 0.880 | 1382 | 4.80 | 6799 | 0.629 | 3.15 |
+| degree_preserving | bbh_mini | 5 | 1.00 | 1.00 | 572 | 3.00 | 0.000 | 0.389 | 0.389 |
+| learned_router_no_prior | bbh_mini | 5 | 0.000 | 0.200 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_prior_untrained | bbh_mini | 5 | 0.000 | 0.700 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_sim_pretrain | bbh_mini | 5 | 1.00 | 1.00 | 2544 | 12.00 | 5316 | 1.94 | 1.94 |
+| flybrain_imitation | bbh_mini | 5 | 1.00 | 1.00 | 2340 | 12.00 | 3936 | 1.79 | 1.79 |
+| flybrain_rl | bbh_mini | 5 | 1.00 | 1.00 | 2409 | 12.00 | 1470 | 2.41 | 2.41 |
