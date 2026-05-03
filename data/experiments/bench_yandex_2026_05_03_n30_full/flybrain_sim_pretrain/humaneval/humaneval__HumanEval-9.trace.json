@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (function does not match expected output)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.3612000048160553,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Initialize an empty list to store the rolling maximum values. 2. Iterate through the input list of integers, k\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777800914340,
+      "tokens_in": 199,
+      "tokens_out": 102,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.18160000443458557,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List, Tuple  def rolling_max(numbers: List[int]) -> List[int]:     \"\"\" From a given list o\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777800914344,
+      "tokens_in": 325,
+      "tokens_out": 129,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.27639999985694885,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 4421,
+      "output_summary": "```python from typing import List, Tuple from unittest import TestCase, main from unittest.mock import patch  class Tes\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777800918768,
+      "tokens_in": 339,
+      "tokens_out": 352,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.29280000925064087,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 1712,
+      "output_summary": "```python from typing import List, Tuple  def rolling_max(numbers: List[int]) -> List[int]:     \"\"\" From a given list o\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777800920484,
+      "tokens_in": 615,
+      "tokens_out": 117,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.15520000457763672,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2397,
+      "output_summary": "```python from typing import List, Tuple   def rolling_max(numbers: List[int]) -> List[int]:     \"\"\" From a given list \u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777800922884,
+      "tokens_in": 218,
+      "tokens_out": 170,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09719999879598618,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 547,
+      "output_summary": "`schema:invalid_output (produced output does not match the expected output format)`",
+      "step_id": 5,
+      "t_unix_ms": 1777800923435,
+      "tokens_in": 226,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09799999743700027,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 537,
+      "output_summary": "`schema:invalid_output (function does not match expected output)`",
+      "step_id": 6,
+      "t_unix_ms": 1777800923976,
+      "tokens_in": 231,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09799999743700027,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected output)`",
+      "step_id": 7,
+      "t_unix_ms": 1777800923988,
+      "tokens_in": 231,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09799999743700027,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected output)`",
+      "step_id": 8,
+      "t_unix_ms": 1777800923992,
+      "tokens_in": 231,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09799999743700027,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected output)`",
+      "step_id": 9,
+      "t_unix_ms": 1777800923996,
+      "tokens_in": 231,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09799999743700027,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected output)`",
+      "step_id": 10,
+      "t_unix_ms": 1777800923999,
+      "tokens_in": 231,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09799999743700027,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected output)`",
+      "step_id": 11,
+      "t_unix_ms": 1777800924003,
+      "tokens_in": 231,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-9",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 1.9524003267288208,
+    "failed_tool_calls": 0,
+    "latency_ms": 9621,
+    "llm_calls": 12,
+    "tokens_in": 3308,
+    "tokens_out": 971,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.2856000065803528,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Calculate the total time Marissa has already spent hiking. 2. Determine the remaining distance Marissa needs t\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777801004711,
+      "tokens_in": 141,
+      "tokens_out": 97,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.1964000016450882,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 2865,
+      "output_summary": "```python # Step 1: Calculate the total time Marissa has already spent hiking time_spent = 1 + 1 = 2 hours  # Step 2: D\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777801007580,
+      "tokens_in": 262,
+      "tokens_out": 229,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.21480000019073486,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 549,
+      "output_summary": "verifier:failed:missing_mathematical_reasoning_and_final_answer",
+      "step_id": 2,
+      "t_unix_ms": 1777801008133,
+      "tokens_in": 161,
+      "tokens_out": 18,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.20880000293254852,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 445,
+      "output_summary": "verifier:failed:missing_solution_steps",
+      "step_id": 3,
+      "t_unix_ms": 1777801008581,
+      "tokens_in": 164,
+      "tokens_out": 10,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.20880000293254852,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_solution_steps",
+      "step_id": 4,
+      "t_unix_ms": 1777801008586,
+      "tokens_in": 164,
+      "tokens_out": 10,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.25999999046325684,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 4302,
+      "output_summary": "```python # Step 1: Calculate the total time Marissa has already spent hiking time_spent = 1 + 1 = 2 hours  # Step 2: D\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777801012891,
+      "tokens_in": 421,
+      "tokens_out": 229,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.12919999659061432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2192,
+      "output_summary": "```python total_distance = 12 distance_covered_first_hour = 4 distance_covered_second_hour = 2 total_time_so_far = 2 re\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777801015087,
+      "tokens_in": 161,
+      "tokens_out": 162,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.12919999659061432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python total_distance = 12 distance_covered_first_hour = 4 distance_covered_second_hour = 2 total_time_so_far = 2 re\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777801015091,
+      "tokens_in": 161,
+      "tokens_out": 162,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.12919999659061432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python total_distance = 12 distance_covered_first_hour = 4 distance_covered_second_hour = 2 total_time_so_far = 2 re\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777801015095,
+      "tokens_in": 161,
+      "tokens_out": 162,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07360000163316727,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 538,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 9,
+      "t_unix_ms": 1777801015636,
+      "tokens_in": 169,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07599999755620956,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 533,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 10,
+      "t_unix_ms": 1777801016172,
+      "tokens_in": 174,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07599999755620956,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 11,
+      "t_unix_ms": 1777801016177,
+      "tokens_in": 174,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00011",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.9875999689102173,
+    "failed_tool_calls": 0,
+    "latency_ms": 11428,
+    "llm_calls": 12,
+    "tokens_in": 2313,
+    "tokens_out": 1126,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

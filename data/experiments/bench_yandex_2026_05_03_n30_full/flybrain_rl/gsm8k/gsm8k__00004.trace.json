@@ -1,0 +1,258 @@
+{
+  "final_answer": "Step 1: Calculate the total number of eggs used by Janet each day. She eats 3 eggs and bakes with 4 eggs, so the total \u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.262800008058548,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Calculate the total number of eggs laid by Janet's ducks each day. 2. Subtract the number of eggs Janet eats a\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777801250481,
+      "tokens_in": 141,
+      "tokens_out": 78,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06840000301599503,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "schema:invalid_output (no output provided for validation)",
+      "step_id": 1,
+      "t_unix_ms": 1777801250484,
+      "tokens_in": 159,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07159999758005142,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 2,
+      "t_unix_ms": 1777801250488,
+      "tokens_in": 164,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07159999758005142,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 3,
+      "t_unix_ms": 1777801250491,
+      "tokens_in": 164,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07159999758005142,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 4,
+      "t_unix_ms": 1777801250494,
+      "tokens_in": 164,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07159999758005142,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 5,
+      "t_unix_ms": 1777801250497,
+      "tokens_in": 164,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.31679999828338623,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The task does not provide a clear instruction to follow the \"think step by step\" guideline, which could lead to a lac\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777801250501,
+      "tokens_in": 154,
+      "tokens_out": 110,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.23160000145435333,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 1,
+      "output_summary": "```python def test_janet_ducks_eggs():     assert 16 == calculate_total_eggs(), \"Total eggs laid per day should be 16.\"\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777801250504,
+      "tokens_in": 263,
+      "tokens_out": 316,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.11999999731779099,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1995,
+      "output_summary": "Step 1: Calculate the total number of eggs used each day. Janet eats 3 eggs and bakes with 4 eggs, so the total used is\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777801252502,
+      "tokens_in": 163,
+      "tokens_out": 137,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.12359999865293503,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2058,
+      "output_summary": "Step 1: Calculate the total number of eggs used by Janet each day. She eats 3 eggs and bakes with 4 eggs, so the total \u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777801254563,
+      "tokens_in": 166,
+      "tokens_out": 143,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.12359999865293503,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Step 1: Calculate the total number of eggs used by Janet each day. She eats 3 eggs and bakes with 4 eggs, so the total \u2026",
+      "step_id": 10,
+      "t_unix_ms": 1777801254567,
+      "tokens_in": 166,
+      "tokens_out": 143,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.12359999865293503,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Step 1: Calculate the total number of eggs used by Janet each day. She eats 3 eggs and bakes with 4 eggs, so the total \u2026",
+      "step_id": 11,
+      "t_unix_ms": 1777801254571,
+      "tokens_in": 166,
+      "tokens_out": 143,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00004",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.6568000316619873,
+    "failed_tool_calls": 0,
+    "latency_ms": 4057,
+    "llm_calls": 12,
+    "tokens_in": 2034,
+    "tokens_out": 1142,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

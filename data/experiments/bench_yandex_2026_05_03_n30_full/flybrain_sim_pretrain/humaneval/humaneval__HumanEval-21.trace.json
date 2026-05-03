@@ -1,0 +1,260 @@
+{
+  "final_answer": "`schema:invalid_output (function does not match expected JSON schema)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.37560001015663147,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Identify the minimum and maximum values in the list. 2. Apply the linear transformation formula to each number\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777800969457,
+      "tokens_in": 229,
+      "tokens_out": 84,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.2752000093460083,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 5947,
+      "output_summary": "To solve the `rescale_to_unit` function, we need to rescale a list of numbers so that the smallest number becomes 0 and\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777800975407,
+      "tokens_in": 230,
+      "tokens_out": 458,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.3179999887943268,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 704,
+      "output_summary": "verifier:failed:the function definition and implementation are not provided in the output.",
+      "step_id": 2,
+      "t_unix_ms": 1777800976115,
+      "tokens_in": 248,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.3240000009536743,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 555,
+      "output_summary": "verifier:failed:the function definition or its implementation is missing, preventing a complete audit.",
+      "step_id": 3,
+      "t_unix_ms": 1777800976674,
+      "tokens_in": 251,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.3240000009536743,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:the function definition or its implementation is missing, preventing a complete audit.",
+      "step_id": 4,
+      "t_unix_ms": 1777800976678,
+      "tokens_in": 251,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.3240000009536743,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:the function definition or its implementation is missing, preventing a complete audit.",
+      "step_id": 5,
+      "t_unix_ms": 1777800976682,
+      "tokens_in": 251,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.3240000009536743,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:the function definition or its implementation is missing, preventing a complete audit.",
+      "step_id": 6,
+      "t_unix_ms": 1777800976685,
+      "tokens_in": 251,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.3564000129699707,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 1898,
+      "output_summary": "```python from typing import List   def rescale_to_unit(numbers: List[float]) -> List[float]:     \"\"\" Given list of num\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777800978586,
+      "tokens_in": 746,
+      "tokens_out": 145,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.18559999763965607,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2555,
+      "output_summary": "```python from typing import List   def rescale_to_unit(numbers: List[float]) -> List[float]:     \"\"\" Given list of num\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777800981151,
+      "tokens_in": 248,
+      "tokens_out": 216,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.18559999763965607,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List   def rescale_to_unit(numbers: List[float]) -> List[float]:     \"\"\" Given list of num\u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777800981155,
+      "tokens_in": 248,
+      "tokens_out": 216,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.18559999763965607,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List   def rescale_to_unit(numbers: List[float]) -> List[float]:     \"\"\" Given list of num\u2026",
+      "step_id": 10,
+      "t_unix_ms": 1777800981159,
+      "tokens_in": 248,
+      "tokens_out": 216,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.10840000212192535,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 480,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 11,
+      "t_unix_ms": 1777800981642,
+      "tokens_in": 256,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-21",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 3.286400318145752,
+    "failed_tool_calls": 0,
+    "latency_ms": 12144,
+    "llm_calls": 12,
+    "tokens_in": 3457,
+    "tokens_out": 1443,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: tests_run"
+    ],
+    "failed_component": "tests_run",
+    "passed": false,
+    "reward_delta": -0.10000000149011612,
+    "score": 0.8500000238418579,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

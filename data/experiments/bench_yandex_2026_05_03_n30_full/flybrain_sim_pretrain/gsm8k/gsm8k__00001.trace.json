@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (no JSON output provided)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.2639999985694885,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Calculate the weekly income from teaching: $20/hour * 35 hours. 2. Calculate the weekly income from coaching: \u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777801003007,
+      "tokens_in": 133,
+      "tokens_out": 87,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.1316000074148178,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1284,
+      "output_summary": "```python weekly_income_from_teaching = 20 * 35 weekly_income_from_coaching = 30 * 15 total_weekly_income = weekly_inco\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777801004294,
+      "tokens_in": 244,
+      "tokens_out": 85,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.20399999618530273,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 608,
+      "output_summary": "verifier:failed:missing_calculation_steps_and_final_answer",
+      "step_id": 2,
+      "t_unix_ms": 1777801004905,
+      "tokens_in": 153,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.20759999752044678,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 553,
+      "output_summary": "verifier:failed:missing_calculation_steps_and_final_answer",
+      "step_id": 3,
+      "t_unix_ms": 1777801005461,
+      "tokens_in": 156,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.20759999752044678,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "verifier:failed:missing_calculation_steps_and_final_answer",
+      "step_id": 4,
+      "t_unix_ms": 1777801005465,
+      "tokens_in": 156,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.1379999965429306,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 1234,
+      "output_summary": "```python weekly_income_from_teaching = 20 * 35 weekly_income_from_coaching = 30 * 15 total_weekly_income = weekly_inco\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777801006702,
+      "tokens_in": 258,
+      "tokens_out": 87,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.12039999663829803,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1890,
+      "output_summary": "```python teacher_hours_per_week = 35 coach_hours_per_week = 15 weeks_per_year = 50 teacher_pay_per_hour = 20 coach_pay\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777801008595,
+      "tokens_in": 153,
+      "tokens_out": 148,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.12039999663829803,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python teacher_hours_per_week = 35 coach_hours_per_week = 15 weeks_per_year = 50 teacher_pay_per_hour = 20 coach_pay\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777801008598,
+      "tokens_in": 153,
+      "tokens_out": 148,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.12039999663829803,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python teacher_hours_per_week = 35 coach_hours_per_week = 15 weeks_per_year = 50 teacher_pay_per_hour = 20 coach_pay\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777801008601,
+      "tokens_in": 153,
+      "tokens_out": 148,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06920000165700912,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 489,
+      "output_summary": "`schema:invalid_output (no JSON output provided)`",
+      "step_id": 9,
+      "t_unix_ms": 1777801009093,
+      "tokens_in": 161,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07119999825954437,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 475,
+      "output_summary": "`schema:invalid_output (no JSON output provided)`",
+      "step_id": 10,
+      "t_unix_ms": 1777801009571,
+      "tokens_in": 166,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07119999825954437,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no JSON output provided)`",
+      "step_id": 11,
+      "t_unix_ms": 1777801009576,
+      "tokens_in": 166,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00001",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.725600004196167,
+    "failed_tool_calls": 0,
+    "latency_ms": 6537,
+    "llm_calls": 12,
+    "tokens_in": 2052,
+    "tokens_out": 790,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

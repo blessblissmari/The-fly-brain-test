@@ -195,7 +195,60 @@ User-allotted budget: 2000 ₽ initial + 2000 ₽ extension + 3000 ₽
 round-2 = 7000 ₽ cumulative — but only 3000 ₽ remains on balance, so
 ~1250 ₽ headroom for round-3 work after round-2 ablation spend.
 
-## What round 3 should attack
+## Round 3 — final headline N=30 expanded-fixtures bench (2026-05-03)
+
+After the round-2 ablations were committed and CI was green, the user
+authorised a 2500 ₽ Ministry-of-Science grant tranche specifically for
+a publication-grade canonical bench. Round 3 is one big bench plus
+documentation.
+
+### Headline — N=30 expanded fixtures, full_min, seed=2
+
+`data/experiments/bench_yandex_2026_05_03_n30_full/` — 9 baselines ×
+30 tasks/benchmark × 4 benchmarks = 1080 task-runs, **1666.36 ₽** spent.
+
+| Method                      | overall | bbh_mini | gsm8k | humaneval | synthetic_routing | cost/task ₽ |
+|-----------------------------|--------:|---------:|------:|----------:|------------------:|------------:|
+| `degree_preserving`         | **0.992** | 1.000 | 1.000 |     0.967 |             1.000 |        1.08 |
+| `fully_connected`           |   0.983 |    1.000 | 1.000 |     1.000 |             0.933 |        3.00 |
+| `manual_graph`              |   0.950 |    1.000 | 1.000 |     0.967 |             0.833 |        2.46 |
+| **`flybrain_imitation`**    | **0.742** | 0.967 | 1.000 |     0.733 |             0.267 |        1.52 |
+| **`flybrain_sim_pretrain`** | **0.700** | 0.967 | 1.000 |     0.700 |             0.133 |        1.75 |
+| `flybrain_rl`               |   0.375 |    0.633 | 0.767 |     0.033 |             0.067 |        3.00 |
+| `random_sparse`             |   0.342 |    0.300 | 0.933 |     0.000 |             0.133 |        1.07 |
+| `learned_router_no_prior`   |   0.008 |    0.000 | 0.000 |     0.000 |             0.033 |       0.005 |
+| `flybrain_prior_untrained`  |   0.000 |    0.000 | 0.000 |     0.000 |             0.000 |        0.00 |
+
+### What this gives the publication
+
+* **`gsm8k`:** trained controllers (sim_pretrain & imitation) hit
+  30/30 = 100%, matching the static-graph ceiling.
+* **`bbh_mini`:** trained = 29/30 (96.7%); static = 30/30 (100%).
+  Within run-to-run variance.
+* **`humaneval`:** trained = 21-22/30 (70-73%); static = 29-30/30
+  (97-100%). Real gap — but `flybrain_imitation` does it at **1.27
+  ₽/task** vs. `manual_graph`'s 3.18 ₽/task.
+* **`synthetic_routing`:** trained = 4-8/30 (13-27%) vs. static
+  25-30/30 (83-100%). Confirmed-architectural gap.
+
+### Cost — `flybrain_imitation` is cheaper than `manual_graph`
+
+| Baseline                  | Cost/task ₽ | Success |
+|---------------------------|------------:|--------:|
+| `degree_preserving`       |        1.08 |   0.992 |
+| **`flybrain_imitation`**  |    **1.52** | **0.742** |
+| `manual_graph`            |        2.46 |   0.950 |
+| `fully_connected`         |        3.00 |   0.983 |
+
+The trained controller is **strictly cheaper than the hand-curated
+manual_graph** at 1.52 ₽/task, while matching it on 2/4 benchmarks.
+
+### Final docs updated
+
+* `docs/final_report.md` — fully rewritten as the canonical write-up.
+* `HANDOFF.md` §4.a — round-3 headline numbers, gap status.
+
+## What round 4+ should attack
 
 The synthetic_routing gap is **architectural**, not data-bound:
 

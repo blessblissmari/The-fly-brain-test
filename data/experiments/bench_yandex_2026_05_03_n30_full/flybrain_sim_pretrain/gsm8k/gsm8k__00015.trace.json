@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (The output does not match the expected JSON schema.)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.3612000048160553,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Calculate the distance John traveled initially (3 hours at 60 mph). 2. Determine the distance John covered dur\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777800994686,
+      "tokens_in": 180,
+      "tokens_out": 121,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.19120000302791595,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1952,
+      "output_summary": "```python initial_distance = 3 * 60  # Distance traveled initially  return_trip_segments = {     'first_2_hours': 0,  #\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777800996640,
+      "tokens_in": 327,
+      "tokens_out": 151,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.25920000672340393,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 497,
+      "output_summary": "verifier:failed:missing_math_steps_and_final_answer",
+      "step_id": 2,
+      "t_unix_ms": 1777800997141,
+      "tokens_in": 200,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.266400009393692,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 518,
+      "output_summary": "verifier:failed:missing_trace_of_calculations_and_final_answer",
+      "step_id": 3,
+      "t_unix_ms": 1777800997663,
+      "tokens_in": 203,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.266400009393692,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_trace_of_calculations_and_final_answer",
+      "step_id": 4,
+      "t_unix_ms": 1777800997668,
+      "tokens_in": 203,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.2264000028371811,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 2456,
+      "output_summary": "```python initial_distance = 3 * 60  # Distance traveled initially  return_trip_segments = {     'first_2_hours': 0,  #\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777801000127,
+      "tokens_in": 377,
+      "tokens_out": 189,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.1923999935388565,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3560,
+      "output_summary": "```python distance_to_home = 0 total_time = 4  # First part of the journey speed_first_part = 60 time_first_part = 3 di\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777801003691,
+      "tokens_in": 200,
+      "tokens_out": 281,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.1923999935388565,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python distance_to_home = 0 total_time = 4  # First part of the journey speed_first_part = 60 time_first_part = 3 di\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777801003695,
+      "tokens_in": 200,
+      "tokens_out": 281,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.1923999935388565,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python distance_to_home = 0 total_time = 4  # First part of the journey speed_first_part = 60 time_first_part = 3 di\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777801003699,
+      "tokens_in": 200,
+      "tokens_out": 281,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.08799999952316284,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 464,
+      "output_summary": "`schema:invalid_output (no JSON output provided)`",
+      "step_id": 9,
+      "t_unix_ms": 1777801004165,
+      "tokens_in": 208,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09239999949932098,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 533,
+      "output_summary": "`schema:invalid_output (The output does not match the expected JSON schema.)`",
+      "step_id": 10,
+      "t_unix_ms": 1777801004702,
+      "tokens_in": 213,
+      "tokens_out": 18,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09239999949932098,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (The output does not match the expected JSON schema.)`",
+      "step_id": 11,
+      "t_unix_ms": 1777801004707,
+      "tokens_in": 213,
+      "tokens_out": 18,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00015",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 2.42080020904541,
+    "failed_tool_calls": 0,
+    "latency_ms": 9984,
+    "llm_calls": 12,
+    "tokens_in": 2724,
+    "tokens_out": 1406,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

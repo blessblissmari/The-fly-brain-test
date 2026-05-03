@@ -176,20 +176,32 @@ on a live YandexGPT-Lite N=50 bench (412.52 ₽); see `docs/final_report.md`.
    now auto-discovers `data/checkpoints/{label}_gnn.pt` when the
    matching env var is unset.
 
-**Headline result after the fix** (live YandexGPT-Lite, N=50, 65 tasks
-per baseline overall):
+**Headline result after the fix** (live YandexGPT-Lite, **N=30
+expanded fixtures**, 120 tasks per baseline overall — round-3
+2026-05-03):
 
 | Baseline                  | success | verifier | cost/task ₽ |
 |---------------------------|--------:|---------:|------------:|
-| `flybrain_sim_pretrain`   |   0.446 |    0.915 |        1.17 |
-| `flybrain_imitation`      |   0.369 |    0.889 |        1.03 |
-| `flybrain_rl`             |   0.231 |    0.871 |        2.15 |
-| `flybrain_prior_untrained`|   0.000 |    0.720 |        0.00 |
+| `flybrain_imitation`      |   0.742 |    0.961 |        1.52 |
+| `flybrain_sim_pretrain`   |   0.700 |    0.955 |        1.75 |
+| `flybrain_rl`             |   0.375 |    0.893 |        3.00 |
+| `flybrain_prior_untrained`|   0.000 |    0.705 |        0.00 |
+
+(static-graph reference: `degree_preserving` 0.992 / `manual_graph`
+0.950 / `fully_connected` 0.983 / `random_sparse` 0.342)
 
 On `bbh_mini` and `gsm8k` the trained progression matches the
-hand-curated `manual_graph` ceiling (5/5). On `synthetic_routing`
-the trained baselines under-perform the static graphs (28% / 22% /
-12% vs. ≥92%); see HANDOFF.md §10.a-Q3 for the next training run.
+hand-curated `manual_graph` ceiling (29-30/30 = 96.7-100%) at lower
+cost (`flybrain_imitation` 1.52 ₽/task vs. `manual_graph` 2.46
+₽/task). On `humaneval` trained = 22-21/30 (70-73%) vs static
+29-30/30 — the trained controller is graceful but not yet matching.
+On `synthetic_routing` trained = 4-8/30 (13-27%) vs static
+25-30/30 — see §10.a-Q4/Q5 for the next architectural levers
+(GNN width 32→64, step_penalty in `RewardConfig`, on-policy PPO
+with verifier-as-reward).
+
+For the canonical write-up, see `docs/final_report.md`. For the
+round-by-round delta, see `docs/round2_progress.md`.
 
 ### 4.b Budget tracker overshoot at high parallelism
 

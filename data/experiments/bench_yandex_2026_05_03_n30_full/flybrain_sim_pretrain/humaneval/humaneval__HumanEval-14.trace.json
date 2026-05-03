@@ -1,0 +1,268 @@
+{
+  "final_answer": "`schema:invalid_output (output does not match the expected function behavior)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.28439998626708984,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Define the function `all_prefixes` with the required signature. 2. Initialize an empty list to store the prefi\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777800914322,
+      "tokens_in": 158,
+      "tokens_out": 79,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.15240000188350677,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "2",
+      "latency_ms": 1528,
+      "output_summary": "```python def all_prefixes(string: str) -> List[str]:     \"\"\" Return list of all prefixes from shortest to longest of t\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777800915853,
+      "tokens_in": 281,
+      "tokens_out": 100,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Implement the following Python function. Your final answer must be a complete, runnable function definition.\n\nEntry point: `all_prefixes`\n\n```python\nfrom typing import List\n\n\ndef all_prefixes(string: str) -> List[str]:\n    \"\"\" Return list of all prefixes from shortest to longest of the input string\n    >>> all_prefixes('abc')\n    ['a', 'ab', 'abc']\n    \"\"\"\n```\n"
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.2476000040769577,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "7",
+      "latency_ms": 4111,
+      "output_summary": "```python import unittest from unittest import TestCase from typing import List  def all_prefixes(string: str) -> List[\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777800919968,
+      "tokens_in": 316,
+      "tokens_out": 303,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.2712000012397766,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 1720,
+      "output_summary": "```python from typing import List  def all_prefixes(string: str) -> List[str]:     \"\"\" Return list of all prefixes from\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777800921692,
+      "tokens_in": 572,
+      "tokens_out": 106,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.11400000005960464,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1529,
+      "output_summary": "```python from typing import List   def all_prefixes(string: str) -> List[str]:     \"\"\" Return list of all prefixes fro\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777800923224,
+      "tokens_in": 178,
+      "tokens_out": 107,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.08320000022649765,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 600,
+      "output_summary": "`schema:invalid_output (the output does not match the expected JSON schema for a list of strings)`",
+      "step_id": 5,
+      "t_unix_ms": 1777800923828,
+      "tokens_in": 186,
+      "tokens_out": 22,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0828000009059906,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 680,
+      "output_summary": "`schema:invalid_output (output does not match the expected function behavior)`",
+      "step_id": 6,
+      "t_unix_ms": 1777800924512,
+      "tokens_in": 191,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0828000009059906,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (output does not match the expected function behavior)`",
+      "step_id": 7,
+      "t_unix_ms": 1777800924517,
+      "tokens_in": 191,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0828000009059906,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (output does not match the expected function behavior)`",
+      "step_id": 8,
+      "t_unix_ms": 1777800924520,
+      "tokens_in": 191,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0828000009059906,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (output does not match the expected function behavior)`",
+      "step_id": 9,
+      "t_unix_ms": 1777800924524,
+      "tokens_in": 191,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0828000009059906,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (output does not match the expected function behavior)`",
+      "step_id": 10,
+      "t_unix_ms": 1777800924527,
+      "tokens_in": 191,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0828000009059906,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (output does not match the expected function behavior)`",
+      "step_id": 11,
+      "t_unix_ms": 1777800924531,
+      "tokens_in": 191,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-14",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 1.6496001482009888,
+    "failed_tool_calls": 0,
+    "latency_ms": 10173,
+    "llm_calls": 12,
+    "tokens_in": 2837,
+    "tokens_out": 813,
+    "tool_calls": 1
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}
