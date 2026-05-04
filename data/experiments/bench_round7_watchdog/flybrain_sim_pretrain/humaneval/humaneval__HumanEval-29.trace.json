@@ -1,0 +1,658 @@
+{
+  "final_answer": "schema:invalid_output (No JSON output was provided; expected a JSON object conforming to the schema)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Validate inputs: ensure `strings` is a list of strings and `prefix` is a string (optional, but function can as\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777905542040,
+      "tokens_in": 226,
+      "tokens_out": 99,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "2",
+      "latency_ms": 13677,
+      "output_summary": "",
+      "step_id": 1,
+      "t_unix_ms": 1777905555720,
+      "tokens_in": 346,
+      "tokens_out": 55,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Implement the following Python function. Your final answer must be a complete, runnable function definition.\n\nEntry point: `filter_by_prefix`\n\n```python\nfrom typing import List\n\n\ndef filter_by_prefix(strings: List[str], prefix: str) -> List[str]:\n    \"\"\" Filter an input list of strings only for ones that start with a given prefix.\n    >>> filter_by_prefix([], 'a')\n    []\n    >>> filter_by_prefix(['abc', 'bcd', 'cde', 'array'], 'a')\n    ['abc', 'array']\n    \"\"\"\n```\n"
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 15879,
+      "output_summary": "Search web.",
+      "step_id": 2,
+      "t_unix_ms": 1777905571603,
+      "tokens_in": 247,
+      "tokens_out": 81,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Implement the following Python function. Your final answer must be a complete, runnable function definition.\n\nEntry point: `filter_by_prefix`\n\n```python\nfrom typing import List\n\n\ndef filter_by_prefix(strings: List[str], prefix: str) -> List[str]:\n    \"\"\" Filter an input list of strings only for ones that start with a given prefix.\n    >>> filter_by_prefix([], 'a')\n    []\n    >>> filter_by_prefix(['abc', 'bcd', 'cde', 'array'], 'a')\n    ['abc', 'array']\n    \"\"\"\n```\n"
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 13994,
+      "output_summary": "```python from typing import List  def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:     \"\"\"     Filt\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777905585601,
+      "tokens_in": 225,
+      "tokens_out": 212,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 16145,
+      "output_summary": "- The draft does not include any actual implementation code for `filter_by_prefix`; it only contains the function signa\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777905601749,
+      "tokens_in": 237,
+      "tokens_out": 115,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 12437,
+      "output_summary": "- The function body is completely missing; without any implementation the function will raise a `SyntaxError` or return\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777905614191,
+      "tokens_in": 239,
+      "tokens_out": 161,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function body is completely missing; without any implementation the function will raise a `SyntaxError` or return\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777905614195,
+      "tokens_in": 239,
+      "tokens_out": 161,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function body is completely missing; without any implementation the function will raise a `SyntaxError` or return\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777905614199,
+      "tokens_in": 239,
+      "tokens_out": 161,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function body is completely missing; without any implementation the function will raise a `SyntaxError` or return\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777905614203,
+      "tokens_in": 239,
+      "tokens_out": 161,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function body is completely missing; without any implementation the function will raise a `SyntaxError` or return\u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777905614207,
+      "tokens_in": 239,
+      "tokens_out": 161,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function body is completely missing; without any implementation the function will raise a `SyntaxError` or return\u2026",
+      "step_id": 10,
+      "t_unix_ms": 1777905614211,
+      "tokens_in": 239,
+      "tokens_out": 161,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "11",
+      "latency_ms": 36628,
+      "output_summary": "We'll create test file.**Implemented `filter_by_prefix`**  ```python from typing import List  def filter_by_prefix(stri\u2026",
+      "step_id": 11,
+      "t_unix_ms": 1777905650842,
+      "tokens_in": 267,
+      "tokens_out": 554,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 4385,
+      "output_summary": "schema:valid",
+      "step_id": 12,
+      "t_unix_ms": 1777905655231,
+      "tokens_in": 250,
+      "tokens_out": 48,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 14692,
+      "output_summary": "schema:invalid_output (No JSON output was provided; expected a JSON object conforming to the schema)",
+      "step_id": 13,
+      "t_unix_ms": 1777905669927,
+      "tokens_in": 254,
+      "tokens_out": 141,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No JSON output was provided; expected a JSON object conforming to the schema)",
+      "step_id": 14,
+      "t_unix_ms": 1777905669933,
+      "tokens_in": 254,
+      "tokens_out": 141,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No JSON output was provided; expected a JSON object conforming to the schema)",
+      "step_id": 15,
+      "t_unix_ms": 1777905669938,
+      "tokens_in": 254,
+      "tokens_out": 141,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No JSON output was provided; expected a JSON object conforming to the schema)",
+      "step_id": 16,
+      "t_unix_ms": 1777905669942,
+      "tokens_in": 254,
+      "tokens_out": 141,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No JSON output was provided; expected a JSON object conforming to the schema)",
+      "step_id": 17,
+      "t_unix_ms": 1777905669946,
+      "tokens_in": 254,
+      "tokens_out": 141,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No JSON output was provided; expected a JSON object conforming to the schema)",
+      "step_id": 18,
+      "t_unix_ms": 1777905669950,
+      "tokens_in": 254,
+      "tokens_out": 141,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No JSON output was provided; expected a JSON object conforming to the schema)",
+      "step_id": 19,
+      "t_unix_ms": 1777905669955,
+      "tokens_in": 254,
+      "tokens_out": 141,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No JSON output was provided; expected a JSON object conforming to the schema)",
+      "step_id": 20,
+      "t_unix_ms": 1777905669959,
+      "tokens_in": 254,
+      "tokens_out": 141,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No JSON output was provided; expected a JSON object conforming to the schema)",
+      "step_id": 21,
+      "t_unix_ms": 1777905669963,
+      "tokens_in": 254,
+      "tokens_out": 141,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No JSON output was provided; expected a JSON object conforming to the schema)",
+      "step_id": 22,
+      "t_unix_ms": 1777905669968,
+      "tokens_in": 254,
+      "tokens_out": 141,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No JSON output was provided; expected a JSON object conforming to the schema)",
+      "step_id": 23,
+      "t_unix_ms": 1777905669972,
+      "tokens_in": 254,
+      "tokens_out": 141,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No JSON output was provided; expected a JSON object conforming to the schema)",
+      "step_id": 24,
+      "t_unix_ms": 1777905669976,
+      "tokens_in": 254,
+      "tokens_out": 141,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No JSON output was provided; expected a JSON object conforming to the schema)",
+      "step_id": 25,
+      "t_unix_ms": 1777905669981,
+      "tokens_in": 254,
+      "tokens_out": 141,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No JSON output was provided; expected a JSON object conforming to the schema)",
+      "step_id": 26,
+      "t_unix_ms": 1777905669985,
+      "tokens_in": 254,
+      "tokens_out": 141,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No JSON output was provided; expected a JSON object conforming to the schema)",
+      "step_id": 27,
+      "t_unix_ms": 1777905669999,
+      "tokens_in": 254,
+      "tokens_out": 141,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No JSON output was provided; expected a JSON object conforming to the schema)",
+      "step_id": 28,
+      "t_unix_ms": 1777905670003,
+      "tokens_in": 254,
+      "tokens_out": 141,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No JSON output was provided; expected a JSON object conforming to the schema)",
+      "step_id": 29,
+      "t_unix_ms": 1777905670008,
+      "tokens_in": 254,
+      "tokens_out": 141,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No JSON output was provided; expected a JSON object conforming to the schema)",
+      "step_id": 30,
+      "t_unix_ms": 1777905670012,
+      "tokens_in": 254,
+      "tokens_out": 141,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No JSON output was provided; expected a JSON object conforming to the schema)",
+      "step_id": 31,
+      "t_unix_ms": 1777905670017,
+      "tokens_in": 254,
+      "tokens_out": 141,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-29",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 127872,
+    "llm_calls": 32,
+    "tokens_in": 8058,
+    "tokens_out": 4809,
+    "tool_calls": 2
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

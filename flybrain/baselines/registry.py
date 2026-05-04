@@ -698,6 +698,15 @@ BUILTIN_SUITES: dict[str, list[str]] = {
         "flybrain_imitation",
         "flybrain_rl",
     ],
+    # Round-7 — sim_pretrain v6 vs Finalizer-watchdog wrapper.
+    # Used by `bench_round7_watchdog` to A/B the post-processing
+    # fix for the "trained controller never emits Finalizer" gap
+    # documented in round-5 traces.
+    "round7_watchdog": [
+        "manual_graph",
+        "flybrain_sim_pretrain",
+        "flybrain_sim_pretrain_watchdog",
+    ],
 }
 
 

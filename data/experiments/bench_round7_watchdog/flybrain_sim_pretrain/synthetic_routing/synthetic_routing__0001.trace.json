@@ -1,0 +1,648 @@
+{
+  "final_answer": "schema:invalid_output (no output provided to validate)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Compute the sum inside the parentheses: \\(44 + 36 = 80\\). 2. Recognize that the expression becomes \\(80^{20}\\)\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777905202808,
+      "tokens_in": 124,
+      "tokens_out": 297,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "2",
+      "latency_ms": 8430,
+      "output_summary": "Search web.",
+      "step_id": 1,
+      "t_unix_ms": 1777905211241,
+      "tokens_in": 325,
+      "tokens_out": 82,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Simplify: (44 + 36)^20."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 22823,
+      "output_summary": "First combine the terms inside the parentheses:  \\[ 44 + 36 = 80 \\]  So the expression becomes  \\[ 80^{20}. \\]  Factor \u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777905234067,
+      "tokens_in": 123,
+      "tokens_out": 459,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 7768,
+      "output_summary": "verifier:failed:No final answer was provided for verification.",
+      "step_id": 3,
+      "t_unix_ms": 1777905241839,
+      "tokens_in": 140,
+      "tokens_out": 105,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 8253,
+      "output_summary": "verifier:failed:No final answer provided for verification.",
+      "step_id": 4,
+      "t_unix_ms": 1777905250095,
+      "tokens_in": 142,
+      "tokens_out": 85,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:No final answer provided for verification.",
+      "step_id": 5,
+      "t_unix_ms": 1777905250100,
+      "tokens_in": 142,
+      "tokens_out": 85,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:No final answer provided for verification.",
+      "step_id": 6,
+      "t_unix_ms": 1777905250103,
+      "tokens_in": 142,
+      "tokens_out": 85,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:No final answer provided for verification.",
+      "step_id": 7,
+      "t_unix_ms": 1777905250106,
+      "tokens_in": 142,
+      "tokens_out": 85,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 8711,
+      "output_summary": "```python # Simplified result of (44 + 36)^20 result = 2**80 * 5**20 print(result) ```",
+      "step_id": 8,
+      "t_unix_ms": 1777905258821,
+      "tokens_in": 416,
+      "tokens_out": 107,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 41232,
+      "output_summary": "verifier:passed",
+      "step_id": 9,
+      "t_unix_ms": 1777905300057,
+      "tokens_in": 146,
+      "tokens_out": 205,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 10,
+      "t_unix_ms": 1777905300061,
+      "tokens_in": 146,
+      "tokens_out": 205,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 11,
+      "t_unix_ms": 1777905300065,
+      "tokens_in": 146,
+      "tokens_out": 205,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 12,
+      "t_unix_ms": 1777905300068,
+      "tokens_in": 146,
+      "tokens_out": 205,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 13,
+      "t_unix_ms": 1777905300072,
+      "tokens_in": 146,
+      "tokens_out": 205,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 14,
+      "t_unix_ms": 1777905300075,
+      "tokens_in": 146,
+      "tokens_out": 205,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 8121,
+      "output_summary": "The expression simplifies to    \\[ (44 + 36)^{20} = 80^{20}. \\]",
+      "step_id": 15,
+      "t_unix_ms": 1777905308199,
+      "tokens_in": 142,
+      "tokens_out": 183,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "The expression simplifies to    \\[ (44 + 36)^{20} = 80^{20}. \\]",
+      "step_id": 16,
+      "t_unix_ms": 1777905308204,
+      "tokens_in": 142,
+      "tokens_out": 183,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "The expression simplifies to    \\[ (44 + 36)^{20} = 80^{20}. \\]",
+      "step_id": 17,
+      "t_unix_ms": 1777905308208,
+      "tokens_in": 142,
+      "tokens_out": 183,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "The expression simplifies to    \\[ (44 + 36)^{20} = 80^{20}. \\]",
+      "step_id": 18,
+      "t_unix_ms": 1777905308211,
+      "tokens_in": 142,
+      "tokens_out": 183,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "The expression simplifies to    \\[ (44 + 36)^{20} = 80^{20}. \\]",
+      "step_id": 19,
+      "t_unix_ms": 1777905308215,
+      "tokens_in": 142,
+      "tokens_out": 183,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "The expression simplifies to    \\[ (44 + 36)^{20} = 80^{20}. \\]",
+      "step_id": 20,
+      "t_unix_ms": 1777905308218,
+      "tokens_in": 142,
+      "tokens_out": 183,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "The expression simplifies to    \\[ (44 + 36)^{20} = 80^{20}. \\]",
+      "step_id": 21,
+      "t_unix_ms": 1777905308222,
+      "tokens_in": 142,
+      "tokens_out": 183,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 9585,
+      "output_summary": "schema:invalid_output (No JSON schema provided to validate against)",
+      "step_id": 22,
+      "t_unix_ms": 1777905317810,
+      "tokens_in": 148,
+      "tokens_out": 63,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 5962,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 23,
+      "t_unix_ms": 1777905323776,
+      "tokens_in": 152,
+      "tokens_out": 62,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 24,
+      "t_unix_ms": 1777905323780,
+      "tokens_in": 152,
+      "tokens_out": 62,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 25,
+      "t_unix_ms": 1777905323784,
+      "tokens_in": 152,
+      "tokens_out": 62,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 26,
+      "t_unix_ms": 1777905323791,
+      "tokens_in": 152,
+      "tokens_out": 62,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 27,
+      "t_unix_ms": 1777905323795,
+      "tokens_in": 152,
+      "tokens_out": 62,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 28,
+      "t_unix_ms": 1777905323798,
+      "tokens_in": 152,
+      "tokens_out": 62,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 29,
+      "t_unix_ms": 1777905323802,
+      "tokens_in": 152,
+      "tokens_out": 62,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 30,
+      "t_unix_ms": 1777905323806,
+      "tokens_in": 152,
+      "tokens_out": 62,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 31,
+      "t_unix_ms": 1777905323810,
+      "tokens_in": 152,
+      "tokens_out": 62,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0001",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 120909,
+    "llm_calls": 32,
+    "tokens_in": 5082,
+    "tokens_out": 4522,
+    "tool_calls": 1
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

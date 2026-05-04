@@ -1,0 +1,183 @@
+{
+  "final_answer": "```python from typing import List, Any  def filter_integers(values: List[Any]) -> List[int]:     \"\"\"Filter the given li\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain_sim_pretrain_watchdog",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Define the function `filter_integers` that accepts a list of arbitrary values. 2. Iterate over the input list \u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777906273174,
+      "tokens_in": 233,
+      "tokens_out": 114,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List, Any  def filter_integers(values: List[Any]) -> List[int]:     \"\"\"     Filter given l\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777906273178,
+      "tokens_in": 353,
+      "tokens_out": 196,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 1,
+      "output_summary": "**Test suite for `filter_integers`**  ```python # test_filter_integers.py import builtins import pytest from typing imp\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777906273182,
+      "tokens_in": 368,
+      "tokens_out": 578,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "We'll write tests for typical cases, empty list, negatives, bools (bool is subclass of int, should we include? Probably\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777906273186,
+      "tokens_in": 254,
+      "tokens_out": 634,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "We'll write tests for typical cases, empty list, negatives, bools (bool is subclass of int, should we include? Probably\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777906273190,
+      "tokens_in": 254,
+      "tokens_out": 634,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "We'll write tests for typical cases, empty list, negatives, bools (bool is subclass of int, should we include? Probably\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777906273194,
+      "tokens_in": 254,
+      "tokens_out": 634,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 44342,
+      "output_summary": "```python from typing import List, Any  def filter_integers(values: List[Any]) -> List[int]:     \"\"\"Filter the given li\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777906317537,
+      "tokens_in": 240,
+      "tokens_out": 468,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 7,
+      "t_unix_ms": 1777906317537,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-22",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 44349,
+    "llm_calls": 7,
+    "tokens_in": 1956,
+    "tokens_out": 3258,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: tests_run"
+    ],
+    "failed_component": "tests_run",
+    "passed": false,
+    "reward_delta": -0.10000000149011612,
+    "score": 0.8500000238418579,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}
