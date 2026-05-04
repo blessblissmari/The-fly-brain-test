@@ -1,0 +1,123 @@
+{
+  "final_answer": "final_answer: 23.5",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.15240000188350677,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Sort the numbers in ascending order. 2. Determine the middle value since the list contains only two numbers, t\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777812762408,
+      "tokens_in": 68,
+      "tokens_out": 59,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.06920000165700912,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "To compute the median of the numbers 4 and 43, follow these steps:  1. Arrange the numbers in ascending order: 4, 43. 2\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777812762409,
+      "tokens_in": 69,
+      "tokens_out": 104,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1777812762409,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.03440000116825104,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "final_answer: 23.5",
+      "step_id": 3,
+      "t_unix_ms": 1777812762409,
+      "tokens_in": 77,
+      "tokens_out": 9,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1777812762409,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0029",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.25599998235702515,
+    "failed_tool_calls": 0,
+    "latency_ms": 0,
+    "llm_calls": 3,
+    "tokens_in": 214,
+    "tokens_out": 172,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "final_answer": "```python from unittest import TestCase from unittest.mock import patch  class TestMyFunction(TestCase):      @patch('b\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.16920000314712524,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Analyze the current code snippet to identify type-related issues. 2. Determine the appropriate type annotation\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777726601073,
+      "tokens_in": 73,
+      "tokens_out": 68,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.09000000357627869,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1115,
+      "output_summary": "```python # Original snippet def my_function(arg):     result = arg + 1     return result  # Refactored snippet def my_\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777726602188,
+      "tokens_in": 165,
+      "tokens_out": 60,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.1459999978542328,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "25",
+      "latency_ms": 2470,
+      "output_summary": "```python from unittest import TestCase from unittest.mock import patch  class TestMyFunction(TestCase):      @patch('b\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777726604659,
+      "tokens_in": 176,
+      "tokens_out": 189,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 3,
+      "t_unix_ms": 1777726604660,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.27639999985694885,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "31",
+      "latency_ms": 4976,
+      "output_summary": "```python from unittest import TestCase from unittest.mock import patch  class TestMyFunction(TestCase):      @patch('b\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777726609636,
+      "tokens_in": 311,
+      "tokens_out": 380,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 5,
+      "t_unix_ms": 1777726609636,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0020",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.6815999746322632,
+    "failed_tool_calls": 0,
+    "latency_ms": 8561,
+    "llm_calls": 4,
+    "tokens_in": 725,
+    "tokens_out": 697,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

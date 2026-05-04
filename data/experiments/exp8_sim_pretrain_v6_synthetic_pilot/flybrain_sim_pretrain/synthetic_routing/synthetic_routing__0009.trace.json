@@ -1,0 +1,640 @@
+{
+  "final_answer": "schema:invalid_output (no relevant output provided)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.15719999372959137,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Subtract 44 from both sides of the equation to isolate the term with x. 2. Simplify the equation. 3. Divide bo\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777810742831,
+      "tokens_in": 74,
+      "tokens_out": 57,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.0835999995470047,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 938,
+      "output_summary": "```python from sympy import symbols, Eq, solve  x = symbols('x') equation = Eq(19*x + 44, 34) solution = solve(equation\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777810743771,
+      "tokens_in": 155,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.10840000212192535,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 1650,
+      "output_summary": "``` import unittest from math_solver import solve_for_x  class TestMathSolver(unittest.TestCase):     def test_solve_fo\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777810745425,
+      "tokens_in": 169,
+      "tokens_out": 102,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.12960000336170197,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 439,
+      "output_summary": "verifier:failed:no solution to the math problem provided",
+      "step_id": 3,
+      "t_unix_ms": 1777810745868,
+      "tokens_in": 96,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.13079999387264252,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 650,
+      "output_summary": "verifier:failed:no solution provided to check",
+      "step_id": 4,
+      "t_unix_ms": 1777810746522,
+      "tokens_in": 99,
+      "tokens_out": 10,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.13079999387264252,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:no solution provided to check",
+      "step_id": 5,
+      "t_unix_ms": 1777810746526,
+      "tokens_in": 99,
+      "tokens_out": 10,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.13079999387264252,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "verifier:failed:no solution provided to check",
+      "step_id": 6,
+      "t_unix_ms": 1777810746529,
+      "tokens_in": 99,
+      "tokens_out": 10,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.12919999659061432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 1485,
+      "output_summary": "```python def solve_for_x(equation):     # \u0420\u0430\u0437\u0434\u0435\u043b\u0438\u043c \u0443\u0440\u0430\u0432\u043d\u0435\u043d\u0438\u0435 \u043d\u0430 \u0447\u0430\u0441\u0442\u0438     terms = equation.split()     x_coeff = int(t\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777810748018,
+      "tokens_in": 228,
+      "tokens_out": 95,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.05999999865889549,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 953,
+      "output_summary": "```python from sympy import symbols, Eq, solve  x = symbols('x') equation = Eq(19*x + 44, 34) solution = solve(equation\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777810748975,
+      "tokens_in": 96,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.05999999865889549,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from sympy import symbols, Eq, solve  x = symbols('x') equation = Eq(19*x + 44, 34) solution = solve(equation\u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777810748978,
+      "tokens_in": 96,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.05999999865889549,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from sympy import symbols, Eq, solve  x = symbols('x') equation = Eq(19*x + 44, 34) solution = solve(equation\u2026",
+      "step_id": 10,
+      "t_unix_ms": 1777810748982,
+      "tokens_in": 96,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.047600001096725464,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 547,
+      "output_summary": "schema:invalid_output (no output related to solving the equation provided)",
+      "step_id": 11,
+      "t_unix_ms": 1777810749532,
+      "tokens_in": 104,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04800000041723251,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 542,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 12,
+      "t_unix_ms": 1777810750078,
+      "tokens_in": 109,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04800000041723251,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 13,
+      "t_unix_ms": 1777810750082,
+      "tokens_in": 109,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04800000041723251,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 14,
+      "t_unix_ms": 1777810750086,
+      "tokens_in": 109,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04800000041723251,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 15,
+      "t_unix_ms": 1777810750089,
+      "tokens_in": 109,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04800000041723251,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 16,
+      "t_unix_ms": 1777810750093,
+      "tokens_in": 109,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04800000041723251,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 17,
+      "t_unix_ms": 1777810750096,
+      "tokens_in": 109,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04800000041723251,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 18,
+      "t_unix_ms": 1777810750100,
+      "tokens_in": 109,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04800000041723251,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 19,
+      "t_unix_ms": 1777810750103,
+      "tokens_in": 109,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04800000041723251,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 20,
+      "t_unix_ms": 1777810750107,
+      "tokens_in": 109,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04800000041723251,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 21,
+      "t_unix_ms": 1777810750110,
+      "tokens_in": 109,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04800000041723251,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 22,
+      "t_unix_ms": 1777810750125,
+      "tokens_in": 109,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04800000041723251,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 23,
+      "t_unix_ms": 1777810750129,
+      "tokens_in": 109,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04800000041723251,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 24,
+      "t_unix_ms": 1777810750134,
+      "tokens_in": 109,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04800000041723251,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 25,
+      "t_unix_ms": 1777810750141,
+      "tokens_in": 109,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04800000041723251,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 26,
+      "t_unix_ms": 1777810750144,
+      "tokens_in": 109,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04800000041723251,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 27,
+      "t_unix_ms": 1777810750148,
+      "tokens_in": 109,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04800000041723251,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 28,
+      "t_unix_ms": 1777810750152,
+      "tokens_in": 109,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04800000041723251,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 29,
+      "t_unix_ms": 1777810750156,
+      "tokens_in": 109,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04800000041723251,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 30,
+      "t_unix_ms": 1777810750159,
+      "tokens_in": 109,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04800000041723251,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 31,
+      "t_unix_ms": 1777810750163,
+      "tokens_in": 109,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0009",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 2.187999963760376,
+    "failed_tool_calls": 0,
+    "latency_ms": 7226,
+    "llm_calls": 32,
+    "tokens_in": 3591,
+    "tokens_out": 747,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: final_answer"
+    ],
+    "failed_component": "final_answer",
+    "passed": false,
+    "reward_delta": -0.10000000149011612,
+    "score": 0.8500000238418579,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

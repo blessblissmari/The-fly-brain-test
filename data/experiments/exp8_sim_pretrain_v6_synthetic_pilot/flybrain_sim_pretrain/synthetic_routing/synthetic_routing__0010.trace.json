@@ -1,0 +1,660 @@
+{
+  "final_answer": "schema:invalid_output (the output does not match the expected JSON schema for summarizing research results on transform\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.1656000018119812,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Identify the most recent research papers on transformers published in the last year. 2. Extract key findings a\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777810701615,
+      "tokens_in": 66,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.09080000221729279,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "2",
+      "latency_ms": 852,
+      "output_summary": "1. Conducted a web search to find the latest research papers on transformers. 2. Searched for relevant papers published\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777810702471,
+      "tokens_in": 182,
+      "tokens_out": 45,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Summarise the latest results on transformers."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.07720000296831131,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Query: \"latest results on transformers\"  1. Transformers are a type of neural network architecture that has gained sign\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777810702475,
+      "tokens_in": 97,
+      "tokens_out": 96,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Summarise the latest results on transformers."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.035999998450279236,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 542,
+      "output_summary": "The given task is not a mathematical problem. Please provide a mathematical problem for me to solve.",
+      "step_id": 3,
+      "t_unix_ms": 1777810703019,
+      "tokens_in": 71,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.04600000008940697,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 766,
+      "output_summary": "The given task is not related to mathematical problem-solving. It seems to be related to natural language processing (N\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777810703791,
+      "tokens_in": 73,
+      "tokens_out": 42,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.04600000008940697,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "The given task is not related to mathematical problem-solving. It seems to be related to natural language processing (N\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777810703796,
+      "tokens_in": 73,
+      "tokens_out": 42,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.20319999754428864,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 4117,
+      "output_summary": "```python # Placeholder for the code to summarize the latest results on transformers # This is a basic structure to sta\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777810707915,
+      "tokens_in": 168,
+      "tokens_out": 340,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.1703999936580658,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 969,
+      "output_summary": "- The current draft does not provide a summary of the latest results on transformers. - The terms listed do not demonst\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777810708888,
+      "tokens_in": 81,
+      "tokens_out": 61,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.1703999936580658,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1077,
+      "output_summary": "- The draft does not contain any summary of the latest results on transformers. - The draft includes terms that do not \u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777810709969,
+      "tokens_in": 83,
+      "tokens_out": 59,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.1703999936580658,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not contain any summary of the latest results on transformers. - The draft includes terms that do not \u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777810709973,
+      "tokens_in": 83,
+      "tokens_out": 59,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.1703999936580658,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not contain any summary of the latest results on transformers. - The draft includes terms that do not \u2026",
+      "step_id": 10,
+      "t_unix_ms": 1777810709977,
+      "tokens_in": 83,
+      "tokens_out": 59,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.08799999952316284,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "11",
+      "latency_ms": 480,
+      "output_summary": "There are no functions to test in the provided text.",
+      "step_id": 11,
+      "t_unix_ms": 1777810710460,
+      "tokens_in": 209,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.12319999933242798,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2669,
+      "output_summary": "``` import unittest from research_summary import summarise_latest_results_on_transformers  class TestSummariseLatestRes\u2026",
+      "step_id": 12,
+      "t_unix_ms": 1777810713132,
+      "tokens_in": 97,
+      "tokens_out": 211,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04600000008940697,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 562,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON format)`",
+      "step_id": 13,
+      "t_unix_ms": 1777810713698,
+      "tokens_in": 99,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05079999938607216,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 592,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema for summarizing research results on transform\u2026",
+      "step_id": 14,
+      "t_unix_ms": 1777810714293,
+      "tokens_in": 104,
+      "tokens_out": 23,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05079999938607216,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema for summarizing research results on transform\u2026",
+      "step_id": 15,
+      "t_unix_ms": 1777810714298,
+      "tokens_in": 104,
+      "tokens_out": 23,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05079999938607216,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema for summarizing research results on transform\u2026",
+      "step_id": 16,
+      "t_unix_ms": 1777810714302,
+      "tokens_in": 104,
+      "tokens_out": 23,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05079999938607216,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema for summarizing research results on transform\u2026",
+      "step_id": 17,
+      "t_unix_ms": 1777810714306,
+      "tokens_in": 104,
+      "tokens_out": 23,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05079999938607216,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema for summarizing research results on transform\u2026",
+      "step_id": 18,
+      "t_unix_ms": 1777810714310,
+      "tokens_in": 104,
+      "tokens_out": 23,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05079999938607216,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema for summarizing research results on transform\u2026",
+      "step_id": 19,
+      "t_unix_ms": 1777810714314,
+      "tokens_in": 104,
+      "tokens_out": 23,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05079999938607216,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema for summarizing research results on transform\u2026",
+      "step_id": 20,
+      "t_unix_ms": 1777810714318,
+      "tokens_in": 104,
+      "tokens_out": 23,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05079999938607216,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema for summarizing research results on transform\u2026",
+      "step_id": 21,
+      "t_unix_ms": 1777810714322,
+      "tokens_in": 104,
+      "tokens_out": 23,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05079999938607216,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema for summarizing research results on transform\u2026",
+      "step_id": 22,
+      "t_unix_ms": 1777810714326,
+      "tokens_in": 104,
+      "tokens_out": 23,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05079999938607216,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema for summarizing research results on transform\u2026",
+      "step_id": 23,
+      "t_unix_ms": 1777810714330,
+      "tokens_in": 104,
+      "tokens_out": 23,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05079999938607216,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema for summarizing research results on transform\u2026",
+      "step_id": 24,
+      "t_unix_ms": 1777810714334,
+      "tokens_in": 104,
+      "tokens_out": 23,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05079999938607216,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema for summarizing research results on transform\u2026",
+      "step_id": 25,
+      "t_unix_ms": 1777810714338,
+      "tokens_in": 104,
+      "tokens_out": 23,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05079999938607216,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema for summarizing research results on transform\u2026",
+      "step_id": 26,
+      "t_unix_ms": 1777810714342,
+      "tokens_in": 104,
+      "tokens_out": 23,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05079999938607216,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema for summarizing research results on transform\u2026",
+      "step_id": 27,
+      "t_unix_ms": 1777810714346,
+      "tokens_in": 104,
+      "tokens_out": 23,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05079999938607216,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema for summarizing research results on transform\u2026",
+      "step_id": 28,
+      "t_unix_ms": 1777810714350,
+      "tokens_in": 104,
+      "tokens_out": 23,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05079999938607216,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema for summarizing research results on transform\u2026",
+      "step_id": 29,
+      "t_unix_ms": 1777810714354,
+      "tokens_in": 104,
+      "tokens_out": 23,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05079999938607216,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema for summarizing research results on transform\u2026",
+      "step_id": 30,
+      "t_unix_ms": 1777810714358,
+      "tokens_in": 104,
+      "tokens_out": 23,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05079999938607216,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema for summarizing research results on transform\u2026",
+      "step_id": 31,
+      "t_unix_ms": 1777810714363,
+      "tokens_in": 104,
+      "tokens_out": 23,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0010",
+  "task_type": "research",
+  "totals": {
+    "cost_rub": 2.518000602722168,
+    "failed_tool_calls": 0,
+    "latency_ms": 12648,
+    "llm_calls": 32,
+    "tokens_in": 3337,
+    "tokens_out": 1546,
+    "tool_calls": 2
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: final_answer"
+    ],
+    "failed_component": "final_answer",
+    "passed": false,
+    "reward_delta": -0.10000000149011612,
+    "score": 0.8500000238418579,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

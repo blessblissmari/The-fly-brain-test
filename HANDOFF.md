@@ -1,6 +1,6 @@
 # Developer Handoff Note — FlyBrain Optimizer
 
-_Last updated: 2026-05-02_
+_Last updated: 2026-05-03_
 
 This file is the **single point of entry** for any future contributor
 (or Devin session) picking up the FlyBrain Optimizer codebase. It
@@ -153,39 +153,62 @@ because they need `organization_id` + `billing_account_id` (use
 
 ## 4. Known issues / open work
 
-### 4.a Trained baselines return 0% — needs 3 small fixes
+### 4.a Trained baselines return 0% — **FIXED in PR #13** (2026-05-02)
 
-The four `flybrain_*` trained baselines
-(`flybrain_prior_untrained`, `flybrain_sim_pretrain`,
-`flybrain_imitation`, `flybrain_rl`) all returned 0% across N=315
-tasks because:
+All three sub-bugs are resolved on the
+`devin/1777721760-trained-baselines-prior-graph` branch and validated
+on a live YandexGPT-Lite N=50 bench (412.52 ₽); see `docs/final_report.md`.
 
-1. **Empty initial graph.** They ship with `empty_graph(agent_names)`
-   in their factories — no edges between agents. Even a perfectly
-   trained controller can't traverse without at least entrypoint→active
-   self-loops. **Fix:** in `flybrain/baselines/registry.py`,
-   `_flybrain_with_checkpoint` (~line 314) and
-   `_flybrain_prior_untrained` should ship a fully-connected starter
-   graph or a `flybrain_prior_graph(agent_names)` builder (latter
-   doesn't exist yet — needs to be added based on the FlyBrain
-   adjacency in `data/flybrain/`).
-2. **Embedding-dimension mismatch with training scripts.** The
-   registry uses `MockEmbeddingClient(output_dim=32)` +
-   `AgentGraphEmbedder(in_dim=32, hidden_dim=16, out_dim=32)`, but
-   `scripts/run_simulation_pretrain.py` and
-   `scripts/run_imitation.py` hardcode 64-dim embeddings + 32 hidden.
-   Result: `load_state_dict(strict=False)` silently no-ops most
-   weights. **Fix:** add `--emb-dim` to both training scripts
-   (default 32) and pin the registry to whatever the scripts use.
-3. **Checkpoint env-var requirement.** Factories read from
-   `FLYBRAIN_BASELINE_{SIM_PRETRAIN,IMITATION,RL}` env vars. Should
-   auto-pick up `data/checkpoints/{sim_pretrain,imitation,rl}_gnn.pt`
-   if env vars are unset. **Fix:** add a default fallback in
-   `_flybrain_with_checkpoint`.
+1. **Empty initial graph — fixed.** New `flybrain_prior_graph(agent_names)`
+   in `flybrain/baselines/graphs.py` loads the on-disk K=64 FlyWire 783
+   prior (`data/flybrain/fly_graph_64.fbg`, 64 nodes / 199 edges,
+   modularity Q = 0.6800), aggregates the cluster-level adjacency into
+   the 15-agent space by rank-of-degree round-robin, and emits a single
+   fallback edge to the highest-degree hub for any agent that would
+   otherwise be orphaned. `_flybrain_with_checkpoint` and
+   `_flybrain_prior_untrained` now both ship this graph.
+2. **Embedding-dimension mismatch — fixed.** Training scripts gained
+   `--emb-dim`, `--graph-hidden-dim`, `--graph-out-dim`, `--fly-dim`,
+   `--hidden-dim` flags with defaults pinned to the registry
+   (32 / 16 / 32 / 8 / 32). `load_state_dict(strict=False)` no longer
+   silently drops weights at registry-load time.
+3. **Checkpoint env-var requirement — fixed.** `_flybrain_with_checkpoint`
+   now auto-discovers `data/checkpoints/{label}_gnn.pt` when the
+   matching env var is unset.
 
-After all 3 are done: train at the registry dims, drop the
-checkpoint into `data/checkpoints/`, re-run bench, expect
-non-zero success on the 4 trained baselines.
+**Headline result after the fix** (live YandexGPT-Lite, **N=30
+expanded fixtures**, 120 tasks per baseline overall — round-3
+2026-05-03):
+
+| Baseline                  | success | verifier | cost/task ₽ |
+|---------------------------|--------:|---------:|------------:|
+| `flybrain_imitation`      |   0.742 |    0.961 |        1.52 |
+| `flybrain_sim_pretrain`   |   0.700 |    0.955 |        1.75 |
+| `flybrain_rl`             |   0.375 |    0.893 |        3.00 |
+| `flybrain_prior_untrained`|   0.000 |    0.705 |        0.00 |
+
+(static-graph reference: `degree_preserving` 0.992 / `manual_graph`
+0.950 / `fully_connected` 0.983 / `random_sparse` 0.342)
+
+On `bbh_mini` and `gsm8k` the trained progression matches the
+hand-curated `manual_graph` ceiling (29-30/30 = 96.7-100%) at lower
+cost (`flybrain_imitation` 1.52 ₽/task vs. `manual_graph` 2.46
+₽/task). On `humaneval` trained = 22-21/30 (70-73%) vs static
+29-30/30 — the trained controller is graceful but not yet matching.
+On `synthetic_routing` trained = 4-8/30 (13-27%) vs static
+25-30/30 — see §10.a-Q4/Q5 for the next architectural levers
+(GNN width 32→64, step_penalty in `RewardConfig`, on-policy PPO
+with verifier-as-reward). **Round 4 (2026-05-03) ruled out the
+cheap data-side and step-budget-side fixes**: `max_steps ∈ {6, 12}`
+does not move trained controllers off the plateau, and adding /
+up-weighting 25 passing `manual_graph` traces on `synthetic_routing`
+keeps imitation at 7-8 / 30. The remaining levers are genuine
+architecture work; see `docs/round4_architectural_negative_results.md`
+for the four hypotheses tested and their action-sequence post-mortem.
+
+For the canonical write-up, see `docs/final_report.md`. For the
+round-by-round delta, see `docs/round2_progress.md` and
+`docs/round4_architectural_negative_results.md`.
 
 ### 4.b Budget tracker overshoot at high parallelism
 
@@ -328,10 +351,10 @@ expected gains.
 
 | # | Task | Effort | Expected gain |
 |---|---|---|---|
-| Q1 | **Fix trained-baseline empty-graph bug.** Ship a `flybrain_prior_graph(agent_names)` builder using the actual FlyBrain adjacency in `data/flybrain/` and use it in `_flybrain_with_checkpoint` instead of `empty_graph`. | 1d | unlock 4 baselines from 0 % → ≥ `manual_graph` 84 % |
-| Q2 | **Resolve emb-dim mismatch + checkpoint loading.** Add `--emb-dim` to `scripts/run_simulation_pretrain.py` + `run_imitation.py`, train at registry dims (32), drop checkpoints into `data/checkpoints/`, register auto-fallback in `_flybrain_with_checkpoint`. | 0.5d | enables Q1 to actually load weights |
-| Q3 | **Run all 5 README §18 ablations end-to-end on live YandexGPT, not just mock.** Currently `embedding_ablation` and `verifier_ablation` suites exist as code but produce 0 % live (same empty-graph problem). After Q1, re-run them at N=50 and write up the ablation curves in `docs/final_report.md`. | 1d + ~200 ₽ | converts §18 from "5/5 framework" to "5/5 with cherry-picked numbers" |
-| Q4 | **Curriculum-learning Phase 7.5.** Right now `flybrain_imitation` learns from a single trace dataset. The README §12.3 calls for distillation-from-Yandex-Pro: collect 200 expert traces with `yandexgpt-pro` (~600 ₽), then imitate with `yandexgpt-lite`. | 2d + ~600 ₽ | flybrain_imitation expected ≥ 88 % (above `manual_graph`) |
+| Q1 | **Fix trained-baseline empty-graph bug.** Ship a `flybrain_prior_graph(agent_names)` builder using the actual FlyBrain adjacency. | DONE (PR #13, 2026-05-02) | 4 baselines from 0 % → 0 / 23 / 37 / 45 % overall on N=50 (1.00 on bbh_mini / gsm8k / humaneval for sim_pretrain) |
+| Q2 | **Resolve emb-dim mismatch + checkpoint loading.** | DONE (PR #13, 2026-05-02) | weights now load |
+| Q3 | **Run all 5 README §18 ablations end-to-end on live YandexGPT, not just mock.** | DONE (PR #13, 2026-05-03; round-2 commit) — Exp 2, 3, 4 live at N=15. Exp 1 already in N=50 v1/v2; Exp 5 is the canonical N=50 bench. | converts §18 from "5/5 framework" to "5/5 with live numbers" — see `docs/round2_progress.md §4`, artefacts under `data/experiments/exp{2,3,4}_*_live/` |
+| Q4 | **Curriculum-learning + step-penalty.** Trained baselines spend 11-12 LLM calls per task (vs. 3-4 for static graphs) and under-perform on `synthetic_routing`. Run sim-pretrain to 120-180 epochs with `n_per_type` 96 → 192, add `step_penalty` to `RewardConfig`. | 1d | flybrain_sim_pretrain on synthetic_routing 28 % → 70 % + |
 | Q5 | **PPO Phase 8 against the real verifier.** `flybrain_rl` is currently REINFORCE-light against a sim verifier. PPO + the production verifier (Phase 3) on `synthetic_routing` should match `fully_connected` at lower cost. | 3d + ~400 ₽ | expected new top: ~ 96 % at ~ 0.7 ₽/solved |
 
 ### 10.b Cost / efficiency — already strong, marginal gains

@@ -1,0 +1,135 @@
+{
+  "final_answer": "**Literature Review on Transformers**  Transformers have become a cornerstone in the field of natural language processi\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.1956000030040741,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Identify key sources on transformers, including academic papers, books, and review articles. 2. Read and summa\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777810680608,
+      "tokens_in": 70,
+      "tokens_out": 93,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.09560000151395798,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Query: \"Write a 200-word literature review on transformers.\"  1. Transformers are a type of neural network architecture\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777810680609,
+      "tokens_in": 97,
+      "tokens_out": 142,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Write a 200-word literature review on transformers."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1777810680609,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.2184000015258789,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "**Literature Review on Transformers**  Transformers have become a cornerstone in the field of natural language processi\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777810680610,
+      "tokens_in": 100,
+      "tokens_out": 446,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1777810680610,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0018",
+  "task_type": "research",
+  "totals": {
+    "cost_rub": 0.509600043296814,
+    "failed_tool_calls": 0,
+    "latency_ms": 0,
+    "llm_calls": 3,
+    "tokens_in": 267,
+    "tokens_out": 681,
+    "tool_calls": 1
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -11,6 +11,7 @@ from flybrain.baselines import (
     builtin_baselines,
     degree_preserving_random_graph,
     empty_graph,
+    flybrain_prior_graph,
     fully_connected_graph,
     list_baselines,
     random_sparse_graph,
@@ -65,14 +66,62 @@ def test_degree_preserving_uses_fly_adjacency() -> None:
     assert len(g["edges"][AGENT_NAMES[1]]) == 1
 
 
+# -- flybrain prior graph ------------------------------------------------------
+
+
+def test_flybrain_prior_graph_is_non_empty_and_excludes_self_loops() -> None:
+    g = flybrain_prior_graph(AGENT_NAMES)
+    assert g["nodes"] == AGENT_NAMES
+    total_edges = sum(len(dsts) for dsts in g["edges"].values())
+    assert total_edges > 0
+    for src, dsts in g["edges"].items():
+        assert src not in dsts, f"self-loop on {src}"
+
+
+def test_flybrain_prior_graph_is_deterministic_for_seed() -> None:
+    a = flybrain_prior_graph(AGENT_NAMES, seed=0)
+    b = flybrain_prior_graph(AGENT_NAMES, seed=0)
+    assert a == b
+
+
+def test_flybrain_prior_graph_respects_max_out_degree() -> None:
+    cap = 3
+    g = flybrain_prior_graph(AGENT_NAMES, max_out_degree=cap)
+    for dsts in g["edges"].values():
+        assert len(dsts) <= cap
+
+
+def test_flybrain_prior_graph_row_normalises_weights() -> None:
+    g = flybrain_prior_graph(AGENT_NAMES)
+    for dsts in g["edges"].values():
+        s = sum(dsts.values())
+        assert s == pytest.approx(1.0, abs=1e-6)
+
+
+def test_flybrain_prior_graph_handles_empty_agents() -> None:
+    g = flybrain_prior_graph([])
+    assert g == {"nodes": [], "edges": {}}
+
+
+def test_flybrain_prior_graph_skips_self_loop_for_single_agent() -> None:
+    """Single-agent runs have no possible non-self destination — the
+    builder must not invent one (HANDOFF.md §4.a Q1 fly-prior contract
+    forbids self-loops)."""
+    g = flybrain_prior_graph(["solo"])
+    assert g["nodes"] == ["solo"]
+    assert g["edges"].get("solo", {}) == {}
+
+
 # -- registry ------------------------------------------------------------------
 
 
 def test_builtin_baselines_yields_nine_specs() -> None:
     specs = builtin_baselines()
-    # 9 README §15 baselines + flybrain_graph_ssl_pretrain + 5 embedding-ablation
-    # rows + 4 verifier-ablation rows.
-    assert len(specs) == 9 + 1 + 5 + 4
+    # 9 README §15 baselines + flybrain_sim_pretrain_watchdog (round-7)
+    # + flybrain_sim_pretrain_watchdog_v2 (round-8)
+    # + flybrain_graph_ssl_pretrain + 5 embedding-ablation rows
+    # + 4 verifier-ablation rows.
+    assert len(specs) == 9 + 1 + 1 + 1 + 5 + 4
     # Canonical README §15 order is preserved at the top of the list.
     full_min_names = [s.name for s in specs[:9]]
     assert full_min_names == BUILTIN_SUITES["full_min"]
@@ -163,6 +212,49 @@ def test_static_baselines_construct(name: str) -> None:
     assert graph is not None
     assert "nodes" in graph
     assert "edges" in graph
+
+
+@pytest.mark.parametrize(
+    "name",
+    [
+        "flybrain_prior_untrained",
+        "flybrain_sim_pretrain",
+        "flybrain_imitation",
+        "flybrain_rl",
+        "flybrain_graph_ssl_pretrain",
+    ],
+)
+def test_flybrain_baselines_ship_non_empty_initial_graph(name: str) -> None:
+    """HANDOFF.md §4.a Q1: trained / fly-prior baselines must ship a
+    non-empty initial AgentGraph so the GNN/router has something to
+    read from on step 0."""
+    pytest.importorskip("torch")  # GNN / router controllers need torch
+    spec = next(s for s in builtin_baselines() if s.name == name)
+    _ctrl, graph = spec.factory(AGENT_NAMES)
+    assert graph is not None
+    assert graph["nodes"] == AGENT_NAMES
+    total_edges = sum(len(dsts) for dsts in graph["edges"].values())
+    assert total_edges > 0, f"{name} factory produced empty initial graph"
+
+
+def test_resolve_checkpoint_path_prefers_env_var(tmp_path, monkeypatch) -> None:
+    from flybrain.baselines.registry import _resolve_checkpoint_path
+
+    fake = tmp_path / "custom.pt"
+    fake.write_bytes(b"")
+    monkeypatch.setenv("FLYBRAIN_BASELINE_SIM_PRETRAIN", str(fake))
+    assert _resolve_checkpoint_path("SIM_PRETRAIN") == fake
+
+
+def test_resolve_checkpoint_path_falls_back_to_default(tmp_path, monkeypatch) -> None:
+    """When the env var is unset and no default path exists, returns None."""
+    from flybrain.baselines.registry import _resolve_checkpoint_path
+
+    monkeypatch.delenv("FLYBRAIN_BASELINE_IMITATION", raising=False)
+    # Run from an empty cwd so the default `data/checkpoints/...` paths
+    # resolve to non-existent files.
+    monkeypatch.chdir(tmp_path)
+    assert _resolve_checkpoint_path("IMITATION") is None
 
 
 # -- round-robin controller ----------------------------------------------------

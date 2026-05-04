@@ -1,0 +1,256 @@
+{
+  "final_answer": "call_memory invoked (memory=8, corpus=8)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "random",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "TaskDecomposer",
+      "cost_rub": 0.046799998730421066,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "TaskDecomposer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 811,
+      "output_summary": "1. Calculate the mean of 97 and 33 -> You 2. Calculate the squared difference of each number from the mean -> You 3. Ca\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777733370338,
+      "tokens_in": 74,
+      "tokens_out": 43,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TaskDecomposer",
+      "cost_rub": 0.053199999034404755,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "TaskDecomposer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 853,
+      "output_summary": "`<1>. Calculate the mean of 97 and 33 -> Decomposer` `<2>. Calculate the squared difference from the mean for each numb\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777733371192,
+      "tokens_in": 82,
+      "tokens_out": 51,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TaskDecomposer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_memory"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_memory invoked (memory=2, corpus=2)",
+      "step_id": 2,
+      "t_unix_ms": 1777733371192,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryReader",
+      "cost_rub": 0.03680000081658363,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MemoryReader",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 539,
+      "output_summary": "None of the previous entries contain the requested computation for the variance of 97 and 33.",
+      "step_id": 3,
+      "t_unix_ms": 1777733371731,
+      "tokens_in": 71,
+      "tokens_out": 21,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Judge",
+      "cost_rub": 0.1428000032901764,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "Judge",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 393,
+      "output_summary": "winner: decomposer",
+      "step_id": 4,
+      "t_unix_ms": 1777733372125,
+      "tokens_in": 115,
+      "tokens_out": 4,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TaskDecomposer",
+      "cost_rub": 0.0544000007212162,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "TaskDecomposer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 863,
+      "output_summary": "1. Calculate the mean of 97 and 33 -> Decomposer 2. Calculate the squared difference of each number from the mean -> De\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777733372988,
+      "tokens_in": 90,
+      "tokens_out": 46,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TaskDecomposer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_memory"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_memory invoked (memory=5, corpus=5)",
+      "step_id": 6,
+      "t_unix_ms": 1777733372989,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryReader",
+      "cost_rub": 0.035599999129772186,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MemoryReader",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 478,
+      "output_summary": "None of the entries tagged with the requested key are available.",
+      "step_id": 7,
+      "t_unix_ms": 1777733373467,
+      "tokens_in": 77,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Judge",
+      "cost_rub": 0.1728000044822693,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "Judge",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "9",
+      "latency_ms": 697,
+      "output_summary": "winner: decomposer  The \"decomposer\" is likely to break down the problem into steps required to compute the variance, w\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777733374164,
+      "tokens_in": 108,
+      "tokens_out": 36,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.1111999973654747,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "12",
+      "latency_ms": 1803,
+      "output_summary": "``` def compute_variance(numbers):     mean = sum(numbers) / len(numbers)     variance = sum((x - mean) ** 2 for x in n\u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777733375968,
+      "tokens_in": 146,
+      "tokens_out": 132,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_memory"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_memory invoked (memory=8, corpus=8)",
+      "step_id": 10,
+      "t_unix_ms": 1777733375968,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 11,
+      "t_unix_ms": 1777733375968,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0033",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.6535999774932861,
+    "failed_tool_calls": 0,
+    "latency_ms": 6437,
+    "llm_calls": 8,
+    "tokens_in": 763,
+    "tokens_out": 345,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: final_answer"
+    ],
+    "failed_component": "final_answer",
+    "passed": false,
+    "reward_delta": -0.10000000149011612,
+    "score": 0.8500000238418579,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

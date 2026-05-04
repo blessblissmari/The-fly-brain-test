@@ -1,0 +1,648 @@
+{
+  "final_answer": "{   \"final_answer\": 55 }",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Calculate the number of students who enrolled in contemporary dance: 20% of 20 students. 2. Subtract the conte\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777897745491,
+      "tokens_in": 177,
+      "tokens_out": 121,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "2",
+      "latency_ms": 8082,
+      "output_summary": "**Step\u2011by\u2011step calculation**  1. **Contemporary dance**      - 20\u202f% of 20 students = \\(0.20 \\times 20 = 4\\) students.  \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777897753576,
+      "tokens_in": 321,
+      "tokens_out": 202,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "In a dance class of 20 students, 20% enrolled in contemporary dance, 25% of the remaining enrolled in jazz dance, and the rest enrolled in hip-hop dance. What percentage of the entire students enrolled in hip-hop dance?\n\nThink step by step and end with `final_answer: <number>`."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 9897,
+      "output_summary": "verifier:passed",
+      "step_id": 2,
+      "t_unix_ms": 1777897763477,
+      "tokens_in": 191,
+      "tokens_out": 144,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 4164,
+      "output_summary": "verifier:passed",
+      "step_id": 3,
+      "t_unix_ms": 1777897767645,
+      "tokens_in": 193,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 4,
+      "t_unix_ms": 1777897767649,
+      "tokens_in": 193,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 5,
+      "t_unix_ms": 1777897767653,
+      "tokens_in": 193,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 6,
+      "t_unix_ms": 1777897767656,
+      "tokens_in": 193,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 4541,
+      "output_summary": "final_answer: 60",
+      "step_id": 7,
+      "t_unix_ms": 1777897772200,
+      "tokens_in": 407,
+      "tokens_out": 86,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 10517,
+      "output_summary": "Step\u2011by\u2011step calculation   1. Total students = 20.   2. Contemporary dance: 20\u202f% of 20 = 0.20\u202f\u00d7\u202f20 = 4 students.   3. R\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777897782720,
+      "tokens_in": 191,
+      "tokens_out": 229,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Step\u2011by\u2011step calculation   1. Total students = 20.   2. Contemporary dance: 20\u202f% of 20 = 0.20\u202f\u00d7\u202f20 = 4 students.   3. R\u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777897782725,
+      "tokens_in": 191,
+      "tokens_out": 229,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Step\u2011by\u2011step calculation   1. Total students = 20.   2. Contemporary dance: 20\u202f% of 20 = 0.20\u202f\u00d7\u202f20 = 4 students.   3. R\u2026",
+      "step_id": 10,
+      "t_unix_ms": 1777897782729,
+      "tokens_in": 191,
+      "tokens_out": 229,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Step\u2011by\u2011step calculation   1. Total students = 20.   2. Contemporary dance: 20\u202f% of 20 = 0.20\u202f\u00d7\u202f20 = 4 students.   3. R\u2026",
+      "step_id": 11,
+      "t_unix_ms": 1777897782733,
+      "tokens_in": 191,
+      "tokens_out": 229,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 4763,
+      "output_summary": "schema:invalid_output (No JSON output was provided; expected a JSON object with the final answer)",
+      "step_id": 12,
+      "t_unix_ms": 1777897787499,
+      "tokens_in": 197,
+      "tokens_out": 120,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2597,
+      "output_summary": "{   \"final_answer\": 55 }",
+      "step_id": 13,
+      "t_unix_ms": 1777897790099,
+      "tokens_in": 201,
+      "tokens_out": 40,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "{   \"final_answer\": 55 }",
+      "step_id": 14,
+      "t_unix_ms": 1777897790104,
+      "tokens_in": 201,
+      "tokens_out": 40,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "{   \"final_answer\": 55 }",
+      "step_id": 15,
+      "t_unix_ms": 1777897790108,
+      "tokens_in": 201,
+      "tokens_out": 40,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "{   \"final_answer\": 55 }",
+      "step_id": 16,
+      "t_unix_ms": 1777897790111,
+      "tokens_in": 201,
+      "tokens_out": 40,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "{   \"final_answer\": 55 }",
+      "step_id": 17,
+      "t_unix_ms": 1777897790115,
+      "tokens_in": 201,
+      "tokens_out": 40,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "{   \"final_answer\": 55 }",
+      "step_id": 18,
+      "t_unix_ms": 1777897790118,
+      "tokens_in": 201,
+      "tokens_out": 40,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "{   \"final_answer\": 55 }",
+      "step_id": 19,
+      "t_unix_ms": 1777897790122,
+      "tokens_in": 201,
+      "tokens_out": 40,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "{   \"final_answer\": 55 }",
+      "step_id": 20,
+      "t_unix_ms": 1777897790126,
+      "tokens_in": 201,
+      "tokens_out": 40,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "{   \"final_answer\": 55 }",
+      "step_id": 21,
+      "t_unix_ms": 1777897790129,
+      "tokens_in": 201,
+      "tokens_out": 40,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "{   \"final_answer\": 55 }",
+      "step_id": 22,
+      "t_unix_ms": 1777897790133,
+      "tokens_in": 201,
+      "tokens_out": 40,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "{   \"final_answer\": 55 }",
+      "step_id": 23,
+      "t_unix_ms": 1777897790137,
+      "tokens_in": 201,
+      "tokens_out": 40,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "{   \"final_answer\": 55 }",
+      "step_id": 24,
+      "t_unix_ms": 1777897790140,
+      "tokens_in": 201,
+      "tokens_out": 40,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "{   \"final_answer\": 55 }",
+      "step_id": 25,
+      "t_unix_ms": 1777897790144,
+      "tokens_in": 201,
+      "tokens_out": 40,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "{   \"final_answer\": 55 }",
+      "step_id": 26,
+      "t_unix_ms": 1777897790148,
+      "tokens_in": 201,
+      "tokens_out": 40,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "{   \"final_answer\": 55 }",
+      "step_id": 27,
+      "t_unix_ms": 1777897790152,
+      "tokens_in": 201,
+      "tokens_out": 40,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "{   \"final_answer\": 55 }",
+      "step_id": 28,
+      "t_unix_ms": 1777897790155,
+      "tokens_in": 201,
+      "tokens_out": 40,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "{   \"final_answer\": 55 }",
+      "step_id": 29,
+      "t_unix_ms": 1777897790159,
+      "tokens_in": 201,
+      "tokens_out": 40,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "{   \"final_answer\": 55 }",
+      "step_id": 30,
+      "t_unix_ms": 1777897790163,
+      "tokens_in": 201,
+      "tokens_out": 40,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "{   \"final_answer\": 55 }",
+      "step_id": 31,
+      "t_unix_ms": 1777897790166,
+      "tokens_in": 201,
+      "tokens_out": 40,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00000",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 44586,
+    "llm_calls": 32,
+    "tokens_in": 6648,
+    "tokens_out": 2713,
+    "tool_calls": 1
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,669 @@
+{
+  "final_answer": "``` def solve_for_x(equation):     x = (int(equation.split(\"=\")[1]) - int(equation.split(\"=\")[0].split(\"x\")[1])) / int(\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.1728000044822693,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Subtract 97 from both sides of the equation to isolate the term with x. 2. Simplify the equation to get 35x = \u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777813115315,
+      "tokens_in": 74,
+      "tokens_out": 70,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.08879999816417694,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 0,
+      "output_summary": "```python from sympy import symbols, Eq, solve  x = symbols('x') equation = Eq(35*x + 97, 26) solution = solve(equation\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777813115318,
+      "tokens_in": 168,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.15760000050067902,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 1,
+      "output_summary": "``` def solve_for_x(equation):     x = (int(equation.split(\"=\")[1]) - int(equation.split(\"=\")[0].split(\"x\")[1])) / int(\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777813115321,
+      "tokens_in": 182,
+      "tokens_out": 212,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 3,
+      "t_unix_ms": 1777813115324,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1777813115326,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 5,
+      "t_unix_ms": 1777813115329,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 6,
+      "t_unix_ms": 1777813115332,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 7,
+      "t_unix_ms": 1777813115335,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 8,
+      "t_unix_ms": 1777813115337,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 9,
+      "t_unix_ms": 1777813115340,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 10,
+      "t_unix_ms": 1777813115343,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 11,
+      "t_unix_ms": 1777813115345,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 12,
+      "t_unix_ms": 1777813115347,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 13,
+      "t_unix_ms": 1777813115350,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 14,
+      "t_unix_ms": 1777813115352,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 15,
+      "t_unix_ms": 1777813115355,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 16,
+      "t_unix_ms": 1777813115357,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 17,
+      "t_unix_ms": 1777813115359,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 18,
+      "t_unix_ms": 1777813115362,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 19,
+      "t_unix_ms": 1777813115364,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 20,
+      "t_unix_ms": 1777813115367,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 21,
+      "t_unix_ms": 1777813115369,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 22,
+      "t_unix_ms": 1777813115371,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 23,
+      "t_unix_ms": 1777813115374,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 24,
+      "t_unix_ms": 1777813115376,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 25,
+      "t_unix_ms": 1777813115379,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 26,
+      "t_unix_ms": 1777813115381,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 27,
+      "t_unix_ms": 1777813115383,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 28,
+      "t_unix_ms": 1777813115386,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 29,
+      "t_unix_ms": 1777813115388,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 30,
+      "t_unix_ms": 1777813115390,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 31,
+      "t_unix_ms": 1777813115393,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    }
+  ],
+  "task_id": "synthetic_routing/0025",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.41920000314712524,
+    "failed_tool_calls": 0,
+    "latency_ms": 1,
+    "llm_calls": 3,
+    "tokens_in": 424,
+    "tokens_out": 336,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: final_answer"
+    ],
+    "failed_component": "final_answer",
+    "passed": false,
+    "reward_delta": -0.10000000149011612,
+    "score": 0.8500000238418579,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

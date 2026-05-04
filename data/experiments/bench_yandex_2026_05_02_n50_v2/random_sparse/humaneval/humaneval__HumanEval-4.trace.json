@@ -1,0 +1,256 @@
+{
+  "final_answer": "``` import unittest  def is_even(n: int) -> bool:     \"\"\"Return True iff n is even.     >>> is_even(2)     True     \"\"\"\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "random",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": null,
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_tool_executor"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_tool_executor invoked (memory=0, corpus=0)",
+      "step_id": 0,
+      "t_unix_ms": 1777733251204,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": null,
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_memory"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_memory invoked (memory=0, corpus=0)",
+      "step_id": 1,
+      "t_unix_ms": 1777733251204,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.07280000299215317,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 902,
+      "output_summary": "```python def is_even(n: int) -> bool:     \"\"\"Return True iff n is even.     >>> is_even(2)     True     \"\"\"     return\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777733252106,
+      "tokens_in": 129,
+      "tokens_out": 53,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.08640000224113464,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1222,
+      "output_summary": "```python def is_even(n: int) -> bool:     \"\"\"Return True iff n is even.     >>> is_even(2)     True     \"\"\"     return\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777733253328,
+      "tokens_in": 135,
+      "tokens_out": 81,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_retriever"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_retriever invoked (memory=2, corpus=2)",
+      "step_id": 4,
+      "t_unix_ms": 1777733253328,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_memory"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_memory invoked (memory=2, corpus=2)",
+      "step_id": 5,
+      "t_unix_ms": 1777733253328,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_retriever"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_retriever invoked (memory=2, corpus=2)",
+      "step_id": 6,
+      "t_unix_ms": 1777733253329,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.1088000014424324,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 933,
+      "output_summary": "```python def is_even(n: int) -> bool:     \"\"\"Return True iff n is even.     >>> is_even(2)     True     \"\"\"     return\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777733254262,
+      "tokens_in": 211,
+      "tokens_out": 61,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [
+        "[rule] missing component: plan",
+        "[rule] missing component: tests_run"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 8,
+      "t_unix_ms": 1777733254262,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.699999988079071
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_tool_executor"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_tool_executor invoked (memory=3, corpus=3)",
+      "step_id": 9,
+      "t_unix_ms": 1777733254262,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.08919999748468399,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 836,
+      "output_summary": "``` def is_even(n: int) -> bool:     \"\"\"Return True iff n is even.     >>> is_even(2)     True     \"\"\"     return n % 2\u2026",
+      "step_id": 10,
+      "t_unix_ms": 1777733255098,
+      "tokens_in": 171,
+      "tokens_out": 52,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.14159999787807465,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2018,
+      "output_summary": "``` import unittest  def is_even(n: int) -> bool:     \"\"\"Return True iff n is even.     >>> is_even(2)     True     \"\"\"\u2026",
+      "step_id": 11,
+      "t_unix_ms": 1777733257117,
+      "tokens_in": 186,
+      "tokens_out": 168,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-4",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.49879997968673706,
+    "failed_tool_calls": 0,
+    "latency_ms": 5911,
+    "llm_calls": 5,
+    "tokens_in": 832,
+    "tokens_out": 415,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: plan"
+    ],
+    "failed_component": "plan",
+    "passed": false,
+    "reward_delta": -0.10000000149011612,
+    "score": 0.8500000238418579,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

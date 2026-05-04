@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (produced output does not match the expected JSON schema)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.29159998893737793,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Calculate how much data Carla downloaded before the forced restart (40% of 200 GB). 2. Determine the time spen\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777801016965,
+      "tokens_in": 146,
+      "tokens_out": 97,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.18559999763965607,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "First, calculate how much of the file Carla has downloaded before the restart: \\[ 200 \\, \\text{GB} \\times 0.4 = 80 \\, \\\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777801016969,
+      "tokens_in": 147,
+      "tokens_out": 317,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.19760000705718994,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 529,
+      "output_summary": "```python final_answer: 120 ```",
+      "step_id": 2,
+      "t_unix_ms": 1777801017501,
+      "tokens_in": 481,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.21960000693798065,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 521,
+      "output_summary": "verifier:failed:missing_solution_steps_and_final_answer",
+      "step_id": 3,
+      "t_unix_ms": 1777801018026,
+      "tokens_in": 167,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.11159999668598175,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1666,
+      "output_summary": "```python total_size = 200 download_speed = 2 halfway = total_size * 0.4 downloaded = 0 time_taken = 0  while downloade\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777801019696,
+      "tokens_in": 165,
+      "tokens_out": 114,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.11159999668598175,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python total_size = 200 download_speed = 2 halfway = total_size * 0.4 downloaded = 0 time_taken = 0  while downloade\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777801019700,
+      "tokens_in": 165,
+      "tokens_out": 114,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.11159999668598175,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python total_size = 200 download_speed = 2 halfway = total_size * 0.4 downloaded = 0 time_taken = 0  while downloade\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777801019704,
+      "tokens_in": 165,
+      "tokens_out": 114,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.11159999668598175,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python total_size = 200 download_speed = 2 halfway = total_size * 0.4 downloaded = 0 time_taken = 0  while downloade\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777801019708,
+      "tokens_in": 165,
+      "tokens_out": 114,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.11159999668598175,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python total_size = 200 download_speed = 2 halfway = total_size * 0.4 downloaded = 0 time_taken = 0  while downloade\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777801019711,
+      "tokens_in": 165,
+      "tokens_out": 114,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07519999891519547,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 587,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 9,
+      "t_unix_ms": 1777801020301,
+      "tokens_in": 173,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07800000160932541,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 562,
+      "output_summary": "`schema:invalid_output (produced output does not match the expected JSON schema)`",
+      "step_id": 10,
+      "t_unix_ms": 1777801020866,
+      "tokens_in": 178,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07800000160932541,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match the expected JSON schema)`",
+      "step_id": 11,
+      "t_unix_ms": 1777801020869,
+      "tokens_in": 178,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00012",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.6836000680923462,
+    "failed_tool_calls": 0,
+    "latency_ms": 3871,
+    "llm_calls": 12,
+    "tokens_in": 2295,
+    "tokens_out": 1062,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,249 @@
+{
+  "final_answer": "```python from typing import List import unittest  class TestSumList(unittest.TestCase):     def test_sum_list_positive\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.28200000524520874,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Define the function `sum_list` with the given signature `def sum_list(xs: List[int]) -> int:`. 2. Initialize a\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777801148513,
+      "tokens_in": 145,
+      "tokens_out": 90,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "ToolExecutor",
+      "cost_rub": 0.0820000022649765,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "ToolExecutor",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 941,
+      "output_summary": "```python def sum_list(xs: List[int]) -> int:     \"\"\"Return the sum of xs.     >>> sum_list([1, 2, 3])     6     \"\"\"   \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777801149457,
+      "tokens_in": 149,
+      "tokens_out": 56,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.1868000030517578,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "7",
+      "latency_ms": 2885,
+      "output_summary": "```python from typing import List import unittest  class TestSumList(unittest.TestCase):     def test_sum_list_positive\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777801152363,
+      "tokens_in": 242,
+      "tokens_out": 225,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 3,
+      "t_unix_ms": 1777801152366,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1777801152369,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 5,
+      "t_unix_ms": 1777801152371,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 6,
+      "t_unix_ms": 1777801152374,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 7,
+      "t_unix_ms": 1777801152376,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 8,
+      "t_unix_ms": 1777801152379,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 9,
+      "t_unix_ms": 1777801152381,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 10,
+      "t_unix_ms": 1777801152384,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 11,
+      "t_unix_ms": 1777801152386,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    }
+  ],
+  "task_id": "humaneval/HumanEval-3",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.5508000254631042,
+    "failed_tool_calls": 0,
+    "latency_ms": 3827,
+    "llm_calls": 3,
+    "tokens_in": 536,
+    "tokens_out": 371,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

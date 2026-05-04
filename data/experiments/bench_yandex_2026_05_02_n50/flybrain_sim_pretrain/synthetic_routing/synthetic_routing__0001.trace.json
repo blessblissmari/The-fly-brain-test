@@ -1,0 +1,260 @@
+{
+  "final_answer": "schema:invalid_output (the output does not match the expected JSON schema)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.17640000581741333,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Recognize that the expression \\((56 + 41)^{79}\\) can be simplified by first calculating the sum inside the par\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777727197999,
+      "tokens_in": 71,
+      "tokens_out": 76,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.07800000160932541,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 614,
+      "output_summary": "```python result = (56 + 41) ** 79 print(result) ```",
+      "step_id": 1,
+      "t_unix_ms": 1777727198615,
+      "tokens_in": 171,
+      "tokens_out": 24,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.11840000003576279,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 1587,
+      "output_summary": "``` from unittest import TestCase, main  class TestMathSimplification(TestCase):     def test_simplify_expression(self)\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777727200206,
+      "tokens_in": 185,
+      "tokens_out": 111,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.12240000069141388,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 435,
+      "output_summary": "verifier:failed:no mathematical solution provided",
+      "step_id": 3,
+      "t_unix_ms": 1777727200645,
+      "tokens_in": 93,
+      "tokens_out": 9,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.13199999928474426,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 981,
+      "output_summary": "verifier:failed:incorrect output format and lack of mathematical solution",
+      "step_id": 4,
+      "t_unix_ms": 1777727201630,
+      "tokens_in": 96,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.13199999928474426,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:incorrect output format and lack of mathematical solution",
+      "step_id": 5,
+      "t_unix_ms": 1777727201635,
+      "tokens_in": 96,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.13199999928474426,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "verifier:failed:incorrect output format and lack of mathematical solution",
+      "step_id": 6,
+      "t_unix_ms": 1777727201639,
+      "tokens_in": 96,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.12559999525547028,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 1306,
+      "output_summary": "```python from unittest import TestCase, main  class TestMathSimplification(TestCase):     def test_simplify_expression\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777727202947,
+      "tokens_in": 231,
+      "tokens_out": 83,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.04399999976158142,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 541,
+      "output_summary": "```python print((56 + 41)**79) ```",
+      "step_id": 8,
+      "t_unix_ms": 1777727203492,
+      "tokens_in": 93,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.046799998730421066,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 536,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema)",
+      "step_id": 9,
+      "t_unix_ms": 1777727204032,
+      "tokens_in": 101,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04879999905824661,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 487,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema)",
+      "step_id": 10,
+      "t_unix_ms": 1777727204523,
+      "tokens_in": 106,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04879999905824661,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema)",
+      "step_id": 11,
+      "t_unix_ms": 1777727204527,
+      "tokens_in": 106,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0001",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.205199956893921,
+    "failed_tool_calls": 0,
+    "latency_ms": 6489,
+    "llm_calls": 12,
+    "tokens_in": 1445,
+    "tokens_out": 410,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: final_answer"
+    ],
+    "failed_component": "final_answer",
+    "passed": false,
+    "reward_delta": -0.10000000149011612,
+    "score": 0.8500000238418579,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

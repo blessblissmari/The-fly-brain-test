@@ -1,0 +1,258 @@
+{
+  "final_answer": "Step 1: Calculate the total number of eggs consumed daily. Janet eats 3 eggs for breakfast and bakes 4 eggs for muffins\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.2556000053882599,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Calculate the total number of eggs laid by Janet's ducks each day. 2. Subtract the number of eggs Janet eats a\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777725210757,
+      "tokens_in": 141,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06960000097751617,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 489,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON format)`",
+      "step_id": 1,
+      "t_unix_ms": 1777725211254,
+      "tokens_in": 159,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07999999821186066,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 731,
+      "output_summary": "`schema:invalid_output (The output does not match the expected JSON schema. It should provide a numerical answer in the\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777725211989,
+      "tokens_in": 164,
+      "tokens_out": 36,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.27239999175071716,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1128,
+      "output_summary": "- The problem lacks the necessary step-by-step solution to arrive at the final answer. - There is no clear demonstratio\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777725213121,
+      "tokens_in": 154,
+      "tokens_out": 73,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.32280001044273376,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1557,
+      "output_summary": "- The task description is not directly connected to the provided list of produced elements (critic, final_answer, plan,\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777725214682,
+      "tokens_in": 156,
+      "tokens_out": 113,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.32280001044273376,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The task description is not directly connected to the provided list of produced elements (critic, final_answer, plan,\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777725214686,
+      "tokens_in": 156,
+      "tokens_out": 113,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.32280001044273376,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The task description is not directly connected to the provided list of produced elements (critic, final_answer, plan,\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777725214690,
+      "tokens_in": 156,
+      "tokens_out": 113,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.19040000438690186,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 2742,
+      "output_summary": "```python def test_eggs_laid():     assert 16 == eggs_laid_per_day()  def test_eggs_consumed():     assert 3 + 4 == egg\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777725217434,
+      "tokens_in": 257,
+      "tokens_out": 219,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.11559999734163284,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1979,
+      "output_summary": "1. Janet's ducks lay 16 eggs per day. 2. She eats 3 eggs for breakfast every morning. 3. She bakes muffins with 4 eggs \u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777725219417,
+      "tokens_in": 163,
+      "tokens_out": 126,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.12319999933242798,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1914,
+      "output_summary": "Step 1: Calculate the total number of eggs consumed daily. Janet eats 3 eggs for breakfast and bakes 4 eggs for muffins\u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777725221335,
+      "tokens_in": 166,
+      "tokens_out": 142,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.12319999933242798,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Step 1: Calculate the total number of eggs consumed daily. Janet eats 3 eggs for breakfast and bakes 4 eggs for muffins\u2026",
+      "step_id": 10,
+      "t_unix_ms": 1777725221340,
+      "tokens_in": 166,
+      "tokens_out": 142,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.12319999933242798,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Step 1: Calculate the total number of eggs consumed daily. Janet eats 3 eggs for breakfast and bakes 4 eggs for muffins\u2026",
+      "step_id": 11,
+      "t_unix_ms": 1777725221344,
+      "tokens_in": 166,
+      "tokens_out": 142,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00004",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 2.3215999603271484,
+    "failed_tool_calls": 0,
+    "latency_ms": 10544,
+    "llm_calls": 12,
+    "tokens_in": 2004,
+    "tokens_out": 1306,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

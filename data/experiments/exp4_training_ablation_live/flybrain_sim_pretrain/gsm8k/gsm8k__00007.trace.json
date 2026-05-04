@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (the output does not match the expected JSON schema)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.22920000553131104,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1002,
+      "output_summary": "Plan: 1. Calculate the total cost of the house after repairs. 2. Determine the new value of the house after a 150% incr\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777798683700,
+      "tokens_in": 132,
+      "tokens_out": 59,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.12080000340938568,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1435,
+      "output_summary": "```python initial_cost = 80000 repair_cost = 50000 total_cost = initial_cost + repair_cost  # Increase the value by 150\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777798685139,
+      "tokens_in": 215,
+      "tokens_out": 87,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.20280000567436218,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 570,
+      "output_summary": "verifier:failed:missing_math_reasoning_and_final_answer",
+      "step_id": 2,
+      "t_unix_ms": 1777798685713,
+      "tokens_in": 152,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.20399999618530273,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 540,
+      "output_summary": "verifier:failed:missing_reasoning_and_final_answer",
+      "step_id": 3,
+      "t_unix_ms": 1777798686256,
+      "tokens_in": 155,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.20399999618530273,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "verifier:failed:missing_reasoning_and_final_answer",
+      "step_id": 4,
+      "t_unix_ms": 1777798686260,
+      "tokens_in": 155,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.20399999618530273,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "verifier:failed:missing_reasoning_and_final_answer",
+      "step_id": 5,
+      "t_unix_ms": 1777798686264,
+      "tokens_in": 155,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.20399999618530273,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "verifier:failed:missing_reasoning_and_final_answer",
+      "step_id": 6,
+      "t_unix_ms": 1777798686267,
+      "tokens_in": 155,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.1404000073671341,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 1432,
+      "output_summary": "```python initial_cost = 80000 repair_cost = 50000 total_cost = initial_cost + repair_cost  # Increase the value by 150\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777798687702,
+      "tokens_in": 262,
+      "tokens_out": 89,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.1103999987244606,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1730,
+      "output_summary": "```python original_price = 80000 repair_cost = 50000 increase_percentage = 150  # Calculate the increase in value value\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777798689435,
+      "tokens_in": 152,
+      "tokens_out": 124,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.1103999987244606,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python original_price = 80000 repair_cost = 50000 increase_percentage = 150  # Calculate the increase in value value\u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777798689440,
+      "tokens_in": 152,
+      "tokens_out": 124,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07039999961853027,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 534,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema)",
+      "step_id": 10,
+      "t_unix_ms": 1777798689980,
+      "tokens_in": 160,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07280000299215317,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 508,
+      "output_summary": "`schema:invalid_output (the output does not match the expected JSON schema)`",
+      "step_id": 11,
+      "t_unix_ms": 1777798690492,
+      "tokens_in": 165,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00007",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.8732000589370728,
+    "failed_tool_calls": 0,
+    "latency_ms": 7752,
+    "llm_calls": 12,
+    "tokens_in": 2010,
+    "tokens_out": 593,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

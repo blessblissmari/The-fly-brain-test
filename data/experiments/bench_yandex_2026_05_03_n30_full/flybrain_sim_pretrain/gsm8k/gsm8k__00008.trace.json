@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (no output related to the question provided)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.2964000105857849,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Calculate Eliza's earnings for the first 40 hours at her regular rate of $10 per hour. 2. Calculate the overti\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777801025994,
+      "tokens_in": 136,
+      "tokens_out": 111,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.12359999865293503,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Eliza's regular hourly rate is $10 for the first 40 hours. For the first 40 hours, her earnings are calculated as: $10 \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777801025997,
+      "tokens_in": 137,
+      "tokens_out": 172,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.18400000035762787,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 1635,
+      "output_summary": "```python regular_rate = 10 regular_hours = 40 overtime_rate = regular_rate * 1.2 total_hours = 45  earnings_regular = \u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777801027636,
+      "tokens_in": 344,
+      "tokens_out": 116,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.20160000026226044,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 465,
+      "output_summary": "verifier:failed:missing_calculation_steps",
+      "step_id": 3,
+      "t_unix_ms": 1777801028105,
+      "tokens_in": 157,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.09160000085830688,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1157,
+      "output_summary": "```python regular_hours = 40 regular_rate = 10 overtime_rate = regular_rate * 1.2 total_hours = 45  earnings = regular_\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777801029266,
+      "tokens_in": 155,
+      "tokens_out": 74,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.09160000085830688,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python regular_hours = 40 regular_rate = 10 overtime_rate = regular_rate * 1.2 total_hours = 45  earnings = regular_\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777801029270,
+      "tokens_in": 155,
+      "tokens_out": 74,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.09160000085830688,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python regular_hours = 40 regular_rate = 10 overtime_rate = regular_rate * 1.2 total_hours = 45  earnings = regular_\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777801029273,
+      "tokens_in": 155,
+      "tokens_out": 74,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.09160000085830688,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python regular_hours = 40 regular_rate = 10 overtime_rate = regular_rate * 1.2 total_hours = 45  earnings = regular_\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777801029277,
+      "tokens_in": 155,
+      "tokens_out": 74,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.09160000085830688,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python regular_hours = 40 regular_rate = 10 overtime_rate = regular_rate * 1.2 total_hours = 45  earnings = regular_\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777801029281,
+      "tokens_in": 155,
+      "tokens_out": 74,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07119999825954437,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 483,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 9,
+      "t_unix_ms": 1777801029766,
+      "tokens_in": 163,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07320000231266022,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 465,
+      "output_summary": "`schema:invalid_output (no output related to the question provided)`",
+      "step_id": 10,
+      "t_unix_ms": 1777801030235,
+      "tokens_in": 168,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07320000231266022,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no output related to the question provided)`",
+      "step_id": 11,
+      "t_unix_ms": 1777801030239,
+      "tokens_in": 168,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00008",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.481199860572815,
+    "failed_tool_calls": 0,
+    "latency_ms": 4212,
+    "llm_calls": 12,
+    "tokens_in": 2048,
+    "tokens_out": 825,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

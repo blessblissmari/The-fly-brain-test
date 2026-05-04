@@ -1,0 +1,214 @@
+{
+  "final_answer": "memory_written: math_task_output",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "random",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": null,
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_memory"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_memory invoked (memory=0, corpus=0)",
+      "step_id": 0,
+      "t_unix_ms": 1777726848913,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": null,
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_retriever"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_retriever invoked (memory=0, corpus=0)",
+      "step_id": 1,
+      "t_unix_ms": 1777726848913,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.05719999969005585,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1362,
+      "output_summary": "The median of 5 and 52 is 28.5 when calculated as an average of the two numbers since they are not in a list and are fe\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777726850275,
+      "tokens_in": 62,
+      "tokens_out": 81,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.09120000153779984,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2085,
+      "output_summary": "To compute the median of the numbers 5 and 52, we first need to arrange the numbers in ascending order. The numbers are\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777726852360,
+      "tokens_in": 72,
+      "tokens_out": 156,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.03359999880194664,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MemoryWriter",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 411,
+      "output_summary": "memory_written: math",
+      "step_id": 4,
+      "t_unix_ms": 1777726852772,
+      "tokens_in": 79,
+      "tokens_out": 5,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_tool_executor"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_tool_executor invoked (memory=3, corpus=3)",
+      "step_id": 5,
+      "t_unix_ms": 1777726852772,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.03680000081658363,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MemoryWriter",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 501,
+      "output_summary": "memory_written: math_task_output",
+      "step_id": 6,
+      "t_unix_ms": 1777726853273,
+      "tokens_in": 83,
+      "tokens_out": 9,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 7,
+      "t_unix_ms": 1777726853274,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 8,
+      "t_unix_ms": 1777726853274,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 9,
+      "t_unix_ms": 1777726853274,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0013",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.21880000829696655,
+    "failed_tool_calls": 0,
+    "latency_ms": 4359,
+    "llm_calls": 4,
+    "tokens_in": 296,
+    "tokens_out": 251,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

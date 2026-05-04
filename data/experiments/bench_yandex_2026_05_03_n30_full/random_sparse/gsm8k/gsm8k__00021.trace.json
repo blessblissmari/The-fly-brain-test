@@ -1,0 +1,257 @@
+{
+  "final_answer": "memory_written: task_math",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "random",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": null,
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [
+        "[rule] missing component: final_answer",
+        "[schema] $.final_answer: string too short (<1)"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 0,
+      "t_unix_ms": 1777800715171,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.3499999940395355
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.09480000287294388,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MemoryWriter",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 507,
+      "output_summary": "memory_written: final_answer final_answer: 20",
+      "step_id": 1,
+      "t_unix_ms": 1777800715678,
+      "tokens_in": 222,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.10360000282526016,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 518,
+      "output_summary": "`schema:invalid_output (final_answer is missing or incorrect format)`",
+      "step_id": 2,
+      "t_unix_ms": 1777800716197,
+      "tokens_in": 243,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.10080000013113022,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 496,
+      "output_summary": "```python final_answer: 20 ```",
+      "step_id": 3,
+      "t_unix_ms": 1777800716693,
+      "tokens_in": 240,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1777800716693,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0851999968290329,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MemoryWriter",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 390,
+      "output_summary": "memory_written: task_math",
+      "step_id": 5,
+      "t_unix_ms": 1777800717084,
+      "tokens_in": 206,
+      "tokens_out": 7,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 6,
+      "t_unix_ms": 1777800717084,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0851999968290329,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MemoryWriter",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "memory_written: task_math",
+      "step_id": 7,
+      "t_unix_ms": 1777800717085,
+      "tokens_in": 206,
+      "tokens_out": 7,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09200000017881393,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 535,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 8,
+      "t_unix_ms": 1777800717621,
+      "tokens_in": 214,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.1340000033378601,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1713,
+      "output_summary": "```python total_feed_in_day = 15 + 25 total_chickens = 20 feed_per_chicken = 3  # Calculate the total amount of feed ne\u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777800719334,
+      "tokens_in": 206,
+      "tokens_out": 129,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 10,
+      "t_unix_ms": 1777800719335,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0851999968290329,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MemoryWriter",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "memory_written: task_math",
+      "step_id": 11,
+      "t_unix_ms": 1777800719335,
+      "tokens_in": 206,
+      "tokens_out": 7,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00021",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.7808000445365906,
+    "failed_tool_calls": 0,
+    "latency_ms": 4159,
+    "llm_calls": 8,
+    "tokens_in": 1743,
+    "tokens_out": 209,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

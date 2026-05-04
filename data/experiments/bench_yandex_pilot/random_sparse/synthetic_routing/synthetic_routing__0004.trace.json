@@ -1,0 +1,264 @@
+{
+  "final_answer": "schema:invalid_output (missing required components: code, plan, tests_run)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "random",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": null,
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [
+        "[rule] missing component: code",
+        "[rule] missing component: plan",
+        "[rule] missing component: tests_run",
+        "[schema] $.final_answer: string too short (<1)"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 0,
+      "t_unix_ms": 1777724884339,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.30000001192092896
+    },
+    {
+      "active_agent": null,
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [
+        "[rule] missing component: code",
+        "[rule] missing component: plan",
+        "[rule] missing component: tests_run",
+        "[schema] $.final_answer: string too short (<1)"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 1,
+      "t_unix_ms": 1777724884339,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.30000001192092896
+    },
+    {
+      "active_agent": null,
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_memory"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_memory invoked (memory=0, corpus=0)",
+      "step_id": 2,
+      "t_unix_ms": 1777724884339,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.05480000004172325,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 645,
+      "output_summary": "Without the specific code and stack trace, I cannot directly fix the issue. Please provide the failing code and stack t\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777724884984,
+      "tokens_in": 111,
+      "tokens_out": 26,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_memory"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_memory invoked (memory=1, corpus=1)",
+      "step_id": 4,
+      "t_unix_ms": 1777724884985,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_tool_executor"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_tool_executor invoked (memory=1, corpus=1)",
+      "step_id": 5,
+      "t_unix_ms": 1777724884985,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_retriever"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_retriever invoked (memory=1, corpus=1)",
+      "step_id": 6,
+      "t_unix_ms": 1777724884985,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.07880000025033951,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1265,
+      "output_summary": "The given task is related to fixing a bug in code, not solving a mathematical problem. Therefore, I cannot apply mathem\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777724886250,
+      "tokens_in": 154,
+      "tokens_out": 43,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TaskDecomposer",
+      "cost_rub": 0.10000000149011612,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "TaskDecomposer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 1013,
+      "output_summary": "`<1>. Identify the specific lines of code causing the off-by-one bug in `router` -> `debugger` `<2>. Analyze the logic \u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777724887264,
+      "tokens_in": 187,
+      "tokens_out": 63,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TaskDecomposer",
+      "cost_rub": 0.07760000228881836,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "TaskDecomposer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1041,
+      "output_summary": "`<1>. Identify the specific line or lines causing the off-by-one bug in the `router` code -> Developer` `<2>. Write a t\u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777724888306,
+      "tokens_in": 131,
+      "tokens_out": 63,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TaskDecomposer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_tool_executor"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_tool_executor invoked (memory=4, corpus=4)",
+      "step_id": 10,
+      "t_unix_ms": 1777724888306,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05959999933838844,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 561,
+      "output_summary": "schema:invalid_output (missing required components: code, plan, tests_run)",
+      "step_id": 11,
+      "t_unix_ms": 1777724888867,
+      "tokens_in": 131,
+      "tokens_out": 18,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0004",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.3707999885082245,
+    "failed_tool_calls": 0,
+    "latency_ms": 4525,
+    "llm_calls": 5,
+    "tokens_in": 714,
+    "tokens_out": 213,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: code",
+      "[rule] missing component: plan"
+    ],
+    "failed_component": "code",
+    "passed": false,
+    "reward_delta": -0.20000000298023224,
+    "score": 0.699999988079071,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

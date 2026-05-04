@@ -15,6 +15,7 @@ from flybrain.llm.base import LLMClient, LLMResponse, Message, ModelTier
 from flybrain.llm.budget import BudgetExceededError, BudgetTracker
 from flybrain.llm.cache import SQLiteCache
 from flybrain.llm.mock_client import MockLLMClient
+from flybrain.llm.openrouter_client import OpenRouterClient, OpenRouterConfig
 from flybrain.llm.pricing import RATE_LITE_RUB_PER_1K, RATE_PRO_RUB_PER_1K, estimate_cost_rub
 from flybrain.llm.yandex_client import YandexClient
 
@@ -28,6 +29,8 @@ __all__ = [
     "Message",
     "MockLLMClient",
     "ModelTier",
+    "OpenRouterClient",
+    "OpenRouterConfig",
     "SQLiteCache",
     "YandexClient",
     "estimate_cost_rub",

@@ -1,0 +1,144 @@
+{
+  "final_answer": "schema:invalid_output (no output related to sorting a list of integers)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.15719999372959137,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Define the function that accepts a list of integers as an argument. 2. Implement a sorting algorithm (e.g., qu\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777807299555,
+      "tokens_in": 67,
+      "tokens_out": 64,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.07000000029802322,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1,
+      "output_summary": "```python def sort_list(lst):     return sorted(lst) ```",
+      "step_id": 1,
+      "t_unix_ms": 1777807299559,
+      "tokens_in": 156,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.1923999935388565,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 4134,
+      "output_summary": "``` def sort_list(lst):     \"\"\"Sorts a list of integers.\"\"\"     return sorted(lst)  import unittest  class TestSortList\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777807303695,
+      "tokens_in": 170,
+      "tokens_out": 311,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.29319998621940613,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 3865,
+      "output_summary": "```python def sort_list(lst):     \"\"\"Sorts a list of integers.\"\"\"     return sorted(lst)  import unittest  class TestSo\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777807307565,
+      "tokens_in": 436,
+      "tokens_out": 297,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04639999940991402,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 600,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema for sorting a list of integers)",
+      "step_id": 4,
+      "t_unix_ms": 1777807308170,
+      "tokens_in": 94,
+      "tokens_out": 22,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04600000008940697,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 581,
+      "output_summary": "schema:invalid_output (no output related to sorting a list of integers)",
+      "step_id": 5,
+      "t_unix_ms": 1777807308755,
+      "tokens_in": 99,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0000",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.8052000403404236,
+    "failed_tool_calls": 0,
+    "latency_ms": 9181,
+    "llm_calls": 6,
+    "tokens_in": 1022,
+    "tokens_out": 729,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

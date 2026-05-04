@@ -1,0 +1,623 @@
+{
+  "final_answer": "memory_written: task_output final_answer: 8",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "random",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": null,
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [
+        "[rule] missing component: final_answer",
+        "[schema] $.final_answer: string too short (<1)"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 0,
+      "t_unix_ms": 1777812528298,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.3499999940395355
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.07599999755620956,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MemoryWriter",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 617,
+      "output_summary": "memory_written: final_answer final_answer: 9",
+      "step_id": 1,
+      "t_unix_ms": 1777812528916,
+      "tokens_in": 176,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1777812528916,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.06599999964237213,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MemoryWriter",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 482,
+      "output_summary": "memory_written: task_output final_answer: 8",
+      "step_id": 3,
+      "t_unix_ms": 1777812529399,
+      "tokens_in": 151,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1777812529399,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.06599999964237213,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MemoryWriter",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "memory_written: task_output final_answer: 8",
+      "step_id": 5,
+      "t_unix_ms": 1777812529400,
+      "tokens_in": 151,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_tool_executor"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_tool_executor invoked (memory=3, corpus=3)",
+      "step_id": 6,
+      "t_unix_ms": 1777812529400,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_memory"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_memory invoked (memory=3, corpus=3)",
+      "step_id": 7,
+      "t_unix_ms": 1777812529400,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.16599999368190765,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3287,
+      "output_summary": "``` import unittest  class TestMath(unittest.TestCase):     def test_eggs_sold(self):         eggs_per_day = 16        \u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777812532688,
+      "tokens_in": 161,
+      "tokens_out": 254,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 9,
+      "t_unix_ms": 1777812532688,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.06840000301599503,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MemoryWriter",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 558,
+      "output_summary": "memory_written: task_output final_answer: 8",
+      "step_id": 10,
+      "t_unix_ms": 1777812533247,
+      "tokens_in": 157,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 11,
+      "t_unix_ms": 1777812533247,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.06840000301599503,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MemoryWriter",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "memory_written: task_output final_answer: 8",
+      "step_id": 12,
+      "t_unix_ms": 1777812533248,
+      "tokens_in": 157,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_tool_executor"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_tool_executor invoked (memory=6, corpus=6)",
+      "step_id": 13,
+      "t_unix_ms": 1777812533248,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_memory"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_memory invoked (memory=6, corpus=6)",
+      "step_id": 14,
+      "t_unix_ms": 1777812533248,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.1607999950647354,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2903,
+      "output_summary": "``` def test_eggs_laid_per_day():     assert 16 == eggs_laid_per_day()  def test_eggs_eaten_for_breakfast():     assert\u2026",
+      "step_id": 15,
+      "t_unix_ms": 1777812536151,
+      "tokens_in": 167,
+      "tokens_out": 235,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 16,
+      "t_unix_ms": 1777812536151,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.06840000301599503,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MemoryWriter",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "memory_written: task_output final_answer: 8",
+      "step_id": 17,
+      "t_unix_ms": 1777812536152,
+      "tokens_in": 157,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_tool_executor"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_tool_executor invoked (memory=8, corpus=8)",
+      "step_id": 18,
+      "t_unix_ms": 1777812536152,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_memory"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_memory invoked (memory=8, corpus=8)",
+      "step_id": 19,
+      "t_unix_ms": 1777812536152,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.1607999950647354,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "``` def test_eggs_laid_per_day():     assert 16 == eggs_laid_per_day()  def test_eggs_eaten_for_breakfast():     assert\u2026",
+      "step_id": 20,
+      "t_unix_ms": 1777812536153,
+      "tokens_in": 167,
+      "tokens_out": 235,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_retriever"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_retriever invoked (memory=9, corpus=9)",
+      "step_id": 21,
+      "t_unix_ms": 1777812536153,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.22679999470710754,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 645,
+      "output_summary": "verifier:failed:missing_step-by-step_reasoning_and_final_answer_format_not_met",
+      "step_id": 22,
+      "t_unix_ms": 1777812536798,
+      "tokens_in": 162,
+      "tokens_out": 27,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 23,
+      "t_unix_ms": 1777812536798,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.06960000097751617,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MemoryWriter",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 543,
+      "output_summary": "memory_written: task_output final_answer: 8",
+      "step_id": 24,
+      "t_unix_ms": 1777812537342,
+      "tokens_in": 160,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 25,
+      "t_unix_ms": 1777812537342,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.06960000097751617,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MemoryWriter",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "memory_written: task_output final_answer: 8",
+      "step_id": 26,
+      "t_unix_ms": 1777812537343,
+      "tokens_in": 160,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_tool_executor"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_tool_executor invoked (memory=12, corpus=12)",
+      "step_id": 27,
+      "t_unix_ms": 1777812537343,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_memory"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_memory invoked (memory=12, corpus=12)",
+      "step_id": 28,
+      "t_unix_ms": 1777812537343,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.17720000445842743,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3318,
+      "output_summary": "``` import unittest  class TestMath(unittest.TestCase):     def test_eggs_sold(self):         daily_eggs = 16         b\u2026",
+      "step_id": 29,
+      "t_unix_ms": 1777812540662,
+      "tokens_in": 170,
+      "tokens_out": 273,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 30,
+      "t_unix_ms": 1777812540662,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "MemoryWriter",
+      "cost_rub": 0.06960000097751617,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "MemoryWriter",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "memory_written: task_output final_answer: 8",
+      "step_id": 31,
+      "t_unix_ms": 1777812540663,
+      "tokens_in": 160,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00018",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.5135998725891113,
+    "failed_tool_calls": 0,
+    "latency_ms": 12353,
+    "llm_calls": 14,
+    "tokens_in": 2256,
+    "tokens_out": 1150,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

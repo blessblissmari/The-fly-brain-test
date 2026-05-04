@@ -1,0 +1,680 @@
+{
+  "final_answer": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.33480000495910645,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Parse the input string into a list of words (numbers). 2. Convert the words into their corresponding integer v\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777812991733,
+      "tokens_in": 204,
+      "tokens_out": 75,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.18320000171661377,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List  def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777812991736,
+      "tokens_in": 205,
+      "tokens_out": 253,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.164000004529953,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "2",
+      "latency_ms": 1332,
+      "output_summary": "1. To solve the `sort_numbers` function, you need to convert the input string into a list of numbers, sort them numeric\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777812993071,
+      "tokens_in": 328,
+      "tokens_out": 82,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Implement the following Python function. Your final answer must be a complete, runnable function definition.\n\nEntry point: `sort_numbers`\n\n```python\nfrom typing import List\n\n\ndef sort_numbers(numbers: str) -> str:\n    \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'.\n    Valid choices are 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight' and 'nine'.\n    Return the string with numbers sorted from smallest to largest\n    >>> sort_numbers('three one five')\n    'one three five'\n    \"\"\"\n```\n"
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.1695999950170517,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2639,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777812995714,
+      "tokens_in": 239,
+      "tokens_out": 185,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Implement the following Python function. Your final answer must be a complete, runnable function definition.\n\nEntry point: `sort_numbers`\n\n```python\nfrom typing import List\n\n\ndef sort_numbers(numbers: str) -> str:\n    \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'.\n    Valid choices are 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight' and 'nine'.\n    Return the string with numbers sorted from smallest to largest\n    >>> sort_numbers('three one five')\n    'one three five'\n    \"\"\"\n```\n"
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.1695999950170517,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777812995718,
+      "tokens_in": 239,
+      "tokens_out": 185,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Implement the following Python function. Your final answer must be a complete, runnable function definition.\n\nEntry point: `sort_numbers`\n\n```python\nfrom typing import List\n\n\ndef sort_numbers(numbers: str) -> str:\n    \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'.\n    Valid choices are 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight' and 'nine'.\n    Return the string with numbers sorted from smallest to largest\n    >>> sort_numbers('three one five')\n    'one three five'\n    \"\"\"\n```\n"
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.1695999950170517,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777812995723,
+      "tokens_in": 239,
+      "tokens_out": 185,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Implement the following Python function. Your final answer must be a complete, runnable function definition.\n\nEntry point: `sort_numbers`\n\n```python\nfrom typing import List\n\n\ndef sort_numbers(numbers: str) -> str:\n    \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'.\n    Valid choices are 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight' and 'nine'.\n    Return the string with numbers sorted from smallest to largest\n    >>> sort_numbers('three one five')\n    'one three five'\n    \"\"\"\n```\n"
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2581,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777812998306,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777812998311,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777812998315,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777812998319,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 10,
+      "t_unix_ms": 1777812998323,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 11,
+      "t_unix_ms": 1777812998327,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 12,
+      "t_unix_ms": 1777812998331,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 13,
+      "t_unix_ms": 1777812998335,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 14,
+      "t_unix_ms": 1777812998340,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 15,
+      "t_unix_ms": 1777812998344,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 16,
+      "t_unix_ms": 1777812998348,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 17,
+      "t_unix_ms": 1777812998353,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 18,
+      "t_unix_ms": 1777812998357,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 19,
+      "t_unix_ms": 1777812998362,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 20,
+      "t_unix_ms": 1777812998366,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 21,
+      "t_unix_ms": 1777812998371,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 22,
+      "t_unix_ms": 1777812998376,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 23,
+      "t_unix_ms": 1777812998381,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 24,
+      "t_unix_ms": 1777812998386,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 25,
+      "t_unix_ms": 1777812998390,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 26,
+      "t_unix_ms": 1777812998395,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 27,
+      "t_unix_ms": 1777812998400,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 28,
+      "t_unix_ms": 1777812998405,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 29,
+      "t_unix_ms": 1777812998410,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 30,
+      "t_unix_ms": 1777812998415,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.15680000185966492,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "``` def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'\u2026",
+      "step_id": 31,
+      "t_unix_ms": 1777812998421,
+      "tokens_in": 213,
+      "tokens_out": 179,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-19",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 5.267598628997803,
+    "failed_tool_calls": 0,
+    "latency_ms": 6595,
+    "llm_calls": 32,
+    "tokens_in": 6992,
+    "tokens_out": 5619,
+    "tool_calls": 4
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: tests_run"
+    ],
+    "failed_component": "tests_run",
+    "passed": false,
+    "reward_delta": -0.10000000149011612,
+    "score": 0.8500000238418579,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "final_answer": "1. Raymond was born 6 years before Samantha, so if Samantha is 31, Raymond is $31 - 6 = 25$ years old. 2. Raymond had a\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.23520000278949738,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Determine Raymond's current age based on Samantha's age and the fact that Raymond was born 6 years before Sama\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777812753100,
+      "tokens_in": 121,
+      "tokens_out": 75,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.11079999804496765,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "1. Determine Raymond's age when he had a son: Raymond had a son at the age of 23. 2. Determine Samantha's current age: \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777812753101,
+      "tokens_in": 126,
+      "tokens_out": 151,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1777812753101,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.08320000022649765,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "1. Raymond was born 6 years before Samantha, so if Samantha is 31, Raymond is $31 - 6 = 25$ years old. 2. Raymond had a\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777812753102,
+      "tokens_in": 130,
+      "tokens_out": 78,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1777812753102,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00000",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.42920002341270447,
+    "failed_tool_calls": 0,
+    "latency_ms": 0,
+    "llm_calls": 3,
+    "tokens_in": 377,
+    "tokens_out": 304,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

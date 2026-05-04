@@ -1,0 +1,258 @@
+{
+  "final_answer": "schema:invalid_output (no JSON output provided)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.16680000722408295,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Identify the prime factors of 63. 2. Identify the prime factors of 88. 3. Determine the common factors between\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777801113926,
+      "tokens_in": 70,
+      "tokens_out": 69,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.1979999989271164,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "To compute the greatest common divisor (GCD) of 63 and 88, we can use the Euclidean algorithm. Here are the steps:  1. \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777801113930,
+      "tokens_in": 71,
+      "tokens_out": 424,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.22040000557899475,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 630,
+      "output_summary": "```python from math import gcd  result = gcd(63, 88) print(result) ```",
+      "step_id": 2,
+      "t_unix_ms": 1777801114563,
+      "tokens_in": 522,
+      "tokens_out": 29,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.12600000202655792,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 450,
+      "output_summary": "verifier:failed:missing_gcd_computation_result",
+      "step_id": 3,
+      "t_unix_ms": 1777801115017,
+      "tokens_in": 91,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.05559999868273735,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 847,
+      "output_summary": "```python def gcd(a, b):     while b != 0:         a, b = b, a % b     return a  print(gcd(63, 88)) ```",
+      "step_id": 4,
+      "t_unix_ms": 1777801115867,
+      "tokens_in": 89,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.05559999868273735,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def gcd(a, b):     while b != 0:         a, b = b, a % b     return a  print(gcd(63, 88)) ```",
+      "step_id": 5,
+      "t_unix_ms": 1777801115872,
+      "tokens_in": 89,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.05559999868273735,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def gcd(a, b):     while b != 0:         a, b = b, a % b     return a  print(gcd(63, 88)) ```",
+      "step_id": 6,
+      "t_unix_ms": 1777801115876,
+      "tokens_in": 89,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.05559999868273735,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def gcd(a, b):     while b != 0:         a, b = b, a % b     return a  print(gcd(63, 88)) ```",
+      "step_id": 7,
+      "t_unix_ms": 1777801115905,
+      "tokens_in": 89,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.05559999868273735,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def gcd(a, b):     while b != 0:         a, b = b, a % b     return a  print(gcd(63, 88)) ```",
+      "step_id": 8,
+      "t_unix_ms": 1777801115915,
+      "tokens_in": 89,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04479999840259552,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 474,
+      "output_summary": "schema:invalid_output (no output related to the GCD calculation)",
+      "step_id": 9,
+      "t_unix_ms": 1777801116392,
+      "tokens_in": 97,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04520000144839287,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 489,
+      "output_summary": "schema:invalid_output (no JSON output provided)",
+      "step_id": 10,
+      "t_unix_ms": 1777801116886,
+      "tokens_in": 102,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04520000144839287,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no JSON output provided)",
+      "step_id": 11,
+      "t_unix_ms": 1777801116909,
+      "tokens_in": 102,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0017",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.1243999004364014,
+    "failed_tool_calls": 0,
+    "latency_ms": 2896,
+    "llm_calls": 12,
+    "tokens_in": 1500,
+    "tokens_out": 823,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

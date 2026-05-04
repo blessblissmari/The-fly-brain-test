@@ -62,13 +62,18 @@ def _add_bench_subparser(sub: argparse._SubParsersAction[argparse.ArgumentParser
             "synthetic_routing) through every baseline in --suite and emit "
             "comparison tables in --output. By default uses the deterministic "
             "MockLLMClient so the smoke run is CI-friendly; pass --backend yandex "
-            "to run live against YandexGPT."
+            "to run live against YandexGPT, or --backend openrouter for "
+            "OpenRouter free-tier (round 6)."
         ),
     )
     p.add_argument("--suite", default="full_min")
     p.add_argument("--only", nargs="*", default=None)
     p.add_argument("--benchmarks", nargs="*", default=None)
-    p.add_argument("--backend", choices=("mock", "yandex"), default="mock")
+    p.add_argument(
+        "--backend",
+        choices=("mock", "yandex", "openrouter"),
+        default="mock",
+    )
     p.add_argument("--tasks-per-benchmark", type=int, default=8)
     p.add_argument("--max-steps", type=int, default=12)
     p.add_argument("--budget-rub", type=float, default=300.0)

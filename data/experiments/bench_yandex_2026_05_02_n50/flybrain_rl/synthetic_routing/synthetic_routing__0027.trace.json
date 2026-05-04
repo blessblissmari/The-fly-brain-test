@@ -1,0 +1,260 @@
+{
+  "final_answer": "`schema:invalid_output (expected JSON schema not provided)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.1632000058889389,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Retrieve form #3377 and its input data. 2. Check the completeness of the input data against the required field\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777727871414,
+      "tokens_in": 71,
+      "tokens_out": 65,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.12319999933242798,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1906,
+      "output_summary": "```python def validate_form_3377(input_data):     required_fields = ['required_field_1', 'required_field_2', 'required_\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777727873323,
+      "tokens_in": 160,
+      "tokens_out": 148,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.23119999468326569,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 4687,
+      "output_summary": "``` def test_form_input_validation():     \"\"\"     Test the validation of input from form #3377.     \"\"\"     from unit_t\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777727878014,
+      "tokens_in": 174,
+      "tokens_out": 404,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.13680000603199005,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 722,
+      "output_summary": "verifier:failed:missing output for task (expected validation result for form #3377)",
+      "step_id": 3,
+      "t_unix_ms": 1777727878741,
+      "tokens_in": 93,
+      "tokens_out": 21,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.11999999731779099,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 401,
+      "output_summary": "verifier:passed",
+      "step_id": 4,
+      "t_unix_ms": 1777727879145,
+      "tokens_in": 96,
+      "tokens_out": 4,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.11999999731779099,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 5,
+      "t_unix_ms": 1777727879149,
+      "tokens_in": 96,
+      "tokens_out": 4,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.11999999731779099,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 6,
+      "t_unix_ms": 1777727879153,
+      "tokens_in": 96,
+      "tokens_out": 4,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.37439998984336853,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 4724,
+      "output_summary": "```python def test_form_input_validation():     \"\"\"     Test the validation of input from form #3377.     \"\"\"     from \u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777727883880,
+      "tokens_in": 531,
+      "tokens_out": 405,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.12240000069141388,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 375,
+      "output_summary": "verifier:passed",
+      "step_id": 8,
+      "t_unix_ms": 1777727884259,
+      "tokens_in": 98,
+      "tokens_out": 4,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.046799998730421066,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 545,
+      "output_summary": "`schema:invalid_output (Input does not match expected JSON schema format)`",
+      "step_id": 9,
+      "t_unix_ms": 1777727884808,
+      "tokens_in": 101,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.047600001096725464,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 493,
+      "output_summary": "`schema:invalid_output (expected JSON schema not provided)`",
+      "step_id": 10,
+      "t_unix_ms": 1777727885305,
+      "tokens_in": 106,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.047600001096725464,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON schema not provided)`",
+      "step_id": 11,
+      "t_unix_ms": 1777727885310,
+      "tokens_in": 106,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0027",
+  "task_type": "tool_use",
+  "totals": {
+    "cost_rub": 1.6532001495361328,
+    "failed_tool_calls": 0,
+    "latency_ms": 13857,
+    "llm_calls": 12,
+    "tokens_in": 1728,
+    "tokens_out": 1101,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: final_answer"
+    ],
+    "failed_component": "final_answer",
+    "passed": false,
+    "reward_delta": -0.10000000149011612,
+    "score": 0.8500000238418579,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "final_answer": "``` import unittest from unittest.mock import patch  class TestMath(unittest.TestCase):      def test_calculate_origina\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.25200000405311584,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Determine the discounted price as a percentage of the original price (100% - 25% = 75%). 2. Set up the equatio\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777801158627,
+      "tokens_in": 116,
+      "tokens_out": 94,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.057999998331069946,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 541,
+      "output_summary": "`schema:invalid_output (missing JSON output)`",
+      "step_id": 1,
+      "t_unix_ms": 1777801159170,
+      "tokens_in": 134,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06199999898672104,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 530,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema format)`",
+      "step_id": 2,
+      "t_unix_ms": 1777801159704,
+      "tokens_in": 139,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06199999898672104,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema format)`",
+      "step_id": 3,
+      "t_unix_ms": 1777801159708,
+      "tokens_in": 139,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06199999898672104,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema format)`",
+      "step_id": 4,
+      "t_unix_ms": 1777801159711,
+      "tokens_in": 139,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.23399999737739563,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1036,
+      "output_summary": "- The task does not contain a clear step-by-step solution to the problem. - There is no reasoning provided to explain h\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777801160751,
+      "tokens_in": 129,
+      "tokens_out": 66,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.23520000278949738,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1063,
+      "output_summary": "- The draft does not include the step-by-step reasoning required to solve the math problem. - There is no final answer \u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777801161817,
+      "tokens_in": 131,
+      "tokens_out": 65,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.23520000278949738,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not include the step-by-step reasoning required to solve the math problem. - There is no final answer \u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777801161820,
+      "tokens_in": 131,
+      "tokens_out": 65,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.23520000278949738,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not include the step-by-step reasoning required to solve the math problem. - There is no final answer \u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777801161824,
+      "tokens_in": 131,
+      "tokens_out": 65,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.23520000278949738,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not include the step-by-step reasoning required to solve the math problem. - There is no final answer \u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777801161827,
+      "tokens_in": 131,
+      "tokens_out": 65,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.23520000278949738,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not include the step-by-step reasoning required to solve the math problem. - There is no final answer \u2026",
+      "step_id": 10,
+      "t_unix_ms": 1777801161831,
+      "tokens_in": 131,
+      "tokens_out": 65,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.15279999375343323,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 1845,
+      "output_summary": "``` import unittest from unittest.mock import patch  class TestMath(unittest.TestCase):      def test_calculate_origina\u2026",
+      "step_id": 11,
+      "t_unix_ms": 1777801163679,
+      "tokens_in": 255,
+      "tokens_out": 127,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00028",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 2.058800220489502,
+    "failed_tool_calls": 0,
+    "latency_ms": 5019,
+    "llm_calls": 12,
+    "tokens_in": 1706,
+    "tokens_out": 671,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

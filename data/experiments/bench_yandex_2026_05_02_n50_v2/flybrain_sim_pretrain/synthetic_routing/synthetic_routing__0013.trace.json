@@ -1,0 +1,260 @@
+{
+  "final_answer": "schema:invalid_output (no relevant output provided)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.16439999639987946,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Subtract 64 from both sides of the equation to isolate the term with x. 2. Divide both sides by 25 to solve fo\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777733633983,
+      "tokens_in": 74,
+      "tokens_out": 63,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.0860000029206276,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 924,
+      "output_summary": "```python from sympy import symbols, Eq, solve  x = symbols('x') equation = Eq(25*x + 64, 14) solution = solve(equation\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777733634911,
+      "tokens_in": 161,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.11240000277757645,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 1514,
+      "output_summary": "``` import unittest from math_solver import solve_for_x  class TestMathSolver(unittest.TestCase):     def test_solve_fo\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777733636428,
+      "tokens_in": 175,
+      "tokens_out": 106,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.14880000054836273,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 2108,
+      "output_summary": "```python from sympy import symbols, Eq, solve  def solve_for_x(equation):     x = symbols('x')     result = solve(Eq(e\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777733638540,
+      "tokens_in": 228,
+      "tokens_out": 144,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.058800000697374344,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 931,
+      "output_summary": "```python from sympy import symbols, Eq, solve  x = symbols('x') equation = Eq(25*x + 64, 14) solution = solve(equation\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777733639474,
+      "tokens_in": 93,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04520000144839287,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 525,
+      "output_summary": "schema:invalid_output (no relevant mathematical output provided)",
+      "step_id": 5,
+      "t_unix_ms": 1777733640003,
+      "tokens_in": 101,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.046799998730421066,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 537,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 6,
+      "t_unix_ms": 1777733640543,
+      "tokens_in": 106,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.046799998730421066,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 7,
+      "t_unix_ms": 1777733640548,
+      "tokens_in": 106,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.046799998730421066,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 8,
+      "t_unix_ms": 1777733640551,
+      "tokens_in": 106,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.046799998730421066,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 9,
+      "t_unix_ms": 1777733640555,
+      "tokens_in": 106,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.046799998730421066,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 10,
+      "t_unix_ms": 1777733640558,
+      "tokens_in": 106,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.046799998730421066,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 11,
+      "t_unix_ms": 1777733640562,
+      "tokens_in": 106,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0013",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.8964000940322876,
+    "failed_tool_calls": 0,
+    "latency_ms": 6544,
+    "llm_calls": 12,
+    "tokens_in": 1468,
+    "tokens_out": 499,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: final_answer"
+    ],
+    "failed_component": "final_answer",
+    "passed": false,
+    "reward_delta": -0.10000000149011612,
+    "score": 0.8500000238418579,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

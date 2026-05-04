@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (output does not match the expected JSON schema)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.20280000567436218,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Determine the amount of blue fiber needed for one robe. 2. Calculate the amount of white fiber needed, which i\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777733705446,
+      "tokens_in": 101,
+      "tokens_out": 68,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.09440000355243683,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 0,
+      "output_summary": "```python blue_fiber = 2 white_fiber = blue_fiber / 2 total_bolts = blue_fiber + white_fiber  final_answer: 3 ```",
+      "step_id": 1,
+      "t_unix_ms": 1777733705450,
+      "tokens_in": 193,
+      "tokens_out": 43,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1703999936580658,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "verifier:failed:missing_step-by-step_reasoning_and_final_answer",
+      "step_id": 2,
+      "t_unix_ms": 1777733705453,
+      "tokens_in": 121,
+      "tokens_out": 21,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1703999936580658,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "verifier:failed:missing_mathematical_reasoning_and_final_answer",
+      "step_id": 3,
+      "t_unix_ms": 1777733705456,
+      "tokens_in": 124,
+      "tokens_out": 18,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1703999936580658,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "verifier:failed:missing_mathematical_reasoning_and_final_answer",
+      "step_id": 4,
+      "t_unix_ms": 1777733705459,
+      "tokens_in": 124,
+      "tokens_out": 18,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1703999936580658,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "verifier:failed:missing_mathematical_reasoning_and_final_answer",
+      "step_id": 5,
+      "t_unix_ms": 1777733705463,
+      "tokens_in": 124,
+      "tokens_out": 18,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.09040000289678574,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 1,
+      "output_summary": "```python blue_fiber = 2 white_fiber = blue_fiber / 2 total_bolts = blue_fiber + white_fiber  final_answer: 3 ```",
+      "step_id": 6,
+      "t_unix_ms": 1777733705466,
+      "tokens_in": 183,
+      "tokens_out": 43,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.057999998331069946,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema)",
+      "step_id": 7,
+      "t_unix_ms": 1777733705469,
+      "tokens_in": 129,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05999999865889549,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "`schema:invalid_output (output does not match the expected JSON schema)`",
+      "step_id": 8,
+      "t_unix_ms": 1777733705473,
+      "tokens_in": 134,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05999999865889549,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "`schema:invalid_output (output does not match the expected JSON schema)`",
+      "step_id": 9,
+      "t_unix_ms": 1777733705476,
+      "tokens_in": 134,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05999999865889549,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (output does not match the expected JSON schema)`",
+      "step_id": 10,
+      "t_unix_ms": 1777733705479,
+      "tokens_in": 134,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05999999865889549,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (output does not match the expected JSON schema)`",
+      "step_id": 11,
+      "t_unix_ms": 1777733705483,
+      "tokens_in": 134,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00004",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.3671997785568237,
+    "failed_tool_calls": 0,
+    "latency_ms": 4,
+    "llm_calls": 12,
+    "tokens_in": 1635,
+    "tokens_out": 309,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

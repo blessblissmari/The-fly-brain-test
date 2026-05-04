@@ -1,0 +1,648 @@
+{
+  "final_answer": "schema:valid",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Define the function `reverse_string` with a single parameter `s` of type `str`. 2. Inside the function, use Py\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777905835909,
+      "tokens_in": 173,
+      "tokens_out": 85,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "2",
+      "latency_ms": 15296,
+      "output_summary": "```python def reverse_string(s: str) -> str:     \"\"\"Return s reversed.     >>> reverse_string('abc')     'cba'     \"\"\" \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777905851208,
+      "tokens_in": 280,
+      "tokens_out": 82,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Implement the following Python function. Your final answer must be a complete, runnable function definition.\n\nEntry point: `reverse_string`\n\n```python\ndef reverse_string(s: str) -> str:\n    \"\"\"Return s reversed.\n    >>> reverse_string('abc')\n    'cba'\n    \"\"\"\n```\n"
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 17873,
+      "output_summary": "- The draft does not include any actual implementation of `reverse_string`; the function body is empty, so it will retu\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777905869085,
+      "tokens_in": 182,
+      "tokens_out": 123,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 11828,
+      "output_summary": "- No actual implementation code was provided, so there\u2019s nothing to evaluate for correctness, style, or edge\u2011case handl\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777905880917,
+      "tokens_in": 184,
+      "tokens_out": 113,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- No actual implementation code was provided, so there\u2019s nothing to evaluate for correctness, style, or edge\u2011case handl\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777905880922,
+      "tokens_in": 184,
+      "tokens_out": 113,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- No actual implementation code was provided, so there\u2019s nothing to evaluate for correctness, style, or edge\u2011case handl\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777905880926,
+      "tokens_in": 184,
+      "tokens_out": 113,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- No actual implementation code was provided, so there\u2019s nothing to evaluate for correctness, style, or edge\u2011case handl\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777905880929,
+      "tokens_in": 184,
+      "tokens_out": 113,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- No actual implementation code was provided, so there\u2019s nothing to evaluate for correctness, style, or edge\u2011case handl\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777905880945,
+      "tokens_in": 184,
+      "tokens_out": 113,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "7",
+      "latency_ms": 7709,
+      "output_summary": "tests_run: passed=5, failed=0",
+      "step_id": 8,
+      "t_unix_ms": 1777905888657,
+      "tokens_in": 273,
+      "tokens_out": 44,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "14",
+      "latency_ms": 17481,
+      "output_summary": "```python def reverse_string(s: str) -> str:     \"\"\"Return s reversed.     >>> reverse_string('abc')     'cba'     \"\"\" \u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777905906142,
+      "tokens_in": 214,
+      "tokens_out": 71,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 10771,
+      "output_summary": "```python def reverse_string(s: str) -> str:     \"\"\"Return s reversed.     >>> reverse_string('abc')     'cba'     \"\"\" \u2026",
+      "step_id": 10,
+      "t_unix_ms": 1777905916917,
+      "tokens_in": 191,
+      "tokens_out": 69,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def reverse_string(s: str) -> str:     \"\"\"Return s reversed.     >>> reverse_string('abc')     'cba'     \"\"\" \u2026",
+      "step_id": 11,
+      "t_unix_ms": 1777905916921,
+      "tokens_in": 191,
+      "tokens_out": 69,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def reverse_string(s: str) -> str:     \"\"\"Return s reversed.     >>> reverse_string('abc')     'cba'     \"\"\" \u2026",
+      "step_id": 12,
+      "t_unix_ms": 1777905916925,
+      "tokens_in": 191,
+      "tokens_out": 69,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def reverse_string(s: str) -> str:     \"\"\"Return s reversed.     >>> reverse_string('abc')     'cba'     \"\"\" \u2026",
+      "step_id": 13,
+      "t_unix_ms": 1777905916929,
+      "tokens_in": 191,
+      "tokens_out": 69,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def reverse_string(s: str) -> str:     \"\"\"Return s reversed.     >>> reverse_string('abc')     'cba'     \"\"\" \u2026",
+      "step_id": 14,
+      "t_unix_ms": 1777905916933,
+      "tokens_in": 191,
+      "tokens_out": 69,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 14446,
+      "output_summary": "schema:valid",
+      "step_id": 15,
+      "t_unix_ms": 1777905931383,
+      "tokens_in": 197,
+      "tokens_out": 38,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 18898,
+      "output_summary": "schema:valid",
+      "step_id": 16,
+      "t_unix_ms": 1777905950284,
+      "tokens_in": 201,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 17,
+      "t_unix_ms": 1777905950289,
+      "tokens_in": 201,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 18,
+      "t_unix_ms": 1777905950293,
+      "tokens_in": 201,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 19,
+      "t_unix_ms": 1777905950296,
+      "tokens_in": 201,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 20,
+      "t_unix_ms": 1777905950300,
+      "tokens_in": 201,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 21,
+      "t_unix_ms": 1777905950304,
+      "tokens_in": 201,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 22,
+      "t_unix_ms": 1777905950308,
+      "tokens_in": 201,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 23,
+      "t_unix_ms": 1777905950311,
+      "tokens_in": 201,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 24,
+      "t_unix_ms": 1777905950315,
+      "tokens_in": 201,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 25,
+      "t_unix_ms": 1777905950319,
+      "tokens_in": 201,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 26,
+      "t_unix_ms": 1777905950323,
+      "tokens_in": 201,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 27,
+      "t_unix_ms": 1777905950327,
+      "tokens_in": 201,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 28,
+      "t_unix_ms": 1777905950331,
+      "tokens_in": 201,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 29,
+      "t_unix_ms": 1777905950335,
+      "tokens_in": 201,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 30,
+      "t_unix_ms": 1777905950338,
+      "tokens_in": 201,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 31,
+      "t_unix_ms": 1777905950342,
+      "tokens_in": 201,
+      "tokens_out": 50,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-2",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 114325,
+    "llm_calls": 32,
+    "tokens_in": 6410,
+    "tokens_out": 2153,
+    "tool_calls": 1
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

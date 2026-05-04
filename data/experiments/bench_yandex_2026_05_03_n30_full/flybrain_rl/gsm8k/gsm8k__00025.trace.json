@@ -1,0 +1,258 @@
+{
+  "final_answer": "verifier:failed:missing_reasoning_steps_and_final_answer",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.22920000553131104,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Determine Raymond's current age based on the fact that he was born 6 years before Samantha. 2. Calculate the n\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777801254576,
+      "tokens_in": 121,
+      "tokens_out": 70,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05999999865889549,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "schema:invalid_output (no JSON output provided)",
+      "step_id": 1,
+      "t_unix_ms": 1777801254579,
+      "tokens_in": 139,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06440000236034393,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (the output does not match the expected JSON schema)`",
+      "step_id": 2,
+      "t_unix_ms": 1777801254583,
+      "tokens_in": 144,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.2856000065803528,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The task does not provide a clear instruction to follow the \"Think step by step\" guideline, which could lead to solut\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777801254586,
+      "tokens_in": 134,
+      "tokens_out": 104,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.2736000120639801,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The task does not require the use of the listed terms (critic, final_answer, plan, planner, schema_verifier), which m\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777801254590,
+      "tokens_in": 136,
+      "tokens_out": 92,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.2736000120639801,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The task does not require the use of the listed terms (critic, final_answer, plan, planner, schema_verifier), which m\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777801254594,
+      "tokens_in": 136,
+      "tokens_out": 92,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.2736000120639801,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The task does not require the use of the listed terms (critic, final_answer, plan, planner, schema_verifier), which m\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777801254598,
+      "tokens_in": 136,
+      "tokens_out": 92,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.20399999618530273,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 1,
+      "output_summary": "``` import unittest  class TestMath(unittest.TestCase):     def test_age_difference(self):         samantha_age = 31   \u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777801254601,
+      "tokens_in": 235,
+      "tokens_out": 275,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.20399999618530273,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_step-by-step_reasoning_and_final_answer",
+      "step_id": 8,
+      "t_unix_ms": 1777801254605,
+      "tokens_in": 149,
+      "tokens_out": 21,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.20280000567436218,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_reasoning_steps_and_final_answer",
+      "step_id": 9,
+      "t_unix_ms": 1777801254609,
+      "tokens_in": 152,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.20280000567436218,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_reasoning_steps_and_final_answer",
+      "step_id": 10,
+      "t_unix_ms": 1777801254612,
+      "tokens_in": 152,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.20280000567436218,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_reasoning_steps_and_final_answer",
+      "step_id": 11,
+      "t_unix_ms": 1777801254616,
+      "tokens_in": 152,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00025",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 2.476400136947632,
+    "failed_tool_calls": 0,
+    "latency_ms": 10,
+    "llm_calls": 12,
+    "tokens_in": 1786,
+    "tokens_out": 825,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

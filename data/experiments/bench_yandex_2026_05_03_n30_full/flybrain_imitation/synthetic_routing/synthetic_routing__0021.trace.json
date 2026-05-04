@@ -1,0 +1,278 @@
+{
+  "final_answer": "schema:invalid_output (no output related to the integral evaluation provided)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.225600004196167,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Identify the integral to be evaluated: \u222b from 0 to 80 of x^69 dx. 2. Apply the power rule for integration to f\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777801217232,
+      "tokens_in": 79,
+      "tokens_out": 109,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.13840000331401825,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "2",
+      "latency_ms": 1,
+      "output_summary": "1. The integral of $f(x) = x^{69}$ from 0 to 80 can be evaluated using the power rule for integration. 2. The antideriv\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777801217236,
+      "tokens_in": 233,
+      "tokens_out": 113,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Evaluate the integral of f(x) = x^69 from 0 to 80."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.10000000149011612,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "1. The integral of $f(x) = x^{69}$ from 0 to 80 can be calculated using the power rule for integration. 2. The antideri\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777801217239,
+      "tokens_in": 110,
+      "tokens_out": 140,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Evaluate the integral of f(x) = x^69 from 0 to 80."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.1648000031709671,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3875,
+      "output_summary": "To evaluate the integral of $f(x) = x^{69}$ from 0 to 80, we use the power rule for integration. The power rule states \u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777801221117,
+      "tokens_in": 84,
+      "tokens_out": 328,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.18479999899864197,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "12",
+      "latency_ms": 560,
+      "output_summary": "```python final_answer = 80**70 / 70 ```",
+      "step_id": 4,
+      "t_unix_ms": 1777801221688,
+      "tokens_in": 443,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1404000073671341,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 523,
+      "output_summary": "verifier:failed:missing_final_numerical_answer",
+      "step_id": 5,
+      "t_unix_ms": 1777801222214,
+      "tokens_in": 104,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1404000073671341,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 456,
+      "output_summary": "verifier:failed:no output provided to verify",
+      "step_id": 6,
+      "t_unix_ms": 1777801222673,
+      "tokens_in": 107,
+      "tokens_out": 10,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1404000073671341,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:no output provided to verify",
+      "step_id": 7,
+      "t_unix_ms": 1777801222677,
+      "tokens_in": 107,
+      "tokens_out": 10,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1404000073671341,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:no output provided to verify",
+      "step_id": 8,
+      "t_unix_ms": 1777801222681,
+      "tokens_in": 107,
+      "tokens_out": 10,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1404000073671341,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:no output provided to verify",
+      "step_id": 9,
+      "t_unix_ms": 1777801222684,
+      "tokens_in": 107,
+      "tokens_out": 10,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1404000073671341,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:no output provided to verify",
+      "step_id": 10,
+      "t_unix_ms": 1777801222688,
+      "tokens_in": 107,
+      "tokens_out": 10,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05000000074505806,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 476,
+      "output_summary": "schema:invalid_output (no output related to the integral evaluation provided)",
+      "step_id": 11,
+      "t_unix_ms": 1777801223167,
+      "tokens_in": 110,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0021",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.7060002088546753,
+    "failed_tool_calls": 0,
+    "latency_ms": 5897,
+    "llm_calls": 12,
+    "tokens_in": 1698,
+    "tokens_out": 787,
+    "tool_calls": 2
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "final_answer": "A literature review on transformers delves into the evolution and applications of this deep learning architecture. Tran\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.18479999899864197,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Identify key sources and literature on transformers, including foundational papers and recent developments. 2.\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777727031617,
+      "tokens_in": 70,
+      "tokens_out": 84,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.09920000284910202,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Query: \"Write a 200-word literature review on transformers.\"  1. Transformers are a type of neural network architecture\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777727031618,
+      "tokens_in": 97,
+      "tokens_out": 151,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Write a 200-word literature review on transformers."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1777727031618,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.18359999358654022,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "A literature review on transformers delves into the evolution and applications of this deep learning architecture. Tran\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777727031619,
+      "tokens_in": 100,
+      "tokens_out": 359,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1777727031619,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0002",
+  "task_type": "research",
+  "totals": {
+    "cost_rub": 0.4675999879837036,
+    "failed_tool_calls": 0,
+    "latency_ms": 0,
+    "llm_calls": 3,
+    "tokens_in": 267,
+    "tokens_out": 594,
+    "tool_calls": 1
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

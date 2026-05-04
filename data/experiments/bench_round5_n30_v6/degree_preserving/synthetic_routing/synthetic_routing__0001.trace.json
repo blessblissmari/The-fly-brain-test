@@ -1,0 +1,123 @@
+{
+  "final_answer": "$\\int_{0}^{4} x^{39} \\, dx = \\left[ \\frac{x^{40}}{40} \\right]_{0}^{4} = \\frac{4^{40}}{40} - \\frac{0^{40}}{40} = \\frac{4\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.22200000286102295,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Identify the function to be integrated: f(x) = x^39. 2. Set up the definite integral with the given limits of \u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777812762433,
+      "tokens_in": 78,
+      "tokens_out": 107,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.13199999928474426,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "To evaluate the definite integral of $f(x) = x^{39}$ from $0$ to $4$, we follow these steps:  1. **Find the antiderivat\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777812762434,
+      "tokens_in": 79,
+      "tokens_out": 251,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1777812762434,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.07199999690055847,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "$\\int_{0}^{4} x^{39} \\, dx = \\left[ \\frac{x^{40}}{40} \\right]_{0}^{4} = \\frac{4^{40}}{40} - \\frac{0^{40}}{40} = \\frac{4\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777812762435,
+      "tokens_in": 87,
+      "tokens_out": 93,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1777812762435,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0001",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.4259999990463257,
+    "failed_tool_calls": 0,
+    "latency_ms": 0,
+    "llm_calls": 3,
+    "tokens_in": 244,
+    "tokens_out": 451,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "final_answer": "Seattle has 20 sheep. Charleston has 4 times as many sheep as Seattle, so Charleston has $4 \\times 20 = 80$ sheep. Toul\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.23280000686645508,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Determine the number of sheep in Charleston by multiplying the number of sheep in Seattle by 4. 2. Determine t\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777812753091,
+      "tokens_in": 115,
+      "tokens_out": 79,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.11559999734163284,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Let's denote the number of sheep in Seattle as \\( S \\), in Charleston as \\( C \\), and in Toulouse as \\( T \\).  Given: -\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777812753092,
+      "tokens_in": 116,
+      "tokens_out": 173,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1777812753092,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.09200000017881393,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Seattle has 20 sheep. Charleston has 4 times as many sheep as Seattle, so Charleston has $4 \\times 20 = 80$ sheep. Toul\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777812753093,
+      "tokens_in": 124,
+      "tokens_out": 106,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1777812753093,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00025",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.44040000438690186,
+    "failed_tool_calls": 0,
+    "latency_ms": 0,
+    "llm_calls": 3,
+    "tokens_in": 355,
+    "tokens_out": 358,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

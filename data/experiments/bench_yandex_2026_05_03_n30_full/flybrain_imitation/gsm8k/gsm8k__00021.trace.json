@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (produced output does not match the expected JSON schema)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.3156000077724457,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Calculate the total amount of feed given to the chickens in the morning and afternoon. 2. Calculate the total \u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777801169651,
+      "tokens_in": 187,
+      "tokens_out": 76,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.17000000178813934,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1,
+      "output_summary": "```python morning_feed = 15 afternoon_feed = 25 total_chickens = 20 daily_feed_per_chicken = 3  total_morning_feed = mo\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777801169654,
+      "tokens_in": 287,
+      "tokens_out": 138,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.20960000157356262,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 2093,
+      "output_summary": "```python morning_feed = 15 afternoon_feed = 25 total_chickens = 20 daily_feed_per_chicken = 3  total_morning_feed = mo\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777801171750,
+      "tokens_in": 368,
+      "tokens_out": 156,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.2687999904155731,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 480,
+      "output_summary": "verifier:failed:missing_calculation_and_final_answer",
+      "step_id": 3,
+      "t_unix_ms": 1777801172233,
+      "tokens_in": 209,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.27959999442100525,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 572,
+      "output_summary": "verifier:failed:missing_step-by-step_reasoning_and_final_answer",
+      "step_id": 4,
+      "t_unix_ms": 1777801172809,
+      "tokens_in": 212,
+      "tokens_out": 21,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09319999814033508,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (the produced output does not match the expected JSON schema)`",
+      "step_id": 5,
+      "t_unix_ms": 1777801172813,
+      "tokens_in": 215,
+      "tokens_out": 18,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09480000287294388,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match the expected JSON schema)`",
+      "step_id": 6,
+      "t_unix_ms": 1777801172816,
+      "tokens_in": 220,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09480000287294388,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match the expected JSON schema)`",
+      "step_id": 7,
+      "t_unix_ms": 1777801172820,
+      "tokens_in": 220,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09480000287294388,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match the expected JSON schema)`",
+      "step_id": 8,
+      "t_unix_ms": 1777801172823,
+      "tokens_in": 220,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09480000287294388,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match the expected JSON schema)`",
+      "step_id": 9,
+      "t_unix_ms": 1777801172827,
+      "tokens_in": 220,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09480000287294388,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match the expected JSON schema)`",
+      "step_id": 10,
+      "t_unix_ms": 1777801172830,
+      "tokens_in": 220,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09480000287294388,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match the expected JSON schema)`",
+      "step_id": 11,
+      "t_unix_ms": 1777801172833,
+      "tokens_in": 220,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00021",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.9055999517440796,
+    "failed_tool_calls": 0,
+    "latency_ms": 3153,
+    "llm_calls": 12,
+    "tokens_in": 2798,
+    "tokens_out": 526,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

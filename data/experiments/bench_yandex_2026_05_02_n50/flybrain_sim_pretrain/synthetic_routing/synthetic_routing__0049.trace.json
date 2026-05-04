@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (no JSON output provided)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.15839999914169312,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Subtract 45 from both sides of the equation to isolate the term with x. 2. Divide both sides by the coefficien\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777727239512,
+      "tokens_in": 74,
+      "tokens_out": 58,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.07240000367164612,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Step 1: Subtract 45 from both sides of the equation to isolate the term with the variable $x$. $57x + 45 - 45 = 50 - 45\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777727239515,
+      "tokens_in": 75,
+      "tokens_out": 106,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.14720000326633453,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 2051,
+      "output_summary": "```python from math import solve  equation = \"57x + 45 = 50\" variables = {\"x\": None}  def solve_equation(equation, vari\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777727241576,
+      "tokens_in": 214,
+      "tokens_out": 154,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.12600000202655792,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 461,
+      "output_summary": "verifier:failed:missing_solution_trace",
+      "step_id": 3,
+      "t_unix_ms": 1777727242041,
+      "tokens_in": 95,
+      "tokens_out": 10,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.12960000336170197,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 479,
+      "output_summary": "verifier:failed:missing solution to the equation",
+      "step_id": 4,
+      "t_unix_ms": 1777727242523,
+      "tokens_in": 98,
+      "tokens_out": 10,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.058800000697374344,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 904,
+      "output_summary": "```python from sympy import symbols, Eq, solve  x = symbols('x') equation = Eq(57*x + 45, 50) solution = solve(equation\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777727243437,
+      "tokens_in": 93,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.058800000697374344,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from sympy import symbols, Eq, solve  x = symbols('x') equation = Eq(57*x + 45, 50) solution = solve(equation\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777727243441,
+      "tokens_in": 93,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.058800000697374344,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from sympy import symbols, Eq, solve  x = symbols('x') equation = Eq(57*x + 45, 50) solution = solve(equation\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777727243445,
+      "tokens_in": 93,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.058800000697374344,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from sympy import symbols, Eq, solve  x = symbols('x') equation = Eq(57*x + 45, 50) solution = solve(equation\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777727243448,
+      "tokens_in": 93,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.058800000697374344,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from sympy import symbols, Eq, solve  x = symbols('x') equation = Eq(57*x + 45, 50) solution = solve(equation\u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777727243452,
+      "tokens_in": 93,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04479999840259552,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 517,
+      "output_summary": "schema:invalid_output (no JSON output provided)",
+      "step_id": 10,
+      "t_unix_ms": 1777727243972,
+      "tokens_in": 101,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.047200001776218414,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 469,
+      "output_summary": "`schema:invalid_output (no JSON output provided)`",
+      "step_id": 11,
+      "t_unix_ms": 1777727244445,
+      "tokens_in": 106,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0049",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.0195999145507812,
+    "failed_tool_calls": 0,
+    "latency_ms": 4885,
+    "llm_calls": 12,
+    "tokens_in": 1228,
+    "tokens_out": 631,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

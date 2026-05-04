@@ -1,0 +1,258 @@
+{
+  "final_answer": "schema:invalid_output (no output related to the math task provided)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.1679999977350235,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Apply the order of operations (PEMDAS/BODMAS) to simplify the expression inside the parentheses first. 2. Calc\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777725184772,
+      "tokens_in": 71,
+      "tokens_out": 69,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.05959999933838844,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Step 1: First, simplify the expression inside the parentheses. $44 + 36 = 80$.  Step 2: Now, substitute the simplified \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777725184776,
+      "tokens_in": 72,
+      "tokens_out": 77,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.08919999748468399,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 1,
+      "output_summary": "```python from sympy import simplify  expression = '(44 + 36)**20' simplified_expression = simplify(expression) print(s\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777725184779,
+      "tokens_in": 180,
+      "tokens_out": 43,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.13079999387264252,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:incorrect output format or unnecessary outputs (code, debugger)",
+      "step_id": 3,
+      "t_unix_ms": 1777725184782,
+      "tokens_in": 92,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1356000006198883,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 530,
+      "output_summary": "verifier:failed:missing_simplification_steps_and_final_result",
+      "step_id": 4,
+      "t_unix_ms": 1777725185315,
+      "tokens_in": 95,
+      "tokens_out": 18,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1356000006198883,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_simplification_steps_and_final_result",
+      "step_id": 5,
+      "t_unix_ms": 1777725185320,
+      "tokens_in": 95,
+      "tokens_out": 18,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1356000006198883,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "verifier:failed:missing_simplification_steps_and_final_result",
+      "step_id": 6,
+      "t_unix_ms": 1777725185323,
+      "tokens_in": 95,
+      "tokens_out": 18,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1356000006198883,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "verifier:failed:missing_simplification_steps_and_final_result",
+      "step_id": 7,
+      "t_unix_ms": 1777725185327,
+      "tokens_in": 95,
+      "tokens_out": 18,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1356000006198883,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_simplification_steps_and_final_result",
+      "step_id": 8,
+      "t_unix_ms": 1777725185330,
+      "tokens_in": 95,
+      "tokens_out": 18,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1356000006198883,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "verifier:failed:missing_simplification_steps_and_final_result",
+      "step_id": 9,
+      "t_unix_ms": 1777725185333,
+      "tokens_in": 95,
+      "tokens_out": 18,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04560000076889992,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "schema:invalid_output (no output related to the mathematical simplification task)",
+      "step_id": 10,
+      "t_unix_ms": 1777725185336,
+      "tokens_in": 98,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.047200001776218414,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "schema:invalid_output (no output related to the math task provided)",
+      "step_id": 11,
+      "t_unix_ms": 1777725185340,
+      "tokens_in": 103,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0001",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.3539998531341553,
+    "failed_tool_calls": 0,
+    "latency_ms": 534,
+    "llm_calls": 12,
+    "tokens_in": 1186,
+    "tokens_out": 345,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

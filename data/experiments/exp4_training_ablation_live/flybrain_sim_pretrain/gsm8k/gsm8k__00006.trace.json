@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (the output does not match the expected JSON schema)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.3179999887943268,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1230,
+      "output_summary": "Plan: 1. Calculate the total amount of feed Wendi gives her chickens in the morning and afternoon. 2. Calculate the tot\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777798690874,
+      "tokens_in": 184,
+      "tokens_out": 81,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.1679999977350235,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1772,
+      "output_summary": "```python # Step 1: Calculate the total amount of feed given in the morning and afternoon morning_feed = 15 afternoon_f\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777798692650,
+      "tokens_in": 289,
+      "tokens_out": 131,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.262800008058548,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 493,
+      "output_summary": "verifier:failed:missing_calculation_and_final_answer",
+      "step_id": 2,
+      "t_unix_ms": 1777798693147,
+      "tokens_in": 204,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.2687999904155731,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 515,
+      "output_summary": "verifier:failed:missing_calculation_steps_and_final_answer",
+      "step_id": 3,
+      "t_unix_ms": 1777798693665,
+      "tokens_in": 207,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.2687999904155731,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_calculation_steps_and_final_answer",
+      "step_id": 4,
+      "t_unix_ms": 1777798693669,
+      "tokens_in": 207,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.19679999351501465,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 1749,
+      "output_summary": "```python # Step 1: Calculate the total amount of feed given in the morning and afternoon morning_feed = 15 afternoon_f\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777798695421,
+      "tokens_in": 360,
+      "tokens_out": 132,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.12200000137090683,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1569,
+      "output_summary": "```python total_cups_in_day = 15 + 25 cups_per_meal = 3 number_of_chickens = 20  total_cups_needed_per_meal = (total_cu\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777798696994,
+      "tokens_in": 204,
+      "tokens_out": 101,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.12200000137090683,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python total_cups_in_day = 15 + 25 cups_per_meal = 3 number_of_chickens = 20  total_cups_needed_per_meal = (total_cu\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777798696999,
+      "tokens_in": 204,
+      "tokens_out": 101,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.12200000137090683,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python total_cups_in_day = 15 + 25 cups_per_meal = 3 number_of_chickens = 20  total_cups_needed_per_meal = (total_cu\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777798697002,
+      "tokens_in": 204,
+      "tokens_out": 101,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09120000153779984,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 503,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema)",
+      "step_id": 9,
+      "t_unix_ms": 1777798697508,
+      "tokens_in": 212,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09359999746084213,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 520,
+      "output_summary": "`schema:invalid_output (the output does not match the expected JSON schema)`",
+      "step_id": 10,
+      "t_unix_ms": 1777798698032,
+      "tokens_in": 217,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09359999746084213,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (the output does not match the expected JSON schema)`",
+      "step_id": 11,
+      "t_unix_ms": 1777798698037,
+      "tokens_in": 217,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00006",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 2.1275999546051025,
+    "failed_tool_calls": 0,
+    "latency_ms": 8355,
+    "llm_calls": 12,
+    "tokens_in": 2709,
+    "tokens_out": 746,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

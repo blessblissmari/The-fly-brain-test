@@ -1,0 +1,260 @@
+{
+  "final_answer": "schema:invalid_output (no output related to solving the equation provided)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.15960000455379486,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Subtract 90 from both sides of the equation to isolate the term with x. 2. Divide both sides by 87 to solve fo\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777727414117,
+      "tokens_in": 74,
+      "tokens_out": 59,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.0843999981880188,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 989,
+      "output_summary": "```python from sympy import symbols, Eq, solve  x = symbols('x') equation = Eq(87*x + 90, 20) solution = solve(equation\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777727415109,
+      "tokens_in": 157,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.12319999933242798,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 1990,
+      "output_summary": "```python def solve_for_x(equation):     a, b, c = equation.split()     x = (int(b) - int(c)) / int(a)     return x  de\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777727417103,
+      "tokens_in": 171,
+      "tokens_out": 137,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.1656000018119812,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 2136,
+      "output_summary": "```python def solve_for_x(equation):     a, b, c = equation.split('+')     b, c = b.split('=')     a = int(a)     b = i\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777727419243,
+      "tokens_in": 262,
+      "tokens_out": 152,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.058800000697374344,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1701,
+      "output_summary": "```python from sympy import symbols, Eq, solve  x = symbols('x') equation = Eq(87*x + 90, 20) solution = solve(equation\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777727420948,
+      "tokens_in": 93,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04639999940991402,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 541,
+      "output_summary": "schema:invalid_output (no output related to solving the equation provided)",
+      "step_id": 5,
+      "t_unix_ms": 1777727421493,
+      "tokens_in": 101,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04839999973773956,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 521,
+      "output_summary": "schema:invalid_output (no output related to solving the equation provided)",
+      "step_id": 6,
+      "t_unix_ms": 1777727422018,
+      "tokens_in": 106,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04839999973773956,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output related to solving the equation provided)",
+      "step_id": 7,
+      "t_unix_ms": 1777727422022,
+      "tokens_in": 106,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04839999973773956,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output related to solving the equation provided)",
+      "step_id": 8,
+      "t_unix_ms": 1777727422026,
+      "tokens_in": 106,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04839999973773956,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output related to solving the equation provided)",
+      "step_id": 9,
+      "t_unix_ms": 1777727422029,
+      "tokens_in": 106,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04839999973773956,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output related to solving the equation provided)",
+      "step_id": 10,
+      "t_unix_ms": 1777727422032,
+      "tokens_in": 106,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04839999973773956,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output related to solving the equation provided)",
+      "step_id": 11,
+      "t_unix_ms": 1777727422036,
+      "tokens_in": 106,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0029",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.928399920463562,
+    "failed_tool_calls": 0,
+    "latency_ms": 7883,
+    "llm_calls": 12,
+    "tokens_in": 1494,
+    "tokens_out": 561,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: final_answer"
+    ],
+    "failed_component": "final_answer",
+    "passed": false,
+    "reward_delta": -0.10000000149011612,
+    "score": 0.8500000238418579,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

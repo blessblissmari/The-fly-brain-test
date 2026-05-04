@@ -28,6 +28,7 @@ from __future__ import annotations
 from flybrain.baselines.graphs import (
     degree_preserving_random_graph,
     empty_graph,
+    flybrain_prior_graph,
     fully_connected_graph,
     random_sparse_graph,
 )
@@ -46,6 +47,7 @@ __all__ = [
     "builtin_baselines",
     "degree_preserving_random_graph",
     "empty_graph",
+    "flybrain_prior_graph",
     "fully_connected_graph",
     "list_baselines",
     "random_sparse_graph",

@@ -1,0 +1,135 @@
+{
+  "final_answer": "A literature review on fly connectomes involves examining the intricate network of neural connections in fruit flies (D\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.19200000166893005,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Identify key sources and literature on fly connectomes, including recent studies and reviews. 2. Read and summ\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777733445759,
+      "tokens_in": 72,
+      "tokens_out": 88,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.06840000301599503,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "1. A search for \"fly connectomes\" has been conducted. 2. Top results include information on the neural wiring diagrams \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777733445760,
+      "tokens_in": 99,
+      "tokens_out": 72,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Write a 200-word literature review on fly connectomes."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1777733445760,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.15279999375343323,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "A literature review on fly connectomes involves examining the intricate network of neural connections in fruit flies (D\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777733445761,
+      "tokens_in": 102,
+      "tokens_out": 280,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1777733445761,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0010",
+  "task_type": "research",
+  "totals": {
+    "cost_rub": 0.4131999909877777,
+    "failed_tool_calls": 0,
+    "latency_ms": 0,
+    "llm_calls": 3,
+    "tokens_in": 273,
+    "tokens_out": 440,
+    "tool_calls": 1
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (function does not match expected JSON schema)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.2903999984264374,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Define the function `sum_list` with the given signature `def sum_list(xs: List[int]) -> int:`. 2. Initialize a\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777725080621,
+      "tokens_in": 145,
+      "tokens_out": 97,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "ToolExecutor",
+      "cost_rub": 0.0820000022649765,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "ToolExecutor",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "```python def sum_list(xs: List[int]) -> int:     \"\"\"Return the sum of xs.     >>> sum_list([1, 2, 3])     6     \"\"\"   \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777725080624,
+      "tokens_in": 149,
+      "tokens_out": 56,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.3012000024318695,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1466,
+      "output_summary": "- The function `sum_list` has not been implemented; it only contains a docstring with an example but lacks the actual c\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777725082093,
+      "tokens_in": 155,
+      "tokens_out": 96,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.2603999972343445,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 982,
+      "output_summary": "- The function `sum_list` does not contain the implementation to calculate the sum of the list elements. - There is no \u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777725083079,
+      "tokens_in": 157,
+      "tokens_out": 60,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.20960000157356262,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "7",
+      "latency_ms": 3645,
+      "output_summary": "```python from typing import List import unittest  def sum_list(xs: List[int]) -> int:     \"\"\"Return the sum of xs.    \u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777725086727,
+      "tokens_in": 244,
+      "tokens_out": 280,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.2231999933719635,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 511,
+      "output_summary": "verifier:failed:no implementation provided for the function `sum_list`",
+      "step_id": 5,
+      "t_unix_ms": 1777725087242,
+      "tokens_in": 170,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.2184000015258789,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 419,
+      "output_summary": "verifier:failed:function definition not provided",
+      "step_id": 6,
+      "t_unix_ms": 1777725087666,
+      "tokens_in": 173,
+      "tokens_out": 9,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.2184000015258789,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:function definition not provided",
+      "step_id": 7,
+      "t_unix_ms": 1777725087671,
+      "tokens_in": 173,
+      "tokens_out": 9,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.2184000015258789,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:function definition not provided",
+      "step_id": 8,
+      "t_unix_ms": 1777725087674,
+      "tokens_in": 173,
+      "tokens_out": 9,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.2184000015258789,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:function definition not provided",
+      "step_id": 9,
+      "t_unix_ms": 1777725087678,
+      "tokens_in": 173,
+      "tokens_out": 9,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.22040000557899475,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "10",
+      "latency_ms": 992,
+      "output_summary": "```python from typing import List  def sum_list(xs: List[int]) -> int:     \"\"\"Return the sum of xs.     >>> sum_list([1\u2026",
+      "step_id": 10,
+      "t_unix_ms": 1777725088673,
+      "tokens_in": 489,
+      "tokens_out": 62,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07720000296831131,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 504,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 11,
+      "t_unix_ms": 1777725089181,
+      "tokens_in": 178,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-3",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 2.5379998683929443,
+    "failed_tool_calls": 0,
+    "latency_ms": 8522,
+    "llm_calls": 12,
+    "tokens_in": 2379,
+    "tokens_out": 718,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

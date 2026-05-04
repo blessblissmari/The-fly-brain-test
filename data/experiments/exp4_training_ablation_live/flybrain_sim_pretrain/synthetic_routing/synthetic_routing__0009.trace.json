@@ -1,0 +1,258 @@
+{
+  "final_answer": "schema:invalid_output (no relevant output provided)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.16439999639987946,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1036,
+      "output_summary": "Plan: 1. Subtract 44 from both sides of the equation to isolate the term with x. 2. Simplify the equation to find the c\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777798770256,
+      "tokens_in": 74,
+      "tokens_out": 63,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.0860000029206276,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1176,
+      "output_summary": "```python from sympy import symbols, Eq, solve  x = symbols('x') equation = Eq(19*x + 44, 34) solution = solve(equation\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777798771445,
+      "tokens_in": 161,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "ToolExecutor",
+      "cost_rub": 0.03440000116825104,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "ToolExecutor",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 504,
+      "output_summary": "algebra_solver",
+      "step_id": 2,
+      "t_unix_ms": 1777798771953,
+      "tokens_in": 83,
+      "tokens_out": 3,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "ToolExecutor",
+      "cost_rub": 0.035999998450279236,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "ToolExecutor",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 385,
+      "output_summary": "algebra_solver",
+      "step_id": 3,
+      "t_unix_ms": 1777798772342,
+      "tokens_in": 87,
+      "tokens_out": 3,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "ToolExecutor",
+      "cost_rub": 0.035999998450279236,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "ToolExecutor",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "algebra_solver",
+      "step_id": 4,
+      "t_unix_ms": 1777798772345,
+      "tokens_in": 87,
+      "tokens_out": 3,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "ToolExecutor",
+      "cost_rub": 0.035999998450279236,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "ToolExecutor",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "algebra_solver",
+      "step_id": 5,
+      "t_unix_ms": 1777798772349,
+      "tokens_in": 87,
+      "tokens_out": 3,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "ToolExecutor",
+      "cost_rub": 0.035999998450279236,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "ToolExecutor",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "algebra_solver",
+      "step_id": 6,
+      "t_unix_ms": 1777798772352,
+      "tokens_in": 87,
+      "tokens_out": 3,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.09960000216960907,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "25",
+      "latency_ms": 2006,
+      "output_summary": "Step 1: Subtract 44 from both sides of the equation to isolate the term with the variable. \\[ 19x + 44 - 44 = 34 - 44 \\\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777798774361,
+      "tokens_in": 103,
+      "tokens_out": 146,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04560000076889992,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 458,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 8,
+      "t_unix_ms": 1777798774822,
+      "tokens_in": 103,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.047600001096725464,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 456,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 9,
+      "t_unix_ms": 1777798775282,
+      "tokens_in": 108,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.047600001096725464,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 10,
+      "t_unix_ms": 1777798775287,
+      "tokens_in": 108,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.047600001096725464,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no relevant output provided)",
+      "step_id": 11,
+      "t_unix_ms": 1777798775290,
+      "tokens_in": 108,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0009",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.7168000936508179,
+    "failed_tool_calls": 0,
+    "latency_ms": 6023,
+    "llm_calls": 12,
+    "tokens_in": 1196,
+    "tokens_out": 322,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

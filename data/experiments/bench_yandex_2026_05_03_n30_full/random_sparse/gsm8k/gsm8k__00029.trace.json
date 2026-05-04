@@ -1,0 +1,273 @@
+{
+  "final_answer": "Billy sold a total of 7 DVDs on Tuesday. - The first 3 customers bought 3 DVDs in total. - The next 2 customers bought \u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "random",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": null,
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_memory"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_memory invoked (memory=0, corpus=0)",
+      "step_id": 0,
+      "t_unix_ms": 1777800701284,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06159999966621399,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 472,
+      "output_summary": "`schema:invalid_output (output is not in JSON format)`",
+      "step_id": 1,
+      "t_unix_ms": 1777800701757,
+      "tokens_in": 140,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_memory"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_memory invoked (memory=1, corpus=1)",
+      "step_id": 2,
+      "t_unix_ms": 1777800701757,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06440000236034393,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 468,
+      "output_summary": "`schema:invalid_output (no output provided)`",
+      "step_id": 3,
+      "t_unix_ms": 1777800702225,
+      "tokens_in": 150,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_memory"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_memory invoked (memory=2, corpus=2)",
+      "step_id": 4,
+      "t_unix_ms": 1777800702225,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06440000236034393,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "`schema:invalid_output (no output provided)`",
+      "step_id": 5,
+      "t_unix_ms": 1777800702226,
+      "tokens_in": 150,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.10760000348091125,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1568,
+      "output_summary": "The first 3 customers buy 1 DVD each, so that's 3 DVDs sold. The next 2 customers buy 2 DVDs each, so that's 2 * 2 = 4 \u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777800703795,
+      "tokens_in": 163,
+      "tokens_out": 106,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Billy sells DVDs. He has 8 customers on Tuesday. His first 3 customers buy one DVD each.  His next 2 customers buy 2 DVDs each.  His last 3 customers don't buy any DVDs. How many DVDs did Billy sell on Tuesday?\n\nThink step by step and end with `final_answer: <number>`."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_memory"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_memory invoked (memory=4, corpus=4)",
+      "step_id": 7,
+      "t_unix_ms": 1777800703795,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07079999893903732,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 575,
+      "output_summary": "`schema:invalid_output (The output does not match the expected JSON schema format.)`",
+      "step_id": 8,
+      "t_unix_ms": 1777800704371,
+      "tokens_in": 158,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_memory"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_memory invoked (memory=5, corpus=5)",
+      "step_id": 9,
+      "t_unix_ms": 1777800704371,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07079999893903732,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "`schema:invalid_output (The output does not match the expected JSON schema format.)`",
+      "step_id": 10,
+      "t_unix_ms": 1777800704372,
+      "tokens_in": 158,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.09440000355243683,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1077,
+      "output_summary": "Billy sold a total of 7 DVDs on Tuesday. - The first 3 customers bought 3 DVDs in total. - The next 2 customers bought \u2026",
+      "step_id": 11,
+      "t_unix_ms": 1777800705449,
+      "tokens_in": 171,
+      "tokens_out": 65,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Billy sells DVDs. He has 8 customers on Tuesday. His first 3 customers buy one DVD each.  His next 2 customers buy 2 DVDs each.  His last 3 customers don't buy any DVDs. How many DVDs did Billy sell on Tuesday?\n\nThink step by step and end with `final_answer: <number>`."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00029",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.534000039100647,
+    "failed_tool_calls": 0,
+    "latency_ms": 4160,
+    "llm_calls": 7,
+    "tokens_in": 1090,
+    "tokens_out": 245,
+    "tool_calls": 2
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

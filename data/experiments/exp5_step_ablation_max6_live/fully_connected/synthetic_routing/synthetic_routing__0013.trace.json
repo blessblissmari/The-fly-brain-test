@@ -1,0 +1,144 @@
+{
+  "final_answer": "Plan: 1. Verify the sum inside the parentheses: $75 + 24 = 99$. 2. Confirm the expression simplifies to $99^{13}$. 3. C\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.13439999520778656,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Calculate the sum inside the parentheses: 75 + 24. 2. Raise the result to the 13th power.  Hand off to: Calcul\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777807228522,
+      "tokens_in": 71,
+      "tokens_out": 41,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.08320000022649765,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "5",
+      "latency_ms": 1326,
+      "output_summary": "1. Calculate the sum inside the parentheses: $75 + 24 = 99$. 2. Raise the result to the 13th power: $99^{13}$.  $$(75 +\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777807229848,
+      "tokens_in": 130,
+      "tokens_out": 78,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.32519999146461487,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "21",
+      "latency_ms": 1245,
+      "output_summary": "Plan: 1. Verify the calculation of the sum inside the parentheses: $75 + 24 = 99$. 2. Confirm the expression is correct\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777807231094,
+      "tokens_in": 184,
+      "tokens_out": 87,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.15360000729560852,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Calculate the sum inside the parentheses: 75 + 24. 2. Raise the result to the 13th power.  Hand off to: Math A\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777807231095,
+      "tokens_in": 86,
+      "tokens_out": 42,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.07720000296831131,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "47",
+      "latency_ms": 973,
+      "output_summary": "1. Calculate the sum inside the parentheses: $75 + 24 = 99$. 2. Raise the result to the 13th power: $99^{13}$.  final_a\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777807232068,
+      "tokens_in": 137,
+      "tokens_out": 56,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.27480000257492065,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "63",
+      "latency_ms": 1005,
+      "output_summary": "Plan: 1. Verify the sum inside the parentheses: $75 + 24 = 99$. 2. Confirm the expression simplifies to $99^{13}$. 3. C\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777807233074,
+      "tokens_in": 160,
+      "tokens_out": 69,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0013",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.0483999252319336,
+    "failed_tool_calls": 0,
+    "latency_ms": 4549,
+    "llm_calls": 6,
+    "tokens_in": 768,
+    "tokens_out": 373,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

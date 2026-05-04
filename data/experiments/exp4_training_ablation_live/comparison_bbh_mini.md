@@ -1,0 +1,7 @@
+| Method | Benchmark | Tasks | Success | Verifier | Tokens/task | Calls/task | Latency (ms) | Cost/task ₽ | Cost/solved ₽ |
+|---|---|---|---|---|---|---|---|---|---|
+| flybrain_prior_untrained | bbh_mini | 15 | 0.000 | 0.700 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_graph_ssl_pretrain | bbh_mini | 15 | 0.000 | 0.700 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_sim_pretrain | bbh_mini | 15 | 1.00 | 1.00 | 3144 | 12.00 | 8306 | 2.01 | 2.01 |
+| flybrain_imitation | bbh_mini | 15 | 1.00 | 1.00 | 2817 | 12.00 | 3770 | 2.03 | 2.03 |
+| flybrain_rl | bbh_mini | 15 | 0.867 | 0.980 | 2977 | 12.00 | 2062 | 3.01 | 3.47 |

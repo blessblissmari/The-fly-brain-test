@@ -1,0 +1,144 @@
+{
+  "final_answer": "schema:invalid_output (no JSON output provided)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.13920000195503235,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Determine the factors of 63. 2. Determine the factors of 88. 3. Identify the greatest common factor from the f\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777807348669,
+      "tokens_in": 70,
+      "tokens_out": 46,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.12960000336170197,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "To compute the greatest common divisor (GCD) of 63 and 88, we can use the Euclidean algorithm. Here are the steps:  1. \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777807348673,
+      "tokens_in": 71,
+      "tokens_out": 253,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.047200001776218414,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 640,
+      "output_summary": "schema:invalid_output (output does not match expected JSON schema, expected a numerical answer or structured output rel\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777807349315,
+      "tokens_in": 90,
+      "tokens_out": 28,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.042399998754262924,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 554,
+      "output_summary": "schema:invalid_output (no JSON output provided)",
+      "step_id": 3,
+      "t_unix_ms": 1777807349873,
+      "tokens_in": 95,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.042399998754262924,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no JSON output provided)",
+      "step_id": 4,
+      "t_unix_ms": 1777807349878,
+      "tokens_in": 95,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.042399998754262924,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no JSON output provided)",
+      "step_id": 5,
+      "t_unix_ms": 1777807349881,
+      "tokens_in": 95,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0017",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.443200021982193,
+    "failed_tool_calls": 0,
+    "latency_ms": 1197,
+    "llm_calls": 6,
+    "tokens_in": 516,
+    "tokens_out": 360,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

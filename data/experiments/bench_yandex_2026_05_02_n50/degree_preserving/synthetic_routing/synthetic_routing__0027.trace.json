@@ -1,0 +1,125 @@
+{
+  "final_answer": "final_answer: None",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.1632000058889389,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Retrieve form #3377 and its input data. 2. Check the completeness of the input data against the required field\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777727031592,
+      "tokens_in": 71,
+      "tokens_out": 65,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "ToolExecutor",
+      "cost_rub": 0.04360000044107437,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "ToolExecutor",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Please provide the specific tool from the registry that is appropriate for validating the input from form #3377, and an\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777727031592,
+      "tokens_in": 75,
+      "tokens_out": 34,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "ToolExecutor",
+      "cost_rub": 0.0,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1777727031593,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.042399998754262924,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "final_answer: None",
+      "step_id": 3,
+      "t_unix_ms": 1777727031593,
+      "tokens_in": 101,
+      "tokens_out": 5,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1777727031593,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0027",
+  "task_type": "tool_use",
+  "totals": {
+    "cost_rub": 0.2492000162601471,
+    "failed_tool_calls": 0,
+    "latency_ms": 0,
+    "llm_calls": 3,
+    "tokens_in": 247,
+    "tokens_out": 104,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,648 @@
+{
+  "final_answer": "schema:valid",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Create a mapping dictionary that maps each number word ('zero' to 'nine') to its integer value. 2. Split the i\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777905670278,
+      "tokens_in": 242,
+      "tokens_out": 131,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "2",
+      "latency_ms": 25239,
+      "output_summary": "```python from typing import List  def sort_numbers(numbers: str) -> str:     \"\"\"Return a space\u2011delimited string of the\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777905695521,
+      "tokens_in": 395,
+      "tokens_out": 352,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Implement the following Python function. Your final answer must be a complete, runnable function definition.\n\nEntry point: `sort_numbers`\n\n```python\nfrom typing import List\n\n\ndef sort_numbers(numbers: str) -> str:\n    \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'.\n    Valid choices are 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight' and 'nine'.\n    Return the string with numbers sorted from smallest to largest\n    >>> sort_numbers('three one five')\n    'one three five'\n    \"\"\"\n```\n"
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 11315,
+      "output_summary": "- The draft does not include any input validation or error handling for words outside the allowed set, which could caus\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777905706840,
+      "tokens_in": 251,
+      "tokens_out": 170,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 23823,
+      "output_summary": "- The draft does not include any actual implementation of `sort_numbers`; it only contains the function signature and d\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777905730667,
+      "tokens_in": 253,
+      "tokens_out": 142,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not include any actual implementation of `sort_numbers`; it only contains the function signature and d\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777905730671,
+      "tokens_in": 253,
+      "tokens_out": 142,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not include any actual implementation of `sort_numbers`; it only contains the function signature and d\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777905730675,
+      "tokens_in": 253,
+      "tokens_out": 142,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not include any actual implementation of `sort_numbers`; it only contains the function signature and d\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777905730679,
+      "tokens_in": 253,
+      "tokens_out": 142,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not include any actual implementation of `sort_numbers`; it only contains the function signature and d\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777905730683,
+      "tokens_in": 253,
+      "tokens_out": 142,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not include any actual implementation of `sort_numbers`; it only contains the function signature and d\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777905730687,
+      "tokens_in": 253,
+      "tokens_out": 142,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "7",
+      "latency_ms": 31378,
+      "output_summary": "We'll create tests for normal, duplicates, extra spaces, invalid.**Test code (generated by the test runner)**  ```pytho\u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777905762068,
+      "tokens_in": 645,
+      "tokens_out": 252,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "15",
+      "latency_ms": 23673,
+      "output_summary": "```python from typing import List  def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of \u2026",
+      "step_id": 10,
+      "t_unix_ms": 1777905785745,
+      "tokens_in": 535,
+      "tokens_out": 317,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 25037,
+      "output_summary": "```python from typing import List  def sort_numbers(numbers: str) -> str:     \"\"\"Input is a space-delimited string of n\u2026",
+      "step_id": 11,
+      "t_unix_ms": 1777905810785,
+      "tokens_in": 260,
+      "tokens_out": 293,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "```python from typing import List  def sort_numbers(numbers: str) -> str:     \"\"\"Input is a space-delimited string of n\u2026",
+      "step_id": 12,
+      "t_unix_ms": 1777905810791,
+      "tokens_in": 260,
+      "tokens_out": 293,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "```python from typing import List  def sort_numbers(numbers: str) -> str:     \"\"\"Input is a space-delimited string of n\u2026",
+      "step_id": 13,
+      "t_unix_ms": 1777905810796,
+      "tokens_in": 260,
+      "tokens_out": 293,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "```python from typing import List  def sort_numbers(numbers: str) -> str:     \"\"\"Input is a space-delimited string of n\u2026",
+      "step_id": 14,
+      "t_unix_ms": 1777905810800,
+      "tokens_in": 260,
+      "tokens_out": 293,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "```python from typing import List  def sort_numbers(numbers: str) -> str:     \"\"\"Input is a space-delimited string of n\u2026",
+      "step_id": 15,
+      "t_unix_ms": 1777905810805,
+      "tokens_in": 260,
+      "tokens_out": 293,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "```python from typing import List  def sort_numbers(numbers: str) -> str:     \"\"\"Input is a space-delimited string of n\u2026",
+      "step_id": 16,
+      "t_unix_ms": 1777905810810,
+      "tokens_in": 260,
+      "tokens_out": 293,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 7112,
+      "output_summary": "schema:valid",
+      "step_id": 17,
+      "t_unix_ms": 1777905817925,
+      "tokens_in": 266,
+      "tokens_out": 84,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 17911,
+      "output_summary": "schema:valid",
+      "step_id": 18,
+      "t_unix_ms": 1777905835839,
+      "tokens_in": 270,
+      "tokens_out": 44,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 19,
+      "t_unix_ms": 1777905835845,
+      "tokens_in": 270,
+      "tokens_out": 44,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 20,
+      "t_unix_ms": 1777905835850,
+      "tokens_in": 270,
+      "tokens_out": 44,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 21,
+      "t_unix_ms": 1777905835855,
+      "tokens_in": 270,
+      "tokens_out": 44,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 22,
+      "t_unix_ms": 1777905835860,
+      "tokens_in": 270,
+      "tokens_out": 44,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 23,
+      "t_unix_ms": 1777905835865,
+      "tokens_in": 270,
+      "tokens_out": 44,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 24,
+      "t_unix_ms": 1777905835869,
+      "tokens_in": 270,
+      "tokens_out": 44,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 25,
+      "t_unix_ms": 1777905835874,
+      "tokens_in": 270,
+      "tokens_out": 44,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 26,
+      "t_unix_ms": 1777905835879,
+      "tokens_in": 270,
+      "tokens_out": 44,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 27,
+      "t_unix_ms": 1777905835884,
+      "tokens_in": 270,
+      "tokens_out": 44,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 28,
+      "t_unix_ms": 1777905835889,
+      "tokens_in": 270,
+      "tokens_out": 44,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 29,
+      "t_unix_ms": 1777905835894,
+      "tokens_in": 270,
+      "tokens_out": 44,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 30,
+      "t_unix_ms": 1777905835899,
+      "tokens_in": 270,
+      "tokens_out": 44,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 31,
+      "t_unix_ms": 1777905835904,
+      "tokens_in": 270,
+      "tokens_out": 44,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-19",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 165530,
+    "llm_calls": 32,
+    "tokens_in": 9192,
+    "tokens_out": 4532,
+    "tool_calls": 1
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

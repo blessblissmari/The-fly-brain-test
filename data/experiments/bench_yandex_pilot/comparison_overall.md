@@ -1,0 +1,11 @@
+| Method | Benchmark | Tasks | Success | Verifier | Tokens/task | Calls/task | Latency (ms) | Cost/task ₽ | Cost/solved ₽ |
+|---|---|---|---|---|---|---|---|---|---|
+| manual_graph | _overall | 25 | 1.00 | 1.00 | 745 | 3.32 | 4900 | 0.448 | 0.448 |
+| fully_connected | _overall | 25 | 1.00 | 1.00 | 1013 | 3.32 | 3394 | 0.555 | 0.555 |
+| random_sparse | _overall | 25 | 0.400 | 0.820 | 1080 | 5.04 | 4963 | 0.595 | 1.49 |
+| degree_preserving | _overall | 25 | 1.00 | 1.00 | 785 | 3.32 | 0.000 | 0.464 | 0.464 |
+| learned_router_no_prior | _overall | 25 | 0.000 | 0.488 | 13.28 | 0.040 | 134 | 0.005 | ∞ |
+| flybrain_prior_untrained | _overall | 25 | 0.000 | 0.712 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_sim_pretrain | _overall | 25 | 0.800 | 0.970 | 2288 | 10.84 | 5547 | 1.23 | 1.54 |
+| flybrain_imitation | _overall | 25 | 0.760 | 0.958 | 2223 | 11.64 | 4141 | 1.79 | 2.36 |
+| flybrain_rl | _overall | 25 | 0.400 | 0.910 | 2409 | 12.00 | 4452 | 1.97 | 4.93 |

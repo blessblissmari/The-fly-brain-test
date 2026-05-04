@@ -1,0 +1,260 @@
+{
+  "final_answer": "schema:invalid_output (no output related to the mathematical task provided)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.21480000019073486,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Identify the function to be integrated: f(x) = x^1. 2. Set up the definite integral with the given limits of i\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777727324093,
+      "tokens_in": 78,
+      "tokens_out": 101,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.11079999804496765,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1140,
+      "output_summary": "```python import sympy as sp  x = sp.symbols('x') f = x  # Set up the definite integral integral = sp.Integral(f, (x, 0\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777727325235,
+      "tokens_in": 203,
+      "tokens_out": 74,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.12240000069141388,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 1371,
+      "output_summary": "``` from unittest import TestCase, main from math_functions import integrate  class TestIntegrate(TestCase):     def te\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777727326610,
+      "tokens_in": 217,
+      "tokens_out": 89,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.08760000020265579,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1589,
+      "output_summary": "``` from unittest import TestCase from unittest.mock import patch  class TestIntegral(TestCase):     def test_integral(\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777727328203,
+      "tokens_in": 101,
+      "tokens_out": 118,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05119999870657921,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 699,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema, as no mathematical evaluation or result is p\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777727328914,
+      "tokens_in": 103,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04919999837875366,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 523,
+      "output_summary": "schema:invalid_output (no output related to the mathematical task provided)",
+      "step_id": 5,
+      "t_unix_ms": 1777727329441,
+      "tokens_in": 108,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04919999837875366,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output related to the mathematical task provided)",
+      "step_id": 6,
+      "t_unix_ms": 1777727329446,
+      "tokens_in": 108,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04919999837875366,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output related to the mathematical task provided)",
+      "step_id": 7,
+      "t_unix_ms": 1777727329449,
+      "tokens_in": 108,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04919999837875366,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output related to the mathematical task provided)",
+      "step_id": 8,
+      "t_unix_ms": 1777727329452,
+      "tokens_in": 108,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04919999837875366,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output related to the mathematical task provided)",
+      "step_id": 9,
+      "t_unix_ms": 1777727329456,
+      "tokens_in": 108,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04919999837875366,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output related to the mathematical task provided)",
+      "step_id": 10,
+      "t_unix_ms": 1777727329459,
+      "tokens_in": 108,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04919999837875366,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output related to the mathematical task provided)",
+      "step_id": 11,
+      "t_unix_ms": 1777727329462,
+      "tokens_in": 108,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0041",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.9311999678611755,
+    "failed_tool_calls": 0,
+    "latency_ms": 5328,
+    "llm_calls": 12,
+    "tokens_in": 1458,
+    "tokens_out": 512,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: final_answer"
+    ],
+    "failed_component": "final_answer",
+    "passed": false,
+    "reward_delta": -0.10000000149011612,
+    "score": 0.8500000238418579,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

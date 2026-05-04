@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (produced output does not match expected output format)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.2831999957561493,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Define the function `string_sequence` with a single parameter `n`. 2. Generate a sequence of numbers from 0 to\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777800959943,
+      "tokens_in": 169,
+      "tokens_out": 67,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.1428000032901764,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1,
+      "output_summary": "```python def string_sequence(n: int) -> str:     \"\"\" Return a string containing space-delimited numbers starting from \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777800959947,
+      "tokens_in": 261,
+      "tokens_out": 96,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.1632000058889389,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 1811,
+      "output_summary": "``` import unittest  class TestStringSequence(unittest.TestCase):     def test_string_sequence_with_zero(self):        \u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777800961761,
+      "tokens_in": 275,
+      "tokens_out": 133,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.17839999496936798,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 1485,
+      "output_summary": "```python def string_sequence(n: int) -> str:     \"\"\" Return a string containing space-delimited numbers starting from \u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777800963249,
+      "tokens_in": 350,
+      "tokens_out": 96,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.08479999750852585,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 515,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 4,
+      "t_unix_ms": 1777800963767,
+      "tokens_in": 196,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0868000015616417,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 511,
+      "output_summary": "`schema:invalid_output (produced output does not match expected output format)`",
+      "step_id": 5,
+      "t_unix_ms": 1777800964282,
+      "tokens_in": 201,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0868000015616417,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected output format)`",
+      "step_id": 6,
+      "t_unix_ms": 1777800964286,
+      "tokens_in": 201,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0868000015616417,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected output format)`",
+      "step_id": 7,
+      "t_unix_ms": 1777800964290,
+      "tokens_in": 201,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0868000015616417,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected output format)`",
+      "step_id": 8,
+      "t_unix_ms": 1777800964293,
+      "tokens_in": 201,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0868000015616417,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected output format)`",
+      "step_id": 9,
+      "t_unix_ms": 1777800964296,
+      "tokens_in": 201,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0868000015616417,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected output format)`",
+      "step_id": 10,
+      "t_unix_ms": 1777800964300,
+      "tokens_in": 201,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0868000015616417,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected output format)`",
+      "step_id": 11,
+      "t_unix_ms": 1777800964303,
+      "tokens_in": 201,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-15",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 1.459999918937683,
+    "failed_tool_calls": 0,
+    "latency_ms": 4329,
+    "llm_calls": 12,
+    "tokens_in": 2658,
+    "tokens_out": 520,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

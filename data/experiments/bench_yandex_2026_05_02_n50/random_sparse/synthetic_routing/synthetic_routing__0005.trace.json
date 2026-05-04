@@ -1,0 +1,234 @@
+{
+  "final_answer": "```python import sympy as sp  x = sp.symbols('x') f = x**67  result = sp.integrate(f, (x, 0, 31)) print(result) ```",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "random",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": null,
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_tool_executor"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_tool_executor invoked (memory=0, corpus=0)",
+      "step_id": 0,
+      "t_unix_ms": 1777726782729,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TaskDecomposer",
+      "cost_rub": 0.06920000165700912,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "TaskDecomposer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1221,
+      "output_summary": "`<1>. Understand the integral to be evaluated: \u222b from 0 to 31 of x^67 dx -> Mathematician` `<2>. Apply the power rule f\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777726783951,
+      "tokens_in": 84,
+      "tokens_out": 89,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TaskDecomposer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1777726783951,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "TaskDecomposer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_tool_executor"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_tool_executor invoked (memory=1, corpus=1)",
+      "step_id": 3,
+      "t_unix_ms": 1777726783951,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TaskDecomposer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_retriever"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_retriever invoked (memory=1, corpus=1)",
+      "step_id": 4,
+      "t_unix_ms": 1777726783951,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.3431999981403351,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1169,
+      "output_summary": "- The decomposition does not include a step for calculating the final numerical answer, which is necessary for a comple\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777726785120,
+      "tokens_in": 213,
+      "tokens_out": 73,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.06199999898672104,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 899,
+      "output_summary": "```python from sympy import integrate, Symbol  x = Symbol('x') result = integrate(x**67, (x, 0, 31)) final_answer = res\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777726786020,
+      "tokens_in": 109,
+      "tokens_out": 46,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_memory"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "call_memory invoked (memory=3, corpus=3)",
+      "step_id": 7,
+      "t_unix_ms": 1777726786020,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 8,
+      "t_unix_ms": 1777726786020,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.05920000001788139,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 863,
+      "output_summary": "```python import sympy as sp  x = sp.symbols('x') f = x**67  result = sp.integrate(f, (x, 0, 31)) print(result) ```",
+      "step_id": 9,
+      "t_unix_ms": 1777726786884,
+      "tokens_in": 95,
+      "tokens_out": 53,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.0,
+      "current_graph_hash": "3e24d72b66cde180",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 10,
+      "t_unix_ms": 1777726786884,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0005",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.5336000323295593,
+    "failed_tool_calls": 0,
+    "latency_ms": 4152,
+    "llm_calls": 4,
+    "tokens_in": 501,
+    "tokens_out": 261,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

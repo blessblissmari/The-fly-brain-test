@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (produced output does not match the expected JSON schema)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.298799991607666,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1427,
+      "output_summary": "Plan: 1. Calculate the time required to download 40% of the file at the normal speed of 2 GB/minute. 2. Add the 20 minu\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777798684128,
+      "tokens_in": 146,
+      "tokens_out": 103,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.17759999632835388,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3952,
+      "output_summary": "First, calculate the amount of data downloaded before the restart: \\[ 200 \\, \\text{GB} \\times 0.4 = 80 \\, \\text{GB} \\] \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777798688084,
+      "tokens_in": 147,
+      "tokens_out": 297,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.18960000574588776,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 510,
+      "output_summary": "```python final_answer: 160 ```",
+      "step_id": 2,
+      "t_unix_ms": 1777798688598,
+      "tokens_in": 461,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.21960000693798065,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 495,
+      "output_summary": "verifier:failed:missing_solution_steps_and_final_answer",
+      "step_id": 3,
+      "t_unix_ms": 1777798689097,
+      "tokens_in": 167,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.15199999511241913,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2804,
+      "output_summary": "```python total_size = 200  # in GB download_speed = 2  # in GB/minute  # Calculate how much data Carla has downloaded \u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777798691915,
+      "tokens_in": 165,
+      "tokens_out": 215,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.15199999511241913,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python total_size = 200  # in GB download_speed = 2  # in GB/minute  # Calculate how much data Carla has downloaded \u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777798691919,
+      "tokens_in": 165,
+      "tokens_out": 215,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.15199999511241913,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python total_size = 200  # in GB download_speed = 2  # in GB/minute  # Calculate how much data Carla has downloaded \u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777798691923,
+      "tokens_in": 165,
+      "tokens_out": 215,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.15199999511241913,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python total_size = 200  # in GB download_speed = 2  # in GB/minute  # Calculate how much data Carla has downloaded \u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777798691927,
+      "tokens_in": 165,
+      "tokens_out": 215,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.15199999511241913,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python total_size = 200  # in GB download_speed = 2  # in GB/minute  # Calculate how much data Carla has downloaded \u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777798691944,
+      "tokens_in": 165,
+      "tokens_out": 215,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07519999891519547,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 510,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 9,
+      "t_unix_ms": 1777798692458,
+      "tokens_in": 173,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07800000160932541,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 535,
+      "output_summary": "`schema:invalid_output (produced output does not match the expected JSON schema)`",
+      "step_id": 10,
+      "t_unix_ms": 1777798692997,
+      "tokens_in": 178,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07800000160932541,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match the expected JSON schema)`",
+      "step_id": 11,
+      "t_unix_ms": 1777798693001,
+      "tokens_in": 178,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00012",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.8767997026443481,
+    "failed_tool_calls": 0,
+    "latency_ms": 10238,
+    "llm_calls": 12,
+    "tokens_in": 2275,
+    "tokens_out": 1553,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

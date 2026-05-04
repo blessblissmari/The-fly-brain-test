@@ -1,0 +1,11 @@
+| Method | Benchmark | Tasks | Success | Verifier | Tokens/task | Calls/task | Latency (ms) | Cost/task ₽ | Cost/solved ₽ |
+|---|---|---|---|---|---|---|---|---|---|
+| manual_graph | gsm8k | 5 | 1.00 | 1.00 | 761 | 3.00 | 5052 | 0.465 | 0.465 |
+| fully_connected | gsm8k | 5 | 1.00 | 1.00 | 860 | 3.00 | 2354 | 0.505 | 0.505 |
+| random_sparse | gsm8k | 5 | 0.800 | 0.870 | 1252 | 4.80 | 5303 | 0.940 | 1.18 |
+| degree_preserving | gsm8k | 5 | 1.00 | 1.00 | 761 | 3.00 | 0.000 | 0.465 | 0.465 |
+| learned_router_no_prior | gsm8k | 5 | 0.000 | 0.350 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_prior_untrained | gsm8k | 5 | 0.000 | 0.850 | 0.000 | 0.000 | 0.000 | 0.000 | ∞ |
+| flybrain_sim_pretrain | gsm8k | 5 | 1.00 | 1.00 | 2245 | 10.00 | 4874 | 1.40 | 1.40 |
+| flybrain_imitation | gsm8k | 5 | 1.00 | 1.00 | 2190 | 12.00 | 1848 | 1.17 | 1.17 |
+| flybrain_rl | gsm8k | 5 | 0.600 | 0.940 | 2504 | 12.00 | 1753 | 2.72 | 4.54 |

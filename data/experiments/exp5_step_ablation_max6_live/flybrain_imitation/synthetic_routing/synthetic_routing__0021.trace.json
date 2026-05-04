@@ -1,0 +1,174 @@
+{
+  "final_answer": "schema:invalid_output (no JSON output provided)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.225600004196167,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Identify the integral to be evaluated: \u222b from 0 to 80 of x^69 dx. 2. Apply the power rule for integration to f\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777807346845,
+      "tokens_in": 79,
+      "tokens_out": 109,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.13840000331401825,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "2",
+      "latency_ms": 1,
+      "output_summary": "1. The integral of $f(x) = x^{69}$ from 0 to 80 can be evaluated using the power rule for integration. 2. The antideriv\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777807346848,
+      "tokens_in": 233,
+      "tokens_out": 113,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Evaluate the integral of f(x) = x^69 from 0 to 80."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.08919999748468399,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "1. The integral of $f(x) = x^{69}$ from 0 to 80 can be calculated using the power rule for integration. 2. The result o\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777807346851,
+      "tokens_in": 110,
+      "tokens_out": 113,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Evaluate the integral of f(x) = x^69 from 0 to 80."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.08919999748468399,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "1. The integral of $f(x) = x^{69}$ from 0 to 80 can be calculated using the power rule for integration. 2. The result o\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777807346855,
+      "tokens_in": 110,
+      "tokens_out": 113,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Evaluate the integral of f(x) = x^69 from 0 to 80."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.1648000031709671,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 4390,
+      "output_summary": "To evaluate the integral of $f(x) = x^{69}$ from 0 to 80, we use the power rule for integration. The power rule states \u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777807351248,
+      "tokens_in": 84,
+      "tokens_out": 328,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04560000076889992,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 452,
+      "output_summary": "schema:invalid_output (no JSON output provided)",
+      "step_id": 5,
+      "t_unix_ms": 1777807351704,
+      "tokens_in": 103,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0021",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.7527999877929688,
+    "failed_tool_calls": 0,
+    "latency_ms": 4845,
+    "llm_calls": 6,
+    "tokens_in": 719,
+    "tokens_out": 787,
+    "tool_calls": 3
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

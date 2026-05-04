@@ -1,0 +1,638 @@
+{
+  "final_answer": "verifier:failed:incorrect output format or missing GCD calculation result",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.18000000715255737,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Identify the two numbers for which the GCD needs to be computed: 40 and 1. 2. Apply the Euclidean algorithm to\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777812940421,
+      "tokens_in": 69,
+      "tokens_out": 81,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "ToolExecutor",
+      "cost_rub": 0.030799999833106995,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "ToolExecutor",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 387,
+      "output_summary": "math_gcd",
+      "step_id": 1,
+      "t_unix_ms": 1777812940811,
+      "tokens_in": 73,
+      "tokens_out": 4,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.09279999881982803,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 952,
+      "output_summary": "```python def gcd(a, b):     while b != 0:         a, b = b, a % b     return a  result = gcd(40, 1) print(result) ```",
+      "step_id": 2,
+      "t_unix_ms": 1777812941767,
+      "tokens_in": 178,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.07559999823570251,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "7",
+      "latency_ms": 1179,
+      "output_summary": "``` from math import gcd  def test_gcd():     assert gcd(40, 1) == 1  if __name__ == '__main__':     import unit_tester\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777812942949,
+      "tokens_in": 114,
+      "tokens_out": 75,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04560000076889992,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 496,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema)",
+      "step_id": 4,
+      "t_unix_ms": 1777812943449,
+      "tokens_in": 98,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05119999870657921,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 606,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema, as it is unrelated to the task provided)",
+      "step_id": 5,
+      "t_unix_ms": 1777812944057,
+      "tokens_in": 103,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05119999870657921,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema, as it is unrelated to the task provided)",
+      "step_id": 6,
+      "t_unix_ms": 1777812944062,
+      "tokens_in": 103,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05119999870657921,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema, as it is unrelated to the task provided)",
+      "step_id": 7,
+      "t_unix_ms": 1777812944065,
+      "tokens_in": 103,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05119999870657921,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema, as it is unrelated to the task provided)",
+      "step_id": 8,
+      "t_unix_ms": 1777812944069,
+      "tokens_in": 103,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05119999870657921,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema, as it is unrelated to the task provided)",
+      "step_id": 9,
+      "t_unix_ms": 1777812944072,
+      "tokens_in": 103,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05119999870657921,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema, as it is unrelated to the task provided)",
+      "step_id": 10,
+      "t_unix_ms": 1777812944076,
+      "tokens_in": 103,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05119999870657921,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema, as it is unrelated to the task provided)",
+      "step_id": 11,
+      "t_unix_ms": 1777812944079,
+      "tokens_in": 103,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05119999870657921,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema, as it is unrelated to the task provided)",
+      "step_id": 12,
+      "t_unix_ms": 1777812944083,
+      "tokens_in": 103,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05119999870657921,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema, as it is unrelated to the task provided)",
+      "step_id": 13,
+      "t_unix_ms": 1777812944086,
+      "tokens_in": 103,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05119999870657921,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema, as it is unrelated to the task provided)",
+      "step_id": 14,
+      "t_unix_ms": 1777812944090,
+      "tokens_in": 103,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05119999870657921,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema, as it is unrelated to the task provided)",
+      "step_id": 15,
+      "t_unix_ms": 1777812944094,
+      "tokens_in": 103,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05119999870657921,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema, as it is unrelated to the task provided)",
+      "step_id": 16,
+      "t_unix_ms": 1777812944098,
+      "tokens_in": 103,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05119999870657921,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema, as it is unrelated to the task provided)",
+      "step_id": 17,
+      "t_unix_ms": 1777812944101,
+      "tokens_in": 103,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05119999870657921,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema, as it is unrelated to the task provided)",
+      "step_id": 18,
+      "t_unix_ms": 1777812944105,
+      "tokens_in": 103,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05119999870657921,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema, as it is unrelated to the task provided)",
+      "step_id": 19,
+      "t_unix_ms": 1777812944109,
+      "tokens_in": 103,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05119999870657921,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema, as it is unrelated to the task provided)",
+      "step_id": 20,
+      "t_unix_ms": 1777812944113,
+      "tokens_in": 103,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05119999870657921,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema, as it is unrelated to the task provided)",
+      "step_id": 21,
+      "t_unix_ms": 1777812944116,
+      "tokens_in": 103,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05119999870657921,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema, as it is unrelated to the task provided)",
+      "step_id": 22,
+      "t_unix_ms": 1777812944120,
+      "tokens_in": 103,
+      "tokens_out": 25,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.188400000333786,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1068,
+      "output_summary": "- The draft does not contain any mathematical reasoning or steps to compute the GCD of 40 and 1. - There is no final an\u2026",
+      "step_id": 23,
+      "t_unix_ms": 1777812945191,
+      "tokens_in": 93,
+      "tokens_out": 64,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.14159999787807465,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 479,
+      "output_summary": "verifier:failed:missing_gcd_computation",
+      "step_id": 24,
+      "t_unix_ms": 1777812945680,
+      "tokens_in": 106,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.14880000054836273,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 506,
+      "output_summary": "verifier:failed:incorrect output format or missing GCD calculation result",
+      "step_id": 25,
+      "t_unix_ms": 1777812946190,
+      "tokens_in": 109,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.14880000054836273,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:incorrect output format or missing GCD calculation result",
+      "step_id": 26,
+      "t_unix_ms": 1777812946195,
+      "tokens_in": 109,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.14880000054836273,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:incorrect output format or missing GCD calculation result",
+      "step_id": 27,
+      "t_unix_ms": 1777812946198,
+      "tokens_in": 109,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.14880000054836273,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:incorrect output format or missing GCD calculation result",
+      "step_id": 28,
+      "t_unix_ms": 1777812946202,
+      "tokens_in": 109,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.14880000054836273,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:incorrect output format or missing GCD calculation result",
+      "step_id": 29,
+      "t_unix_ms": 1777812946206,
+      "tokens_in": 109,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.14880000054836273,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:incorrect output format or missing GCD calculation result",
+      "step_id": 30,
+      "t_unix_ms": 1777812946210,
+      "tokens_in": 109,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.14880000054836273,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:incorrect output format or missing GCD calculation result",
+      "step_id": 31,
+      "t_unix_ms": 1777812946213,
+      "tokens_in": 109,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0005",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 2.7179994583129883,
+    "failed_tool_calls": 0,
+    "latency_ms": 5696,
+    "llm_calls": 32,
+    "tokens_in": 3348,
+    "tokens_out": 861,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

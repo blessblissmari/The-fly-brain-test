@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (function does not match expected JSON schema)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.26159998774528503,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Define the function `strlen` with a single parameter `string`. 2. Use the built-in `len` function to calculate\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777801129982,
+      "tokens_in": 134,
+      "tokens_out": 84,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.11840000003576279,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 0,
+      "output_summary": "```python def strlen(string: str) -> int:     \"\"\" Return length of given string     >>> strlen('')     0     >>> strlen\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777801129985,
+      "tokens_in": 244,
+      "tokens_out": 52,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.14319999516010284,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 1,
+      "output_summary": "```python import unittest  class TestStrLen(unittest.TestCase):     def test_strlen_empty_string(self):         self.as\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777801129988,
+      "tokens_in": 258,
+      "tokens_out": 100,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.12680000066757202,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2029,
+      "output_summary": "``` import unittest  class TestStringLength(unittest.TestCase):     def test_strlen_empty_string(self):         self.as\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777801132020,
+      "tokens_in": 157,
+      "tokens_out": 160,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06880000233650208,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 475,
+      "output_summary": "`schema:invalid_output (expected JSON schema not provided)`",
+      "step_id": 4,
+      "t_unix_ms": 1777801132499,
+      "tokens_in": 159,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 572,
+      "output_summary": "`schema:invalid_output (the output does not match the expected JSON schema for the strlen function)`",
+      "step_id": 5,
+      "t_unix_ms": 1777801133075,
+      "tokens_in": 164,
+      "tokens_out": 21,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (the output does not match the expected JSON schema for the strlen function)`",
+      "step_id": 6,
+      "t_unix_ms": 1777801133079,
+      "tokens_in": 164,
+      "tokens_out": 21,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (the output does not match the expected JSON schema for the strlen function)`",
+      "step_id": 7,
+      "t_unix_ms": 1777801133083,
+      "tokens_in": 164,
+      "tokens_out": 21,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (the output does not match the expected JSON schema for the strlen function)`",
+      "step_id": 8,
+      "t_unix_ms": 1777801133088,
+      "tokens_in": 164,
+      "tokens_out": 21,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (the output does not match the expected JSON schema for the strlen function)`",
+      "step_id": 9,
+      "t_unix_ms": 1777801133096,
+      "tokens_in": 164,
+      "tokens_out": 21,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.15960000455379486,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "12",
+      "latency_ms": 944,
+      "output_summary": "```python def strlen(string: str) -> int:     \"\"\" Return length of given string     >>> strlen('')     0     >>> strlen\u2026",
+      "step_id": 10,
+      "t_unix_ms": 1777801134043,
+      "tokens_in": 347,
+      "tokens_out": 52,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07240000367164612,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 507,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 11,
+      "t_unix_ms": 1777801134553,
+      "tokens_in": 166,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-23",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 1.3207999467849731,
+    "failed_tool_calls": 0,
+    "latency_ms": 4532,
+    "llm_calls": 12,
+    "tokens_in": 2285,
+    "tokens_out": 581,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (no output provided for validation)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.2184000015258789,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Identify the integral to be evaluated: \u222b from 0 to 31 of x^67 dx. 2. Apply the power rule for integration to f\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777727273840,
+      "tokens_in": 79,
+      "tokens_out": 103,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.18639999628067017,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "To evaluate the integral of \\( f(x) = x^{67} \\) from 0 to 31, we follow these steps:  1. **Identify the integral to be \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777727273843,
+      "tokens_in": 80,
+      "tokens_out": 386,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.20880000293254852,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 1268,
+      "output_summary": "```python # No changes needed in the provided code snippet as it is not in a programming context. ```",
+      "step_id": 2,
+      "t_unix_ms": 1777727275114,
+      "tokens_in": 499,
+      "tokens_out": 23,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1356000006198883,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 521,
+      "output_summary": "verifier:failed:missing_integral_evaluation_result",
+      "step_id": 3,
+      "t_unix_ms": 1777727275639,
+      "tokens_in": 100,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.13920000195503235,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 497,
+      "output_summary": "verifier:failed:missing_integral_evaluation_result",
+      "step_id": 4,
+      "t_unix_ms": 1777727276139,
+      "tokens_in": 103,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.06080000102519989,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1029,
+      "output_summary": "```python from sympy import symbols, integrate  x = symbols('x') f_x = x**67  result = integrate(f_x, (x, 0, 31)) print\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777727277172,
+      "tokens_in": 98,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.06080000102519989,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from sympy import symbols, integrate  x = symbols('x') f_x = x**67  result = integrate(f_x, (x, 0, 31)) print\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777727277177,
+      "tokens_in": 98,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.06080000102519989,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from sympy import symbols, integrate  x = symbols('x') f_x = x**67  result = integrate(f_x, (x, 0, 31)) print\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777727277180,
+      "tokens_in": 98,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.06080000102519989,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from sympy import symbols, integrate  x = symbols('x') f_x = x**67  result = integrate(f_x, (x, 0, 31)) print\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777727277184,
+      "tokens_in": 98,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.046799998730421066,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 728,
+      "output_summary": "schema:invalid_output (no JSON output provided)",
+      "step_id": 9,
+      "t_unix_ms": 1777727277915,
+      "tokens_in": 106,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04960000142455101,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 530,
+      "output_summary": "`schema:invalid_output (no output provided for validation)`",
+      "step_id": 10,
+      "t_unix_ms": 1777727278450,
+      "tokens_in": 111,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.04960000142455101,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no output provided for validation)`",
+      "step_id": 11,
+      "t_unix_ms": 1777727278456,
+      "tokens_in": 111,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0005",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.2775999307632446,
+    "failed_tool_calls": 0,
+    "latency_ms": 4578,
+    "llm_calls": 12,
+    "tokens_in": 1581,
+    "tokens_out": 791,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

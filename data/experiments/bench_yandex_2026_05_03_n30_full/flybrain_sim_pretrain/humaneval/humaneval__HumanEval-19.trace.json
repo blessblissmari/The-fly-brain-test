@@ -1,0 +1,268 @@
+{
+  "final_answer": "`schema:invalid_output (function does not match expected JSON schema)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.3467999994754791,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Create a dictionary that maps string representations of numbers to their integer values. 2. Split the input st\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777800927348,
+      "tokens_in": 204,
+      "tokens_out": 85,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.2671999931335449,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "2",
+      "latency_ms": 4658,
+      "output_summary": "1. Here is a Python function `sort_numbers` that sorts a space-delimited string of numerals from 'zero' to 'nine' from \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777800932009,
+      "tokens_in": 332,
+      "tokens_out": 336,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Implement the following Python function. Your final answer must be a complete, runnable function definition.\n\nEntry point: `sort_numbers`\n\n```python\nfrom typing import List\n\n\ndef sort_numbers(numbers: str) -> str:\n    \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'.\n    Valid choices are 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight' and 'nine'.\n    Return the string with numbers sorted from smallest to largest\n    >>> sort_numbers('three one five')\n    'one three five'\n    \"\"\"\n```\n"
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.4007999897003174,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "7",
+      "latency_ms": 4310,
+      "output_summary": "```python from typing import List from unittest import TestCase from unittest.mock import patch  class TestSortNumbers(\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777800936323,
+      "tokens_in": 647,
+      "tokens_out": 355,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.3452000021934509,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 2501,
+      "output_summary": "```python from typing import List  def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of \u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777800938828,
+      "tokens_in": 667,
+      "tokens_out": 196,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.14720000326633453,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1980,
+      "output_summary": "```python from typing import List   def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777800940811,
+      "tokens_in": 224,
+      "tokens_out": 144,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.14720000326633453,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List   def sort_numbers(numbers: str) -> str:     \"\"\" Input is a space-delimited string of\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777800940816,
+      "tokens_in": 224,
+      "tokens_out": 144,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.10199999809265137,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 597,
+      "output_summary": "`schema:invalid_output (the output does not match the expected JSON schema for the sort_numbers function)`",
+      "step_id": 6,
+      "t_unix_ms": 1777800941416,
+      "tokens_in": 232,
+      "tokens_out": 23,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.10080000013113022,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 539,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 7,
+      "t_unix_ms": 1777800941959,
+      "tokens_in": 237,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.10080000013113022,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 8,
+      "t_unix_ms": 1777800941964,
+      "tokens_in": 237,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.10080000013113022,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 9,
+      "t_unix_ms": 1777800941968,
+      "tokens_in": 237,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.10080000013113022,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 10,
+      "t_unix_ms": 1777800941971,
+      "tokens_in": 237,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.10080000013113022,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 11,
+      "t_unix_ms": 1777800941975,
+      "tokens_in": 237,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-19",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 2.2604000568389893,
+    "failed_tool_calls": 0,
+    "latency_ms": 14590,
+    "llm_calls": 12,
+    "tokens_in": 3715,
+    "tokens_out": 1358,
+    "tool_calls": 1
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,268 @@
+{
+  "final_answer": "`schema:invalid_output (function does not match expected JSON schema)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.26759999990463257,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Define the function `is_even` with one parameter `n`. 2. Use the modulo operator (`%`) to check if `n` is divi\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777727070193,
+      "tokens_in": 132,
+      "tokens_out": 91,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.12880000472068787,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "2",
+      "latency_ms": 996,
+      "output_summary": "```python def is_even(n: int) -> bool:     \"\"\"Return True iff n is even.     >>> is_even(2)     True     \"\"\"     return\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777727071192,
+      "tokens_in": 269,
+      "tokens_out": 53,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Implement the following Python function. Your final answer must be a complete, runnable function definition.\n\nEntry point: `is_even`\n\n```python\ndef is_even(n: int) -> bool:\n    \"\"\"Return True iff n is even.\n    >>> is_even(2)\n    True\n    \"\"\"\n```\n"
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.17440000176429749,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "7",
+      "latency_ms": 2861,
+      "output_summary": "```python import unittest  class TestIsEven(unittest.TestCase):     def test_even_number(self):         self.assertTrue\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777727074057,
+      "tokens_in": 227,
+      "tokens_out": 209,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.18119999766349792,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 1000,
+      "output_summary": "```python def is_even(n: int) -> bool:     \"\"\"Return True iff n is even.     >>> is_even(2)     True     \"\"\"     return\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777727075061,
+      "tokens_in": 400,
+      "tokens_out": 53,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0820000022649765,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 942,
+      "output_summary": "```python def is_even(n: int) -> bool:     \"\"\"Return True iff n is even.     >>> is_even(2)     True     \"\"\"     return\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777727076008,
+      "tokens_in": 152,
+      "tokens_out": 53,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07240000367164612,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 586,
+      "output_summary": "`schema:invalid_output (the output does not match the expected JSON schema for the function definition)`",
+      "step_id": 5,
+      "t_unix_ms": 1777727076598,
+      "tokens_in": 160,
+      "tokens_out": 21,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07199999690055847,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 527,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 6,
+      "t_unix_ms": 1777727077128,
+      "tokens_in": 165,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07199999690055847,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 7,
+      "t_unix_ms": 1777727077133,
+      "tokens_in": 165,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07199999690055847,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 8,
+      "t_unix_ms": 1777727077136,
+      "tokens_in": 165,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07199999690055847,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 9,
+      "t_unix_ms": 1777727077140,
+      "tokens_in": 165,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07199999690055847,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 10,
+      "t_unix_ms": 1777727077143,
+      "tokens_in": 165,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07199999690055847,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 11,
+      "t_unix_ms": 1777727077147,
+      "tokens_in": 165,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-4",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 1.33840012550354,
+    "failed_tool_calls": 0,
+    "latency_ms": 6918,
+    "llm_calls": 12,
+    "tokens_in": 2330,
+    "tokens_out": 570,
+    "tool_calls": 1
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

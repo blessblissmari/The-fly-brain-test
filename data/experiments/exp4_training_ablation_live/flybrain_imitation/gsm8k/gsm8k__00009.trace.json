@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (no JSON output provided)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.31679999828338623,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Calculate the cost of the donuts by multiplying the number of dozens (3) by the cost per dozen ($68). 2. Calcu\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777798826422,
+      "tokens_in": 141,
+      "tokens_out": 123,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.14839999377727509,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1,
+      "output_summary": "```python donuts_cost = 3 * 68 mini_cupcakes_cost = 2 * 80 mini_cheesecakes_cost = 6 * 55 total_cost = donuts_cost + mi\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777798826425,
+      "tokens_in": 291,
+      "tokens_out": 80,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.20640000700950623,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "verifier:failed:missing_mathematical_solution",
+      "step_id": 2,
+      "t_unix_ms": 1777798826428,
+      "tokens_in": 161,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.21719999611377716,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "verifier:failed:missing_calculation_steps_and_final_answer",
+      "step_id": 3,
+      "t_unix_ms": 1777798826431,
+      "tokens_in": 164,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.21719999611377716,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_calculation_steps_and_final_answer",
+      "step_id": 4,
+      "t_unix_ms": 1777798826434,
+      "tokens_in": 164,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.14480000734329224,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 1,
+      "output_summary": "```python donuts_cost = 3 * 68 mini_cupcakes_cost = 2 * 80 mini_cheesecakes_cost = 6 * 55 total_cost = donuts_cost + mi\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777798826438,
+      "tokens_in": 261,
+      "tokens_out": 101,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.21359999477863312,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 448,
+      "output_summary": "verifier:failed:no solution provided to the math problem",
+      "step_id": 6,
+      "t_unix_ms": 1777798826889,
+      "tokens_in": 166,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (the output does not match the expected JSON schema)",
+      "step_id": 7,
+      "t_unix_ms": 1777798826893,
+      "tokens_in": 169,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07440000027418137,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no JSON output provided)`",
+      "step_id": 8,
+      "t_unix_ms": 1777798826897,
+      "tokens_in": 174,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07440000027418137,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no JSON output provided)`",
+      "step_id": 9,
+      "t_unix_ms": 1777798826901,
+      "tokens_in": 174,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07440000027418137,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no JSON output provided)`",
+      "step_id": 10,
+      "t_unix_ms": 1777798826905,
+      "tokens_in": 174,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07440000027418137,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no JSON output provided)`",
+      "step_id": 11,
+      "t_unix_ms": 1777798826908,
+      "tokens_in": 174,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00009",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.8359997272491455,
+    "failed_tool_calls": 0,
+    "latency_ms": 456,
+    "llm_calls": 12,
+    "tokens_in": 2213,
+    "tokens_out": 425,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

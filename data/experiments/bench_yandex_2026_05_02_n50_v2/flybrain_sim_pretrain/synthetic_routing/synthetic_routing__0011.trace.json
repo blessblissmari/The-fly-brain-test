@@ -1,0 +1,260 @@
+{
+  "final_answer": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.16439999639987946,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Retrieve form #9435 and the corresponding input data. 2. Verify the completeness of the input data against the\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777733576774,
+      "tokens_in": 71,
+      "tokens_out": 66,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.07680000364780426,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 759,
+      "output_summary": "```python def validate_input(form_data):     # Placeholder for actual validation logic     return \"Input is valid\" ```",
+      "step_id": 1,
+      "t_unix_ms": 1777733577536,
+      "tokens_in": 161,
+      "tokens_out": 31,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.24560000002384186,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 5282,
+      "output_summary": "``` import unittest  def validate_input_from_form(input_data):     # Here would be the validation logic     pass  class\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777733582822,
+      "tokens_in": 175,
+      "tokens_out": 439,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.43320000171661377,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 6267,
+      "output_summary": "```python import unittest  def validate_input_from_form(input_data):     # Here would be the validation logic     if 'n\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777733589093,
+      "tokens_in": 574,
+      "tokens_out": 509,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.046799998730421066,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 591,
+      "output_summary": "`schema:invalid_output (The provided output does not match the expected JSON schema.)`",
+      "step_id": 4,
+      "t_unix_ms": 1777733589698,
+      "tokens_in": 98,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.047600001096725464,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 494,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 5,
+      "t_unix_ms": 1777733590196,
+      "tokens_in": 103,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.047600001096725464,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 6,
+      "t_unix_ms": 1777733590200,
+      "tokens_in": 103,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.047600001096725464,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 7,
+      "t_unix_ms": 1777733590204,
+      "tokens_in": 103,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.047600001096725464,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 8,
+      "t_unix_ms": 1777733590207,
+      "tokens_in": 103,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.047600001096725464,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 9,
+      "t_unix_ms": 1777733590211,
+      "tokens_in": 103,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.047600001096725464,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 10,
+      "t_unix_ms": 1777733590215,
+      "tokens_in": 103,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.047600001096725464,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (produced output does not match expected JSON schema)`",
+      "step_id": 11,
+      "t_unix_ms": 1777733590218,
+      "tokens_in": 103,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0011",
+  "task_type": "tool_use",
+  "totals": {
+    "cost_rub": 1.3000001907348633,
+    "failed_tool_calls": 0,
+    "latency_ms": 13399,
+    "llm_calls": 12,
+    "tokens_in": 1800,
+    "tokens_out": 1176,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: final_answer"
+    ],
+    "failed_component": "final_answer",
+    "passed": false,
+    "reward_delta": -0.10000000149011612,
+    "score": 0.8500000238418579,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

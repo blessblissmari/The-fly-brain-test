@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (function does not match expected output format)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.4487999975681305,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Define the function `parse_music` with the specified signature and docstring. 2. Split the input string into i\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777800954131,
+      "tokens_in": 274,
+      "tokens_out": 100,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.2624000012874603,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List  def parse_music(music_string: str) -> List[int]:     \"\"\" Input to this function is a\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777800954134,
+      "tokens_in": 398,
+      "tokens_out": 258,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.26600000262260437,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 3207,
+      "output_summary": "``` from typing import List from unittest import TestCase, main  class TestParseMusic(TestCase):      def test_parse_mu\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777800957345,
+      "tokens_in": 412,
+      "tokens_out": 253,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.33320000767707825,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 3184,
+      "output_summary": "```python from typing import List  def parse_music(music_string: str) -> List[int]:     \"\"\" Input to this function is a\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777800960532,
+      "tokens_in": 582,
+      "tokens_out": 251,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.21799999475479126,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3402,
+      "output_summary": "```python from typing import List   def parse_music(music_string: str) -> List[int]:     \"\"\" Input to this function is \u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777800963939,
+      "tokens_in": 293,
+      "tokens_out": 252,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.12639999389648438,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 517,
+      "output_summary": "`schema:invalid_output (function does not match expected output format)`",
+      "step_id": 5,
+      "t_unix_ms": 1777800964460,
+      "tokens_in": 301,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.12839999794960022,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 488,
+      "output_summary": "`schema:invalid_output (function does not match expected output format)`",
+      "step_id": 6,
+      "t_unix_ms": 1777800964952,
+      "tokens_in": 306,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.12839999794960022,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected output format)`",
+      "step_id": 7,
+      "t_unix_ms": 1777800964957,
+      "tokens_in": 306,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.12839999794960022,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected output format)`",
+      "step_id": 8,
+      "t_unix_ms": 1777800964960,
+      "tokens_in": 306,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.12839999794960022,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected output format)`",
+      "step_id": 9,
+      "t_unix_ms": 1777800964964,
+      "tokens_in": 306,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.12839999794960022,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected output format)`",
+      "step_id": 10,
+      "t_unix_ms": 1777800964968,
+      "tokens_in": 306,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.12839999794960022,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected output format)`",
+      "step_id": 11,
+      "t_unix_ms": 1777800964971,
+      "tokens_in": 306,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-17",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 2.4252002239227295,
+    "failed_tool_calls": 0,
+    "latency_ms": 10805,
+    "llm_calls": 12,
+    "tokens_in": 4096,
+    "tokens_out": 1219,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

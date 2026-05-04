@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (expected output is a single string, but received list of strings)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.257999986410141,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Define the function `concatenate` with the specified signature. 2. Use the `join` method to concatenate the li\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777800964976,
+      "tokens_in": 159,
+      "tokens_out": 56,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.12680000066757202,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 0,
+      "output_summary": "```python from typing import List  def concatenate(strings: List[str]) -> str:     \"\"\" Concatenate list of strings into\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777800964979,
+      "tokens_in": 239,
+      "tokens_out": 78,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.16599999368190765,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 2030,
+      "output_summary": "``` from typing import List  def concatenate(strings: List[str]) -> str:     \"\"\" Concatenate list of strings into a sin\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777800967012,
+      "tokens_in": 253,
+      "tokens_out": 162,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.18880000710487366,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 1169,
+      "output_summary": "```python from typing import List  def concatenate(strings: List[str]) -> str:     \"\"\" Concatenate list of strings into\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777800968185,
+      "tokens_in": 394,
+      "tokens_out": 78,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0820000022649765,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 558,
+      "output_summary": "`schema:invalid_output (output is a list of strings, not a single string)`",
+      "step_id": 4,
+      "t_unix_ms": 1777800968746,
+      "tokens_in": 186,
+      "tokens_out": 19,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0843999981880188,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 544,
+      "output_summary": "`schema:invalid_output (expected output is a single string, but received list of strings)`",
+      "step_id": 5,
+      "t_unix_ms": 1777800969293,
+      "tokens_in": 191,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0843999981880188,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected output is a single string, but received list of strings)`",
+      "step_id": 6,
+      "t_unix_ms": 1777800969298,
+      "tokens_in": 191,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0843999981880188,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected output is a single string, but received list of strings)`",
+      "step_id": 7,
+      "t_unix_ms": 1777800969301,
+      "tokens_in": 191,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0843999981880188,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected output is a single string, but received list of strings)`",
+      "step_id": 8,
+      "t_unix_ms": 1777800969305,
+      "tokens_in": 191,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0843999981880188,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected output is a single string, but received list of strings)`",
+      "step_id": 9,
+      "t_unix_ms": 1777800969308,
+      "tokens_in": 191,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0843999981880188,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected output is a single string, but received list of strings)`",
+      "step_id": 10,
+      "t_unix_ms": 1777800969312,
+      "tokens_in": 191,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0843999981880188,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected output is a single string, but received list of strings)`",
+      "step_id": 11,
+      "t_unix_ms": 1777800969315,
+      "tokens_in": 191,
+      "tokens_out": 20,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-28",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 1.4123997688293457,
+    "failed_tool_calls": 0,
+    "latency_ms": 4307,
+    "llm_calls": 12,
+    "tokens_in": 2568,
+    "tokens_out": 533,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "final_answer": "Fly connectomes refer to the comprehensive mapping of neural connections in fruit flies (Drosophila), providing insight\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.19679999351501465,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Identify key sources and publications on fly connectomes, including recent research articles and reviews. 2. R\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777726620549,
+      "tokens_in": 72,
+      "tokens_out": 92,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.10199999809265137,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 944,
+      "output_summary": "1. Searched for \"fly connectomes\" using the `web_search` tool. 2. Top results include recent research articles and revi\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777726621494,
+      "tokens_in": 208,
+      "tokens_out": 47,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Write a 200-word literature review on fly connectomes."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1777726621494,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.17800000309944153,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "17",
+      "latency_ms": 3741,
+      "output_summary": "Fly connectomes refer to the comprehensive mapping of neural connections in fruit flies (Drosophila), providing insight\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777726625236,
+      "tokens_in": 165,
+      "tokens_out": 280,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "004f0990935c19ce",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1777726625236,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0006",
+  "task_type": "research",
+  "totals": {
+    "cost_rub": 0.47679999470710754,
+    "failed_tool_calls": 0,
+    "latency_ms": 4685,
+    "llm_calls": 3,
+    "tokens_in": 445,
+    "tokens_out": 419,
+    "tool_calls": 1
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,638 @@
+{
+  "final_answer": "verifier:passed",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Subtract 72 from both sides of the equation to isolate the term with\u202fx:\u202f96x\u202f=\u202f69\u202f\u2212\u202f72. 2. Compute the right\u2011ha\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777905142803,
+      "tokens_in": 127,
+      "tokens_out": 156,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 11840,
+      "output_summary": "```python # Solve 96x + 72 = 69 # Step 1: subtract 72 # 96x = 69 - 72 = -3 # Step 2: divide by 96 x = -3 / 96  # Simpli\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777905154645,
+      "tokens_in": 311,
+      "tokens_out": 129,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 19998,
+      "output_summary": "We need to run unit tests but no code shown. Probably there is a function solve_equation? Let's list files.We can't lis\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777905174647,
+      "tokens_in": 326,
+      "tokens_out": 294,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 17901,
+      "output_summary": "```python # solution.py def solve() -> str:     \"\"\"     Solves the linear equation 96x + 72 = 69 and returns the soluti\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777905192552,
+      "tokens_in": 433,
+      "tokens_out": 244,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 18408,
+      "output_summary": "```python def solve_equation():     \"\"\"     Solves the linear equation 96x + 72 = 69 for x.     Returns the solution as\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777905210963,
+      "tokens_in": 142,
+      "tokens_out": 177,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def solve_equation():     \"\"\"     Solves the linear equation 96x + 72 = 69 for x.     Returns the solution as\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777905210968,
+      "tokens_in": 142,
+      "tokens_out": 177,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def solve_equation():     \"\"\"     Solves the linear equation 96x + 72 = 69 for x.     Returns the solution as\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777905210972,
+      "tokens_in": 142,
+      "tokens_out": 177,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 4126,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 7,
+      "t_unix_ms": 1777905215105,
+      "tokens_in": 148,
+      "tokens_out": 76,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 8558,
+      "output_summary": "schema:invalid_output (No JSON output was provided; the response should be a JSON object conforming to the expected sch\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777905223667,
+      "tokens_in": 152,
+      "tokens_out": 90,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No JSON output was provided; the response should be a JSON object conforming to the expected sch\u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777905223671,
+      "tokens_in": 152,
+      "tokens_out": 90,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No JSON output was provided; the response should be a JSON object conforming to the expected sch\u2026",
+      "step_id": 10,
+      "t_unix_ms": 1777905223675,
+      "tokens_in": 152,
+      "tokens_out": 90,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No JSON output was provided; the response should be a JSON object conforming to the expected sch\u2026",
+      "step_id": 11,
+      "t_unix_ms": 1777905223679,
+      "tokens_in": 152,
+      "tokens_out": 90,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No JSON output was provided; the response should be a JSON object conforming to the expected sch\u2026",
+      "step_id": 12,
+      "t_unix_ms": 1777905223683,
+      "tokens_in": 152,
+      "tokens_out": 90,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No JSON output was provided; the response should be a JSON object conforming to the expected sch\u2026",
+      "step_id": 13,
+      "t_unix_ms": 1777905223687,
+      "tokens_in": 152,
+      "tokens_out": 90,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No JSON output was provided; the response should be a JSON object conforming to the expected sch\u2026",
+      "step_id": 14,
+      "t_unix_ms": 1777905223704,
+      "tokens_in": 152,
+      "tokens_out": 90,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No JSON output was provided; the response should be a JSON object conforming to the expected sch\u2026",
+      "step_id": 15,
+      "t_unix_ms": 1777905223708,
+      "tokens_in": 152,
+      "tokens_out": 90,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No JSON output was provided; the response should be a JSON object conforming to the expected sch\u2026",
+      "step_id": 16,
+      "t_unix_ms": 1777905223712,
+      "tokens_in": 152,
+      "tokens_out": 90,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No JSON output was provided; the response should be a JSON object conforming to the expected sch\u2026",
+      "step_id": 17,
+      "t_unix_ms": 1777905223716,
+      "tokens_in": 152,
+      "tokens_out": 90,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No JSON output was provided; the response should be a JSON object conforming to the expected sch\u2026",
+      "step_id": 18,
+      "t_unix_ms": 1777905223720,
+      "tokens_in": 152,
+      "tokens_out": 90,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No JSON output was provided; the response should be a JSON object conforming to the expected sch\u2026",
+      "step_id": 19,
+      "t_unix_ms": 1777905223724,
+      "tokens_in": 152,
+      "tokens_out": 90,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No JSON output was provided; the response should be a JSON object conforming to the expected sch\u2026",
+      "step_id": 20,
+      "t_unix_ms": 1777905223728,
+      "tokens_in": 152,
+      "tokens_out": 90,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No JSON output was provided; the response should be a JSON object conforming to the expected sch\u2026",
+      "step_id": 21,
+      "t_unix_ms": 1777905223732,
+      "tokens_in": 152,
+      "tokens_out": 90,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No JSON output was provided; the response should be a JSON object conforming to the expected sch\u2026",
+      "step_id": 22,
+      "t_unix_ms": 1777905223736,
+      "tokens_in": 152,
+      "tokens_out": 90,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 9089,
+      "output_summary": "- The draft does not actually solve the equation; it only lists various tool names (code, coder, debugger, etc.) withou\u2026",
+      "step_id": 23,
+      "t_unix_ms": 1777905232828,
+      "tokens_in": 146,
+      "tokens_out": 126,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 7002,
+      "output_summary": "verifier:failed:No final answer provided to verify.",
+      "step_id": 24,
+      "t_unix_ms": 1777905239834,
+      "tokens_in": 155,
+      "tokens_out": 40,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 6297,
+      "output_summary": "verifier:passed",
+      "step_id": 25,
+      "t_unix_ms": 1777905246134,
+      "tokens_in": 157,
+      "tokens_out": 116,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 26,
+      "t_unix_ms": 1777905246140,
+      "tokens_in": 157,
+      "tokens_out": 116,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 27,
+      "t_unix_ms": 1777905246144,
+      "tokens_in": 157,
+      "tokens_out": 116,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 28,
+      "t_unix_ms": 1777905246148,
+      "tokens_in": 157,
+      "tokens_out": 116,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 29,
+      "t_unix_ms": 1777905246152,
+      "tokens_in": 157,
+      "tokens_out": 116,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 30,
+      "t_unix_ms": 1777905246156,
+      "tokens_in": 157,
+      "tokens_out": 116,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 31,
+      "t_unix_ms": 1777905246160,
+      "tokens_in": 157,
+      "tokens_out": 116,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0005",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 103243,
+    "llm_calls": 32,
+    "tokens_in": 5451,
+    "tokens_out": 3758,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,638 @@
+{
+  "final_answer": "`schema:invalid_output (expected JSON schema not provided)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.2484000027179718,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Define the function `strlen` with one parameter `string`. 2. Use the built-in `len` function to calculate the \u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777812831552,
+      "tokens_in": 134,
+      "tokens_out": 73,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "ToolExecutor",
+      "cost_rub": 0.07599999755620956,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "ToolExecutor",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 872,
+      "output_summary": "```python def strlen(string: str) -> int:     \"\"\" Return length of given string     >>> strlen('')     0     >>> strlen\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777812832426,
+      "tokens_in": 138,
+      "tokens_out": 52,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.262800008058548,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1166,
+      "output_summary": "- The function `strlen` does not contain the implementation to calculate the length of the string; it only has a signat\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777812833596,
+      "tokens_in": 144,
+      "tokens_out": 75,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.2784000039100647,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1335,
+      "output_summary": "- The function `strlen` does not contain the implementation to calculate the length of the string; it only has a signat\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777812834934,
+      "tokens_in": 146,
+      "tokens_out": 86,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.2784000039100647,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function `strlen` does not contain the implementation to calculate the length of the string; it only has a signat\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777812834938,
+      "tokens_in": 146,
+      "tokens_out": 86,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.16279999911785126,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "7",
+      "latency_ms": 2309,
+      "output_summary": "```python import unittest  class TestStringLength(unittest.TestCase):     def test_strlen_empty_string(self):         s\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777812837249,
+      "tokens_in": 237,
+      "tokens_out": 170,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.20160000026226044,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 502,
+      "output_summary": "verifier:failed:no function implementation provided",
+      "step_id": 6,
+      "t_unix_ms": 1777812837755,
+      "tokens_in": 159,
+      "tokens_out": 9,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.20399999618530273,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 426,
+      "output_summary": "verifier:failed:no implementation provided",
+      "step_id": 7,
+      "t_unix_ms": 1777812838185,
+      "tokens_in": 162,
+      "tokens_out": 8,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.20399999618530273,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:no implementation provided",
+      "step_id": 8,
+      "t_unix_ms": 1777812838190,
+      "tokens_in": 162,
+      "tokens_out": 8,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.1648000031709671,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "11",
+      "latency_ms": 945,
+      "output_summary": "```python def strlen(string: str) -> int:     \"\"\" Return length of given string     >>> strlen('')     0     >>> strlen\u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777812839138,
+      "tokens_in": 360,
+      "tokens_out": 52,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0843999981880188,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 935,
+      "output_summary": "```python def strlen(string: str) -> int:     \"\"\" Return length of given string     >>> strlen('')     0     >>> strlen\u2026",
+      "step_id": 10,
+      "t_unix_ms": 1777812840078,
+      "tokens_in": 159,
+      "tokens_out": 52,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0843999981880188,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def strlen(string: str) -> int:     \"\"\" Return length of given string     >>> strlen('')     0     >>> strlen\u2026",
+      "step_id": 11,
+      "t_unix_ms": 1777812840083,
+      "tokens_in": 159,
+      "tokens_out": 52,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0843999981880188,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def strlen(string: str) -> int:     \"\"\" Return length of given string     >>> strlen('')     0     >>> strlen\u2026",
+      "step_id": 12,
+      "t_unix_ms": 1777812840087,
+      "tokens_in": 159,
+      "tokens_out": 52,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0843999981880188,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def strlen(string: str) -> int:     \"\"\" Return length of given string     >>> strlen('')     0     >>> strlen\u2026",
+      "step_id": 13,
+      "t_unix_ms": 1777812840091,
+      "tokens_in": 159,
+      "tokens_out": 52,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07840000092983246,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 651,
+      "output_summary": "`schema:invalid_output (the output does not match the expected JSON schema for a function that returns an integer based\u2026",
+      "step_id": 14,
+      "t_unix_ms": 1777812840744,
+      "tokens_in": 167,
+      "tokens_out": 29,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 458,
+      "output_summary": "`schema:invalid_output (expected JSON schema not provided)`",
+      "step_id": 15,
+      "t_unix_ms": 1777812841205,
+      "tokens_in": 172,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON schema not provided)`",
+      "step_id": 16,
+      "t_unix_ms": 1777812841209,
+      "tokens_in": 172,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON schema not provided)`",
+      "step_id": 17,
+      "t_unix_ms": 1777812841213,
+      "tokens_in": 172,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON schema not provided)`",
+      "step_id": 18,
+      "t_unix_ms": 1777812841218,
+      "tokens_in": 172,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON schema not provided)`",
+      "step_id": 19,
+      "t_unix_ms": 1777812841221,
+      "tokens_in": 172,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON schema not provided)`",
+      "step_id": 20,
+      "t_unix_ms": 1777812841225,
+      "tokens_in": 172,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON schema not provided)`",
+      "step_id": 21,
+      "t_unix_ms": 1777812841229,
+      "tokens_in": 172,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON schema not provided)`",
+      "step_id": 22,
+      "t_unix_ms": 1777812841233,
+      "tokens_in": 172,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON schema not provided)`",
+      "step_id": 23,
+      "t_unix_ms": 1777812841237,
+      "tokens_in": 172,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON schema not provided)`",
+      "step_id": 24,
+      "t_unix_ms": 1777812841240,
+      "tokens_in": 172,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON schema not provided)`",
+      "step_id": 25,
+      "t_unix_ms": 1777812841244,
+      "tokens_in": 172,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON schema not provided)`",
+      "step_id": 26,
+      "t_unix_ms": 1777812841248,
+      "tokens_in": 172,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON schema not provided)`",
+      "step_id": 27,
+      "t_unix_ms": 1777812841252,
+      "tokens_in": 172,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON schema not provided)`",
+      "step_id": 28,
+      "t_unix_ms": 1777812841256,
+      "tokens_in": 172,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON schema not provided)`",
+      "step_id": 29,
+      "t_unix_ms": 1777812841260,
+      "tokens_in": 172,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON schema not provided)`",
+      "step_id": 30,
+      "t_unix_ms": 1777812841264,
+      "tokens_in": 172,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07400000095367432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (expected JSON schema not provided)`",
+      "step_id": 31,
+      "t_unix_ms": 1777812841267,
+      "tokens_in": 172,
+      "tokens_out": 13,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-23",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 3.755197525024414,
+    "failed_tool_calls": 0,
+    "latency_ms": 9620,
+    "llm_calls": 32,
+    "tokens_in": 5515,
+    "tokens_out": 1077,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

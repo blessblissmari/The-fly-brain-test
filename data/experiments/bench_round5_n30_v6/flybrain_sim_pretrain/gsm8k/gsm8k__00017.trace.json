@@ -1,0 +1,638 @@
+{
+  "final_answer": "`schema:invalid_output (no JSON output provided)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.188400000333786,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Calculate the total number of omelets Claire makes in 4 weeks. 2. Determine the total number of eggs used in 4\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777812886653,
+      "tokens_in": 103,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "ToolExecutor",
+      "cost_rub": 0.10159999877214432,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "ToolExecutor",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2199,
+      "output_summary": "The appropriate tool for this task is a calculator.  Args to be passed: Claire makes a 3 egg omelet every morning, and \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777812888855,
+      "tokens_in": 107,
+      "tokens_out": 147,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.16439999639987946,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 491,
+      "output_summary": "verifier:failed:missing_step-by-step_reasoning",
+      "step_id": 2,
+      "t_unix_ms": 1777812889350,
+      "tokens_in": 122,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.17520000040531158,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 566,
+      "output_summary": "verifier:failed:missing_reasoning_steps_and_final_answer_not_provided",
+      "step_id": 3,
+      "t_unix_ms": 1777812889920,
+      "tokens_in": 125,
+      "tokens_out": 21,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.15199999511241913,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 1342,
+      "output_summary": "```python eggs_per_day = 3 days_per_week = 7 weeks = 4 total_days = days_per_week * weeks total_eggs = eggs_per_day * t\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777812891267,
+      "tokens_in": 290,
+      "tokens_out": 90,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1728000044822693,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 519,
+      "output_summary": "verifier:failed:missing_step_by_step_reasoning",
+      "step_id": 5,
+      "t_unix_ms": 1777812891788,
+      "tokens_in": 129,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1728000044822693,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_step_by_step_reasoning",
+      "step_id": 6,
+      "t_unix_ms": 1777812891796,
+      "tokens_in": 129,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1728000044822693,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_step_by_step_reasoning",
+      "step_id": 7,
+      "t_unix_ms": 1777812891800,
+      "tokens_in": 129,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1728000044822693,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_step_by_step_reasoning",
+      "step_id": 8,
+      "t_unix_ms": 1777812891803,
+      "tokens_in": 129,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1728000044822693,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_step_by_step_reasoning",
+      "step_id": 9,
+      "t_unix_ms": 1777812891806,
+      "tokens_in": 129,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1728000044822693,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_step_by_step_reasoning",
+      "step_id": 10,
+      "t_unix_ms": 1777812891810,
+      "tokens_in": 129,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1728000044822693,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_step_by_step_reasoning",
+      "step_id": 11,
+      "t_unix_ms": 1777812891813,
+      "tokens_in": 129,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1728000044822693,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_step_by_step_reasoning",
+      "step_id": 12,
+      "t_unix_ms": 1777812891817,
+      "tokens_in": 129,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.1728000044822693,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_step_by_step_reasoning",
+      "step_id": 13,
+      "t_unix_ms": 1777812891820,
+      "tokens_in": 129,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.07959999889135361,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1191,
+      "output_summary": "```python eggs_per_day = 3 days_in_4_weeks = 4 * 7 total_eggs = eggs_per_day * days_in_4_weeks dozens_of_eggs = total_e\u2026",
+      "step_id": 14,
+      "t_unix_ms": 1777812893014,
+      "tokens_in": 124,
+      "tokens_out": 75,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.07959999889135361,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python eggs_per_day = 3 days_in_4_weeks = 4 * 7 total_eggs = eggs_per_day * days_in_4_weeks dozens_of_eggs = total_e\u2026",
+      "step_id": 15,
+      "t_unix_ms": 1777812893019,
+      "tokens_in": 124,
+      "tokens_out": 75,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.07959999889135361,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python eggs_per_day = 3 days_in_4_weeks = 4 * 7 total_eggs = eggs_per_day * days_in_4_weeks dozens_of_eggs = total_e\u2026",
+      "step_id": 16,
+      "t_unix_ms": 1777812893027,
+      "tokens_in": 124,
+      "tokens_out": 75,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.07959999889135361,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python eggs_per_day = 3 days_in_4_weeks = 4 * 7 total_eggs = eggs_per_day * days_in_4_weeks dozens_of_eggs = total_e\u2026",
+      "step_id": 17,
+      "t_unix_ms": 1777812893031,
+      "tokens_in": 124,
+      "tokens_out": 75,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.07959999889135361,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python eggs_per_day = 3 days_in_4_weeks = 4 * 7 total_eggs = eggs_per_day * days_in_4_weeks dozens_of_eggs = total_e\u2026",
+      "step_id": 18,
+      "t_unix_ms": 1777812893037,
+      "tokens_in": 124,
+      "tokens_out": 75,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.07959999889135361,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python eggs_per_day = 3 days_in_4_weeks = 4 * 7 total_eggs = eggs_per_day * days_in_4_weeks dozens_of_eggs = total_e\u2026",
+      "step_id": 19,
+      "t_unix_ms": 1777812893044,
+      "tokens_in": 124,
+      "tokens_out": 75,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.07959999889135361,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python eggs_per_day = 3 days_in_4_weeks = 4 * 7 total_eggs = eggs_per_day * days_in_4_weeks dozens_of_eggs = total_e\u2026",
+      "step_id": 20,
+      "t_unix_ms": 1777812893047,
+      "tokens_in": 124,
+      "tokens_out": 75,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.07959999889135361,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python eggs_per_day = 3 days_in_4_weeks = 4 * 7 total_eggs = eggs_per_day * days_in_4_weeks dozens_of_eggs = total_e\u2026",
+      "step_id": 21,
+      "t_unix_ms": 1777812893051,
+      "tokens_in": 124,
+      "tokens_out": 75,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.058800000697374344,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 563,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 22,
+      "t_unix_ms": 1777812893617,
+      "tokens_in": 132,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05959999933838844,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 482,
+      "output_summary": "`schema:invalid_output (no JSON output provided)`",
+      "step_id": 23,
+      "t_unix_ms": 1777812894103,
+      "tokens_in": 137,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05959999933838844,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no JSON output provided)`",
+      "step_id": 24,
+      "t_unix_ms": 1777812894107,
+      "tokens_in": 137,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05959999933838844,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no JSON output provided)`",
+      "step_id": 25,
+      "t_unix_ms": 1777812894110,
+      "tokens_in": 137,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05959999933838844,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no JSON output provided)`",
+      "step_id": 26,
+      "t_unix_ms": 1777812894114,
+      "tokens_in": 137,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05959999933838844,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no JSON output provided)`",
+      "step_id": 27,
+      "t_unix_ms": 1777812894118,
+      "tokens_in": 137,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05959999933838844,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no JSON output provided)`",
+      "step_id": 28,
+      "t_unix_ms": 1777812894121,
+      "tokens_in": 137,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05959999933838844,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no JSON output provided)`",
+      "step_id": 29,
+      "t_unix_ms": 1777812894125,
+      "tokens_in": 137,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05959999933838844,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no JSON output provided)`",
+      "step_id": 30,
+      "t_unix_ms": 1777812894128,
+      "tokens_in": 137,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.05959999933838844,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no JSON output provided)`",
+      "step_id": 31,
+      "t_unix_ms": 1777812894132,
+      "tokens_in": 137,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00017",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 3.5688021183013916,
+    "failed_tool_calls": 0,
+    "latency_ms": 7376,
+    "llm_calls": 32,
+    "tokens_in": 4265,
+    "tokens_out": 1185,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

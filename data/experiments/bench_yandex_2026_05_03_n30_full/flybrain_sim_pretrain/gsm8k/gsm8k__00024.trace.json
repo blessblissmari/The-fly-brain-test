@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (No JSON output provided)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.23280000686645508,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Determine the number of sheep in Charleston by multiplying the number of sheep in Seattle by 4. 2. Determine t\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777800988481,
+      "tokens_in": 115,
+      "tokens_out": 79,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.11159999668598175,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "1. Let's denote the number of sheep in Seattle as $S$. Given that $S = 20$. 2. Charleston has 4 times as many sheep as \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777800988484,
+      "tokens_in": 116,
+      "tokens_out": 163,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.19760000705718994,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 2763,
+      "output_summary": "```python {'from': 'MathSolver', 'text': \"1. Let's denote the number of sheep in Seattle as $S$. Given that $S = 20$.\\n\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777800991251,
+      "tokens_in": 310,
+      "tokens_out": 184,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.188400000333786,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 577,
+      "output_summary": "verifier:failed:missing_step-by-step_reasoning_and_final_answer",
+      "step_id": 3,
+      "t_unix_ms": 1777800991831,
+      "tokens_in": 136,
+      "tokens_out": 21,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.08320000022649765,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1077,
+      "output_summary": "```python seattle_sheep = 20 charleston_sheep = 4 * seattle_sheep toulouse_sheep = 2 * charleston_sheep total_sheep = s\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777800992911,
+      "tokens_in": 134,
+      "tokens_out": 74,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.08320000022649765,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python seattle_sheep = 20 charleston_sheep = 4 * seattle_sheep toulouse_sheep = 2 * charleston_sheep total_sheep = s\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777800992915,
+      "tokens_in": 134,
+      "tokens_out": 74,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.08320000022649765,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python seattle_sheep = 20 charleston_sheep = 4 * seattle_sheep toulouse_sheep = 2 * charleston_sheep total_sheep = s\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777800992918,
+      "tokens_in": 134,
+      "tokens_out": 74,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.08320000022649765,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python seattle_sheep = 20 charleston_sheep = 4 * seattle_sheep toulouse_sheep = 2 * charleston_sheep total_sheep = s\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777800992922,
+      "tokens_in": 134,
+      "tokens_out": 74,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.08320000022649765,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python seattle_sheep = 20 charleston_sheep = 4 * seattle_sheep toulouse_sheep = 2 * charleston_sheep total_sheep = s\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777800992925,
+      "tokens_in": 134,
+      "tokens_out": 74,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06279999762773514,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 534,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 9,
+      "t_unix_ms": 1777800993462,
+      "tokens_in": 142,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06360000371932983,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 454,
+      "output_summary": "`schema:invalid_output (No JSON output provided)`",
+      "step_id": 10,
+      "t_unix_ms": 1777800993919,
+      "tokens_in": 147,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.06360000371932983,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (No JSON output provided)`",
+      "step_id": 11,
+      "t_unix_ms": 1777800993923,
+      "tokens_in": 147,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00024",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.336400032043457,
+    "failed_tool_calls": 0,
+    "latency_ms": 5411,
+    "llm_calls": 12,
+    "tokens_in": 1783,
+    "tokens_out": 856,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

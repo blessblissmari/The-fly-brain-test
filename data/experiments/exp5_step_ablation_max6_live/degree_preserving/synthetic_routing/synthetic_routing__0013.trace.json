@@ -1,0 +1,143 @@
+{
+  "final_answer": "Plan: 1. Calculate the sum inside the parentheses: 75 + 24. 2. Raise the result to the 13th power.  Hand off to: math",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.13439999520778656,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Calculate the sum inside the parentheses: 75 + 24. 2. Raise the result to the 13th power.  Hand off to: Calcul\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777807275182,
+      "tokens_in": 71,
+      "tokens_out": 41,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.053199999034404755,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Step 1: Add the numbers inside the parentheses. $75 + 24 = 99$. Step 2: Raise the result to the power of 13. $99^{13}$.\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777807275183,
+      "tokens_in": 72,
+      "tokens_out": 61,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1777807275183,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.036400001496076584,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 475,
+      "output_summary": "final_answer: $(99)^{13}$",
+      "step_id": 3,
+      "t_unix_ms": 1777807275658,
+      "tokens_in": 80,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.15600000321865082,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 732,
+      "output_summary": "Plan: 1. Calculate the sum inside the parentheses: 75 + 24. 2. Raise the result to the 13th power.  Hand off to: math",
+      "step_id": 4,
+      "t_unix_ms": 1777807276391,
+      "tokens_in": 89,
+      "tokens_out": 41,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.15600000321865082,
+      "current_graph_hash": "adbcbff800aac45a",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Calculate the sum inside the parentheses: 75 + 24. 2. Raise the result to the 13th power.  Hand off to: math",
+      "step_id": 5,
+      "t_unix_ms": 1777807276391,
+      "tokens_in": 89,
+      "tokens_out": 41,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0013",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.5360000133514404,
+    "failed_tool_calls": 0,
+    "latency_ms": 1207,
+    "llm_calls": 5,
+    "tokens_in": 401,
+    "tokens_out": 195,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

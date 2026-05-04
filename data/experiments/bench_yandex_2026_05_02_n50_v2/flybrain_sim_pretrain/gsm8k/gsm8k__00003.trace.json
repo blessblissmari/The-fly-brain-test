@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (no JSON output provided)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.26759999990463257,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Calculate the total number of eggs laid by Janet's ducks each day. 2. Subtract the number of eggs Janet eats a\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777733518561,
+      "tokens_in": 141,
+      "tokens_out": 82,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.1467999964952469,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1745,
+      "output_summary": "```python eggs_laid_per_day = 16 eggs_eaten_per_day = 3 eggs_used_for_baking_per_day = 4 price_per_egg = 2  remaining_e\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777733520309,
+      "tokens_in": 247,
+      "tokens_out": 120,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.21359999477863312,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 517,
+      "output_summary": "verifier:failed:missing_math_reasoning_and_final_answer",
+      "step_id": 2,
+      "t_unix_ms": 1777733520830,
+      "tokens_in": 161,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.20999999344348907,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 472,
+      "output_summary": "verifier:failed:missing_calculation_steps",
+      "step_id": 3,
+      "t_unix_ms": 1777733521305,
+      "tokens_in": 164,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.20999999344348907,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:missing_calculation_steps",
+      "step_id": 4,
+      "t_unix_ms": 1777733521309,
+      "tokens_in": 164,
+      "tokens_out": 11,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.16840000450611115,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "4",
+      "latency_ms": 1710,
+      "output_summary": "```python eggs_laid_per_day = 16 eggs_eaten_per_day = 3 eggs_used_for_baking_per_day = 4 price_per_egg = 2  remaining_e\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777733523022,
+      "tokens_in": 301,
+      "tokens_out": 120,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.10119999945163727,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1363,
+      "output_summary": "```python eggs_per_day = 16 breakfast_eggs = 3 baked_eggs = 4  # Calculate the remaining eggs remaining_eggs = eggs_per\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777733524389,
+      "tokens_in": 161,
+      "tokens_out": 92,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.10119999945163727,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python eggs_per_day = 16 breakfast_eggs = 3 baked_eggs = 4  # Calculate the remaining eggs remaining_eggs = eggs_per\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777733524394,
+      "tokens_in": 161,
+      "tokens_out": 92,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.10119999945163727,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python eggs_per_day = 16 breakfast_eggs = 3 baked_eggs = 4  # Calculate the remaining eggs remaining_eggs = eggs_per\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777733524397,
+      "tokens_in": 161,
+      "tokens_out": 92,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07360000163316727,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 498,
+      "output_summary": "`schema:invalid_output (output does not match expected JSON schema)`",
+      "step_id": 9,
+      "t_unix_ms": 1777733524898,
+      "tokens_in": 169,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07440000027418137,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 481,
+      "output_summary": "`schema:invalid_output (no JSON output provided)`",
+      "step_id": 10,
+      "t_unix_ms": 1777733525383,
+      "tokens_in": 174,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.07440000027418137,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no JSON output provided)`",
+      "step_id": 11,
+      "t_unix_ms": 1777733525386,
+      "tokens_in": 174,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00003",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 1.7423999309539795,
+    "failed_tool_calls": 0,
+    "latency_ms": 6790,
+    "llm_calls": 12,
+    "tokens_in": 2178,
+    "tokens_out": 676,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}
