@@ -117,6 +117,21 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--output", type=Path, default=None)
     parser.add_argument(
+        "--terminate-kind-weight",
+        type=float,
+        default=1.0,
+        help="Round-7: CE loss weight on KIND_TERMINATE class to "
+        "compensate for ~5x activate_agent vs terminate imbalance.",
+    )
+    parser.add_argument(
+        "--finalizer-class-weight",
+        type=float,
+        default=1.0,
+        help="Round-7: CE loss weight on the Finalizer agent class. "
+        "Boost (e.g. 5.0) to make controller actually emit Finalizer "
+        "at inference; default 1.0 reproduces v6 behaviour.",
+    )
+    parser.add_argument(
         "--evaluate-on-sim",
         action="store_true",
         help="After training, run the controller through SyntheticMAS on a "
@@ -147,6 +162,8 @@ def main() -> None:
         batch_size=args.batch_size,
         learning_rate=args.lr,
         seed=args.seed,
+        terminate_kind_weight=args.terminate_kind_weight,
+        finalizer_class_weight=args.finalizer_class_weight,
     )
 
     print(f"[pretrain] controller={args.controller} cfg={cfg}")

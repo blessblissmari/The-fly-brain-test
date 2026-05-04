@@ -44,6 +44,17 @@ class PretrainConfig:
     seed: int = 0
     weight_decay: float = 0.0
     aux_loss_weight: float = 0.1
+    # Round-7: class weights to address kind/agent imbalance in the
+    # supervised dataset. KIND_TERMINATE is ~5x rarer than
+    # KIND_ACTIVATE_AGENT (~16% vs 84%); ``terminate_kind_weight``
+    # scales the CE weight on the terminate class while leaving the
+    # other 8 kinds at 1.0. ``finalizer_class_weight`` boosts the
+    # Finalizer agent label specifically (last step of every optimal
+    # route) so the controller learns to actually emit it at
+    # inference — round-5 traces showed v6 never picks Finalizer
+    # despite it being in OPTIMAL_ROUTES.
+    terminate_kind_weight: float = 1.0
+    finalizer_class_weight: float = 1.0
 
 
 @dataclass(slots=True)
@@ -204,7 +215,15 @@ def _batch_loss(
     import torch
     from torch.nn import functional as torch_func
 
+    # Build a per-class weight vector that only boosts the terminate
+    # kind (others stay at 1.0). KIND_NAMES is fixed at module level,
+    # so we can size the tensor without a probe forward pass.
+    n_kinds = len(KIND_NAMES)
+    kind_weight = torch.ones(n_kinds, dtype=torch.float32)
+    if 0 <= KIND_TERMINATE < n_kinds:
+        kind_weight[KIND_TERMINATE] = float(cfg.terminate_kind_weight)
     losses: list[torch.Tensor] = []
+    finalizer_id = _resolve_finalizer_id(examples)
     for i in batch_idx:
         ex = examples[i]
         cs = controller.builder.from_runtime_sync(ex.runtime_state)
@@ -212,11 +231,19 @@ def _batch_loss(
         kind_loss = torch_func.cross_entropy(
             out.kind_logits.unsqueeze(0),
             torch.tensor([ex.label_kind], dtype=torch.long),
+            weight=kind_weight,
         )
         if ex.label_kind == KIND_ACTIVATE_AGENT and out.agent_logits.numel() > 0:
+            agent_weight = _agent_loss_weight(
+                ex.label_agent,
+                num_agents=int(out.agent_logits.shape[0]),
+                finalizer_id=finalizer_id,
+                finalizer_w=cfg.finalizer_class_weight,
+            )
             agent_loss = torch_func.cross_entropy(
                 out.agent_logits.unsqueeze(0),
                 torch.tensor([ex.label_agent], dtype=torch.long),
+                weight=agent_weight,
             )
         else:
             agent_loss = torch.zeros(())
@@ -226,6 +253,46 @@ def _batch_loss(
         )
         losses.append(kind_loss + agent_loss + cfg.aux_loss_weight * aux_loss)
     return torch.stack(losses).mean()
+
+
+def _resolve_finalizer_id(examples: list[_LabeledExample]) -> int:
+    """Find ``Finalizer``'s agent_id in the (per-example, fixed) name list.
+
+    All examples in a batch share the same ``agent_names`` order, so we
+    just inspect the first one. Returns -1 when Finalizer isn't present
+    (e.g. an ablation that masks it out).
+    """
+    if not examples:
+        return -1
+    names = examples[0].agent_names
+    try:
+        return names.index("Finalizer")
+    except ValueError:
+        return -1
+
+
+def _agent_loss_weight(
+    label_agent: int,
+    *,
+    num_agents: int,
+    finalizer_id: int,
+    finalizer_w: float,
+) -> torch.Tensor:
+    """Per-class weight vector for the agent CE loss.
+
+    Boosts ``Finalizer`` so the controller learns to emit it at the
+    end of every optimal route (round-7 fix for v6's empirical failure
+    to ever pick Finalizer at inference time).
+    """
+    import torch
+
+    w = torch.ones(num_agents, dtype=torch.float32)
+    if 0 <= finalizer_id < num_agents:
+        w[finalizer_id] = float(finalizer_w)
+    # Touch ``label_agent`` so an unused-arg lint doesn't complain in
+    # future refactors that may add per-label weighting.
+    _ = label_agent
+    return w
 
 
 def _eval_accuracy(

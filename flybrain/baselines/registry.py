@@ -371,6 +371,38 @@ def _resolve_checkpoint_path(label: str) -> Path | None:
     return None
 
 
+def _flybrain_with_checkpoint_and_watchdog(
+    controller_name: str,
+    label: str,
+    *,
+    force_after: int = 12,
+    stall_after: int = 3,
+) -> BaselineFactory:
+    """Round-7 variant: wrap the trained checkpoint baseline in
+    :class:`FinalizerWatchdogController` so stalls are forced into
+    Finalizer + terminate. See ``flybrain/controller/finalizer_watchdog.py``
+    for the watchdog rationale (round-5 trained controllers never
+    actually emit Finalizer at inference).
+    """
+
+    inner_factory = _flybrain_with_checkpoint(controller_name, label)
+
+    def factory(agent_names: list[str]) -> tuple[Controller, dict[str, Any] | None]:
+        from flybrain.controller.finalizer_watchdog import (
+            FinalizerWatchdogController,
+        )
+
+        inner, init_graph = inner_factory(agent_names)
+        wrapped = FinalizerWatchdogController(
+            inner=inner,
+            force_after=force_after,
+            stall_after=stall_after,
+        )
+        return wrapped, init_graph
+
+    return factory
+
+
 def _flybrain_with_checkpoint(
     controller_name: str,
     label: str,
@@ -521,6 +553,20 @@ def builtin_baselines() -> list[BaselineSpec]:
             description="#9 FlyBrain GNN + Phase-8 RL/bandit finetuning.",
             factory=_flybrain_with_checkpoint("gnn", "RL"),
             tags=["learned", "trained", "fly-prior"],
+        ),
+        BaselineSpec(
+            name="flybrain_sim_pretrain_watchdog",
+            description=(
+                "Round-7: #7 wrapped in FinalizerWatchdogController — "
+                "forces Finalizer then terminate after 12 steps or 3 "
+                "consecutive non-progress steps. Closes the round-5 gap "
+                "where the trained controller never actually emits "
+                "Finalizer at inference."
+            ),
+            factory=_flybrain_with_checkpoint_and_watchdog(
+                "gnn", "SIM_PRETRAIN", force_after=12, stall_after=3
+            ),
+            tags=["learned", "trained", "fly-prior", "watchdog", "round-7"],
         ),
         BaselineSpec(
             name="flybrain_graph_ssl_pretrain",
