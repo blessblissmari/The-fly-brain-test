@@ -80,10 +80,7 @@ class FinalizerWatchdogController:
         if trace.finalizer_emitted and self.final_answer_tag in produced:
             return {"kind": "terminate"}
 
-        force = (
-            state.step_id >= self.force_after
-            or trace.stall_count >= self.stall_after
-        )
+        force = state.step_id >= self.force_after or trace.stall_count >= self.stall_after
 
         if force:
             if (

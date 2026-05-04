@@ -75,9 +75,7 @@ def test_forces_finalizer_after_stall_then_terminate() -> None:
 
     # Next state: runtime has executed Finalizer, so produced now
     # contains "final_answer". Watchdog forces terminate.
-    after_final = wd.select_action(
-        _state(step_id=4, produced={"plan", "final_answer"})
-    )
+    after_final = wd.select_action(_state(step_id=4, produced={"plan", "final_answer"}))
     assert after_final == {"kind": "terminate"}
 
 
@@ -96,9 +94,7 @@ def test_forces_terminate_after_step_budget() -> None:
     assert a5 == {"kind": "activate_agent", "agent": "Finalizer"}
 
     # After Finalizer fires: watchdog forces terminate.
-    a6 = wd.select_action(
-        _state(step_id=6, produced={"plan", "code", "final_answer"})
-    )
+    a6 = wd.select_action(_state(step_id=6, produced={"plan", "code", "final_answer"}))
     assert a6 == {"kind": "terminate"}
 
 
