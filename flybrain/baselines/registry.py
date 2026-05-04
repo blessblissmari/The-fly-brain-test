@@ -375,14 +375,16 @@ def _flybrain_with_checkpoint_and_watchdog(
     controller_name: str,
     label: str,
     *,
-    force_after: int = 12,
-    stall_after: int = 3,
+    force_after: int | dict[str, int] = 12,
+    stall_after: int | dict[str, int] = 3,
+    baseline_name: str | None = None,
 ) -> BaselineFactory:
-    """Round-7 variant: wrap the trained checkpoint baseline in
+    """Round-7/8 variant: wrap the trained checkpoint baseline in
     :class:`FinalizerWatchdogController` so stalls are forced into
     Finalizer + terminate. See ``flybrain/controller/finalizer_watchdog.py``
     for the watchdog rationale (round-5 trained controllers never
-    actually emit Finalizer at inference).
+    actually emit Finalizer at inference). Round-8 supports per-
+    task-type ``force_after`` / ``stall_after`` dicts.
     """
 
     inner_factory = _flybrain_with_checkpoint(controller_name, label)
@@ -397,6 +399,7 @@ def _flybrain_with_checkpoint_and_watchdog(
             inner=inner,
             force_after=force_after,
             stall_after=stall_after,
+            name=baseline_name or "flybrain_sim_pretrain_watchdog",
         )
         return wrapped, init_graph
 
@@ -569,6 +572,36 @@ def builtin_baselines() -> list[BaselineSpec]:
             tags=["learned", "trained", "fly-prior", "watchdog", "round-7"],
         ),
         BaselineSpec(
+            name="flybrain_sim_pretrain_watchdog_v2",
+            description=(
+                "Round-8: per-task-type FinalizerWatchdogController — "
+                "force_after={coding:28, math:12, research:16, "
+                "tool_use:12} so coding tasks get the full plan→code"
+                "→test→debug depth manual_graph uses (~21 calls/task) "
+                "while math/research/tool_use short-circuit early. "
+                "Fixes the round-7 humaneval regression while keeping "
+                "the synthetic_routing parity with manual_graph."
+            ),
+            factory=_flybrain_with_checkpoint_and_watchdog(
+                "gnn",
+                "SIM_PRETRAIN",
+                force_after={
+                    "coding": 28,
+                    "math": 12,
+                    "research": 16,
+                    "tool_use": 12,
+                },
+                stall_after={
+                    "coding": 6,
+                    "math": 3,
+                    "research": 4,
+                    "tool_use": 3,
+                },
+                baseline_name="flybrain_sim_pretrain_watchdog_v2",
+            ),
+            tags=["learned", "trained", "fly-prior", "watchdog", "round-8"],
+        ),
+        BaselineSpec(
             name="flybrain_graph_ssl_pretrain",
             description=(
                 "Exp4 row '+graph SSL' — FlyBrain GNN with the agent-graph "
@@ -706,6 +739,15 @@ BUILTIN_SUITES: dict[str, list[str]] = {
         "manual_graph",
         "flybrain_sim_pretrain",
         "flybrain_sim_pretrain_watchdog",
+    ],
+    # Round-8 — adds the per-task-type tuned watchdog (v2) to the
+    # round-7 trio so we can A/B/C the regression-fix in a single
+    # bench run.
+    "round8_watchdog_v2": [
+        "manual_graph",
+        "flybrain_sim_pretrain",
+        "flybrain_sim_pretrain_watchdog",
+        "flybrain_sim_pretrain_watchdog_v2",
     ],
 }
 

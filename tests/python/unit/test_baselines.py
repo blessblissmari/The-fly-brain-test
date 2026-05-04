@@ -118,9 +118,10 @@ def test_flybrain_prior_graph_skips_self_loop_for_single_agent() -> None:
 def test_builtin_baselines_yields_nine_specs() -> None:
     specs = builtin_baselines()
     # 9 README §15 baselines + flybrain_sim_pretrain_watchdog (round-7)
+    # + flybrain_sim_pretrain_watchdog_v2 (round-8)
     # + flybrain_graph_ssl_pretrain + 5 embedding-ablation rows
     # + 4 verifier-ablation rows.
-    assert len(specs) == 9 + 1 + 1 + 5 + 4
+    assert len(specs) == 9 + 1 + 1 + 1 + 5 + 4
     # Canonical README §15 order is preserved at the top of the list.
     full_min_names = [s.name for s in specs[:9]]
     assert full_min_names == BUILTIN_SUITES["full_min"]

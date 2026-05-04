@@ -112,3 +112,65 @@ def test_per_task_state_is_isolated() -> None:
     # task B is fresh — first call should NOT be forced.
     fresh = wd.select_action(_state(step_id=0, produced={"plan"}, task_id="B"))
     assert fresh == {"kind": "activate_agent", "agent": "Planner"}
+
+
+def test_per_task_type_force_after_dict() -> None:
+    """Round-8: ``force_after`` may be a dict keyed by ``task_type``."""
+    inner = _StuckController("Planner")
+    wd = FinalizerWatchdogController(
+        inner=inner,
+        force_after={"coding": 28, "math": 12},
+        stall_after=99,
+    )
+
+    # math task at step 12 → forced.
+    math_state = RuntimeState(
+        task_id="m1",
+        task_type="math",
+        prompt="2+2=?",
+        step_id=12,
+        available_agents=["Planner", "Finalizer"],
+        pending_inbox={},
+        last_active_agent=None,
+        produced_components={"plan"},
+    )
+    forced_math = wd.select_action(math_state)
+    assert forced_math == {"kind": "activate_agent", "agent": "Finalizer"}
+
+    # coding task at step 12 → NOT forced (budget is 28).
+    coding_state = RuntimeState(
+        task_id="c1",
+        task_type="coding",
+        prompt="def fib():",
+        step_id=12,
+        available_agents=["Planner", "Finalizer"],
+        pending_inbox={},
+        last_active_agent=None,
+        produced_components={"plan"},
+    )
+    not_forced = wd.select_action(coding_state)
+    assert not_forced == {"kind": "activate_agent", "agent": "Planner"}
+
+
+def test_unknown_task_type_falls_back_to_default() -> None:
+    """If a task_type isn't in the dict, the wrapper uses fallback (12)."""
+    inner = _StuckController("Planner")
+    wd = FinalizerWatchdogController(
+        inner=inner,
+        force_after={"coding": 28},  # no entry for math
+        stall_after=99,
+    )
+
+    # math task at step 12 → falls back to default 12 → forced.
+    math_state = RuntimeState(
+        task_id="m1",
+        task_type="math",
+        prompt="2+2=?",
+        step_id=12,
+        available_agents=["Planner", "Finalizer"],
+        pending_inbox={},
+        last_active_agent=None,
+        produced_components={"plan"},
+    )
+    forced = wd.select_action(math_state)
+    assert forced == {"kind": "activate_agent", "agent": "Finalizer"}
