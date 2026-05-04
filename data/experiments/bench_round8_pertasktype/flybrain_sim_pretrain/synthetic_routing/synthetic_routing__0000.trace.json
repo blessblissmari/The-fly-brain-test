@@ -1,0 +1,638 @@
+{
+  "final_answer": "- The draft lacks a clear definition of the sorting algorithm to be used (e.g., quicksort, mergesort, built\u2011in sort), m\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Define the function signature, e.g., `def sort_integers(nums):`. 2. Choose a sorting algorithm (e.g., Python\u2019s\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777929096106,
+      "tokens_in": 123,
+      "tokens_out": 150,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def sort_integers(nums):     \"\"\"Return a new list containing the integers from `nums` sorted in ascending ord\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777929096109,
+      "tokens_in": 127,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 2906,
+      "output_summary": "**Test Runner Output**  ``` tests_run: passed=7, failed=0 ```",
+      "step_id": 2,
+      "t_unix_ms": 1777929099018,
+      "tokens_in": 300,
+      "tokens_out": 101,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 9870,
+      "output_summary": "```python def sort_integers(nums):     \"\"\"     Sort a list of integers in ascending order.      Parameters     --------\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777929108891,
+      "tokens_in": 294,
+      "tokens_out": 236,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 5780,
+      "output_summary": "```python def sort_integers(nums):     \"\"\"     Sorts a list of integers in ascending order.      Parameters     -------\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777929114675,
+      "tokens_in": 138,
+      "tokens_out": 138,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 5447,
+      "output_summary": "schema:invalid_output (no output to validate)",
+      "step_id": 5,
+      "t_unix_ms": 1777929120125,
+      "tokens_in": 144,
+      "tokens_out": 148,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 4703,
+      "output_summary": "schema:invalid_output (missing or mismatched required fields in the output)",
+      "step_id": 6,
+      "t_unix_ms": 1777929124832,
+      "tokens_in": 148,
+      "tokens_out": 135,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (missing or mismatched required fields in the output)",
+      "step_id": 7,
+      "t_unix_ms": 1777929124837,
+      "tokens_in": 148,
+      "tokens_out": 135,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (missing or mismatched required fields in the output)",
+      "step_id": 8,
+      "t_unix_ms": 1777929124840,
+      "tokens_in": 148,
+      "tokens_out": 135,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (missing or mismatched required fields in the output)",
+      "step_id": 9,
+      "t_unix_ms": 1777929124844,
+      "tokens_in": 148,
+      "tokens_out": 135,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (missing or mismatched required fields in the output)",
+      "step_id": 10,
+      "t_unix_ms": 1777929124847,
+      "tokens_in": 148,
+      "tokens_out": 135,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (missing or mismatched required fields in the output)",
+      "step_id": 11,
+      "t_unix_ms": 1777929124851,
+      "tokens_in": 148,
+      "tokens_out": 135,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (missing or mismatched required fields in the output)",
+      "step_id": 12,
+      "t_unix_ms": 1777929124855,
+      "tokens_in": 148,
+      "tokens_out": 135,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (missing or mismatched required fields in the output)",
+      "step_id": 13,
+      "t_unix_ms": 1777929124858,
+      "tokens_in": 148,
+      "tokens_out": 135,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (missing or mismatched required fields in the output)",
+      "step_id": 14,
+      "t_unix_ms": 1777929124862,
+      "tokens_in": 148,
+      "tokens_out": 135,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (missing or mismatched required fields in the output)",
+      "step_id": 15,
+      "t_unix_ms": 1777929124866,
+      "tokens_in": 148,
+      "tokens_out": 135,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 5822,
+      "output_summary": "- The draft lacks a clear definition of the function signature and its expected behavior (e.g., in-place vs. returning \u2026",
+      "step_id": 16,
+      "t_unix_ms": 1777929130690,
+      "tokens_in": 142,
+      "tokens_out": 117,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 4860,
+      "output_summary": "- The draft lacks a clear definition of the sorting algorithm to be used (e.g., quicksort, mergesort, built\u2011in sort), m\u2026",
+      "step_id": 17,
+      "t_unix_ms": 1777929135554,
+      "tokens_in": 144,
+      "tokens_out": 121,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "70",
+      "latency_ms": 3245,
+      "output_summary": "schema:invalid_output (No output to validate against the schema)",
+      "step_id": 18,
+      "t_unix_ms": 1777929138803,
+      "tokens_in": 274,
+      "tokens_out": 38,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft lacks a clear definition of the sorting algorithm to be used (e.g., quicksort, mergesort, built\u2011in sort), m\u2026",
+      "step_id": 19,
+      "t_unix_ms": 1777929138807,
+      "tokens_in": 144,
+      "tokens_out": 121,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft lacks a clear definition of the sorting algorithm to be used (e.g., quicksort, mergesort, built\u2011in sort), m\u2026",
+      "step_id": 20,
+      "t_unix_ms": 1777929138812,
+      "tokens_in": 144,
+      "tokens_out": 121,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft lacks a clear definition of the sorting algorithm to be used (e.g., quicksort, mergesort, built\u2011in sort), m\u2026",
+      "step_id": 21,
+      "t_unix_ms": 1777929138816,
+      "tokens_in": 144,
+      "tokens_out": 121,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft lacks a clear definition of the sorting algorithm to be used (e.g., quicksort, mergesort, built\u2011in sort), m\u2026",
+      "step_id": 22,
+      "t_unix_ms": 1777929138820,
+      "tokens_in": 144,
+      "tokens_out": 121,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The draft lacks a clear definition of the sorting algorithm to be used (e.g., quicksort, mergesort, built\u2011in sort), m\u2026",
+      "step_id": 23,
+      "t_unix_ms": 1777929138825,
+      "tokens_in": 144,
+      "tokens_out": 121,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The draft lacks a clear definition of the sorting algorithm to be used (e.g., quicksort, mergesort, built\u2011in sort), m\u2026",
+      "step_id": 24,
+      "t_unix_ms": 1777929138844,
+      "tokens_in": 144,
+      "tokens_out": 121,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The draft lacks a clear definition of the sorting algorithm to be used (e.g., quicksort, mergesort, built\u2011in sort), m\u2026",
+      "step_id": 25,
+      "t_unix_ms": 1777929138849,
+      "tokens_in": 144,
+      "tokens_out": 121,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The draft lacks a clear definition of the sorting algorithm to be used (e.g., quicksort, mergesort, built\u2011in sort), m\u2026",
+      "step_id": 26,
+      "t_unix_ms": 1777929138853,
+      "tokens_in": 144,
+      "tokens_out": 121,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The draft lacks a clear definition of the sorting algorithm to be used (e.g., quicksort, mergesort, built\u2011in sort), m\u2026",
+      "step_id": 27,
+      "t_unix_ms": 1777929138858,
+      "tokens_in": 144,
+      "tokens_out": 121,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The draft lacks a clear definition of the sorting algorithm to be used (e.g., quicksort, mergesort, built\u2011in sort), m\u2026",
+      "step_id": 28,
+      "t_unix_ms": 1777929138862,
+      "tokens_in": 144,
+      "tokens_out": 121,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The draft lacks a clear definition of the sorting algorithm to be used (e.g., quicksort, mergesort, built\u2011in sort), m\u2026",
+      "step_id": 29,
+      "t_unix_ms": 1777929138867,
+      "tokens_in": 144,
+      "tokens_out": 121,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The draft lacks a clear definition of the sorting algorithm to be used (e.g., quicksort, mergesort, built\u2011in sort), m\u2026",
+      "step_id": 30,
+      "t_unix_ms": 1777929138871,
+      "tokens_in": 144,
+      "tokens_out": 121,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The draft lacks a clear definition of the sorting algorithm to be used (e.g., quicksort, mergesort, built\u2011in sort), m\u2026",
+      "step_id": 31,
+      "t_unix_ms": 1777929138876,
+      "tokens_in": 144,
+      "tokens_out": 121,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0000",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 42666,
+    "llm_calls": 32,
+    "tokens_in": 5038,
+    "tokens_out": 4026,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

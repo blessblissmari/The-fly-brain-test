@@ -1,0 +1,276 @@
+{
+  "final_answer": "schema:invalid_output (No JSON output provided to validate)",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain_sim_pretrain_watchdog",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. **Define the function signature** \u2013 Create a `merge_sort` function that accepts a list of generic comparable i\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777929460339,
+      "tokens_in": 123,
+      "tokens_out": 234,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from __future__ import annotations from typing import List, TypeVar, Callable  T = TypeVar(\"T\")   def merge_s\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777929460343,
+      "tokens_in": 127,
+      "tokens_out": 467,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 2,
+      "output_summary": "Below is a small test\u2011suite that exercises the `merge_sort` implementation.   It is written with plain `assert` stateme\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777929460347,
+      "tokens_in": 387,
+      "tokens_out": 1605,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 2,
+      "output_summary": "```python from __future__ import annotations  from typing import TypeVar, Protocol, List, Sequence  T = TypeVar(\"T\")   \u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777929460351,
+      "tokens_in": 381,
+      "tokens_out": 370,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "```python from __future__ import annotations from typing import List, Sequence, TypeVar  T = TypeVar(\"T\")  def merge_so\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777929460356,
+      "tokens_in": 138,
+      "tokens_out": 523,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No output to validate against the schema)",
+      "step_id": 5,
+      "t_unix_ms": 1777929460361,
+      "tokens_in": 144,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 6,
+      "t_unix_ms": 1777929460365,
+      "tokens_in": 148,
+      "tokens_out": 82,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 7,
+      "t_unix_ms": 1777929460370,
+      "tokens_in": 148,
+      "tokens_out": 82,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 8,
+      "t_unix_ms": 1777929460374,
+      "tokens_in": 148,
+      "tokens_out": 82,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 20413,
+      "output_summary": "Here is a self\u2011contained implementation of merge sort in Python, fully typed and ready for use:  ```python from __futur\u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777929480788,
+      "tokens_in": 139,
+      "tokens_out": 617,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "38",
+      "latency_ms": 2171,
+      "output_summary": "schema:invalid_output (output is not JSON)",
+      "step_id": 10,
+      "t_unix_ms": 1777929482962,
+      "tokens_in": 829,
+      "tokens_out": 49,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3753,
+      "output_summary": "schema:invalid_output (No JSON output provided to validate)",
+      "step_id": 11,
+      "t_unix_ms": 1777929486719,
+      "tokens_in": 151,
+      "tokens_out": 108,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 12,
+      "t_unix_ms": 1777929486720,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0008",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 26353,
+    "llm_calls": 12,
+    "tokens_in": 2863,
+    "tokens_out": 4273,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,295 @@
+{
+  "final_answer": "```python from typing import List   def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:     \"\"\"Filter a\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain_sim_pretrain_watchdog",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Validate inputs: ensure `strings` is a list of strings and `prefix` is a string (optional, but function can as\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777929574038,
+      "tokens_in": 226,
+      "tokens_out": 89,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List  def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:     \"\"\"Filter an\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777929574042,
+      "tokens_in": 230,
+      "tokens_out": 172,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The docstring\u2019s examples use a single\u2011quoted string for the prefix (`'a'`), but the function signature accepts a `str\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777929574045,
+      "tokens_in": 234,
+      "tokens_out": 145,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The docstring examples are not properly formatted as doctest blocks; the triple\u2011quoted string should use `>>>` prompt\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777929574049,
+      "tokens_in": 236,
+      "tokens_out": 147,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 1,
+      "output_summary": "```python # Test suite for filter_by_prefix from typing import List  # Import the function to test try:     from main i\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777929574053,
+      "tokens_in": 339,
+      "tokens_out": 593,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "**Generated Tests**  ```python # test_filter_by_prefix.py import importlib import sys import types import unittest  # I\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777929574057,
+      "tokens_in": 249,
+      "tokens_out": 702,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List  def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:     \"\"\" Filter a\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777929574061,
+      "tokens_in": 333,
+      "tokens_out": 139,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List   def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:     \"\"\"Filter a\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777929574065,
+      "tokens_in": 243,
+      "tokens_out": 144,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List   def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:     \"\"\"Filter a\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777929574070,
+      "tokens_in": 243,
+      "tokens_out": 144,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "14",
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No JSON output provided)",
+      "step_id": 9,
+      "t_unix_ms": 1777929574074,
+      "tokens_in": 392,
+      "tokens_out": 76,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 10,
+      "t_unix_ms": 1777929574078,
+      "tokens_in": 253,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 11,
+      "t_unix_ms": 1777929574082,
+      "tokens_in": 253,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 8237,
+      "output_summary": "```python from typing import List   def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:     \"\"\"Filter a\u2026",
+      "step_id": 12,
+      "t_unix_ms": 1777929582319,
+      "tokens_in": 244,
+      "tokens_out": 205,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 13,
+      "t_unix_ms": 1777929582320,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-29",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 8248,
+    "llm_calls": 13,
+    "tokens_in": 3475,
+    "tokens_out": 2700,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

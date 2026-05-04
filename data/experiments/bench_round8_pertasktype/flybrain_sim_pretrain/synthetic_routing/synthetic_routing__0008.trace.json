@@ -1,0 +1,638 @@
+{
+  "final_answer": "- The draft lacks a clear separation between the algorithm implementation and the helper functions; this makes it harde\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. **Define the function signature** \u2013 Create a `merge_sort` function that accepts a list of generic comparable i\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777928906626,
+      "tokens_in": 123,
+      "tokens_out": 234,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from __future__ import annotations from typing import List, TypeVar, Callable  T = TypeVar(\"T\")   def merge_s\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777928906630,
+      "tokens_in": 127,
+      "tokens_out": 467,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 36762,
+      "output_summary": "Below is a small test\u2011suite that exercises the `merge_sort` implementation.   It is written with plain `assert` stateme\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777928943396,
+      "tokens_in": 387,
+      "tokens_out": 1605,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 8260,
+      "output_summary": "```python from __future__ import annotations  from typing import TypeVar, Protocol, List, Sequence  T = TypeVar(\"T\")   \u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777928951659,
+      "tokens_in": 381,
+      "tokens_out": 370,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 10433,
+      "output_summary": "```python from __future__ import annotations from typing import List, Sequence, TypeVar  T = TypeVar(\"T\")  def merge_so\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777928962096,
+      "tokens_in": 138,
+      "tokens_out": 523,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2044,
+      "output_summary": "schema:invalid_output (No output to validate against the schema)",
+      "step_id": 5,
+      "t_unix_ms": 1777928964144,
+      "tokens_in": 144,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2289,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 6,
+      "t_unix_ms": 1777928966437,
+      "tokens_in": 148,
+      "tokens_out": 82,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 7,
+      "t_unix_ms": 1777928966442,
+      "tokens_in": 148,
+      "tokens_out": 82,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 8,
+      "t_unix_ms": 1777928966447,
+      "tokens_in": 148,
+      "tokens_out": 82,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 9,
+      "t_unix_ms": 1777928966451,
+      "tokens_in": 148,
+      "tokens_out": 82,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 10,
+      "t_unix_ms": 1777928966455,
+      "tokens_in": 148,
+      "tokens_out": 82,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 11,
+      "t_unix_ms": 1777928966460,
+      "tokens_in": 148,
+      "tokens_out": 82,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 12,
+      "t_unix_ms": 1777928966464,
+      "tokens_in": 148,
+      "tokens_out": 82,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 13,
+      "t_unix_ms": 1777928966468,
+      "tokens_in": 148,
+      "tokens_out": 82,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 14,
+      "t_unix_ms": 1777928966473,
+      "tokens_in": 148,
+      "tokens_out": 82,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 15,
+      "t_unix_ms": 1777928966497,
+      "tokens_in": 148,
+      "tokens_out": 82,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 5565,
+      "output_summary": "- The draft lacks a clear separation between the algorithm implementation and the surrounding infrastructure (e.g., cod\u2026",
+      "step_id": 16,
+      "t_unix_ms": 1777928972065,
+      "tokens_in": 142,
+      "tokens_out": 165,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "66",
+      "latency_ms": 2277,
+      "output_summary": "schema:invalid_output (No JSON output to validate against the expected schema)",
+      "step_id": 17,
+      "t_unix_ms": 1777928974346,
+      "tokens_in": 318,
+      "tokens_out": 66,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3857,
+      "output_summary": "- The draft lacks a clear separation between the algorithm implementation and the helper functions; this makes it harde\u2026",
+      "step_id": 18,
+      "t_unix_ms": 1777928978207,
+      "tokens_in": 144,
+      "tokens_out": 133,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The draft lacks a clear separation between the algorithm implementation and the helper functions; this makes it harde\u2026",
+      "step_id": 19,
+      "t_unix_ms": 1777928978212,
+      "tokens_in": 144,
+      "tokens_out": 133,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The draft lacks a clear separation between the algorithm implementation and the helper functions; this makes it harde\u2026",
+      "step_id": 20,
+      "t_unix_ms": 1777928978217,
+      "tokens_in": 144,
+      "tokens_out": 133,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The draft lacks a clear separation between the algorithm implementation and the helper functions; this makes it harde\u2026",
+      "step_id": 21,
+      "t_unix_ms": 1777928978222,
+      "tokens_in": 144,
+      "tokens_out": 133,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The draft lacks a clear separation between the algorithm implementation and the helper functions; this makes it harde\u2026",
+      "step_id": 22,
+      "t_unix_ms": 1777928978227,
+      "tokens_in": 144,
+      "tokens_out": 133,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The draft lacks a clear separation between the algorithm implementation and the helper functions; this makes it harde\u2026",
+      "step_id": 23,
+      "t_unix_ms": 1777928978232,
+      "tokens_in": 144,
+      "tokens_out": 133,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The draft lacks a clear separation between the algorithm implementation and the helper functions; this makes it harde\u2026",
+      "step_id": 24,
+      "t_unix_ms": 1777928978237,
+      "tokens_in": 144,
+      "tokens_out": 133,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The draft lacks a clear separation between the algorithm implementation and the helper functions; this makes it harde\u2026",
+      "step_id": 25,
+      "t_unix_ms": 1777928978242,
+      "tokens_in": 144,
+      "tokens_out": 133,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3,
+      "output_summary": "- The draft lacks a clear separation between the algorithm implementation and the helper functions; this makes it harde\u2026",
+      "step_id": 26,
+      "t_unix_ms": 1777928978248,
+      "tokens_in": 144,
+      "tokens_out": 133,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3,
+      "output_summary": "- The draft lacks a clear separation between the algorithm implementation and the helper functions; this makes it harde\u2026",
+      "step_id": 27,
+      "t_unix_ms": 1777928978253,
+      "tokens_in": 144,
+      "tokens_out": 133,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3,
+      "output_summary": "- The draft lacks a clear separation between the algorithm implementation and the helper functions; this makes it harde\u2026",
+      "step_id": 28,
+      "t_unix_ms": 1777928978259,
+      "tokens_in": 144,
+      "tokens_out": 133,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3,
+      "output_summary": "- The draft lacks a clear separation between the algorithm implementation and the helper functions; this makes it harde\u2026",
+      "step_id": 29,
+      "t_unix_ms": 1777928978264,
+      "tokens_in": 144,
+      "tokens_out": 133,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3,
+      "output_summary": "- The draft lacks a clear separation between the algorithm implementation and the helper functions; this makes it harde\u2026",
+      "step_id": 30,
+      "t_unix_ms": 1777928978270,
+      "tokens_in": 144,
+      "tokens_out": 133,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3,
+      "output_summary": "- The draft lacks a clear separation between the algorithm implementation and the helper functions; this makes it harde\u2026",
+      "step_id": 31,
+      "t_unix_ms": 1777928978276,
+      "tokens_in": 144,
+      "tokens_out": 133,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0008",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 71540,
+    "llm_calls": 32,
+    "tokens_in": 5256,
+    "tokens_out": 6166,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}
