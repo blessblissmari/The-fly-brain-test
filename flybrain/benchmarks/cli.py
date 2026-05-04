@@ -41,6 +41,8 @@ from flybrain.eval.reports import select_cherry_picks
 from flybrain.llm import (
     BudgetTracker,
     MockLLMClient,
+    OpenRouterClient,
+    OpenRouterConfig,
     SQLiteCache,
     YandexClient,
 )
@@ -198,6 +200,12 @@ async def run(args: argparse.Namespace) -> int:
 
     if args.backend == "mock":
         llm: Any = _mock_client()
+    elif args.backend == "openrouter":
+        cache = SQLiteCache(path=out_dir / "openrouter_cache.sqlite")
+        # Free-tier => 0 ₽; we still pass a generous cap so BudgetTracker
+        # doesn't reject calls when cost is reported as 0.
+        budget = BudgetTracker(hard_cap_rub=max(1.0, float(args.budget_rub)))
+        llm = OpenRouterClient(config=OpenRouterConfig.from_env(), cache=cache, budget=budget)
     else:
         cache = SQLiteCache(path=out_dir / "yandex_cache.sqlite")
         budget = BudgetTracker(hard_cap_rub=float(args.budget_rub))

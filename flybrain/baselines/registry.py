@@ -327,6 +327,9 @@ def _learned_router_with_mask(mask: frozenset[str]) -> BaselineFactory:
 # ``scripts/run_imitation.py`` / ``scripts/run_rl.py``.
 _DEFAULT_CHECKPOINT_PATHS: dict[str, tuple[Path, ...]] = {
     "SIM_PRETRAIN": (
+        # Round-5 headline (Finalizer-route fix, +20pp humaneval). Prefer
+        # this over the unsuffixed v1 file when present.
+        Path("data/checkpoints/sim_pretrain_gnn_v6.pt"),
         Path("data/checkpoints/sim_pretrain_gnn.pt"),
         Path("data/checkpoints/sim_pretrain.pt"),
     ),

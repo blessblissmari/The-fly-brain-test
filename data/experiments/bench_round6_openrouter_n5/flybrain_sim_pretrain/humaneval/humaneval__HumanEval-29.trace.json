@@ -1,0 +1,648 @@
+{
+  "final_answer": "schema:valid",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Validate inputs: ensure `strings` is a list of strings and `prefix` is a string (optional, but function can as\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777897969743,
+      "tokens_in": 226,
+      "tokens_out": 106,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "2",
+      "latency_ms": 8688,
+      "output_summary": "```python from typing import List   def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:     \"\"\"     Ret\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777897978434,
+      "tokens_in": 354,
+      "tokens_out": 180,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Implement the following Python function. Your final answer must be a complete, runnable function definition.\n\nEntry point: `filter_by_prefix`\n\n```python\nfrom typing import List\n\n\ndef filter_by_prefix(strings: List[str], prefix: str) -> List[str]:\n    \"\"\" Filter an input list of strings only for ones that start with a given prefix.\n    >>> filter_by_prefix([], 'a')\n    []\n    >>> filter_by_prefix(['abc', 'bcd', 'cde', 'array'], 'a')\n    ['abc', 'array']\n    \"\"\"\n```\n"
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 9091,
+      "output_summary": "- The draft does not handle `None` inputs for either `strings` or `prefix`, which could raise unexpected `TypeError`s i\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777897987541,
+      "tokens_in": 235,
+      "tokens_out": 162,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 8033,
+      "output_summary": "- The function lacks an actual implementation; it only contains a docstring and no code to perform the filtering.   - E\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777897995578,
+      "tokens_in": 237,
+      "tokens_out": 148,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function lacks an actual implementation; it only contains a docstring and no code to perform the filtering.   - E\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777897995583,
+      "tokens_in": 237,
+      "tokens_out": 148,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function lacks an actual implementation; it only contains a docstring and no code to perform the filtering.   - E\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777897995587,
+      "tokens_in": 237,
+      "tokens_out": 148,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function lacks an actual implementation; it only contains a docstring and no code to perform the filtering.   - E\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777897995591,
+      "tokens_in": 237,
+      "tokens_out": 148,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function lacks an actual implementation; it only contains a docstring and no code to perform the filtering.   - E\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777897995595,
+      "tokens_in": 237,
+      "tokens_out": 148,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function lacks an actual implementation; it only contains a docstring and no code to perform the filtering.   - E\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777897995599,
+      "tokens_in": 237,
+      "tokens_out": 148,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The function lacks an actual implementation; it only contains a docstring and no code to perform the filtering.   - E\u2026",
+      "step_id": 9,
+      "t_unix_ms": 1777897995602,
+      "tokens_in": 237,
+      "tokens_out": 148,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "7",
+      "latency_ms": 6334,
+      "output_summary": "We'll create test file.Let's run.**Test Results**  ``` tests_run: passed=5, failed=0 ```",
+      "step_id": 10,
+      "t_unix_ms": 1777898001939,
+      "tokens_in": 451,
+      "tokens_out": 116,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "16",
+      "latency_ms": 8364,
+      "output_summary": "```python from typing import List  def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:     \"\"\"Filter an\u2026",
+      "step_id": 11,
+      "t_unix_ms": 1777898010307,
+      "tokens_in": 288,
+      "tokens_out": 173,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 13872,
+      "output_summary": "```python from typing import List  def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:     \"\"\"Filter an\u2026",
+      "step_id": 12,
+      "t_unix_ms": 1777898024185,
+      "tokens_in": 244,
+      "tokens_out": 180,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List  def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:     \"\"\"Filter an\u2026",
+      "step_id": 13,
+      "t_unix_ms": 1777898024191,
+      "tokens_in": 244,
+      "tokens_out": 180,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "```python from typing import List  def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:     \"\"\"Filter an\u2026",
+      "step_id": 14,
+      "t_unix_ms": 1777898024195,
+      "tokens_in": 244,
+      "tokens_out": 180,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "```python from typing import List  def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:     \"\"\"Filter an\u2026",
+      "step_id": 15,
+      "t_unix_ms": 1777898024200,
+      "tokens_in": 244,
+      "tokens_out": 180,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "```python from typing import List  def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:     \"\"\"Filter an\u2026",
+      "step_id": 16,
+      "t_unix_ms": 1777898024204,
+      "tokens_in": 244,
+      "tokens_out": 180,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "```python from typing import List  def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:     \"\"\"Filter an\u2026",
+      "step_id": 17,
+      "t_unix_ms": 1777898024209,
+      "tokens_in": 244,
+      "tokens_out": 180,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 5596,
+      "output_summary": "schema:valid",
+      "step_id": 18,
+      "t_unix_ms": 1777898029808,
+      "tokens_in": 250,
+      "tokens_out": 48,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 28562,
+      "output_summary": "schema:valid",
+      "step_id": 19,
+      "t_unix_ms": 1777898058374,
+      "tokens_in": 254,
+      "tokens_out": 35,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 20,
+      "t_unix_ms": 1777898058380,
+      "tokens_in": 254,
+      "tokens_out": 35,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 21,
+      "t_unix_ms": 1777898058384,
+      "tokens_in": 254,
+      "tokens_out": 35,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 22,
+      "t_unix_ms": 1777898058389,
+      "tokens_in": 254,
+      "tokens_out": 35,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 23,
+      "t_unix_ms": 1777898058393,
+      "tokens_in": 254,
+      "tokens_out": 35,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 24,
+      "t_unix_ms": 1777898058398,
+      "tokens_in": 254,
+      "tokens_out": 35,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 25,
+      "t_unix_ms": 1777898058402,
+      "tokens_in": 254,
+      "tokens_out": 35,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 26,
+      "t_unix_ms": 1777898058407,
+      "tokens_in": 254,
+      "tokens_out": 35,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 27,
+      "t_unix_ms": 1777898058411,
+      "tokens_in": 254,
+      "tokens_out": 35,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 28,
+      "t_unix_ms": 1777898058416,
+      "tokens_in": 254,
+      "tokens_out": 35,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 29,
+      "t_unix_ms": 1777898058421,
+      "tokens_in": 254,
+      "tokens_out": 35,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 30,
+      "t_unix_ms": 1777898058432,
+      "tokens_in": 254,
+      "tokens_out": 35,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:valid",
+      "step_id": 31,
+      "t_unix_ms": 1777898058437,
+      "tokens_in": 254,
+      "tokens_out": 35,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-29",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 88580,
+    "llm_calls": 32,
+    "tokens_in": 8229,
+    "tokens_out": 3356,
+    "tool_calls": 1
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}
