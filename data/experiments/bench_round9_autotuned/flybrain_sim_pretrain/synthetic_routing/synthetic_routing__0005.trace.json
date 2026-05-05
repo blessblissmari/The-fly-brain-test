@@ -1,0 +1,640 @@
+{
+  "final_answer": "- The solution jumps directly to the answer without showing the intermediate algebraic steps (subtracting 72 from both \u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Subtract 72 from both sides of the equation to isolate the term with x: \\(96x + 72 - 72 = 69 - 72\\). 2. Simpli\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777968981812,
+      "tokens_in": 127,
+      "tokens_out": 134,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 13152,
+      "output_summary": "```python def solve():     # Solve 96x + 72 = 69     x = (69 - 72) / 96     # Print the result; it will be a float     \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777968994967,
+      "tokens_in": 131,
+      "tokens_out": 106,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 9541,
+      "output_summary": "- The draft doesn\u2019t actually present any mathematical work or reasoning; it jumps straight to a conclusion without show\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777969004512,
+      "tokens_in": 135,
+      "tokens_out": 135,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 17487,
+      "output_summary": "We don't have code view. Assume a function solve_equation(equation:str) returns solution. Let's write tests expecting -\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777969022002,
+      "tokens_in": 279,
+      "tokens_out": 488,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 10269,
+      "output_summary": "```python def solve_equation():     \"\"\"     Solves the linear equation 96x + 72 = 69 and returns the value of x.     \"\"\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777969032275,
+      "tokens_in": 273,
+      "tokens_out": 216,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 5999,
+      "output_summary": "```python def solve():     \"\"\"     Solves the linear equation 96x + 72 = 69 for x and prints the result.     \"\"\"     # \u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777969038277,
+      "tokens_in": 144,
+      "tokens_out": 161,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def solve():     \"\"\"     Solves the linear equation 96x + 72 = 69 for x and prints the result.     \"\"\"     # \u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777969038282,
+      "tokens_in": 144,
+      "tokens_out": 161,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def solve():     \"\"\"     Solves the linear equation 96x + 72 = 69 for x and prints the result.     \"\"\"     # \u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777969038285,
+      "tokens_in": 144,
+      "tokens_out": 161,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def solve():     \"\"\"     Solves the linear equation 96x + 72 = 69 for x and prints the result.     \"\"\"     # \u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777969038289,
+      "tokens_in": 144,
+      "tokens_out": 161,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "10",
+      "latency_ms": 3518,
+      "output_summary": "schema:valid",
+      "step_id": 9,
+      "t_unix_ms": 1777969041810,
+      "tokens_in": 274,
+      "tokens_out": 34,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 16019,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 10,
+      "t_unix_ms": 1777969057833,
+      "tokens_in": 154,
+      "tokens_out": 64,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 11,
+      "t_unix_ms": 1777969057838,
+      "tokens_in": 154,
+      "tokens_out": 64,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 12,
+      "t_unix_ms": 1777969057842,
+      "tokens_in": 154,
+      "tokens_out": 64,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 13,
+      "t_unix_ms": 1777969057845,
+      "tokens_in": 154,
+      "tokens_out": 64,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 14,
+      "t_unix_ms": 1777969057849,
+      "tokens_in": 154,
+      "tokens_out": 64,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 15,
+      "t_unix_ms": 1777969057853,
+      "tokens_in": 154,
+      "tokens_out": 64,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 16,
+      "t_unix_ms": 1777969057857,
+      "tokens_in": 154,
+      "tokens_out": 64,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 17,
+      "t_unix_ms": 1777969057861,
+      "tokens_in": 154,
+      "tokens_out": 64,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 18,
+      "t_unix_ms": 1777969057871,
+      "tokens_in": 154,
+      "tokens_out": 64,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 19,
+      "t_unix_ms": 1777969057884,
+      "tokens_in": 154,
+      "tokens_out": 64,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 20,
+      "t_unix_ms": 1777969057888,
+      "tokens_in": 154,
+      "tokens_out": 64,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 21,
+      "t_unix_ms": 1777969057892,
+      "tokens_in": 154,
+      "tokens_out": 64,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (no output provided to validate)",
+      "step_id": 22,
+      "t_unix_ms": 1777969057896,
+      "tokens_in": 154,
+      "tokens_out": 64,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 4716,
+      "output_summary": "- The solution jumps directly to the answer without showing the intermediate algebraic steps (subtracting 72 from both \u2026",
+      "step_id": 23,
+      "t_unix_ms": 1777969062615,
+      "tokens_in": 148,
+      "tokens_out": 139,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "94",
+      "latency_ms": 2485,
+      "output_summary": "schema:valid",
+      "step_id": 24,
+      "t_unix_ms": 1777969065104,
+      "tokens_in": 282,
+      "tokens_out": 48,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The solution jumps directly to the answer without showing the intermediate algebraic steps (subtracting 72 from both \u2026",
+      "step_id": 25,
+      "t_unix_ms": 1777969065109,
+      "tokens_in": 148,
+      "tokens_out": 139,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The solution jumps directly to the answer without showing the intermediate algebraic steps (subtracting 72 from both \u2026",
+      "step_id": 26,
+      "t_unix_ms": 1777969065113,
+      "tokens_in": 148,
+      "tokens_out": 139,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "106",
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 27,
+      "t_unix_ms": 1777969065117,
+      "tokens_in": 282,
+      "tokens_out": 48,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The solution jumps directly to the answer without showing the intermediate algebraic steps (subtracting 72 from both \u2026",
+      "step_id": 28,
+      "t_unix_ms": 1777969065121,
+      "tokens_in": 148,
+      "tokens_out": 139,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The solution jumps directly to the answer without showing the intermediate algebraic steps (subtracting 72 from both \u2026",
+      "step_id": 29,
+      "t_unix_ms": 1777969065127,
+      "tokens_in": 148,
+      "tokens_out": 139,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The solution jumps directly to the answer without showing the intermediate algebraic steps (subtracting 72 from both \u2026",
+      "step_id": 30,
+      "t_unix_ms": 1777969065131,
+      "tokens_in": 148,
+      "tokens_out": 139,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The solution jumps directly to the answer without showing the intermediate algebraic steps (subtracting 72 from both \u2026",
+      "step_id": 31,
+      "t_unix_ms": 1777969065135,
+      "tokens_in": 148,
+      "tokens_out": 139,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0005",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 83210,
+    "llm_calls": 32,
+    "tokens_in": 5397,
+    "tokens_out": 3658,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: final_answer"
+    ],
+    "failed_component": "final_answer",
+    "passed": false,
+    "reward_delta": -0.10000000149011612,
+    "score": 0.8500000238418579,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}
