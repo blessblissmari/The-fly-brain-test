@@ -121,8 +121,9 @@ def test_builtin_baselines_yields_nine_specs() -> None:
     # + flybrain_sim_pretrain_watchdog_v2 (round-8)
     # + flybrain_sim_pretrain_watchdog_v3 (round-9)
     # + flybrain_graph_ssl_pretrain + 5 embedding-ablation rows
-    # + 4 verifier-ablation rows.
-    assert len(specs) == 9 + 1 + 1 + 1 + 1 + 5 + 4
+    # + 4 verifier-ablation rows
+    # + 3 round-10 connectome-prior-ablation rows.
+    assert len(specs) == 9 + 1 + 1 + 1 + 1 + 5 + 4 + 3
     # Canonical README §15 order is preserved at the top of the list.
     full_min_names = [s.name for s in specs[:9]]
     assert full_min_names == BUILTIN_SUITES["full_min"]

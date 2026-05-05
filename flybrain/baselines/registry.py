@@ -454,6 +454,8 @@ def _flybrain_with_checkpoint_and_watchdog(
 def _flybrain_with_checkpoint(
     controller_name: str,
     label: str,
+    *,
+    fly_graph_path: Path | None = None,
 ) -> BaselineFactory:
     """Generic factory for #7-#9: same architecture as #6 but with a
     pre-loaded checkpoint produced by Phase-6 / Phase-7 / Phase-8.
@@ -469,6 +471,16 @@ def _flybrain_with_checkpoint(
     the architecture the trainers see in
     ``flybrain.training.simulation_pretrain`` / ``imitation_train`` /
     ``rl_train`` (HANDOFF.md §4.a Q1).
+
+    ``fly_graph_path`` lets a caller substitute the canonical FlyWire
+    K=64 prior with a null-prior ``.fbg`` for round-10 ablations
+    (``docs/round10_prior_ablation.md``). The substituted graph is
+    used both for the initial AgentGraph (via
+    :func:`flybrain.baselines.graphs.flybrain_prior_graph`) and for
+    the cached spectral ``fly_vec`` the controller reads each step
+    (via ``ControllerStateBuilder.fly_graph``). Defaults to ``None``,
+    which preserves the round-1-9 behaviour (canonical FlyWire prior
+    auto-loaded by ``flybrain_prior_graph``).
     """
 
     def factory(agent_names: list[str]) -> tuple[Controller, dict[str, Any] | None]:
@@ -487,12 +499,23 @@ def _flybrain_with_checkpoint(
         from flybrain.agents.specs import MINIMAL_15
 
         agents_emb.precompute_sync(MINIMAL_15)
+
+        # Round-10 prior substitution: load the alternate .fbg if the
+        # caller asked for one, otherwise fall through to whatever
+        # ``flybrain_prior_graph`` finds on disk (canonical FlyWire).
+        substituted_graph = None
+        if fly_graph_path is not None and fly_graph_path.exists():
+            from flybrain.graph import load as _load_fly_graph
+
+            substituted_graph = _load_fly_graph(fly_graph_path)
+
         builder = ControllerStateBuilder(
             task=TaskEmbedder(client),
             agents=agents_emb,
             trace=TraceEmbedder(client),
             fly=FlyGraphEmbedder(dim=8),
             agent_graph=AgentGraphEmbedder(in_dim=32, hidden_dim=16, out_dim=32),
+            fly_graph=substituted_graph,
         )
         if controller_name == "gnn":
             from flybrain.controller import FlyBrainGNNController
@@ -535,7 +558,11 @@ def _flybrain_with_checkpoint(
                     f"failed to load {label} checkpoint at {ckpt_path}: {e}",
                     stacklevel=2,
                 )
-        return ctrl, flybrain_prior_graph(agent_names)
+        if substituted_graph is not None:
+            initial_graph = flybrain_prior_graph(agent_names, fly_graph=substituted_graph)
+        else:
+            initial_graph = flybrain_prior_graph(agent_names)
+        return ctrl, initial_graph
 
     return factory
 
@@ -750,6 +777,62 @@ def builtin_baselines() -> list[BaselineSpec]:
             tags=["ablation", "verifier"],
             mas_config_overrides={"verification_mode": "full"},
         ),
+        # Round-10 — Connectome prior ablation (docs/round10_prior_ablation.md).
+        # Each baseline reuses the SIM_PRETRAIN checkpoint but substitutes the
+        # prior with one of the null-priors materialised by
+        # ``scripts/build_null_priors.py``. fly_graph_path falls back gracefully
+        # when the .fbg is absent (factory becomes equivalent to plain
+        # ``flybrain_sim_pretrain``), so the round-10 baselines remain safe to
+        # register on a fresh CI box.
+        BaselineSpec(
+            name="er_prior_sim_pretrain",
+            description=(
+                "Round-10: SIM_PRETRAIN checkpoint with the Erdos-Renyi K=64 "
+                "null prior (data/flybrain/null_priors/er_K64_seed0.fbg). "
+                "Controls for 'any sparse random graph' - preserves only "
+                "(num_nodes, num_edges) of the real FlyWire prior."
+            ),
+            factory=_flybrain_with_checkpoint(
+                "gnn",
+                "SIM_PRETRAIN",
+                fly_graph_path=Path("data/flybrain/null_priors/er_K64_seed0.fbg"),
+            ),
+            tags=["learned", "trained", "null-prior", "round-10"],
+        ),
+        BaselineSpec(
+            name="shuffled_fly_sim_pretrain",
+            description=(
+                "Round-10: SIM_PRETRAIN checkpoint with the configuration-"
+                "model degree-preserving shuffled prior "
+                "(data/flybrain/null_priors/shuffled_K64_seed0.fbg). "
+                "Maslov-Sneppen double-edge swap (10x|E| swaps) preserves "
+                "every node's in/out-degree but randomises who-connects-to-"
+                "whom - the gold-standard null in network neuroscience for "
+                "distinguishing 'topology matters' from 'degree matters'."
+            ),
+            factory=_flybrain_with_checkpoint(
+                "gnn",
+                "SIM_PRETRAIN",
+                fly_graph_path=Path("data/flybrain/null_priors/shuffled_K64_seed0.fbg"),
+            ),
+            tags=["learned", "trained", "null-prior", "round-10"],
+        ),
+        BaselineSpec(
+            name="reverse_fly_sim_pretrain",
+            description=(
+                "Round-10: SIM_PRETRAIN checkpoint with the adjacency-"
+                "transpose prior (data/flybrain/null_priors/reverse_K64.fbg). "
+                "Preserves the *undirected* adjacency, weights and degrees "
+                "exactly; flips every edge's direction. Tests whether the "
+                "GNN actually exploits connectome directionality."
+            ),
+            factory=_flybrain_with_checkpoint(
+                "gnn",
+                "SIM_PRETRAIN",
+                fly_graph_path=Path("data/flybrain/null_priors/reverse_K64.fbg"),
+            ),
+            tags=["learned", "trained", "null-prior", "round-10"],
+        ),
     ]
 
 
@@ -832,6 +915,18 @@ BUILTIN_SUITES: dict[str, list[str]] = {
         "flybrain_sim_pretrain_watchdog",
         "flybrain_sim_pretrain_watchdog_v2",
         "flybrain_sim_pretrain_watchdog_v3",
+    ],
+    # Round-10 — Connectome prior ablation. The falsifiability test for
+    # README §17: is the trained controller's success driven by the
+    # *biological* topology of FlyWire 783, or would any structurally-
+    # similar prior work? Pairs the canonical sim_pretrain control
+    # with three null-priors of increasing structural similarity.
+    "round10_prior_ablation": [
+        "manual_graph",
+        "flybrain_sim_pretrain",
+        "er_prior_sim_pretrain",
+        "shuffled_fly_sim_pretrain",
+        "reverse_fly_sim_pretrain",
     ],
 }
 
