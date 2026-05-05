@@ -1,0 +1,258 @@
+{
+  "final_answer": "schema:valid",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Define the function `filter_integers` that accepts a list of arbitrary values. 2. Iterate over the input list \u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777980517379,
+      "tokens_in": 233,
+      "tokens_out": 114,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List, Any  def filter_integers(values: List[Any]) -> List[int]:     \"\"\"Filter given list o\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777980517382,
+      "tokens_in": 355,
+      "tokens_out": 172,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "We will create tests for typical cases, edge cases, bool handling (bool is subclass of int, should we include? Probably\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777980517386,
+      "tokens_in": 252,
+      "tokens_out": 521,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 6488,
+      "output_summary": "```python from typing import List, Any  def filter_integers(values: List[Any]) -> List[int]:     \"\"\" Filter given list \u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777980523876,
+      "tokens_in": 810,
+      "tokens_out": 152,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 6319,
+      "output_summary": "schema:valid",
+      "step_id": 4,
+      "t_unix_ms": 1777980530199,
+      "tokens_in": 254,
+      "tokens_out": 64,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2535,
+      "output_summary": "schema:valid",
+      "step_id": 5,
+      "t_unix_ms": 1777980532738,
+      "tokens_in": 258,
+      "tokens_out": 36,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 6,
+      "t_unix_ms": 1777980532742,
+      "tokens_in": 258,
+      "tokens_out": 36,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 7,
+      "t_unix_ms": 1777980532746,
+      "tokens_in": 258,
+      "tokens_out": 36,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 8,
+      "t_unix_ms": 1777980532749,
+      "tokens_in": 258,
+      "tokens_out": 36,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 9,
+      "t_unix_ms": 1777980532753,
+      "tokens_in": 258,
+      "tokens_out": 36,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 10,
+      "t_unix_ms": 1777980532757,
+      "tokens_in": 258,
+      "tokens_out": 36,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 11,
+      "t_unix_ms": 1777980532760,
+      "tokens_in": 258,
+      "tokens_out": 36,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-22",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 15351,
+    "llm_calls": 12,
+    "tokens_in": 3710,
+    "tokens_out": 1275,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "final_answer": "The first glass costs \\$5 and every second glass (the even\u2011numbered ones) costs 60\u202f% of \\$5, i.e. \\$3.   Among 16 glass\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 9011,
+      "output_summary": "Plan: 1. Determine the price of a regular glass: $5. 2. Compute the discounted price for every second glass: 60% of $5 \u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777976906945,
+      "tokens_in": 180,
+      "tokens_out": 207,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 16585,
+      "output_summary": "The glasses are priced as follows:  - Glasses in odd positions (1st, 3rd, 5th, \u2026) cost the full price: \\$5 each.   - Gl\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777976923531,
+      "tokens_in": 179,
+      "tokens_out": 282,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1777976923531,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 8424,
+      "output_summary": "The first glass costs \\$5 and every second glass (the even\u2011numbered ones) costs 60\u202f% of \\$5, i.e. \\$3.   Among 16 glass\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777976931955,
+      "tokens_in": 186,
+      "tokens_out": 162,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1777976931955,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00002",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 34020,
+    "llm_calls": 3,
+    "tokens_in": 545,
+    "tokens_out": 651,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "final_answer": "schema:valid",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Validate that the input list has at least two elements; raise a `ValueError` if not. 2. Compute the minimum an\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777978323662,
+      "tokens_in": 264,
+      "tokens_out": 140,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 12874,
+      "output_summary": "```python from typing import List  def rescale_to_unit(numbers: List[float]) -> List[float]:     \"\"\"Rescale a list of n\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777978336539,
+      "tokens_in": 413,
+      "tokens_out": 282,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 25447,
+      "output_summary": "We will create test file.**Test code (to be run with `unit_tester`)**  ```python # test_rescale_to_unit.py from typing \u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777978361991,
+      "tokens_in": 428,
+      "tokens_out": 632,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "8",
+      "latency_ms": 9886,
+      "output_summary": "```python from typing import List  def rescale_to_unit(numbers: List[float]) -> List[float]:     \"\"\"Given a list of num\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777978371880,
+      "tokens_in": 941,
+      "tokens_out": 237,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 13125,
+      "output_summary": "```python from typing import List  def rescale_to_unit(numbers: List[float]) -> List[float]:     \"\"\"     Given a list o\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777978385009,
+      "tokens_in": 279,
+      "tokens_out": 285,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2025,
+      "output_summary": "schema:valid",
+      "step_id": 5,
+      "t_unix_ms": 1777978387038,
+      "tokens_in": 285,
+      "tokens_out": 39,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3041,
+      "output_summary": "schema:valid",
+      "step_id": 6,
+      "t_unix_ms": 1777978390083,
+      "tokens_in": 289,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 7,
+      "t_unix_ms": 1777978390088,
+      "tokens_in": 289,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 8,
+      "t_unix_ms": 1777978390106,
+      "tokens_in": 289,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 9,
+      "t_unix_ms": 1777978390110,
+      "tokens_in": 289,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 10,
+      "t_unix_ms": 1777978390114,
+      "tokens_in": 289,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1a957781b5f3cf87",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 11,
+      "t_unix_ms": 1777978390118,
+      "tokens_in": 289,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-21",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 66403,
+    "llm_calls": 12,
+    "tokens_in": 4344,
+    "tokens_out": 2047,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}
