@@ -371,6 +371,51 @@ def _resolve_checkpoint_path(label: str) -> Path | None:
     return None
 
 
+def _flybrain_with_checkpoint_and_calibrated_watchdog(
+    controller_name: str,
+    label: str,
+    *,
+    bench_dirs: list[str],
+    percentile: float = 0.90,
+    min_samples: int = 3,
+    fallback_force: int = 12,
+    fallback_stall: int = 3,
+    baseline_name: str | None = None,
+) -> BaselineFactory:
+    """Round-9 variant: same as ``_flybrain_with_checkpoint_and_watchdog``
+    but the per-task-type ``force_after`` / ``stall_after`` are
+    **calibrated** from ``manual_graph`` traces in ``bench_dirs``
+    instead of hand-tuned. See
+    :mod:`flybrain.controller.watchdog_calibrator` for the math.
+
+    If the bench dirs are missing (e.g. shallow clone, fresh CI box)
+    the calibrator returns an empty mapping and the watchdog falls
+    back to ``fallback_force`` / ``fallback_stall`` so the factory
+    is always safe to invoke.
+    """
+
+    inner_factory = _flybrain_with_checkpoint(controller_name, label)
+
+    def factory(agent_names: list[str]) -> tuple[Controller, dict[str, Any] | None]:
+        from flybrain.controller.finalizer_watchdog import (
+            FinalizerWatchdogController,
+        )
+
+        inner, init_graph = inner_factory(agent_names)
+        wrapped = FinalizerWatchdogController.from_bench_dirs(
+            inner,
+            bench_dirs,
+            percentile=percentile,
+            min_samples=min_samples,
+            fallback_force=fallback_force,
+            fallback_stall=fallback_stall,
+            name=baseline_name or "flybrain_sim_pretrain_watchdog_v3",
+        )
+        return wrapped, init_graph
+
+    return factory
+
+
 def _flybrain_with_checkpoint_and_watchdog(
     controller_name: str,
     label: str,
@@ -602,6 +647,34 @@ def builtin_baselines() -> list[BaselineSpec]:
             tags=["learned", "trained", "fly-prior", "watchdog", "round-8"],
         ),
         BaselineSpec(
+            name="flybrain_sim_pretrain_watchdog_v3",
+            description=(
+                "Round-9: auto-calibrated FinalizerWatchdogController — "
+                "force_after / stall_after dicts are derived at factory "
+                "time from manual_graph traces in "
+                "data/experiments/bench_round{7,8}_*. The P90 of "
+                "successful manual_graph llm_calls per task_type is "
+                "rounded up to give each task type an empirically-"
+                "supported budget; new benchmarks need only a "
+                "manual_graph reference run rather than a hand-tuned "
+                "registry entry."
+            ),
+            factory=_flybrain_with_checkpoint_and_calibrated_watchdog(
+                "gnn",
+                "SIM_PRETRAIN",
+                bench_dirs=[
+                    "data/experiments/bench_round7_watchdog",
+                    "data/experiments/bench_round8_pertasktype",
+                ],
+                percentile=0.90,
+                min_samples=3,
+                fallback_force=12,
+                fallback_stall=3,
+                baseline_name="flybrain_sim_pretrain_watchdog_v3",
+            ),
+            tags=["learned", "trained", "fly-prior", "watchdog", "round-9"],
+        ),
+        BaselineSpec(
             name="flybrain_graph_ssl_pretrain",
             description=(
                 "Exp4 row '+graph SSL' — FlyBrain GNN with the agent-graph "
@@ -748,6 +821,17 @@ BUILTIN_SUITES: dict[str, list[str]] = {
         "flybrain_sim_pretrain",
         "flybrain_sim_pretrain_watchdog",
         "flybrain_sim_pretrain_watchdog_v2",
+    ],
+    # Round-9 — auto-calibrated watchdog (v3) replacing the hand-tuned
+    # round-8 dict. Reads manual_graph traces from rounds 7/8 to
+    # derive per-task-type budgets at factory time, so the same
+    # baseline scales zero-shot to new benchmarks.
+    "round9_watchdog_v3": [
+        "manual_graph",
+        "flybrain_sim_pretrain",
+        "flybrain_sim_pretrain_watchdog",
+        "flybrain_sim_pretrain_watchdog_v2",
+        "flybrain_sim_pretrain_watchdog_v3",
     ],
 }
 
