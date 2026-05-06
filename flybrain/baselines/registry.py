@@ -345,9 +345,7 @@ _DEFAULT_CHECKPOINT_PATHS: dict[str, tuple[Path, ...]] = {
     # ``scripts/train_round12_lora.py``. Falls back to None when the
     # file is absent so the factory degrades to the plain
     # ``flybrain_sim_pretrain`` baseline (no adapter loaded).
-    "LORA_ROUND12": (
-        Path("data/checkpoints/lora_adapter_round12.pt"),
-    ),
+    "LORA_ROUND12": (Path("data/checkpoints/lora_adapter_round12.pt"),),
 }
 
 
