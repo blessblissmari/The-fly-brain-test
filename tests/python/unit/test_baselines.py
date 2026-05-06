@@ -282,6 +282,7 @@ def test_round12_lora_baseline_constructs_with_zeroed_adapter(tmp_path) -> None:
     """The LoRA factory must produce a working controller even when
     no adapter checkpoint is on disk — the zero-init residual makes
     the controller byte-identical to ``flybrain_sim_pretrain``."""
+    pytest.importorskip("torch")  # LoRA module subclasses an nn.Module GNN ctrl
     import os
 
     # Point the LoRA env var at a non-existent file so the resolver
