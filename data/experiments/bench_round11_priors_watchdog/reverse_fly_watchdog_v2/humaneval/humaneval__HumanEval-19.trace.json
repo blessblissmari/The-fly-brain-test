@@ -1,0 +1,278 @@
+{
+  "final_answer": "schema:valid",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "reverse_fly_watchdog_v2",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Create a mapping dictionary that maps each number word ('zero'\u2011'nine') to its integer value 0\u20119. 2. Split the \u2026",
+      "step_id": 0,
+      "t_unix_ms": 1778061783282,
+      "tokens_in": 242,
+      "tokens_out": 136,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 1,
+      "t_unix_ms": 1778061783285,
+      "tokens_in": 260,
+      "tokens_out": 58,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Implement the following Python function. Your final answer must be a complete, runnable function definition.\n\nEntry point: `sort_numbers`\n\n```python\nfrom typing import List\n\n\ndef sort_numbers(numbers: str) -> str:\n    \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'.\n    Valid choices are 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight' and 'nine'.\n    Return the string with numbers sorted from smallest to largest\n    >>> sort_numbers('three one five')\n    'one three five'\n    \"\"\"\n```\n"
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Search web.",
+      "step_id": 2,
+      "t_unix_ms": 1778061783289,
+      "tokens_in": 263,
+      "tokens_out": 106,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Implement the following Python function. Your final answer must be a complete, runnable function definition.\n\nEntry point: `sort_numbers`\n\n```python\nfrom typing import List\n\n\ndef sort_numbers(numbers: str) -> str:\n    \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'.\n    Valid choices are 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight' and 'nine'.\n    Return the string with numbers sorted from smallest to largest\n    >>> sort_numbers('three one five')\n    'one three five'\n    \"\"\"\n```\n"
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "ToolExecutor",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "ToolExecutor",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 16334,
+      "output_summary": "```python from typing import List  def sort_numbers(numbers: str) -> str:     \"\"\"Return a space\u2011delimited string of the\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1778061799625,
+      "tokens_in": 246,
+      "tokens_out": 374,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 16913,
+      "output_summary": "- The draft does not include any validation for words outside the allowed set (`'zero'`\u2011`'nine'`), so unexpected inputs\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1778061816542,
+      "tokens_in": 254,
+      "tokens_out": 153,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 6505,
+      "output_summary": "- The draft does not include any implementation at all, leaving the function body empty and thus failing to meet the sp\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1778061823051,
+      "tokens_in": 256,
+      "tokens_out": 129,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "11",
+      "latency_ms": 17750,
+      "output_summary": "We'll run.Let's write tests.**Generated tests**  ```python def test_sort_numbers_basic():     assert sort_numbers('thre\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1778061840804,
+      "tokens_in": 284,
+      "tokens_out": 401,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 4192,
+      "output_summary": "verifier:failed:No implementation of sort_numbers was provided.",
+      "step_id": 7,
+      "t_unix_ms": 1778061845000,
+      "tokens_in": 265,
+      "tokens_out": 42,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 7310,
+      "output_summary": "schema:valid",
+      "step_id": 8,
+      "t_unix_ms": 1778061852314,
+      "tokens_in": 269,
+      "tokens_out": 67,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3296,
+      "output_summary": "schema:valid",
+      "step_id": 9,
+      "t_unix_ms": 1778061855613,
+      "tokens_in": 273,
+      "tokens_out": 52,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 10,
+      "t_unix_ms": 1778061855617,
+      "tokens_in": 273,
+      "tokens_out": 52,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "fe2372b7dee924a8",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:valid",
+      "step_id": 11,
+      "t_unix_ms": 1778061855621,
+      "tokens_in": 273,
+      "tokens_out": 52,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-19",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 72304,
+    "llm_calls": 12,
+    "tokens_in": 3158,
+    "tokens_out": 1622,
+    "tool_calls": 2
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

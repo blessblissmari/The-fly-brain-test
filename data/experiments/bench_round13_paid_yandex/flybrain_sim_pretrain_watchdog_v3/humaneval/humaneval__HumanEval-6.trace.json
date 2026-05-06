@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (function does not match expected output format)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain_sim_pretrain_watchdog_v3",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.3887999951839447,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Define the function `parse_nested_parens` with the required signature and docstring. 2. Implement a logic to i\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1778058317210,
+      "tokens_in": 222,
+      "tokens_out": 102,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "ToolExecutor",
+      "cost_rub": 0.18960000574588776,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "ToolExecutor",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def parse_nested_parens(paren_string: str) -> List[int]:     \"\"\" Input to this function is a string represent\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1778058317213,
+      "tokens_in": 226,
+      "tokens_out": 248,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.3635999858379364,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The provided text does not contain a complete, runnable function definition for `parse_nested_parens`. - There is no \u2026",
+      "step_id": 2,
+      "t_unix_ms": 1778058317217,
+      "tokens_in": 232,
+      "tokens_out": 71,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.3312000036239624,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 1,
+      "output_summary": "``` from typing import List  def parse_nested_parens(paren_string: str) -> List[int]:     \"\"\" Input to this function is\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1778058317221,
+      "tokens_in": 366,
+      "tokens_out": 462,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.3271999955177307,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "5",
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List from collections import deque  def parse_nested_parens(paren_string: str) -> List[int\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1778058317225,
+      "tokens_in": 531,
+      "tokens_out": 287,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.1940000057220459,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List  def parse_nested_parens(paren_string: str) -> List[int]:     \"\"\" Input to this funct\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1778058317229,
+      "tokens_in": 244,
+      "tokens_out": 241,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.1940000057220459,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List  def parse_nested_parens(paren_string: str) -> List[int]:     \"\"\" Input to this funct\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1778058317232,
+      "tokens_in": 244,
+      "tokens_out": 241,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.1940000057220459,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List  def parse_nested_parens(paren_string: str) -> List[int]:     \"\"\" Input to this funct\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1778058317236,
+      "tokens_in": 244,
+      "tokens_out": 241,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.1404000073671341,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "10",
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (no function definition provided)`",
+      "step_id": 8,
+      "t_unix_ms": 1778058317240,
+      "tokens_in": 339,
+      "tokens_out": 12,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.1088000014424324,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected output format)`",
+      "step_id": 9,
+      "t_unix_ms": 1778058317244,
+      "tokens_in": 257,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.1088000014424324,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "`schema:invalid_output (function does not match expected output format)`",
+      "step_id": 10,
+      "t_unix_ms": 1778058317248,
+      "tokens_in": 257,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.1088000014424324,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3,
+      "output_summary": "`schema:invalid_output (function does not match expected output format)`",
+      "step_id": 11,
+      "t_unix_ms": 1778058317258,
+      "tokens_in": 257,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-6",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 2.6491997241973877,
+    "failed_tool_calls": 0,
+    "latency_ms": 15,
+    "llm_calls": 12,
+    "tokens_in": 3419,
+    "tokens_out": 1950,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

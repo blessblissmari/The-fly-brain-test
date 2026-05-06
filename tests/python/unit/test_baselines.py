@@ -226,6 +226,24 @@ def test_round11_null_prior_watchdog_baselines_registered(name: str) -> None:
     assert "null-prior" in spec.tags
 
 
+def test_round13_paid_yandex_suite_has_four_baselines() -> None:
+    """Round-13 final paid YandexGPT bench picks the 4 baselines that
+    carry the project's main story: manual_graph control, raw GNN
+    (cost-Pareto), watchdog v3 (production), and one null+watchdog
+    (Yandex-side replication of round-11)."""
+    names = BUILTIN_SUITES["round13_paid_yandex"]
+    assert names == [
+        "manual_graph",
+        "flybrain_sim_pretrain",
+        "flybrain_sim_pretrain_watchdog_v3",
+        "er_prior_watchdog_v2",
+    ]
+    # Each baseline must already be registered.
+    by_name = {s.name for s in builtin_baselines()}
+    for n in names:
+        assert n in by_name, f"round13 references unknown baseline {n!r}"
+
+
 def test_list_baselines_extra_appended() -> None:
     from flybrain.baselines import BaselineSpec
 

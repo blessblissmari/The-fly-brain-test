@@ -1,0 +1,123 @@
+{
+  "final_answer": "Carla can download 2 GB/minute, so to download 200 GB, it would normally take her $200 \\, \\text{GB} / 2 \\, \\text{GB/min\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.29760000109672546,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1649,
+      "output_summary": "Plan: 1. Calculate the time Carla would normally take to download 40% of the file at 2 GB/minute. 2. Add the 20 minutes\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1778057889571,
+      "tokens_in": 146,
+      "tokens_out": 102,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.17640000581741333,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 4085,
+      "output_summary": "First, calculate 40% of the total file size: \\[ 0.4 \\times 200 \\, \\text{GB} = 80 \\, \\text{GB} \\]  This means Carla has \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1778057893656,
+      "tokens_in": 147,
+      "tokens_out": 294,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1778057893656,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.17759999632835388,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 4289,
+      "output_summary": "Carla can download 2 GB/minute, so to download 200 GB, it would normally take her $200 \\, \\text{GB} / 2 \\, \\text{GB/min\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1778057897946,
+      "tokens_in": 155,
+      "tokens_out": 289,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1778057897946,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00007",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.6516000032424927,
+    "failed_tool_calls": 0,
+    "latency_ms": 10023,
+    "llm_calls": 3,
+    "tokens_in": 448,
+    "tokens_out": 685,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

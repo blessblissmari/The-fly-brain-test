@@ -1,0 +1,123 @@
+{
+  "final_answer": "In the first month, the program had 60 downloads.  In the second month, the number of downloads was three times as many\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.25440001487731934,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1207,
+      "output_summary": "Plan: 1. Calculate the number of downloads in the second month by multiplying the first month's downloads by 3. 2. Calc\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1778057865180,
+      "tokens_in": 135,
+      "tokens_out": 77,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.12399999797344208,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2938,
+      "output_summary": "In the first month, the program had 60 downloads.  In the second month, the number of downloads was three times as many\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1778057868119,
+      "tokens_in": 136,
+      "tokens_out": 174,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1778057868119,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.12639999389648438,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2866,
+      "output_summary": "In the first month, the program had 60 downloads.  In the second month, the number of downloads was three times as many\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1778057870985,
+      "tokens_in": 144,
+      "tokens_out": 172,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1778057870985,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00009",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.504800021648407,
+    "failed_tool_calls": 0,
+    "latency_ms": 7011,
+    "llm_calls": 3,
+    "tokens_in": 415,
+    "tokens_out": 423,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

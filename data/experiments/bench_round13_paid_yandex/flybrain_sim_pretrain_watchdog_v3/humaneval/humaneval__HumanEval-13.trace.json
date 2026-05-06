@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (function does not match the expected output format)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain_sim_pretrain_watchdog_v3",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.298799991607666,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Define the function `greatest_common_divisor` with parameters `a` and `b`. 2. Implement the Euclidean algorith\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1778058317419,
+      "tokens_in": 175,
+      "tokens_out": 74,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.09160000085830688,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def greatest_common_divisor(a: int, b: int) -> int:     while b != 0:         a, b = b, a % b     return a ```",
+      "step_id": 1,
+      "t_unix_ms": 1778058317422,
+      "tokens_in": 182,
+      "tokens_out": 47,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.17239999771118164,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 0,
+      "output_summary": "``` import unittest from unittest.mock import patch  class TestGreatestCommonDivisor(unittest.TestCase):      def test_\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1778058317425,
+      "tokens_in": 289,
+      "tokens_out": 142,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.15520000457763672,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 0,
+      "output_summary": "```python def greatest_common_divisor(a: int, b: int) -> int:     \"\"\" Return a greatest common divisor of two integers \u2026",
+      "step_id": 3,
+      "t_unix_ms": 1778058317429,
+      "tokens_in": 285,
+      "tokens_out": 103,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.11879999935626984,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "```python def greatest_common_divisor(a: int, b: int) -> int:     \"\"\" Return a greatest common divisor of two integers \u2026",
+      "step_id": 4,
+      "t_unix_ms": 1778058317432,
+      "tokens_in": 194,
+      "tokens_out": 103,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.11879999935626984,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python def greatest_common_divisor(a: int, b: int) -> int:     \"\"\" Return a greatest common divisor of two integers \u2026",
+      "step_id": 5,
+      "t_unix_ms": 1778058317435,
+      "tokens_in": 194,
+      "tokens_out": 103,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.08640000224113464,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "`schema:invalid_output (function does not match expected output)`",
+      "step_id": 6,
+      "t_unix_ms": 1778058317438,
+      "tokens_in": 202,
+      "tokens_out": 14,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.08919999748468399,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match the expected output format)`",
+      "step_id": 7,
+      "t_unix_ms": 1778058317441,
+      "tokens_in": 207,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.08919999748468399,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match the expected output format)`",
+      "step_id": 8,
+      "t_unix_ms": 1778058317444,
+      "tokens_in": 207,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.08919999748468399,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match the expected output format)`",
+      "step_id": 9,
+      "t_unix_ms": 1778058317448,
+      "tokens_in": 207,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.08919999748468399,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match the expected output format)`",
+      "step_id": 10,
+      "t_unix_ms": 1778058317451,
+      "tokens_in": 207,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.08919999748468399,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match the expected output format)`",
+      "step_id": 11,
+      "t_unix_ms": 1778058317454,
+      "tokens_in": 207,
+      "tokens_out": 16,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-13",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 1.4880000352859497,
+    "failed_tool_calls": 0,
+    "latency_ms": 8,
+    "llm_calls": 12,
+    "tokens_in": 2556,
+    "tokens_out": 666,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

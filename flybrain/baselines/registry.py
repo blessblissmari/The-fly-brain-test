@@ -1006,6 +1006,22 @@ BUILTIN_SUITES: dict[str, list[str]] = {
         "shuffled_fly_watchdog_v2",
         "reverse_fly_watchdog_v2",
     ],
+    # Round-13 — final paid YandexGPT bench (≤ 400 ₽ envelope). Picks
+    # the 4 baselines that carry the project's main story:
+    # ``manual_graph`` (hand-coded control), ``flybrain_sim_pretrain``
+    # (raw GNN — establishes the cost-Pareto win), the best quality
+    # variant ``flybrain_sim_pretrain_watchdog_v3`` (auto-calibrated
+    # scaffold), and one null-prior+watchdog row
+    # (``er_prior_watchdog_v2``) as Yandex-side replication of the
+    # round-11 cross-bench question. Smaller scope than round-11 to
+    # stay under 400 ₽ at YandexGPT-LITE pricing
+    # (~1.15 ₽/task × 160 task-runs ≈ 230-350 ₽ + verifier overhead).
+    "round13_paid_yandex": [
+        "manual_graph",
+        "flybrain_sim_pretrain",
+        "flybrain_sim_pretrain_watchdog_v3",
+        "er_prior_watchdog_v2",
+    ],
 }
 
 

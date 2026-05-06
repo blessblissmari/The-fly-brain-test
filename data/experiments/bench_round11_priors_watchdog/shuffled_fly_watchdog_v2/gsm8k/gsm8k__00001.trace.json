@@ -1,0 +1,172 @@
+{
+  "final_answer": "verifier:passed",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "shuffled_fly_watchdog_v2",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "a8ea19a8b09a6a0e",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Calculate regular earnings: 40 hours \u00d7 $10/hour = $400. 2. Determine overtime hours: 45 total \u2013 40 regular = 5\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1778061290915,
+      "tokens_in": 185,
+      "tokens_out": 113,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "a8ea19a8b09a6a0e",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "2",
+      "latency_ms": 7063,
+      "output_summary": "**Step\u2011by\u2011step calculation**  1. **Regular pay** for the first 40 hours:      \\(40 \\text{ hrs} \\times \\$10/\\text{hr} = \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1778061297981,
+      "tokens_in": 321,
+      "tokens_out": 199,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Eliza's rate per hour for the first 40 hours she works each week is $10. She also receives an overtime pay of 1.2 times her regular hourly rate. If Eliza worked for 45 hours this week, how much are her earnings for this week?\n\nThink step by step and end with `final_answer: <number>`."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "a8ea19a8b09a6a0e",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 2,
+      "t_unix_ms": 1778061297985,
+      "tokens_in": 199,
+      "tokens_out": 65,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "a8ea19a8b09a6a0e",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "verifier:passed",
+      "step_id": 3,
+      "t_unix_ms": 1778061297988,
+      "tokens_in": 201,
+      "tokens_out": 67,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "a8ea19a8b09a6a0e",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "verifier:passed",
+      "step_id": 4,
+      "t_unix_ms": 1778061297991,
+      "tokens_in": 201,
+      "tokens_out": 67,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "a8ea19a8b09a6a0e",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:passed",
+      "step_id": 5,
+      "t_unix_ms": 1778061297995,
+      "tokens_in": 201,
+      "tokens_out": 67,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "a8ea19a8b09a6a0e",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 6,
+      "t_unix_ms": 1778061297995,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00001",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 7066,
+    "llm_calls": 6,
+    "tokens_in": 1308,
+    "tokens_out": 578,
+    "tool_calls": 1
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}
