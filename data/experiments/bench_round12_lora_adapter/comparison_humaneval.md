@@ -1,0 +1,7 @@
+| Method | Benchmark | Tasks | Success | Verifier | Tokens/task | Calls/task | Latency (ms) | Cost/task ₽ | Cost/solved ₽ |
+|---|---|---|---|---|---|---|---|---|---|
+| manual_graph | humaneval | 10 | 0.900 | 0.985 | 1873 | 4.00 | 40394 | 0.000 | 0.000 |
+| flybrain_sim_pretrain | humaneval | 10 | 1.00 | 1.00 | 5700 | 12.00 | 62843 | 0.000 | 0.000 |
+| flybrain_sim_pretrain_watchdog_v3 | humaneval | 10 | 1.00 | 1.00 | 5700 | 12.00 | 13.60 | 0.000 | 0.000 |
+| flybrain_sim_pretrain_lora | humaneval | 10 | 0.900 | 0.985 | 4739 | 10.30 | 10.30 | 0.000 | 0.000 |
+| flybrain_sim_pretrain_lora_watchdog_v3 | humaneval | 10 | 0.900 | 0.985 | 4809 | 10.40 | 1330 | 0.000 | 0.000 |

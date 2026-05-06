@@ -169,16 +169,30 @@ The four contrast questions the suite answers:
 ### 4.1 Success rate (per benchmark + overall)
 
 <!-- BEGIN_RESULTS_TABLE -->
-*Pending bench completion. The five baselines × four benchmarks
-shard (200 task-runs) is running on free-tier OpenRouter; expected
-wall-clock ~60 min.*
+
+| benchmark | manual_graph | raw GNN | watchdog v3 | lora | lora + wd v3 |
+|---|---:|---:|---:|---:|---:|
+| synthetic_routing | 0.900 | 0.400 | 0.900 | 0.400 | 0.900 |
+| humaneval | 0.900 | 1.000 | 1.000 | 0.900 | 0.900 |
+| gsm8k | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 |
+| bbh_mini | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 |
+| **overall** | **0.950** | **0.850** | **0.975** | **0.825** | **0.950** |
+
 <!-- END_RESULTS_TABLE -->
 
 ### 4.2 Cost per task (LLM calls, free-tier so 0 ₽ but calls /
 solved is the cost-Pareto axis)
 
 <!-- BEGIN_COSTS_TABLE -->
-*Pending bench completion.*
+
+| benchmark | manual_graph | raw GNN | watchdog v3 | lora | lora + wd v3 |
+|---|---:|---:|---:|---:|---:|
+| synthetic_routing | 3.30 | 12.00 | 10.80 | 10.60 | 9.60 |
+| humaneval | 4.00 | 12.00 | 12.00 | 10.30 | 10.40 |
+| gsm8k | 3.00 | 12.00 | 6.90 | 12.00 | 6.90 |
+| bbh_mini | 3.00 | 12.00 | 6.70 | 12.00 | 6.70 |
+| **overall** | **3.33** | **12.00** | **9.10** | **11.22** | **8.40** |
+
 <!-- END_COSTS_TABLE -->
 
 ### 4.3 Pre-registered Wilcoxon tests
@@ -193,7 +207,16 @@ Bonferroni correction at `α = 0.05 / 3 = 0.0167`:
   `manual_graph` − 1 pp (closing the round-13 gap).
 
 <!-- BEGIN_WILCOXON_TABLE -->
-*Pending bench completion.*
+
+| Test | Direction | mean(a) − mean(b) | Wilcoxon p (one-sided) | Verdict @ α=0.0167 |
+|---|---|---:|---:|---|
+| H₁ | `lora` > `flybrain_sim_pretrain` | **−0.025** | 0.84 | ❌ FAIL (LoRA *worse* — sample noise) |
+| H₂ | `lora + wd v3` > `wd v3` | **−0.025** | 0.84 | ❌ FAIL (stack ties or hurts wd v3) |
+| H₃ | `lora + wd v3` ≥ `manual_graph` − 1 pp | +0.000 | — | ✅ PASS (both at 0.950 today) |
+| extra | `wd v3` > `manual_graph` | +0.025 | 0.28 | not significant |
+
+N=40 paired (4 benchmarks × 10 tasks each), `wilcoxon(..., alternative='greater', zero_method='wilcox')`.
+
 <!-- END_WILCOXON_TABLE -->
 
 ---
@@ -262,13 +285,48 @@ without architectural changes.
 
 ## 6. Next steps after round-12
 
-* If H₂ (LoRA + watchdog ≥ watchdog) holds: ship LoRA as the
-  default scaffold. Round-13 paid YandexGPT bench could be re-run
-  on the new baseline once budget allows.
-* If H₃ (closes 2.5 pp gap) fails: extend the adapter to the agent
-  + edge heads (rank-4 each, +400 params total), retrain, re-bench.
-* Either way, the round-13 paid Yandex numbers stand as the
-  authoritative reference point for the round-12 free-tier ordering.
+**Honest result, not the one we hoped for.** H₁ and H₂ both fail
+on this bench: kind-only LoRA produces success-rate deltas of
+**−2.5 pp** vs both the raw GNN and the watchdog v3 baseline at
+N=40 paired tasks (Wilcoxon p ≈ 0.84 for both directions). The
+adapter's kind-arg-max accuracy improvement (+6.7 pp on the held-
+out IL shard) **does not translate to bench success**.
+
+Most plausible mechanism: the synthetic_routing benchmark is the
+bottleneck (4/10 for everything without watchdog), and the
+remaining failure mode is the **agent index** chosen by the
+frozen agent head, not the action **kind**. A LoRA on `kind_logits`
+can shift the distribution between `activate_agent` /
+`call_tool` / `terminate` etc., but cannot pick a different
+agent — that's the agent head's job and we left it frozen by
+design (round-12 §5.3, "Why kind-only").
+
+The one positive: **lora + watchdog v3 uses 8.40 LLM calls/task
+vs watchdog alone 9.10 (−7.7 %)** — same quality, slightly
+cheaper per task. Inside sample noise but consistent with the
+LoRA reducing how often the watchdog has to fire. Not enough to
+ship as the new default.
+
+**Verdict: kind-only LoRA does not close the round-13 2.5 pp gap.
+H₃ technically passes but only because manual_graph itself dipped
+to 0.950 on free-tier today; on the authoritative Yandex
+backend manual_graph was 1.000.**
+
+### 6.1 Concrete next steps
+
+1. **Round-14 — extend LoRA to agent + edge heads.** Same
+   plumbing, +128 params on `agent_logits`, +128 on
+   `edge_logits`. The 5.3 caveat above predicts this is where the
+   real win is. CPU-only, 0 ₽.
+2. **Re-train with rank=8 and weighted IL loss** — round-12 used
+   uniform CE on kind. Up-weighting `terminate` decisions (which
+   the round-7 analysis showed is where the controller gets
+   stuck) might give the kind adapter more signal in the right
+   regime.
+3. **Don't re-run paid Yandex bench on round-12 alone.** Hold
+   the 283 ₽ budget reserve for a future bench that includes
+   round-14 (agent-head LoRA), which is the architecturally
+   correct fix.
 
 ---
 

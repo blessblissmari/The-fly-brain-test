@@ -1,0 +1,123 @@
+{
+  "final_answer": "The robe requires 2 bolts of blue fiber and half that amount of white fiber, which is \\( \\frac{1}{2} \\times 2 = 1 \\) bo\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 4566,
+      "output_summary": "Plan: 1. Identify the amount of blue fiber needed: 2 bolts. 2. Determine the amount of white fiber needed: half of the \u2026",
+      "step_id": 0,
+      "t_unix_ms": 1778064355527,
+      "tokens_in": 154,
+      "tokens_out": 97,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3797,
+      "output_summary": "The robe uses:  - Blue fiber: 2 bolts   - White fiber: half of the blue amount \u2192 \\( \\frac{1}{2} \\times 2 = 1 \\) bolt   \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1778064359325,
+      "tokens_in": 153,
+      "tokens_out": 108,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1778064359325,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3633,
+      "output_summary": "The robe requires 2 bolts of blue fiber and half that amount of white fiber, which is \\( \\frac{1}{2} \\times 2 = 1 \\) bo\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1778064362959,
+      "tokens_in": 160,
+      "tokens_out": 98,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1778064362959,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00005",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 11996,
+    "llm_calls": 3,
+    "tokens_in": 467,
+    "tokens_out": 303,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}
