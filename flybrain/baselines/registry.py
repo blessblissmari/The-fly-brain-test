@@ -341,6 +341,13 @@ _DEFAULT_CHECKPOINT_PATHS: dict[str, tuple[Path, ...]] = {
         Path("data/checkpoints/rl_gnn.pt"),
         Path("data/checkpoints/rl.pt"),
     ),
+    # Round-12 — small LoRA adapter ckpt (~3 KiB) trained by
+    # ``scripts/train_round12_lora.py``. Falls back to None when the
+    # file is absent so the factory degrades to the plain
+    # ``flybrain_sim_pretrain`` baseline (no adapter loaded).
+    "LORA_ROUND12": (
+        Path("data/checkpoints/lora_adapter_round12.pt"),
+    ),
 }
 
 
@@ -570,6 +577,158 @@ def _flybrain_with_checkpoint(
         else:
             initial_graph = flybrain_prior_graph(agent_names)
         return ctrl, initial_graph
+
+    return factory
+
+
+def _flybrain_with_lora_adapter(
+    base_label: str = "SIM_PRETRAIN",
+    lora_label: str = "LORA_ROUND12",
+    *,
+    lora_rank: int = 4,
+    lora_alpha: float = 1.0,
+    fly_graph_path: Path | None = None,
+) -> BaselineFactory:
+    """Round-12 factory: frozen GNN + trainable LoRA adapter on the
+    kind-logits head.
+
+    Builds :class:`flybrain.training.lora_adapter.FlyBrainGNNLoRAController`,
+    loads the SIM_PRETRAIN checkpoint into the base weights, then
+    loads the small LoRA adapter checkpoint if present. Falls back
+    gracefully when either file is missing — in particular,
+    ``LORA_ROUND12`` may be absent on a fresh CI box where the
+    training script hasn't been run yet, and the factory still
+    produces a working controller (equivalent to the plain
+    ``flybrain_sim_pretrain`` baseline since the adapter zero-init
+    means a no-op residual).
+    """
+
+    def factory(agent_names: list[str]) -> tuple[Controller, dict[str, Any] | None]:
+        from flybrain.embeddings import (
+            AgentEmbedder,
+            AgentGraphEmbedder,
+            ControllerStateBuilder,
+            FlyGraphEmbedder,
+            MockEmbeddingClient,
+            TaskEmbedder,
+            TraceEmbedder,
+        )
+        from flybrain.training.lora_adapter import (
+            FlyBrainGNNLoRAController,
+            load_lora_adapter,
+        )
+
+        client = MockEmbeddingClient(output_dim=32)
+        agents_emb = AgentEmbedder(client)
+        from flybrain.agents.specs import MINIMAL_15
+
+        agents_emb.precompute_sync(MINIMAL_15)
+
+        substituted_graph = None
+        if fly_graph_path is not None and fly_graph_path.exists():
+            from flybrain.graph import load as _load_fly_graph
+
+            substituted_graph = _load_fly_graph(fly_graph_path)
+
+        builder = ControllerStateBuilder(
+            task=TaskEmbedder(client),
+            agents=agents_emb,
+            trace=TraceEmbedder(client),
+            fly=FlyGraphEmbedder(dim=8),
+            agent_graph=AgentGraphEmbedder(in_dim=32, hidden_dim=16, out_dim=32),
+            fly_graph=substituted_graph,
+        )
+
+        ctrl = FlyBrainGNNLoRAController(
+            builder=builder,
+            task_dim=32,
+            agent_dim=32,
+            graph_dim=32,
+            trace_dim=32 + 13,
+            fly_dim=8,
+            produced_dim=6,
+            hidden_dim=32,
+            lora_rank=lora_rank,
+            lora_alpha=lora_alpha,
+        )
+
+        base_ckpt = _resolve_checkpoint_path(base_label)
+        if base_ckpt is not None:
+            try:
+                import torch
+
+                blob = torch.load(base_ckpt, map_location="cpu", weights_only=False)
+                sd = blob.get("state_dict", blob) if isinstance(blob, dict) else blob
+                ctrl.load_state_dict(sd, strict=False)
+            except Exception as e:  # pragma: no cover - best effort
+                import warnings
+
+                warnings.warn(
+                    f"failed to load base ckpt {base_label} at {base_ckpt}: {e}",
+                    stacklevel=2,
+                )
+
+        lora_ckpt = _resolve_checkpoint_path(lora_label)
+        if lora_ckpt is not None:
+            try:
+                load_lora_adapter(ctrl, lora_ckpt)
+            except Exception as e:  # pragma: no cover - best effort
+                import warnings
+
+                warnings.warn(
+                    f"failed to load LoRA adapter {lora_label} at {lora_ckpt}: {e}",
+                    stacklevel=2,
+                )
+
+        if substituted_graph is not None:
+            initial_graph = flybrain_prior_graph(agent_names, fly_graph=substituted_graph)
+        else:
+            initial_graph = flybrain_prior_graph(agent_names)
+        return ctrl, initial_graph
+
+    return factory
+
+
+def _flybrain_with_lora_and_calibrated_watchdog(
+    *,
+    bench_dirs: list[str],
+    percentile: float = 0.90,
+    min_samples: int = 3,
+    fallback_force: int = 12,
+    fallback_stall: int = 3,
+    baseline_name: str | None = None,
+    lora_rank: int = 4,
+    lora_alpha: float = 1.0,
+) -> BaselineFactory:
+    """Round-12 + Round-9: LoRA-adapted base wrapped in the
+    auto-calibrated FinalizerWatchdog. The two scaffolds are
+    orthogonal — LoRA biases the kind-logits towards the manual_graph
+    distribution; the watchdog enforces hard rules at the action
+    level. Stacking them is the round-12 question: do they compose,
+    do they cancel, or does one dominate?
+    """
+
+    inner_factory = _flybrain_with_lora_adapter(
+        lora_rank=lora_rank,
+        lora_alpha=lora_alpha,
+    )
+
+    def factory(agent_names: list[str]) -> tuple[Controller, dict[str, Any] | None]:
+        from flybrain.controller.finalizer_watchdog import (
+            FinalizerWatchdogController,
+        )
+
+        inner, init_graph = inner_factory(agent_names)
+        wrapped = FinalizerWatchdogController.from_bench_dirs(
+            inner,
+            bench_dirs,
+            percentile=percentile,
+            min_samples=min_samples,
+            fallback_force=fallback_force,
+            fallback_stall=fallback_stall,
+            name=baseline_name or "flybrain_sim_pretrain_lora_watchdog_v3",
+        )
+        return wrapped, init_graph
 
     return factory
 
@@ -900,6 +1059,47 @@ def builtin_baselines() -> list[BaselineSpec]:
             ),
             tags=["learned", "trained", "null-prior", "watchdog", "round-11"],
         ),
+        # Round-12 — LoRA adapter on the frozen sim_pretrain_gnn_v6
+        # checkpoint. The adapter is a 164-parameter low-rank residual
+        # on the action-kind logits trained via supervised cloning on
+        # manual_graph traces from rounds 7-13. Two variants ship: the
+        # raw LoRA (no scaffolding) and LoRA + watchdog v3 to A/B
+        # whether the soft adapter and the hard scaffold compose.
+        BaselineSpec(
+            name="flybrain_sim_pretrain_lora",
+            description=(
+                "Round-12: frozen sim_pretrain_gnn_v6 + LoRA adapter "
+                "(rank=4, ~164 trainable params) on the kind-logits "
+                "head, trained on manual_graph traces from rounds "
+                "7-13. Tests whether a soft, learnable correction "
+                "alone can close the round-13 quality gap to "
+                "manual_graph (0.975 → 1.000 on YandexGPT)."
+            ),
+            factory=_flybrain_with_lora_adapter(),
+            tags=["learned", "trained", "fly-prior", "lora", "round-12"],
+        ),
+        BaselineSpec(
+            name="flybrain_sim_pretrain_lora_watchdog_v3",
+            description=(
+                "Round-12: same as flybrain_sim_pretrain_lora but "
+                "wrapped in the auto-calibrated FinalizerWatchdog "
+                "(round-9). A/Bs whether the LoRA adapter and the "
+                "hard watchdog scaffold compose, cancel, or one "
+                "dominates."
+            ),
+            factory=_flybrain_with_lora_and_calibrated_watchdog(
+                bench_dirs=[
+                    "data/experiments/bench_round7_watchdog",
+                    "data/experiments/bench_round8_pertasktype",
+                ],
+                percentile=0.90,
+                min_samples=3,
+                fallback_force=12,
+                fallback_stall=3,
+                baseline_name="flybrain_sim_pretrain_lora_watchdog_v3",
+            ),
+            tags=["learned", "trained", "fly-prior", "lora", "watchdog", "round-12"],
+        ),
     ]
 
 
@@ -1021,6 +1221,20 @@ BUILTIN_SUITES: dict[str, list[str]] = {
         "flybrain_sim_pretrain",
         "flybrain_sim_pretrain_watchdog_v3",
         "er_prior_watchdog_v2",
+    ],
+    # Round-12 — LoRA adapter on top of frozen sim_pretrain_gnn_v6,
+    # plus the round-9 watchdog v3 reference. Five baselines so the
+    # cross-bench reads as: control (manual_graph), raw GNN
+    # (flybrain_sim_pretrain), best hard-scaffold
+    # (flybrain_sim_pretrain_watchdog_v3), best soft-scaffold
+    # (flybrain_sim_pretrain_lora) and the stack
+    # (flybrain_sim_pretrain_lora_watchdog_v3).
+    "round12_lora_adapter": [
+        "manual_graph",
+        "flybrain_sim_pretrain",
+        "flybrain_sim_pretrain_watchdog_v3",
+        "flybrain_sim_pretrain_lora",
+        "flybrain_sim_pretrain_lora_watchdog_v3",
     ],
 }
 
