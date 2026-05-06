@@ -423,6 +423,7 @@ def _flybrain_with_checkpoint_and_watchdog(
     force_after: int | dict[str, int] = 12,
     stall_after: int | dict[str, int] = 3,
     baseline_name: str | None = None,
+    fly_graph_path: Path | None = None,
 ) -> BaselineFactory:
     """Round-7/8 variant: wrap the trained checkpoint baseline in
     :class:`FinalizerWatchdogController` so stalls are forced into
@@ -430,9 +431,15 @@ def _flybrain_with_checkpoint_and_watchdog(
     for the watchdog rationale (round-5 trained controllers never
     actually emit Finalizer at inference). Round-8 supports per-
     task-type ``force_after`` / ``stall_after`` dicts.
+
+    Round-11 adds ``fly_graph_path``: when set, the inner controller
+    is constructed with a null-prior substituted for the canonical
+    FlyWire K=64 prior, while the watchdog wrapper stays unchanged.
+    This isolates the *prior* factor from the *scaffolding* factor in
+    a single A/B (``docs/round11_prior_with_watchdog.md``).
     """
 
-    inner_factory = _flybrain_with_checkpoint(controller_name, label)
+    inner_factory = _flybrain_with_checkpoint(controller_name, label, fly_graph_path=fly_graph_path)
 
     def factory(agent_names: list[str]) -> tuple[Controller, dict[str, Any] | None]:
         from flybrain.controller.finalizer_watchdog import (
@@ -833,6 +840,66 @@ def builtin_baselines() -> list[BaselineSpec]:
             ),
             tags=["learned", "trained", "null-prior", "round-10"],
         ),
+        # Round-11 — null-prior + watchdog v2 cross-bench. Round-10 found
+        # the *raw* GNN is insensitive to its prior at inference; round-9
+        # found the watchdog v2 wrapper closes the gap to manual_graph on
+        # the canonical FlyWire prior. Round-11 wires the same watchdog
+        # v2 over each round-10 null-prior so a single bench run answers:
+        # "is biology necessary once the post-processing scaffold is in
+        # place, or does the scaffold rescue *every* prior equally?"
+        # See ``docs/round11_prior_with_watchdog.md``.
+        BaselineSpec(
+            name="er_prior_watchdog_v2",
+            description=(
+                "Round-11: ER null-prior + watchdog v2. Same Erdos-Renyi "
+                "K=64 prior as ``er_prior_sim_pretrain`` but wrapped in "
+                "the per-task-type FinalizerWatchdog v2 from round-8."
+            ),
+            factory=_flybrain_with_checkpoint_and_watchdog(
+                "gnn",
+                "SIM_PRETRAIN",
+                force_after={"coding": 28, "math": 12, "research": 16, "tool_use": 12},
+                stall_after={"coding": 6, "math": 3, "research": 4, "tool_use": 3},
+                baseline_name="er_prior_watchdog_v2",
+                fly_graph_path=Path("data/flybrain/null_priors/er_K64_seed0.fbg"),
+            ),
+            tags=["learned", "trained", "null-prior", "watchdog", "round-11"],
+        ),
+        BaselineSpec(
+            name="shuffled_fly_watchdog_v2",
+            description=(
+                "Round-11: Maslov-Sneppen degree-preserving shuffled prior "
+                "+ watchdog v2. Tests whether biological *topology* "
+                "(beyond degree) matters once the watchdog scaffold "
+                "supplies the missing Finalizer step."
+            ),
+            factory=_flybrain_with_checkpoint_and_watchdog(
+                "gnn",
+                "SIM_PRETRAIN",
+                force_after={"coding": 28, "math": 12, "research": 16, "tool_use": 12},
+                stall_after={"coding": 6, "math": 3, "research": 4, "tool_use": 3},
+                baseline_name="shuffled_fly_watchdog_v2",
+                fly_graph_path=Path("data/flybrain/null_priors/shuffled_K64_seed0.fbg"),
+            ),
+            tags=["learned", "trained", "null-prior", "watchdog", "round-11"],
+        ),
+        BaselineSpec(
+            name="reverse_fly_watchdog_v2",
+            description=(
+                "Round-11: adjacency-transpose prior + watchdog v2. "
+                "Tests whether biological *direction* matters once the "
+                "watchdog scaffold supplies the missing Finalizer step."
+            ),
+            factory=_flybrain_with_checkpoint_and_watchdog(
+                "gnn",
+                "SIM_PRETRAIN",
+                force_after={"coding": 28, "math": 12, "research": 16, "tool_use": 12},
+                stall_after={"coding": 6, "math": 3, "research": 4, "tool_use": 3},
+                baseline_name="reverse_fly_watchdog_v2",
+                fly_graph_path=Path("data/flybrain/null_priors/reverse_K64.fbg"),
+            ),
+            tags=["learned", "trained", "null-prior", "watchdog", "round-11"],
+        ),
     ]
 
 
@@ -927,6 +994,17 @@ BUILTIN_SUITES: dict[str, list[str]] = {
         "er_prior_sim_pretrain",
         "shuffled_fly_sim_pretrain",
         "reverse_fly_sim_pretrain",
+    ],
+    # Round-11 — Prior ablation × watchdog v2. Cross product of round-10
+    # null-priors with the round-8/9 watchdog v2 wrapper. Answers whether
+    # the biological prior is necessary once the post-processing scaffold
+    # is in place, or whether the scaffold rescues every prior equally.
+    "round11_priors_with_watchdog": [
+        "manual_graph",
+        "flybrain_sim_pretrain_watchdog_v2",
+        "er_prior_watchdog_v2",
+        "shuffled_fly_watchdog_v2",
+        "reverse_fly_watchdog_v2",
     ],
 }
 

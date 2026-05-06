@@ -122,8 +122,9 @@ def test_builtin_baselines_yields_nine_specs() -> None:
     # + flybrain_sim_pretrain_watchdog_v3 (round-9)
     # + flybrain_graph_ssl_pretrain + 5 embedding-ablation rows
     # + 4 verifier-ablation rows
-    # + 3 round-10 connectome-prior-ablation rows.
-    assert len(specs) == 9 + 1 + 1 + 1 + 1 + 5 + 4 + 3
+    # + 3 round-10 connectome-prior-ablation rows
+    # + 3 round-11 null-priors-with-watchdog rows.
+    assert len(specs) == 9 + 1 + 1 + 1 + 1 + 5 + 4 + 3 + 3
     # Canonical README §15 order is preserved at the top of the list.
     full_min_names = [s.name for s in specs[:9]]
     assert full_min_names == BUILTIN_SUITES["full_min"]
@@ -190,6 +191,39 @@ def test_baseline_make_mas_config_applies_overrides() -> None:
 def test_list_baselines_matches_suite(suite_name: str) -> None:
     specs = list_baselines(suite_name)
     assert [s.name for s in specs] == BUILTIN_SUITES[suite_name]
+
+
+def test_round11_priors_with_watchdog_suite_has_all_four_priors() -> None:
+    """Round-11 cross-product: real_fly + 3 null priors, all wrapped in
+    watchdog v2. The suite must include exactly one ``manual_graph``
+    control + 4 prior variants."""
+    names = BUILTIN_SUITES["round11_priors_with_watchdog"]
+    assert names[0] == "manual_graph"
+    prior_baselines = set(names[1:])
+    assert prior_baselines == {
+        "flybrain_sim_pretrain_watchdog_v2",
+        "er_prior_watchdog_v2",
+        "shuffled_fly_watchdog_v2",
+        "reverse_fly_watchdog_v2",
+    }
+
+
+@pytest.mark.parametrize(
+    "name",
+    [
+        "er_prior_watchdog_v2",
+        "shuffled_fly_watchdog_v2",
+        "reverse_fly_watchdog_v2",
+    ],
+)
+def test_round11_null_prior_watchdog_baselines_registered(name: str) -> None:
+    """Each round-11 null-prior + watchdog v2 baseline must be in the
+    registry with the round-11 tag."""
+    spec = next((s for s in builtin_baselines() if s.name == name), None)
+    assert spec is not None, f"missing round-11 baseline {name}"
+    assert "round-11" in spec.tags
+    assert "watchdog" in spec.tags
+    assert "null-prior" in spec.tags
 
 
 def test_list_baselines_extra_appended() -> None:
