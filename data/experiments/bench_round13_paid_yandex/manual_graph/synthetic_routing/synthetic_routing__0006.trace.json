@@ -1,0 +1,135 @@
+{
+  "final_answer": "The history of fly connectomes since 1969 involves significant advancements in neuroscience and neurobiology. Research \u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.188400000333786,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1220,
+      "output_summary": "Plan: 1. Identify key publications and research papers on fly connectomes from 1969 to the present. 2. Summarize the ma\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1778057998973,
+      "tokens_in": 71,
+      "tokens_out": 86,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.06719999760389328,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1758,
+      "output_summary": "1. Fly connectomes research has a long history, with significant milestones starting from 1969. 2. Early studies focuse\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1778058000731,
+      "tokens_in": 98,
+      "tokens_out": 70,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Trace the history of fly connectomes since 1969."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [
+        "[rule] missing component: final_answer"
+      ],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1778058000731,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 0.8500000238418579
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.09399999678134918,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2258,
+      "output_summary": "The history of fly connectomes since 1969 involves significant advancements in neuroscience and neurobiology. Research \u2026",
+      "step_id": 3,
+      "t_unix_ms": 1778058002990,
+      "tokens_in": 101,
+      "tokens_out": 134,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1778058002990,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0006",
+  "task_type": "research",
+  "totals": {
+    "cost_rub": 0.34960001707077026,
+    "failed_tool_calls": 0,
+    "latency_ms": 5236,
+    "llm_calls": 3,
+    "tokens_in": 270,
+    "tokens_out": 290,
+    "tool_calls": 1
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

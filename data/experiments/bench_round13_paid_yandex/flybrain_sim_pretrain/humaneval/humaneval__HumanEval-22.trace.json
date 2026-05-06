@@ -1,0 +1,258 @@
+{
+  "final_answer": "`schema:invalid_output (function does not match expected JSON schema)`",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.33000001311302185,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Define the function `filter_integers` with the specified signature. 2. Iterate through the input list `values`\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1778058101299,
+      "tokens_in": 194,
+      "tokens_out": 81,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.09880000352859497,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List, Any  def filter_integers(values: List[Any]) -> List[int]:     return [x for x in val\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1778058101303,
+      "tokens_in": 201,
+      "tokens_out": 46,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.33000001311302185,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1293,
+      "output_summary": "- The provided output does not include a complete, runnable function definition for `filter_integers`. - There are no e\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1778058102599,
+      "tokens_in": 203,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.2651999890804291,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 4918,
+      "output_summary": "``` from typing import List, Any import unittest  def filter_integers(values: List[Any]) -> List[int]:     \"\"\" Filter g\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1778058107521,
+      "tokens_in": 316,
+      "tokens_out": 347,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.17919999361038208,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 2185,
+      "output_summary": "```python from typing import List, Any  def filter_integers(values: List[Any]) -> List[int]:     \"\"\" Filter given list \u2026",
+      "step_id": 4,
+      "t_unix_ms": 1778058109711,
+      "tokens_in": 312,
+      "tokens_out": 136,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.1340000033378601,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2060,
+      "output_summary": "```python from typing import List, Any   def filter_integers(values: List[Any]) -> List[int]:     \"\"\" Filter given list\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1778058111774,
+      "tokens_in": 215,
+      "tokens_out": 120,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.1340000033378601,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List, Any   def filter_integers(values: List[Any]) -> List[int]:     \"\"\" Filter given list\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1778058111779,
+      "tokens_in": 215,
+      "tokens_out": 120,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.1340000033378601,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List, Any   def filter_integers(values: List[Any]) -> List[int]:     \"\"\" Filter given list\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1778058111783,
+      "tokens_in": 215,
+      "tokens_out": 120,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.13120000064373016,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "10",
+      "latency_ms": 576,
+      "output_summary": "`schema:invalid_output (function definition is missing and unrelated terms are included)`",
+      "step_id": 8,
+      "t_unix_ms": 1778058112362,
+      "tokens_in": 311,
+      "tokens_out": 17,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09719999879598618,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 627,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 9,
+      "t_unix_ms": 1778058112993,
+      "tokens_in": 228,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09719999879598618,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 10,
+      "t_unix_ms": 1778058112998,
+      "tokens_in": 228,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.09719999879598618,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "`schema:invalid_output (function does not match expected JSON schema)`",
+      "step_id": 11,
+      "t_unix_ms": 1778058113001,
+      "tokens_in": 228,
+      "tokens_out": 15,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-22",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 2.0280003547668457,
+    "failed_tool_calls": 0,
+    "latency_ms": 11665,
+    "llm_calls": 12,
+    "tokens_in": 2866,
+    "tokens_out": 1104,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

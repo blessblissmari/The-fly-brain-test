@@ -1,0 +1,7 @@
+| Method | Benchmark | Tasks | Success | Verifier | Tokens/task | Calls/task | Latency (ms) | Cost/task ₽ | Cost/solved ₽ |
+|---|---|---|---|---|---|---|---|---|---|
+| manual_graph | gsm8k | 10 | 1.00 | 1.00 | 1053 | 3.00 | 23426 | 0.000 | 0.000 |
+| flybrain_sim_pretrain | gsm8k | 10 | 1.00 | 1.00 | 3945 | 12.00 | 26204 | 0.000 | 0.000 |
+| flybrain_sim_pretrain_watchdog_v3 | gsm8k | 10 | 1.00 | 1.00 | 2460 | 6.90 | 6.10 | 0.000 | 0.000 |
+| flybrain_sim_pretrain_lora | gsm8k | 10 | 1.00 | 1.00 | 3945 | 12.00 | 10.70 | 0.000 | 0.000 |
+| flybrain_sim_pretrain_lora_watchdog_v3 | gsm8k | 10 | 1.00 | 1.00 | 2460 | 6.90 | 6.10 | 0.000 | 0.000 |

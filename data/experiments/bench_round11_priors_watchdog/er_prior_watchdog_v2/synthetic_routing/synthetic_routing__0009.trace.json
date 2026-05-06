@@ -1,0 +1,162 @@
+{
+  "final_answer": "verifier:failed:cannot verify correctness without the provided solution output.",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "er_prior_watchdog_v2",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "2f0d4072611eae24",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Compute the sum inside the parentheses:\u202f11\u202f+\u202f94\u202f=\u202f105.   2. Raise the result to the 63rd power:\u202f105\u2076\u00b3.   3. Si\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1778060594307,
+      "tokens_in": 124,
+      "tokens_out": 147,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "2f0d4072611eae24",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "First combine the numbers inside the parentheses:  \\[ 11 + 94 = 105 \\]  Now raise the result to the 63rd power:  \\[ (11\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1778060594310,
+      "tokens_in": 120,
+      "tokens_out": 192,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "2f0d4072611eae24",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 6099,
+      "output_summary": "verifier:passed",
+      "step_id": 2,
+      "t_unix_ms": 1778060600411,
+      "tokens_in": 137,
+      "tokens_out": 141,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "2f0d4072611eae24",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 8625,
+      "output_summary": "verifier:failed:cannot verify correctness without the provided solution output.",
+      "step_id": 3,
+      "t_unix_ms": 1778060609039,
+      "tokens_in": 139,
+      "tokens_out": 123,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "2f0d4072611eae24",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "verifier:failed:cannot verify correctness without the provided solution output.",
+      "step_id": 4,
+      "t_unix_ms": 1778060609043,
+      "tokens_in": 139,
+      "tokens_out": 123,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "2f0d4072611eae24",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "verifier:failed:cannot verify correctness without the provided solution output.",
+      "step_id": 5,
+      "t_unix_ms": 1778060609047,
+      "tokens_in": 139,
+      "tokens_out": 123,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "2f0d4072611eae24",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 6,
+      "t_unix_ms": 1778060609047,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0009",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 14726,
+    "llm_calls": 6,
+    "tokens_in": 798,
+    "tokens_out": 849,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

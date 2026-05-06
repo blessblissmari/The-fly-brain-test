@@ -1,0 +1,123 @@
+{
+  "final_answer": "Janet has 16 eggs each day.   She uses 3 for breakfast and 4 for muffins, so she uses \\(3+4 = 7\\) eggs.   The remaining\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3371,
+      "output_summary": "Plan: 1. Calculate total eggs laid per day: 16 eggs. 2. Subtract eggs eaten for breakfast (3) and eggs used for muffins\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1778064541876,
+      "tokens_in": 190,
+      "tokens_out": 89,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 6315,
+      "output_summary": "Janet\u2019s ducks produce \\(16\\) eggs each day.   She uses: - \\(3\\) eggs for breakfast   - \\(4\\) eggs for muffins    Total \u2026",
+      "step_id": 1,
+      "t_unix_ms": 1778064548191,
+      "tokens_in": 186,
+      "tokens_out": 174,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1778064548191,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 5351,
+      "output_summary": "Janet has 16 eggs each day.   She uses 3 for breakfast and 4 for muffins, so she uses \\(3+4 = 7\\) eggs.   The remaining\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1778064553543,
+      "tokens_in": 196,
+      "tokens_out": 149,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1778064553543,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00006",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 15037,
+    "llm_calls": 3,
+    "tokens_in": 572,
+    "tokens_out": 412,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

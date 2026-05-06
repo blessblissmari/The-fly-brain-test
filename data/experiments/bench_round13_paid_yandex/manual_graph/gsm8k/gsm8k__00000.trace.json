@@ -1,0 +1,123 @@
+{
+  "final_answer": "20% of 20 students is 0.2 * 20 = 4 students enrolled in contemporary dance. The remaining students are 20 - 4 = 16 stud\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "manual",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.2892000079154968,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1628,
+      "output_summary": "Plan: 1. Calculate the number of students who enrolled in contemporary dance (20% of 20). 2. Calculate the remaining nu\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1778057913560,
+      "tokens_in": 129,
+      "tokens_out": 112,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.13760000467300415,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3150,
+      "output_summary": "Step 1: Calculate the number of students who enrolled in contemporary dance. 20% of 20 students is $0.20 \\times 20 = 4$\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1778057916711,
+      "tokens_in": 130,
+      "tokens_out": 214,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "kind": "call_verifier"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 2,
+      "t_unix_ms": 1778057916712,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": 1.0
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.1143999993801117,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "agent": "Finalizer",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2445,
+      "output_summary": "20% of 20 students is 0.2 * 20 = 4 students enrolled in contemporary dance. The remaining students are 20 - 4 = 16 stud\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1778057919157,
+      "tokens_in": 138,
+      "tokens_out": 148,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Finalizer",
+      "cost_rub": 0.0,
+      "current_graph_hash": "535c231d19e29e54",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 4,
+      "t_unix_ms": 1778057919157,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00000",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.5412000417709351,
+    "failed_tool_calls": 0,
+    "latency_ms": 7223,
+    "llm_calls": 3,
+    "tokens_in": 397,
+    "tokens_out": 474,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

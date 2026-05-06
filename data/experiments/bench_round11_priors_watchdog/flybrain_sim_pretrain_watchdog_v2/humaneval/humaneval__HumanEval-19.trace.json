@@ -1,0 +1,278 @@
+{
+  "final_answer": "```python from typing import List  def sort_numbers(numbers: str) -> str:     \"\"\"Input is a space-delimited string of n\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain_sim_pretrain_watchdog_v2",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Create a mapping dictionary that maps each number word ('zero'\u2011'nine') to its integer value 0\u20119. 2. Split the \u2026",
+      "step_id": 0,
+      "t_unix_ms": 1778058300973,
+      "tokens_in": 242,
+      "tokens_out": 136,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3350,
+      "output_summary": "",
+      "step_id": 1,
+      "t_unix_ms": 1778058304325,
+      "tokens_in": 260,
+      "tokens_out": 58,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Implement the following Python function. Your final answer must be a complete, runnable function definition.\n\nEntry point: `sort_numbers`\n\n```python\nfrom typing import List\n\n\ndef sort_numbers(numbers: str) -> str:\n    \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'.\n    Valid choices are 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight' and 'nine'.\n    Return the string with numbers sorted from smallest to largest\n    >>> sort_numbers('three one five')\n    'one three five'\n    \"\"\"\n```\n"
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 7875,
+      "output_summary": "Search web.",
+      "step_id": 2,
+      "t_unix_ms": 1778058312203,
+      "tokens_in": 263,
+      "tokens_out": 106,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Implement the following Python function. Your final answer must be a complete, runnable function definition.\n\nEntry point: `sort_numbers`\n\n```python\nfrom typing import List\n\n\ndef sort_numbers(numbers: str) -> str:\n    \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'.\n    Valid choices are 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight' and 'nine'.\n    Return the string with numbers sorted from smallest to largest\n    >>> sort_numbers('three one five')\n    'one three five'\n    \"\"\"\n```\n"
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "MathSolver",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "MathSolver",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 22120,
+      "output_summary": "```python from typing import List  def sort_numbers(numbers: str) -> str:     \"\"\"     Sort a space\u2011delimited string of \u2026",
+      "step_id": 3,
+      "t_unix_ms": 1778058334327,
+      "tokens_in": 241,
+      "tokens_out": 488,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "13",
+      "latency_ms": 6262,
+      "output_summary": "- The implementation does not import or use the `List` type hint that was originally imported, making the import unnece\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1778058340593,
+      "tokens_in": 800,
+      "tokens_out": 120,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 4937,
+      "output_summary": "- The draft does not include any implementation at all; the function body is empty, so it fails to perform the required\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1778058345533,
+      "tokens_in": 255,
+      "tokens_out": 134,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not include any implementation at all; the function body is empty, so it fails to perform the required\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1778058345538,
+      "tokens_in": 255,
+      "tokens_out": 134,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- The draft does not include any implementation at all; the function body is empty, so it fails to perform the required\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1778058345542,
+      "tokens_in": 255,
+      "tokens_out": 134,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "15",
+      "latency_ms": 17737,
+      "output_summary": "We will create tests for normal, empty, invalid.**Test Code (generated by the test runner)**  ```python def test_sort_n\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1778058363282,
+      "tokens_in": 813,
+      "tokens_out": 296,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 14484,
+      "output_summary": "```python from typing import List  def sort_numbers(numbers: str) -> str:     \"\"\"Input is a space-delimited string of n\u2026",
+      "step_id": 9,
+      "t_unix_ms": 1778058377770,
+      "tokens_in": 403,
+      "tokens_out": 355,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 11661,
+      "output_summary": "```python from typing import List  def sort_numbers(numbers: str) -> str:     \"\"\"Input is a space-delimited string of n\u2026",
+      "step_id": 10,
+      "t_unix_ms": 1778058389435,
+      "tokens_in": 262,
+      "tokens_out": 285,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "```python from typing import List  def sort_numbers(numbers: str) -> str:     \"\"\"Input is a space-delimited string of n\u2026",
+      "step_id": 11,
+      "t_unix_ms": 1778058389440,
+      "tokens_in": 262,
+      "tokens_out": 285,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-19",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 88431,
+    "llm_calls": 12,
+    "tokens_in": 4311,
+    "tokens_out": 2531,
+    "tool_calls": 2
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

@@ -341,6 +341,11 @@ _DEFAULT_CHECKPOINT_PATHS: dict[str, tuple[Path, ...]] = {
         Path("data/checkpoints/rl_gnn.pt"),
         Path("data/checkpoints/rl.pt"),
     ),
+    # Round-12 — small LoRA adapter ckpt (~3 KiB) trained by
+    # ``scripts/train_round12_lora.py``. Falls back to None when the
+    # file is absent so the factory degrades to the plain
+    # ``flybrain_sim_pretrain`` baseline (no adapter loaded).
+    "LORA_ROUND12": (Path("data/checkpoints/lora_adapter_round12.pt"),),
 }
 
 
@@ -371,6 +376,51 @@ def _resolve_checkpoint_path(label: str) -> Path | None:
     return None
 
 
+def _flybrain_with_checkpoint_and_calibrated_watchdog(
+    controller_name: str,
+    label: str,
+    *,
+    bench_dirs: list[str],
+    percentile: float = 0.90,
+    min_samples: int = 3,
+    fallback_force: int = 12,
+    fallback_stall: int = 3,
+    baseline_name: str | None = None,
+) -> BaselineFactory:
+    """Round-9 variant: same as ``_flybrain_with_checkpoint_and_watchdog``
+    but the per-task-type ``force_after`` / ``stall_after`` are
+    **calibrated** from ``manual_graph`` traces in ``bench_dirs``
+    instead of hand-tuned. See
+    :mod:`flybrain.controller.watchdog_calibrator` for the math.
+
+    If the bench dirs are missing (e.g. shallow clone, fresh CI box)
+    the calibrator returns an empty mapping and the watchdog falls
+    back to ``fallback_force`` / ``fallback_stall`` so the factory
+    is always safe to invoke.
+    """
+
+    inner_factory = _flybrain_with_checkpoint(controller_name, label)
+
+    def factory(agent_names: list[str]) -> tuple[Controller, dict[str, Any] | None]:
+        from flybrain.controller.finalizer_watchdog import (
+            FinalizerWatchdogController,
+        )
+
+        inner, init_graph = inner_factory(agent_names)
+        wrapped = FinalizerWatchdogController.from_bench_dirs(
+            inner,
+            bench_dirs,
+            percentile=percentile,
+            min_samples=min_samples,
+            fallback_force=fallback_force,
+            fallback_stall=fallback_stall,
+            name=baseline_name or "flybrain_sim_pretrain_watchdog_v3",
+        )
+        return wrapped, init_graph
+
+    return factory
+
+
 def _flybrain_with_checkpoint_and_watchdog(
     controller_name: str,
     label: str,
@@ -378,6 +428,7 @@ def _flybrain_with_checkpoint_and_watchdog(
     force_after: int | dict[str, int] = 12,
     stall_after: int | dict[str, int] = 3,
     baseline_name: str | None = None,
+    fly_graph_path: Path | None = None,
 ) -> BaselineFactory:
     """Round-7/8 variant: wrap the trained checkpoint baseline in
     :class:`FinalizerWatchdogController` so stalls are forced into
@@ -385,9 +436,15 @@ def _flybrain_with_checkpoint_and_watchdog(
     for the watchdog rationale (round-5 trained controllers never
     actually emit Finalizer at inference). Round-8 supports per-
     task-type ``force_after`` / ``stall_after`` dicts.
+
+    Round-11 adds ``fly_graph_path``: when set, the inner controller
+    is constructed with a null-prior substituted for the canonical
+    FlyWire K=64 prior, while the watchdog wrapper stays unchanged.
+    This isolates the *prior* factor from the *scaffolding* factor in
+    a single A/B (``docs/round11_prior_with_watchdog.md``).
     """
 
-    inner_factory = _flybrain_with_checkpoint(controller_name, label)
+    inner_factory = _flybrain_with_checkpoint(controller_name, label, fly_graph_path=fly_graph_path)
 
     def factory(agent_names: list[str]) -> tuple[Controller, dict[str, Any] | None]:
         from flybrain.controller.finalizer_watchdog import (
@@ -409,6 +466,8 @@ def _flybrain_with_checkpoint_and_watchdog(
 def _flybrain_with_checkpoint(
     controller_name: str,
     label: str,
+    *,
+    fly_graph_path: Path | None = None,
 ) -> BaselineFactory:
     """Generic factory for #7-#9: same architecture as #6 but with a
     pre-loaded checkpoint produced by Phase-6 / Phase-7 / Phase-8.
@@ -424,6 +483,16 @@ def _flybrain_with_checkpoint(
     the architecture the trainers see in
     ``flybrain.training.simulation_pretrain`` / ``imitation_train`` /
     ``rl_train`` (HANDOFF.md §4.a Q1).
+
+    ``fly_graph_path`` lets a caller substitute the canonical FlyWire
+    K=64 prior with a null-prior ``.fbg`` for round-10 ablations
+    (``docs/round10_prior_ablation.md``). The substituted graph is
+    used both for the initial AgentGraph (via
+    :func:`flybrain.baselines.graphs.flybrain_prior_graph`) and for
+    the cached spectral ``fly_vec`` the controller reads each step
+    (via ``ControllerStateBuilder.fly_graph``). Defaults to ``None``,
+    which preserves the round-1-9 behaviour (canonical FlyWire prior
+    auto-loaded by ``flybrain_prior_graph``).
     """
 
     def factory(agent_names: list[str]) -> tuple[Controller, dict[str, Any] | None]:
@@ -442,12 +511,23 @@ def _flybrain_with_checkpoint(
         from flybrain.agents.specs import MINIMAL_15
 
         agents_emb.precompute_sync(MINIMAL_15)
+
+        # Round-10 prior substitution: load the alternate .fbg if the
+        # caller asked for one, otherwise fall through to whatever
+        # ``flybrain_prior_graph`` finds on disk (canonical FlyWire).
+        substituted_graph = None
+        if fly_graph_path is not None and fly_graph_path.exists():
+            from flybrain.graph import load as _load_fly_graph
+
+            substituted_graph = _load_fly_graph(fly_graph_path)
+
         builder = ControllerStateBuilder(
             task=TaskEmbedder(client),
             agents=agents_emb,
             trace=TraceEmbedder(client),
             fly=FlyGraphEmbedder(dim=8),
             agent_graph=AgentGraphEmbedder(in_dim=32, hidden_dim=16, out_dim=32),
+            fly_graph=substituted_graph,
         )
         if controller_name == "gnn":
             from flybrain.controller import FlyBrainGNNController
@@ -490,7 +570,163 @@ def _flybrain_with_checkpoint(
                     f"failed to load {label} checkpoint at {ckpt_path}: {e}",
                     stacklevel=2,
                 )
-        return ctrl, flybrain_prior_graph(agent_names)
+        if substituted_graph is not None:
+            initial_graph = flybrain_prior_graph(agent_names, fly_graph=substituted_graph)
+        else:
+            initial_graph = flybrain_prior_graph(agent_names)
+        return ctrl, initial_graph
+
+    return factory
+
+
+def _flybrain_with_lora_adapter(
+    base_label: str = "SIM_PRETRAIN",
+    lora_label: str = "LORA_ROUND12",
+    *,
+    lora_rank: int = 4,
+    lora_alpha: float = 1.0,
+    fly_graph_path: Path | None = None,
+) -> BaselineFactory:
+    """Round-12 factory: frozen GNN + trainable LoRA adapter on the
+    kind-logits head.
+
+    Builds :class:`flybrain.training.lora_adapter.FlyBrainGNNLoRAController`,
+    loads the SIM_PRETRAIN checkpoint into the base weights, then
+    loads the small LoRA adapter checkpoint if present. Falls back
+    gracefully when either file is missing — in particular,
+    ``LORA_ROUND12`` may be absent on a fresh CI box where the
+    training script hasn't been run yet, and the factory still
+    produces a working controller (equivalent to the plain
+    ``flybrain_sim_pretrain`` baseline since the adapter zero-init
+    means a no-op residual).
+    """
+
+    def factory(agent_names: list[str]) -> tuple[Controller, dict[str, Any] | None]:
+        from flybrain.embeddings import (
+            AgentEmbedder,
+            AgentGraphEmbedder,
+            ControllerStateBuilder,
+            FlyGraphEmbedder,
+            MockEmbeddingClient,
+            TaskEmbedder,
+            TraceEmbedder,
+        )
+        from flybrain.training.lora_adapter import (
+            FlyBrainGNNLoRAController,
+            load_lora_adapter,
+        )
+
+        client = MockEmbeddingClient(output_dim=32)
+        agents_emb = AgentEmbedder(client)
+        from flybrain.agents.specs import MINIMAL_15
+
+        agents_emb.precompute_sync(MINIMAL_15)
+
+        substituted_graph = None
+        if fly_graph_path is not None and fly_graph_path.exists():
+            from flybrain.graph import load as _load_fly_graph
+
+            substituted_graph = _load_fly_graph(fly_graph_path)
+
+        builder = ControllerStateBuilder(
+            task=TaskEmbedder(client),
+            agents=agents_emb,
+            trace=TraceEmbedder(client),
+            fly=FlyGraphEmbedder(dim=8),
+            agent_graph=AgentGraphEmbedder(in_dim=32, hidden_dim=16, out_dim=32),
+            fly_graph=substituted_graph,
+        )
+
+        ctrl = FlyBrainGNNLoRAController(
+            builder=builder,
+            task_dim=32,
+            agent_dim=32,
+            graph_dim=32,
+            trace_dim=32 + 13,
+            fly_dim=8,
+            produced_dim=6,
+            hidden_dim=32,
+            lora_rank=lora_rank,
+            lora_alpha=lora_alpha,
+        )
+
+        base_ckpt = _resolve_checkpoint_path(base_label)
+        if base_ckpt is not None:
+            try:
+                import torch
+
+                blob = torch.load(base_ckpt, map_location="cpu", weights_only=False)
+                sd = blob.get("state_dict", blob) if isinstance(blob, dict) else blob
+                ctrl.load_state_dict(sd, strict=False)
+            except Exception as e:  # pragma: no cover - best effort
+                import warnings
+
+                warnings.warn(
+                    f"failed to load base ckpt {base_label} at {base_ckpt}: {e}",
+                    stacklevel=2,
+                )
+
+        lora_ckpt = _resolve_checkpoint_path(lora_label)
+        if lora_ckpt is not None:
+            try:
+                load_lora_adapter(ctrl, lora_ckpt)
+            except Exception as e:  # pragma: no cover - best effort
+                import warnings
+
+                warnings.warn(
+                    f"failed to load LoRA adapter {lora_label} at {lora_ckpt}: {e}",
+                    stacklevel=2,
+                )
+
+        if substituted_graph is not None:
+            initial_graph = flybrain_prior_graph(agent_names, fly_graph=substituted_graph)
+        else:
+            initial_graph = flybrain_prior_graph(agent_names)
+        return ctrl, initial_graph
+
+    return factory
+
+
+def _flybrain_with_lora_and_calibrated_watchdog(
+    *,
+    bench_dirs: list[str],
+    percentile: float = 0.90,
+    min_samples: int = 3,
+    fallback_force: int = 12,
+    fallback_stall: int = 3,
+    baseline_name: str | None = None,
+    lora_rank: int = 4,
+    lora_alpha: float = 1.0,
+) -> BaselineFactory:
+    """Round-12 + Round-9: LoRA-adapted base wrapped in the
+    auto-calibrated FinalizerWatchdog. The two scaffolds are
+    orthogonal — LoRA biases the kind-logits towards the manual_graph
+    distribution; the watchdog enforces hard rules at the action
+    level. Stacking them is the round-12 question: do they compose,
+    do they cancel, or does one dominate?
+    """
+
+    inner_factory = _flybrain_with_lora_adapter(
+        lora_rank=lora_rank,
+        lora_alpha=lora_alpha,
+    )
+
+    def factory(agent_names: list[str]) -> tuple[Controller, dict[str, Any] | None]:
+        from flybrain.controller.finalizer_watchdog import (
+            FinalizerWatchdogController,
+        )
+
+        inner, init_graph = inner_factory(agent_names)
+        wrapped = FinalizerWatchdogController.from_bench_dirs(
+            inner,
+            bench_dirs,
+            percentile=percentile,
+            min_samples=min_samples,
+            fallback_force=fallback_force,
+            fallback_stall=fallback_stall,
+            name=baseline_name or "flybrain_sim_pretrain_lora_watchdog_v3",
+        )
+        return wrapped, init_graph
 
     return factory
 
@@ -602,6 +838,34 @@ def builtin_baselines() -> list[BaselineSpec]:
             tags=["learned", "trained", "fly-prior", "watchdog", "round-8"],
         ),
         BaselineSpec(
+            name="flybrain_sim_pretrain_watchdog_v3",
+            description=(
+                "Round-9: auto-calibrated FinalizerWatchdogController — "
+                "force_after / stall_after dicts are derived at factory "
+                "time from manual_graph traces in "
+                "data/experiments/bench_round{7,8}_*. The P90 of "
+                "successful manual_graph llm_calls per task_type is "
+                "rounded up to give each task type an empirically-"
+                "supported budget; new benchmarks need only a "
+                "manual_graph reference run rather than a hand-tuned "
+                "registry entry."
+            ),
+            factory=_flybrain_with_checkpoint_and_calibrated_watchdog(
+                "gnn",
+                "SIM_PRETRAIN",
+                bench_dirs=[
+                    "data/experiments/bench_round7_watchdog",
+                    "data/experiments/bench_round8_pertasktype",
+                ],
+                percentile=0.90,
+                min_samples=3,
+                fallback_force=12,
+                fallback_stall=3,
+                baseline_name="flybrain_sim_pretrain_watchdog_v3",
+            ),
+            tags=["learned", "trained", "fly-prior", "watchdog", "round-9"],
+        ),
+        BaselineSpec(
             name="flybrain_graph_ssl_pretrain",
             description=(
                 "Exp4 row '+graph SSL' — FlyBrain GNN with the agent-graph "
@@ -677,6 +941,163 @@ def builtin_baselines() -> list[BaselineSpec]:
             tags=["ablation", "verifier"],
             mas_config_overrides={"verification_mode": "full"},
         ),
+        # Round-10 — Connectome prior ablation (docs/round10_prior_ablation.md).
+        # Each baseline reuses the SIM_PRETRAIN checkpoint but substitutes the
+        # prior with one of the null-priors materialised by
+        # ``scripts/build_null_priors.py``. fly_graph_path falls back gracefully
+        # when the .fbg is absent (factory becomes equivalent to plain
+        # ``flybrain_sim_pretrain``), so the round-10 baselines remain safe to
+        # register on a fresh CI box.
+        BaselineSpec(
+            name="er_prior_sim_pretrain",
+            description=(
+                "Round-10: SIM_PRETRAIN checkpoint with the Erdos-Renyi K=64 "
+                "null prior (data/flybrain/null_priors/er_K64_seed0.fbg). "
+                "Controls for 'any sparse random graph' - preserves only "
+                "(num_nodes, num_edges) of the real FlyWire prior."
+            ),
+            factory=_flybrain_with_checkpoint(
+                "gnn",
+                "SIM_PRETRAIN",
+                fly_graph_path=Path("data/flybrain/null_priors/er_K64_seed0.fbg"),
+            ),
+            tags=["learned", "trained", "null-prior", "round-10"],
+        ),
+        BaselineSpec(
+            name="shuffled_fly_sim_pretrain",
+            description=(
+                "Round-10: SIM_PRETRAIN checkpoint with the configuration-"
+                "model degree-preserving shuffled prior "
+                "(data/flybrain/null_priors/shuffled_K64_seed0.fbg). "
+                "Maslov-Sneppen double-edge swap (10x|E| swaps) preserves "
+                "every node's in/out-degree but randomises who-connects-to-"
+                "whom - the gold-standard null in network neuroscience for "
+                "distinguishing 'topology matters' from 'degree matters'."
+            ),
+            factory=_flybrain_with_checkpoint(
+                "gnn",
+                "SIM_PRETRAIN",
+                fly_graph_path=Path("data/flybrain/null_priors/shuffled_K64_seed0.fbg"),
+            ),
+            tags=["learned", "trained", "null-prior", "round-10"],
+        ),
+        BaselineSpec(
+            name="reverse_fly_sim_pretrain",
+            description=(
+                "Round-10: SIM_PRETRAIN checkpoint with the adjacency-"
+                "transpose prior (data/flybrain/null_priors/reverse_K64.fbg). "
+                "Preserves the *undirected* adjacency, weights and degrees "
+                "exactly; flips every edge's direction. Tests whether the "
+                "GNN actually exploits connectome directionality."
+            ),
+            factory=_flybrain_with_checkpoint(
+                "gnn",
+                "SIM_PRETRAIN",
+                fly_graph_path=Path("data/flybrain/null_priors/reverse_K64.fbg"),
+            ),
+            tags=["learned", "trained", "null-prior", "round-10"],
+        ),
+        # Round-11 — null-prior + watchdog v2 cross-bench. Round-10 found
+        # the *raw* GNN is insensitive to its prior at inference; round-9
+        # found the watchdog v2 wrapper closes the gap to manual_graph on
+        # the canonical FlyWire prior. Round-11 wires the same watchdog
+        # v2 over each round-10 null-prior so a single bench run answers:
+        # "is biology necessary once the post-processing scaffold is in
+        # place, or does the scaffold rescue *every* prior equally?"
+        # See ``docs/round11_prior_with_watchdog.md``.
+        BaselineSpec(
+            name="er_prior_watchdog_v2",
+            description=(
+                "Round-11: ER null-prior + watchdog v2. Same Erdos-Renyi "
+                "K=64 prior as ``er_prior_sim_pretrain`` but wrapped in "
+                "the per-task-type FinalizerWatchdog v2 from round-8."
+            ),
+            factory=_flybrain_with_checkpoint_and_watchdog(
+                "gnn",
+                "SIM_PRETRAIN",
+                force_after={"coding": 28, "math": 12, "research": 16, "tool_use": 12},
+                stall_after={"coding": 6, "math": 3, "research": 4, "tool_use": 3},
+                baseline_name="er_prior_watchdog_v2",
+                fly_graph_path=Path("data/flybrain/null_priors/er_K64_seed0.fbg"),
+            ),
+            tags=["learned", "trained", "null-prior", "watchdog", "round-11"],
+        ),
+        BaselineSpec(
+            name="shuffled_fly_watchdog_v2",
+            description=(
+                "Round-11: Maslov-Sneppen degree-preserving shuffled prior "
+                "+ watchdog v2. Tests whether biological *topology* "
+                "(beyond degree) matters once the watchdog scaffold "
+                "supplies the missing Finalizer step."
+            ),
+            factory=_flybrain_with_checkpoint_and_watchdog(
+                "gnn",
+                "SIM_PRETRAIN",
+                force_after={"coding": 28, "math": 12, "research": 16, "tool_use": 12},
+                stall_after={"coding": 6, "math": 3, "research": 4, "tool_use": 3},
+                baseline_name="shuffled_fly_watchdog_v2",
+                fly_graph_path=Path("data/flybrain/null_priors/shuffled_K64_seed0.fbg"),
+            ),
+            tags=["learned", "trained", "null-prior", "watchdog", "round-11"],
+        ),
+        BaselineSpec(
+            name="reverse_fly_watchdog_v2",
+            description=(
+                "Round-11: adjacency-transpose prior + watchdog v2. "
+                "Tests whether biological *direction* matters once the "
+                "watchdog scaffold supplies the missing Finalizer step."
+            ),
+            factory=_flybrain_with_checkpoint_and_watchdog(
+                "gnn",
+                "SIM_PRETRAIN",
+                force_after={"coding": 28, "math": 12, "research": 16, "tool_use": 12},
+                stall_after={"coding": 6, "math": 3, "research": 4, "tool_use": 3},
+                baseline_name="reverse_fly_watchdog_v2",
+                fly_graph_path=Path("data/flybrain/null_priors/reverse_K64.fbg"),
+            ),
+            tags=["learned", "trained", "null-prior", "watchdog", "round-11"],
+        ),
+        # Round-12 — LoRA adapter on the frozen sim_pretrain_gnn_v6
+        # checkpoint. The adapter is a 164-parameter low-rank residual
+        # on the action-kind logits trained via supervised cloning on
+        # manual_graph traces from rounds 7-13. Two variants ship: the
+        # raw LoRA (no scaffolding) and LoRA + watchdog v3 to A/B
+        # whether the soft adapter and the hard scaffold compose.
+        BaselineSpec(
+            name="flybrain_sim_pretrain_lora",
+            description=(
+                "Round-12: frozen sim_pretrain_gnn_v6 + LoRA adapter "
+                "(rank=4, ~164 trainable params) on the kind-logits "
+                "head, trained on manual_graph traces from rounds "
+                "7-13. Tests whether a soft, learnable correction "
+                "alone can close the round-13 quality gap to "
+                "manual_graph (0.975 → 1.000 on YandexGPT)."
+            ),
+            factory=_flybrain_with_lora_adapter(),
+            tags=["learned", "trained", "fly-prior", "lora", "round-12"],
+        ),
+        BaselineSpec(
+            name="flybrain_sim_pretrain_lora_watchdog_v3",
+            description=(
+                "Round-12: same as flybrain_sim_pretrain_lora but "
+                "wrapped in the auto-calibrated FinalizerWatchdog "
+                "(round-9). A/Bs whether the LoRA adapter and the "
+                "hard watchdog scaffold compose, cancel, or one "
+                "dominates."
+            ),
+            factory=_flybrain_with_lora_and_calibrated_watchdog(
+                bench_dirs=[
+                    "data/experiments/bench_round7_watchdog",
+                    "data/experiments/bench_round8_pertasktype",
+                ],
+                percentile=0.90,
+                min_samples=3,
+                fallback_force=12,
+                fallback_stall=3,
+                baseline_name="flybrain_sim_pretrain_lora_watchdog_v3",
+            ),
+            tags=["learned", "trained", "fly-prior", "lora", "watchdog", "round-12"],
+        ),
     ]
 
 
@@ -748,6 +1169,70 @@ BUILTIN_SUITES: dict[str, list[str]] = {
         "flybrain_sim_pretrain",
         "flybrain_sim_pretrain_watchdog",
         "flybrain_sim_pretrain_watchdog_v2",
+    ],
+    # Round-9 — auto-calibrated watchdog (v3) replacing the hand-tuned
+    # round-8 dict. Reads manual_graph traces from rounds 7/8 to
+    # derive per-task-type budgets at factory time, so the same
+    # baseline scales zero-shot to new benchmarks.
+    "round9_watchdog_v3": [
+        "manual_graph",
+        "flybrain_sim_pretrain",
+        "flybrain_sim_pretrain_watchdog",
+        "flybrain_sim_pretrain_watchdog_v2",
+        "flybrain_sim_pretrain_watchdog_v3",
+    ],
+    # Round-10 — Connectome prior ablation. The falsifiability test for
+    # README §17: is the trained controller's success driven by the
+    # *biological* topology of FlyWire 783, or would any structurally-
+    # similar prior work? Pairs the canonical sim_pretrain control
+    # with three null-priors of increasing structural similarity.
+    "round10_prior_ablation": [
+        "manual_graph",
+        "flybrain_sim_pretrain",
+        "er_prior_sim_pretrain",
+        "shuffled_fly_sim_pretrain",
+        "reverse_fly_sim_pretrain",
+    ],
+    # Round-11 — Prior ablation × watchdog v2. Cross product of round-10
+    # null-priors with the round-8/9 watchdog v2 wrapper. Answers whether
+    # the biological prior is necessary once the post-processing scaffold
+    # is in place, or whether the scaffold rescues every prior equally.
+    "round11_priors_with_watchdog": [
+        "manual_graph",
+        "flybrain_sim_pretrain_watchdog_v2",
+        "er_prior_watchdog_v2",
+        "shuffled_fly_watchdog_v2",
+        "reverse_fly_watchdog_v2",
+    ],
+    # Round-13 — final paid YandexGPT bench (≤ 400 ₽ envelope). Picks
+    # the 4 baselines that carry the project's main story:
+    # ``manual_graph`` (hand-coded control), ``flybrain_sim_pretrain``
+    # (raw GNN — establishes the cost-Pareto win), the best quality
+    # variant ``flybrain_sim_pretrain_watchdog_v3`` (auto-calibrated
+    # scaffold), and one null-prior+watchdog row
+    # (``er_prior_watchdog_v2``) as Yandex-side replication of the
+    # round-11 cross-bench question. Smaller scope than round-11 to
+    # stay under 400 ₽ at YandexGPT-LITE pricing
+    # (~1.15 ₽/task × 160 task-runs ≈ 230-350 ₽ + verifier overhead).
+    "round13_paid_yandex": [
+        "manual_graph",
+        "flybrain_sim_pretrain",
+        "flybrain_sim_pretrain_watchdog_v3",
+        "er_prior_watchdog_v2",
+    ],
+    # Round-12 — LoRA adapter on top of frozen sim_pretrain_gnn_v6,
+    # plus the round-9 watchdog v3 reference. Five baselines so the
+    # cross-bench reads as: control (manual_graph), raw GNN
+    # (flybrain_sim_pretrain), best hard-scaffold
+    # (flybrain_sim_pretrain_watchdog_v3), best soft-scaffold
+    # (flybrain_sim_pretrain_lora) and the stack
+    # (flybrain_sim_pretrain_lora_watchdog_v3).
+    "round12_lora_adapter": [
+        "manual_graph",
+        "flybrain_sim_pretrain",
+        "flybrain_sim_pretrain_watchdog_v3",
+        "flybrain_sim_pretrain_lora",
+        "flybrain_sim_pretrain_lora_watchdog_v3",
     ],
 }
 

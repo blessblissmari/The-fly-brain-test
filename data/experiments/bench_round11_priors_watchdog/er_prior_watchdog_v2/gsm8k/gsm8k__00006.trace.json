@@ -1,0 +1,191 @@
+{
+  "final_answer": "Janet has    - 16 eggs per day   - Eats 3 eggs \u2192 16\u202f\u2212\u202f3\u202f=\u202f13 eggs left   - Bakes muffins with 4 eggs \u2192 13\u202f\u2212\u202f4\u202f=\u202f9 eggs \u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "er_prior_watchdog_v2",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "2f0d4072611eae24",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Determine the total number of eggs produced each day: 16. 2. Subtract the eggs Janet eats for breakfast (3) an\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1778060129448,
+      "tokens_in": 190,
+      "tokens_out": 147,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "2f0d4072611eae24",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "- Janet\u2019s ducks produce **16 eggs** each day.   - She consumes **3 eggs** for breakfast and uses **4 eggs** for muffins\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1778060129451,
+      "tokens_in": 208,
+      "tokens_out": 157,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Janet\u2019s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?\n\nThink step by step and end with `final_answer: <number>`."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "2f0d4072611eae24",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "1",
+      "latency_ms": 1,
+      "output_summary": "**Step\u2011by\u2011step solution**  1. Total eggs laid each day:\u202f16   2. Eggs eaten for breakfast:\u202f3   3. Eggs used for muffins:\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1778060129455,
+      "tokens_in": 313,
+      "tokens_out": 134,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "2f0d4072611eae24",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "11",
+      "latency_ms": 4747,
+      "output_summary": "verifier:passed",
+      "step_id": 3,
+      "t_unix_ms": 1778060134205,
+      "tokens_in": 360,
+      "tokens_out": 35,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "2f0d4072611eae24",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "12",
+      "latency_ms": 4809,
+      "output_summary": "Janet has    - 16 eggs per day   - Eats 3 eggs \u2192 16\u202f\u2212\u202f3\u202f=\u202f13 eggs left   - Bakes muffins with 4 eggs \u2192 13\u202f\u2212\u202f4\u202f=\u202f9 eggs \u2026",
+      "step_id": 4,
+      "t_unix_ms": 1778060139017,
+      "tokens_in": 222,
+      "tokens_out": 136,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Verifier",
+      "cost_rub": 0.0,
+      "current_graph_hash": "2f0d4072611eae24",
+      "errors": [],
+      "graph_action": {
+        "agent": "Verifier",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "19",
+      "latency_ms": 5291,
+      "output_summary": "verifier:passed",
+      "step_id": 5,
+      "t_unix_ms": 1778060144312,
+      "tokens_in": 339,
+      "tokens_out": 42,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "2f0d4072611eae24",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "20",
+      "latency_ms": 1,
+      "output_summary": "Janet has    - 16 eggs per day   - Eats 3 eggs \u2192 16\u202f\u2212\u202f3\u202f=\u202f13 eggs left   - Bakes muffins with 4 eggs \u2192 13\u202f\u2212\u202f4\u202f=\u202f9 eggs \u2026",
+      "step_id": 6,
+      "t_unix_ms": 1778060144316,
+      "tokens_in": 222,
+      "tokens_out": 136,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "2f0d4072611eae24",
+      "errors": [],
+      "graph_action": {
+        "kind": "terminate"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": null,
+      "step_id": 7,
+      "t_unix_ms": 1778060144317,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "gsm8k/00006",
+  "task_type": "math",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 14851,
+    "llm_calls": 7,
+    "tokens_in": 1854,
+    "tokens_out": 787,
+    "tool_calls": 1
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

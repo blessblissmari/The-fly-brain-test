@@ -1,0 +1,7 @@
+| Method | Benchmark | Tasks | Success | Verifier | Tokens/task | Calls/task | Latency (ms) | Cost/task ₽ | Cost/solved ₽ |
+|---|---|---|---|---|---|---|---|---|---|
+| manual_graph | synthetic_routing | 10 | 1.00 | 1.00 | 1544 | 3.30 | 53779 | 0.000 | 0.000 |
+| flybrain_sim_pretrain | synthetic_routing | 10 | 0.500 | 0.925 | 8599 | 32.00 | 63072 | 0.000 | 0.000 |
+| flybrain_sim_pretrain_watchdog | synthetic_routing | 10 | 1.00 | 1.00 | 3791 | 9.50 | 23078 | 0.000 | 0.000 |
+| flybrain_sim_pretrain_watchdog_v2 | synthetic_routing | 10 | 1.00 | 1.00 | 4303 | 11.80 | 5648 | 0.000 | 0.000 |
+| flybrain_sim_pretrain_watchdog_v3 | synthetic_routing | 10 | 1.00 | 1.00 | 4590 | 13.00 | 681 | 0.000 | 0.000 |

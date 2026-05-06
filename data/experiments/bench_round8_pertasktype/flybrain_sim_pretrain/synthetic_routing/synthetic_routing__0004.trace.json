@@ -1,0 +1,910 @@
+{
+  "final_answer": "We don't have repository view. Let's list files.",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "Plan: 1. Open the repository and locate the `router` module referenced in issue #5314. 2. Review the current implementa\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777929138882,
+      "tokens_in": 129,
+      "tokens_out": 157,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python # router.py def router(items, index):     \"\"\"     Returns the item at the given index, handling off\u2011by\u2011one er\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777929138886,
+      "tokens_in": 133,
+      "tokens_out": 197,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 8097,
+      "output_summary": "",
+      "step_id": 2,
+      "t_unix_ms": 1777929146985,
+      "tokens_in": 310,
+      "tokens_out": 54,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "We don't have repository view. Let's list files.",
+      "step_id": 3,
+      "t_unix_ms": 1777929146990,
+      "tokens_in": 150,
+      "tokens_out": 51,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "We don't have repository view. Let's list files.",
+      "step_id": 4,
+      "t_unix_ms": 1777929146993,
+      "tokens_in": 150,
+      "tokens_out": 51,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "6",
+      "latency_ms": 2125,
+      "output_summary": "",
+      "step_id": 5,
+      "t_unix_ms": 1777929149121,
+      "tokens_in": 326,
+      "tokens_out": 55,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1847,
+      "output_summary": "",
+      "step_id": 6,
+      "t_unix_ms": 1777929150972,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 7,
+      "t_unix_ms": 1777929150976,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 8,
+      "t_unix_ms": 1777929150980,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 9,
+      "t_unix_ms": 1777929150984,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 10,
+      "t_unix_ms": 1777929150987,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 11,
+      "t_unix_ms": 1777929150991,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 12,
+      "t_unix_ms": 1777929150994,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 13,
+      "t_unix_ms": 1777929150998,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 14,
+      "t_unix_ms": 1777929151001,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 15,
+      "t_unix_ms": 1777929151005,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 16,
+      "t_unix_ms": 1777929151009,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 17,
+      "t_unix_ms": 1777929151012,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 18,
+      "t_unix_ms": 1777929151016,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 19,
+      "t_unix_ms": 1777929151020,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 20,
+      "t_unix_ms": 1777929151023,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 21,
+      "t_unix_ms": 1777929151027,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 22,
+      "t_unix_ms": 1777929151030,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 23,
+      "t_unix_ms": 1777929151034,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 24,
+      "t_unix_ms": 1777929151037,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 25,
+      "t_unix_ms": 1777929151041,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 26,
+      "t_unix_ms": 1777929151044,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 27,
+      "t_unix_ms": 1777929151048,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 28,
+      "t_unix_ms": 1777929151051,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 29,
+      "t_unix_ms": 1777929151054,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 30,
+      "t_unix_ms": 1777929151058,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Retriever",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Retriever",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "",
+      "step_id": 31,
+      "t_unix_ms": 1777929151061,
+      "tokens_in": 156,
+      "tokens_out": 43,
+      "tool_calls": [
+        {
+          "args": {
+            "query": "Fix the off-by-one bug in `router` (issue #5314)."
+          },
+          "error": null,
+          "latency_ms": 0,
+          "name": "web_search",
+          "ok": true
+        }
+      ],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "synthetic_routing/0004",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 12098,
+    "llm_calls": 32,
+    "tokens_in": 5254,
+    "tokens_out": 1683,
+    "tool_calls": 27
+  },
+  "verification": {
+    "errors": [
+      "[rule] missing component: tests_run"
+    ],
+    "failed_component": "tests_run",
+    "passed": false,
+    "reward_delta": -0.10000000149011612,
+    "score": 0.8500000238418579,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

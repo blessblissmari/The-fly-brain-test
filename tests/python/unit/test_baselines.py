@@ -119,9 +119,13 @@ def test_builtin_baselines_yields_nine_specs() -> None:
     specs = builtin_baselines()
     # 9 README §15 baselines + flybrain_sim_pretrain_watchdog (round-7)
     # + flybrain_sim_pretrain_watchdog_v2 (round-8)
+    # + flybrain_sim_pretrain_watchdog_v3 (round-9)
     # + flybrain_graph_ssl_pretrain + 5 embedding-ablation rows
-    # + 4 verifier-ablation rows.
-    assert len(specs) == 9 + 1 + 1 + 1 + 5 + 4
+    # + 4 verifier-ablation rows
+    # + 3 round-10 connectome-prior-ablation rows
+    # + 3 round-11 null-priors-with-watchdog rows
+    # + 2 round-12 LoRA rows (lora, lora_watchdog_v3).
+    assert len(specs) == 9 + 1 + 1 + 1 + 1 + 5 + 4 + 3 + 3 + 2
     # Canonical README §15 order is preserved at the top of the list.
     full_min_names = [s.name for s in specs[:9]]
     assert full_min_names == BUILTIN_SUITES["full_min"]
@@ -188,6 +192,115 @@ def test_baseline_make_mas_config_applies_overrides() -> None:
 def test_list_baselines_matches_suite(suite_name: str) -> None:
     specs = list_baselines(suite_name)
     assert [s.name for s in specs] == BUILTIN_SUITES[suite_name]
+
+
+def test_round11_priors_with_watchdog_suite_has_all_four_priors() -> None:
+    """Round-11 cross-product: real_fly + 3 null priors, all wrapped in
+    watchdog v2. The suite must include exactly one ``manual_graph``
+    control + 4 prior variants."""
+    names = BUILTIN_SUITES["round11_priors_with_watchdog"]
+    assert names[0] == "manual_graph"
+    prior_baselines = set(names[1:])
+    assert prior_baselines == {
+        "flybrain_sim_pretrain_watchdog_v2",
+        "er_prior_watchdog_v2",
+        "shuffled_fly_watchdog_v2",
+        "reverse_fly_watchdog_v2",
+    }
+
+
+@pytest.mark.parametrize(
+    "name",
+    [
+        "er_prior_watchdog_v2",
+        "shuffled_fly_watchdog_v2",
+        "reverse_fly_watchdog_v2",
+    ],
+)
+def test_round11_null_prior_watchdog_baselines_registered(name: str) -> None:
+    """Each round-11 null-prior + watchdog v2 baseline must be in the
+    registry with the round-11 tag."""
+    spec = next((s for s in builtin_baselines() if s.name == name), None)
+    assert spec is not None, f"missing round-11 baseline {name}"
+    assert "round-11" in spec.tags
+    assert "watchdog" in spec.tags
+    assert "null-prior" in spec.tags
+
+
+def test_round13_paid_yandex_suite_has_four_baselines() -> None:
+    """Round-13 final paid YandexGPT bench picks the 4 baselines that
+    carry the project's main story: manual_graph control, raw GNN
+    (cost-Pareto), watchdog v3 (production), and one null+watchdog
+    (Yandex-side replication of round-11)."""
+    names = BUILTIN_SUITES["round13_paid_yandex"]
+    assert names == [
+        "manual_graph",
+        "flybrain_sim_pretrain",
+        "flybrain_sim_pretrain_watchdog_v3",
+        "er_prior_watchdog_v2",
+    ]
+    # Each baseline must already be registered.
+    by_name = {s.name for s in builtin_baselines()}
+    for n in names:
+        assert n in by_name, f"round13 references unknown baseline {n!r}"
+
+
+def test_round12_lora_adapter_suite_has_five_baselines() -> None:
+    """Round-12 LoRA adapter cross-bench: control + raw + best-hard +
+    soft + stack. Order matters because the bench output table reads
+    left-to-right from baseline → most-improved."""
+    names = BUILTIN_SUITES["round12_lora_adapter"]
+    assert names == [
+        "manual_graph",
+        "flybrain_sim_pretrain",
+        "flybrain_sim_pretrain_watchdog_v3",
+        "flybrain_sim_pretrain_lora",
+        "flybrain_sim_pretrain_lora_watchdog_v3",
+    ]
+    by_name = {s.name for s in builtin_baselines()}
+    for n in names:
+        assert n in by_name, f"round12 references unknown baseline {n!r}"
+
+
+@pytest.mark.parametrize(
+    "name",
+    [
+        "flybrain_sim_pretrain_lora",
+        "flybrain_sim_pretrain_lora_watchdog_v3",
+    ],
+)
+def test_round12_lora_baselines_registered(name: str) -> None:
+    """Each round-12 LoRA baseline must be in the registry with the
+    round-12 tag and a 'lora' tag for filtering."""
+    spec = next((s for s in builtin_baselines() if s.name == name), None)
+    assert spec is not None, f"missing round-12 baseline {name}"
+    assert "round-12" in spec.tags
+    assert "lora" in spec.tags
+
+
+def test_round12_lora_baseline_constructs_with_zeroed_adapter(tmp_path) -> None:
+    """The LoRA factory must produce a working controller even when
+    no adapter checkpoint is on disk — the zero-init residual makes
+    the controller byte-identical to ``flybrain_sim_pretrain``."""
+    pytest.importorskip("torch")  # LoRA module subclasses an nn.Module GNN ctrl
+    import os
+
+    # Point the LoRA env var at a non-existent file so the resolver
+    # walks past defaults and returns ``None``. The base SIM_PRETRAIN
+    # checkpoint stays in place so the GNN weights still load.
+    os.environ["FLYBRAIN_BASELINE_LORA_ROUND12"] = str(tmp_path / "absent.pt")
+    try:
+        spec = next(s for s in builtin_baselines() if s.name == "flybrain_sim_pretrain_lora")
+        ctrl, graph = spec.factory(AGENT_NAMES)
+        # Adapter weights should still be there (zero-init), and the
+        # controller should be a LoRA subclass exposing them.
+        from flybrain.training.lora_adapter import FlyBrainGNNLoRAController
+
+        assert isinstance(ctrl, FlyBrainGNNLoRAController)
+        assert ctrl.lora_kind.num_parameters == 32 * 4 + 4 * 9
+        assert graph is not None
+    finally:
+        os.environ.pop("FLYBRAIN_BASELINE_LORA_ROUND12", None)
 
 
 def test_list_baselines_extra_appended() -> None:

@@ -1,0 +1,7 @@
+| Method | Benchmark | Tasks | Success | Verifier | Tokens/task | Calls/task | Latency (ms) | Cost/task ₽ | Cost/solved ₽ |
+|---|---|---|---|---|---|---|---|---|---|
+| manual_graph | _overall | 40 | 0.950 | 0.993 | 1446 | 3.33 | 39063 | 0.000 | 0.000 |
+| flybrain_sim_pretrain | _overall | 40 | 0.775 | 0.966 | 4171 | 12.00 | 38989 | 0.000 | 0.000 |
+| er_prior_sim_pretrain | _overall | 40 | 0.750 | 0.963 | 4436 | 12.00 | 24731 | 0.000 | 0.000 |
+| shuffled_fly_sim_pretrain | _overall | 40 | 0.775 | 0.966 | 4165 | 12.00 | 1336 | 0.000 | 0.000 |
+| reverse_fly_sim_pretrain | _overall | 40 | 0.800 | 0.970 | 3979 | 12.00 | 8218 | 0.000 | 0.000 |

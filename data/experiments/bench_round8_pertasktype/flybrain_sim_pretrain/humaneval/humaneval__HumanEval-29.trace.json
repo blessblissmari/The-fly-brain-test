@@ -1,0 +1,638 @@
+{
+  "final_answer": "- The docstring examples use single quotes around the strings, but the function signature and type hints are fine; howe\u2026",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain-gnn",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Validate inputs: ensure `strings` is a list of strings and `prefix` is a string (optional, but function can as\u2026",
+      "step_id": 0,
+      "t_unix_ms": 1777929336440,
+      "tokens_in": 226,
+      "tokens_out": 89,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Coder",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Coder",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List  def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:     \"\"\"Filter an\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1777929336443,
+      "tokens_in": 230,
+      "tokens_out": 172,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 6093,
+      "output_summary": "- The docstring\u2019s examples use a single\u2011quoted string for the prefix (`'a'`), but the function signature accepts a `str\u2026",
+      "step_id": 2,
+      "t_unix_ms": 1777929342544,
+      "tokens_in": 234,
+      "tokens_out": 145,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 4968,
+      "output_summary": "- The docstring examples are not properly formatted as doctest blocks; the triple\u2011quoted string should use `>>>` prompt\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1777929347516,
+      "tokens_in": 236,
+      "tokens_out": 147,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 17190,
+      "output_summary": "```python # Test suite for filter_by_prefix from typing import List  # Import the function to test try:     from main i\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1777929364710,
+      "tokens_in": 339,
+      "tokens_out": 593,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 22386,
+      "output_summary": "**Generated Tests**  ```python # test_filter_by_prefix.py import importlib import sys import types import unittest  # I\u2026",
+      "step_id": 5,
+      "t_unix_ms": 1777929387099,
+      "tokens_in": 249,
+      "tokens_out": 702,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "0",
+      "latency_ms": 4884,
+      "output_summary": "```python from typing import List  def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:     \"\"\" Filter a\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1777929391991,
+      "tokens_in": 333,
+      "tokens_out": 139,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3883,
+      "output_summary": "```python from typing import List   def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:     \"\"\"Filter a\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1777929395878,
+      "tokens_in": 243,
+      "tokens_out": 144,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "```python from typing import List   def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:     \"\"\"Filter a\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1777929395885,
+      "tokens_in": 243,
+      "tokens_out": 144,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "14",
+      "latency_ms": 2329,
+      "output_summary": "schema:invalid_output (No JSON output provided)",
+      "step_id": 9,
+      "t_unix_ms": 1777929398218,
+      "tokens_in": 392,
+      "tokens_out": 76,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2122,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 10,
+      "t_unix_ms": 1777929400344,
+      "tokens_in": 253,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 11,
+      "t_unix_ms": 1777929400349,
+      "tokens_in": 253,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 12,
+      "t_unix_ms": 1777929400353,
+      "tokens_in": 253,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 13,
+      "t_unix_ms": 1777929400357,
+      "tokens_in": 253,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 14,
+      "t_unix_ms": 1777929400361,
+      "tokens_in": 253,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 15,
+      "t_unix_ms": 1777929400365,
+      "tokens_in": 253,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 16,
+      "t_unix_ms": 1777929400369,
+      "tokens_in": 253,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 17,
+      "t_unix_ms": 1777929400373,
+      "tokens_in": 253,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 18,
+      "t_unix_ms": 1777929400393,
+      "tokens_in": 253,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 19,
+      "t_unix_ms": 1777929400398,
+      "tokens_in": 253,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 20,
+      "t_unix_ms": 1777929400403,
+      "tokens_in": 253,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "schema:invalid_output (No output provided to validate against the expected JSON schema.)",
+      "step_id": 21,
+      "t_unix_ms": 1777929400409,
+      "tokens_in": 253,
+      "tokens_out": 72,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 3719,
+      "output_summary": "- The docstring examples use single quotes around the strings, but the function signature and type hints are fine; howe\u2026",
+      "step_id": 22,
+      "t_unix_ms": 1777929404131,
+      "tokens_in": 247,
+      "tokens_out": 122,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The docstring examples use single quotes around the strings, but the function signature and type hints are fine; howe\u2026",
+      "step_id": 23,
+      "t_unix_ms": 1777929404137,
+      "tokens_in": 247,
+      "tokens_out": 122,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The docstring examples use single quotes around the strings, but the function signature and type hints are fine; howe\u2026",
+      "step_id": 24,
+      "t_unix_ms": 1777929404142,
+      "tokens_in": 247,
+      "tokens_out": 122,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The docstring examples use single quotes around the strings, but the function signature and type hints are fine; howe\u2026",
+      "step_id": 25,
+      "t_unix_ms": 1777929404147,
+      "tokens_in": 247,
+      "tokens_out": 122,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The docstring examples use single quotes around the strings, but the function signature and type hints are fine; howe\u2026",
+      "step_id": 26,
+      "t_unix_ms": 1777929404151,
+      "tokens_in": 247,
+      "tokens_out": 122,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The docstring examples use single quotes around the strings, but the function signature and type hints are fine; howe\u2026",
+      "step_id": 27,
+      "t_unix_ms": 1777929404156,
+      "tokens_in": 247,
+      "tokens_out": 122,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The docstring examples use single quotes around the strings, but the function signature and type hints are fine; howe\u2026",
+      "step_id": 28,
+      "t_unix_ms": 1777929404161,
+      "tokens_in": 247,
+      "tokens_out": 122,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The docstring examples use single quotes around the strings, but the function signature and type hints are fine; howe\u2026",
+      "step_id": 29,
+      "t_unix_ms": 1777929404166,
+      "tokens_in": 247,
+      "tokens_out": 122,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The docstring examples use single quotes around the strings, but the function signature and type hints are fine; howe\u2026",
+      "step_id": 30,
+      "t_unix_ms": 1777929404170,
+      "tokens_in": 247,
+      "tokens_out": 122,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 2,
+      "output_summary": "- The docstring examples use single quotes around the strings, but the function signature and type hints are fine; howe\u2026",
+      "step_id": 31,
+      "t_unix_ms": 1777929404175,
+      "tokens_in": 247,
+      "tokens_out": 122,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-29",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 67610,
+    "llm_calls": 32,
+    "tokens_in": 8231,
+    "tokens_out": 4435,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

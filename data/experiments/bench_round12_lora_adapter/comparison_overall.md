@@ -1,0 +1,7 @@
+| Method | Benchmark | Tasks | Success | Verifier | Tokens/task | Calls/task | Latency (ms) | Cost/task ₽ | Cost/solved ₽ |
+|---|---|---|---|---|---|---|---|---|---|
+| manual_graph | _overall | 40 | 0.950 | 0.993 | 1386 | 3.33 | 31952 | 0.000 | 0.000 |
+| flybrain_sim_pretrain | _overall | 40 | 0.850 | 0.978 | 4552 | 12.00 | 39148 | 0.000 | 0.000 |
+| flybrain_sim_pretrain_watchdog_v3 | _overall | 40 | 0.975 | 0.996 | 3707 | 9.10 | 3335 | 0.000 | 0.000 |
+| flybrain_sim_pretrain_lora | _overall | 40 | 0.825 | 0.974 | 4211 | 11.22 | 9.60 | 0.000 | 0.000 |
+| flybrain_sim_pretrain_lora_watchdog_v3 | _overall | 40 | 0.950 | 0.993 | 3396 | 8.40 | 337 | 0.000 | 0.000 |

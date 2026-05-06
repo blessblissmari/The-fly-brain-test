@@ -1,0 +1,258 @@
+{
+  "final_answer": "schema:valid",
+  "metadata": {
+    "agent_count": 15,
+    "controller": "flybrain_sim_pretrain_watchdog_v2",
+    "seed": 42
+  },
+  "steps": [
+    {
+      "active_agent": "Planner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Planner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 0,
+      "output_summary": "Plan: 1. Define the function `filter_integers` with the correct signature. 2. Iterate over the input list `values` and \u2026",
+      "step_id": 0,
+      "t_unix_ms": 1778058920949,
+      "tokens_in": 233,
+      "tokens_out": 105,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "ToolExecutor",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "ToolExecutor",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 10012,
+      "output_summary": "```python from typing import List, Any   def filter_integers(values: List[Any]) -> List[int]:     \"\"\"     Filter the gi\u2026",
+      "step_id": 1,
+      "t_unix_ms": 1778058930964,
+      "tokens_in": 234,
+      "tokens_out": 252,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 7592,
+      "output_summary": "- The draft likely uses `isinstance(x, int)` without accounting for the fact that `bool` is a subclass of `int`, which \u2026",
+      "step_id": 2,
+      "t_unix_ms": 1778058938559,
+      "tokens_in": 242,
+      "tokens_out": 201,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Critic",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Critic",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 7429,
+      "output_summary": "- The draft does not address the fact that `bool` is a subclass of `int` in Python, so values like `True` and `False` w\u2026",
+      "step_id": 3,
+      "t_unix_ms": 1778058945992,
+      "tokens_in": 244,
+      "tokens_out": 150,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "TestRunner",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "TestRunner",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "3",
+      "latency_ms": 30457,
+      "output_summary": "We will create test file.**Test generation and execution**  ```python # test_filter_integers.py from typing import Any,\u2026",
+      "step_id": 4,
+      "t_unix_ms": 1778058976453,
+      "tokens_in": 364,
+      "tokens_out": 668,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "5",
+      "latency_ms": 6603,
+      "output_summary": "```python from typing import List, Any  def filter_integers(values: List[Any]) -> List[int]:     \"\"\" Filter given list \u2026",
+      "step_id": 5,
+      "t_unix_ms": 1778058983059,
+      "tokens_in": 482,
+      "tokens_out": 152,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 12946,
+      "output_summary": "```python from typing import List, Any  def filter_integers(values: List[Any]) -> List[int]:     \"\"\"Filter the given li\u2026",
+      "step_id": 6,
+      "t_unix_ms": 1778058996009,
+      "tokens_in": 251,
+      "tokens_out": 241,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List, Any  def filter_integers(values: List[Any]) -> List[int]:     \"\"\"Filter the given li\u2026",
+      "step_id": 7,
+      "t_unix_ms": 1778058996014,
+      "tokens_in": 251,
+      "tokens_out": 241,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List, Any  def filter_integers(values: List[Any]) -> List[int]:     \"\"\"Filter the given li\u2026",
+      "step_id": 8,
+      "t_unix_ms": 1778058996019,
+      "tokens_in": 251,
+      "tokens_out": 241,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "Debugger",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "Debugger",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 1,
+      "output_summary": "```python from typing import List, Any  def filter_integers(values: List[Any]) -> List[int]:     \"\"\"Filter the given li\u2026",
+      "step_id": 9,
+      "t_unix_ms": 1778058996023,
+      "tokens_in": 251,
+      "tokens_out": 241,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": "14",
+      "latency_ms": 2742,
+      "output_summary": "schema:valid",
+      "step_id": 10,
+      "t_unix_ms": 1778058998767,
+      "tokens_in": 383,
+      "tokens_out": 53,
+      "tool_calls": [],
+      "verifier_score": null
+    },
+    {
+      "active_agent": "SchemaValidator",
+      "cost_rub": 0.0,
+      "current_graph_hash": "1c445a560c89fd0f",
+      "errors": [],
+      "graph_action": {
+        "agent": "SchemaValidator",
+        "kind": "activate_agent"
+      },
+      "input_msg_id": null,
+      "latency_ms": 4381,
+      "output_summary": "schema:valid",
+      "step_id": 11,
+      "t_unix_ms": 1778059003152,
+      "tokens_in": 261,
+      "tokens_out": 70,
+      "tool_calls": [],
+      "verifier_score": null
+    }
+  ],
+  "task_id": "humaneval/HumanEval-22",
+  "task_type": "coding",
+  "totals": {
+    "cost_rub": 0.0,
+    "failed_tool_calls": 0,
+    "latency_ms": 82165,
+    "llm_calls": 12,
+    "tokens_in": 3447,
+    "tokens_out": 2615,
+    "tool_calls": 0
+  },
+  "verification": {
+    "errors": [],
+    "failed_component": null,
+    "passed": true,
+    "reward_delta": 0.5,
+    "score": 1.0,
+    "suggested_next_agent": null,
+    "warnings": []
+  }
+}

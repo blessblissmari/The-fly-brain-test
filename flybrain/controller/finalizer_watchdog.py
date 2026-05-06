@@ -117,6 +117,51 @@ class FinalizerWatchdogController:
     name: str = "flybrain_sim_pretrain_watchdog"
     _traces: dict[str, _TaskTrace] = field(default_factory=dict)
 
+    @classmethod
+    def from_bench_dirs(
+        cls,
+        inner: Controller,
+        bench_dirs: list[str] | tuple[str, ...],
+        *,
+        baseline_name: str = "manual_graph",
+        percentile: float = 0.90,
+        min_samples: int = 2,
+        fallback_force: int = 12,
+        fallback_stall: int = 3,
+        name: str = "flybrain_sim_pretrain_watchdog",
+        finalizer_name: str = "Finalizer",
+        final_answer_tag: str = "final_answer",
+    ) -> FinalizerWatchdogController:
+        """Round-9: build a watchdog whose per-task-type budgets are
+        **calibrated** from manual_graph traces in ``bench_dirs``.
+
+        See :mod:`flybrain.controller.watchdog_calibrator` for the
+        calibration math. The classmethod is the canonical entry point
+        for round-9: the trained controller stays the same, but the
+        watchdog's ``force_after`` / ``stall_after`` dicts are derived
+        empirically from the bench output (zero hand-tuning).
+        """
+        from flybrain.controller.watchdog_calibrator import WatchdogCalibration
+
+        cal = WatchdogCalibration.from_bench_dirs(
+            bench_dirs,
+            baseline_name=baseline_name,
+            percentile=percentile,
+            min_samples=min_samples,
+            fallback_force=fallback_force,
+            fallback_stall=fallback_stall,
+        )
+        force = dict(cal.force_after) if cal.force_after else fallback_force
+        stall = dict(cal.stall_after) if cal.stall_after else fallback_stall
+        return cls(
+            inner=inner,
+            finalizer_name=finalizer_name,
+            final_answer_tag=final_answer_tag,
+            force_after=force,
+            stall_after=stall,
+            name=name,
+        )
+
     def select_action(self, state: RuntimeState) -> dict[str, Any]:
         trace = self._traces.setdefault(state.task_id, _TaskTrace())
         produced = set(state.produced_components or set())
